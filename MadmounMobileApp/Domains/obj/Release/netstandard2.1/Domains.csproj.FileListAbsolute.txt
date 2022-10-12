@@ -1,0 +1,9 @@
+C:\Users\USER\source\repos\MadmounMobileApp\Domains\bin\Release\netstandard2.1\Domains.deps.json
+C:\Users\USER\source\repos\MadmounMobileApp\Domains\bin\Release\netstandard2.1\Domains.dll
+C:\Users\USER\source\repos\MadmounMobileApp\Domains\bin\Release\netstandard2.1\Domains.pdb
+C:\Users\USER\source\repos\MadmounMobileApp\Domains\obj\Release\netstandard2.1\Domains.csproj.AssemblyReference.cache
+C:\Users\USER\source\repos\MadmounMobileApp\Domains\obj\Release\netstandard2.1\Domains.AssemblyInfoInputs.cache
+C:\Users\USER\source\repos\MadmounMobileApp\Domains\obj\Release\netstandard2.1\Domains.AssemblyInfo.cs
+C:\Users\USER\source\repos\MadmounMobileApp\Domains\obj\Release\netstandard2.1\Domains.csproj.CoreCompileInputs.cache
+C:\Users\USER\source\repos\MadmounMobileApp\Domains\obj\Release\netstandard2.1\Domains.dll
+C:\Users\USER\source\repos\MadmounMobileApp\Domains\obj\Release\netstandard2.1\Domains.pdb

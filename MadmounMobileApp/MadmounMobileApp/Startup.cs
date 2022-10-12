@@ -33,6 +33,13 @@ namespace MadmounMobileApp
             services.AddScoped<AreaService, ClsArea>();
             services.AddScoped<ServiceCategoryService, ClsServiceCategories>();
             services.AddScoped<ServiceService, ClsService>();
+            services.AddScoped<ComplainService, ClsComplains>();
+            services.AddScoped<LogInHistoryService, ClsLoginHistory>();
+            services.AddScoped<ServicesRequiredService, ClsServicesRequired>();
+            services.AddScoped<ServicesApprovedService, ClsServicesApproved>();
+            services.AddScoped<ServiceApprovedImagesService, ClsServiceApprovedImages>();
+            services.AddScoped<ServiceApprovedMilstoneService, ClsServiceApprovedMilstone>();
+            services.AddScoped<SrOffService, ClsSrOffService>();
             services.AddDbContext<MadmounDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             {

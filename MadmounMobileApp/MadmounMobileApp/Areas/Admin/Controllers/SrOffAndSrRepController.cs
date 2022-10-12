@@ -1,10 +1,12 @@
 ﻿using BL;
 using MadmounMobileApp.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -103,7 +105,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> EditUsers(EditUserViewModel model)
+        public async Task<IActionResult> EditUsers(EditUserViewModel model ,List<IFormFile> filesA , List<IFormFile> filesB , List<IFormFile> filesC , List<IFormFile> filesD)
         {
             ViewBag.Cities = cityService.getAll();
             ViewBag.Services = serviceService.getAll();
@@ -134,10 +136,59 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
                 user.RyadahOrNot = model.RyadahOrNot;
                 user.BirthDate = model.BirthDate;
                 user.Services = model.Services;
-                user.DocumentA = model.DocumentA;
-                user.DocumentB = model.DocumentB;
-                user.DocumentC = model.DocumentC;
-                user.DocumentD = model.DocumentD;
+                foreach (var file in filesA)
+                {
+                    if (file.Length > 0)
+                    {
+                        string ImageName = Guid.NewGuid().ToString() + ".pdf";
+                        var filePaths = Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot\Uploads", ImageName);
+                        using (var stream = System.IO.File.Create(filePaths))
+                        {
+                            await file.CopyToAsync(stream);
+                        }
+                        user.DocumentA = ImageName;
+                    }
+                }
+                foreach (var file in filesB)
+                {
+                    if (file.Length > 0)
+                    {
+                        string ImageName = Guid.NewGuid().ToString() + ".pdf";
+                        var filePaths = Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot\Uploads", ImageName);
+                        using (var stream = System.IO.File.Create(filePaths))
+                        {
+                            await file.CopyToAsync(stream);
+                        }
+                        user.DocumentB = ImageName;
+                    }
+                }
+                foreach (var file in filesC)
+                {
+                    if (file.Length > 0)
+                    {
+                        string ImageName = Guid.NewGuid().ToString() + ".pdf";
+                        var filePaths = Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot\Uploads", ImageName);
+                        using (var stream = System.IO.File.Create(filePaths))
+                        {
+                            await file.CopyToAsync(stream);
+                        }
+                        user.DocumentC = ImageName;
+                    }
+                }
+                foreach (var file in filesD)
+                {
+                    if (file.Length > 0)
+                    {
+                        string ImageName = Guid.NewGuid().ToString() + ".pdf";
+                        var filePaths = Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot\Uploads", ImageName);
+                        using (var stream = System.IO.File.Create(filePaths))
+                        {
+                            await file.CopyToAsync(stream);
+                        }
+                        user.DocumentD = ImageName;
+                    }
+                }
+                
                 user.SerialDocumentA = model.SerialDocumentA;
                 user.SerialDocumentB = model.SerialDocumentB;
                 user.SerialDocumentC = model.SerialDocumentC;
@@ -173,6 +224,30 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var user = await Usermanager.FindByIdAsync(id.ToString());
+            var result = await Usermanager.DeleteAsync(user);
+            if (result.Succeeded)
+            {
+
+
+
+
+
+
+
+                return Redirect("ListUsers");
+            }
+
+
+
+
+            return Redirect("ListUsers");
+
+
+
         }
     }
 }

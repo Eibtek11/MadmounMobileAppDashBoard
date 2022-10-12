@@ -881,19 +881,29 @@
                                     <td class="product-category">@item.Gender</td>
                                     <td class="product-category">@item.RyadahOrNot</td>
                                     <td class="product-category">@item.BirthDate</td>
-                                    <td class="product-category">@item.DocumentA</td>
-                                    <td class="product-category">@item.DocumentB</td>
-                                    <td class="product-category">@item.DocumentC</td>
-                                    <td class="product-category">@item.DocumentD</td>
+                                    <td class="product-img">
+                                        <a href="@string.Format("/Uploads/{0}",item.DocumentA)" class="btn btn-primary">Read Now</a>
+                                    </td>
+                                    <td class="product-img">
+                                        <a href="@string.Format("/Uploads/{0}",item.DocumentB)" class="btn btn-primary">Read Now</a>
+                                    </td>
+                                    <td class="product-img">
+                                        <a href="@string.Format("/Uploads/{0}",item.DocumentC)" class="btn btn-primary">Read Now</a>
+                                    </td>
+                                    <td class="product-img">
+                                        <a href="@string.Format("/Uploads/{0}",item.DocumentD)" class="btn btn-primary">Read Now</a>
+                                    </td>
                                     <td class="product-category">@item.StateName</td>
 
-                                    
-                                    
-                                    
-                                    
-                                    
+
+
+
+
+
                                     <td class="product-action">
                                         <a asp-controller="SrOffAndSrRep" asp-action="EditUsers" asp-route-id="@item.Id"><span><i class="feather icon-edit"></i></span></a>
+                                        <a asp-controller="SrOffAndSrRep" asp-action="Delete" asp-route-id="@item.Id"><span class="action-delete"><i class="feather icon-trash"></i></span></a>
+                                        <a asp-controller="SrOffService" asp-action="Form" asp-route-id="@item.Id"><span class="action-delete">Add Services</a>
 
 
                                     </td>

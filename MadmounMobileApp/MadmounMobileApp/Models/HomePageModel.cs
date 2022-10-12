@@ -114,6 +114,19 @@ namespace MadmounMobileApp.Models
 
         public IEnumerable<TbServiceCategory> lstServicecATEGORIES { get; set; }
 
+        public IEnumerable<TbComplain> lstComplains { get; set; }
+
+        public IEnumerable<TbLoginHistory> lstLogInHistories { get; set; }
+
+        public IEnumerable<TbServicesRequired> lstServicesRequireds { get; set; }
+
+        public IEnumerable<TbServicesApproved> lstServicesApprovedS { get; set; }
+
+        public IEnumerable<TbServiceApprovedImage> lstServiceApprovedImageS { get; set; }
+
+        public IEnumerable<TbServiceApprovedMilstone> lstServiceApprovedMilstone { get; set; }
+        public IEnumerable<TbSrOffService> lstSrOffServiceS { get; set; }
+
 
 
     }
