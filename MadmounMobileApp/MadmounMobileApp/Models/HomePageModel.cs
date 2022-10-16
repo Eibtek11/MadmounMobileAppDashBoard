@@ -127,6 +127,14 @@ namespace MadmounMobileApp.Models
         public IEnumerable<TbServiceApprovedMilstone> lstServiceApprovedMilstone { get; set; }
         public IEnumerable<TbSrOffService> lstSrOffServiceS { get; set; }
 
+        public IEnumerable<TbSrRepService> lstSrRepService { get; set; }
+
+        public IEnumerable<ApplicationUser> lstUsers{ get; set; }
+
+        public IEnumerable<TbSrRepCity> lstSrRepCity { get; set; }
+
+        public IEnumerable<TbSrOffCity> lstSrOffCity { get; set; }
+
 
 
     }

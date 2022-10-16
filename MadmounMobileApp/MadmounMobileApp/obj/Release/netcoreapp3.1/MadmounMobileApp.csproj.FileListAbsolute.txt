@@ -117,3 +117,12 @@ C:\Users\USER\source\repos\MadmounMobileApp\MadmounMobileApp\obj\Release\netcore
 C:\Users\USER\source\repos\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\MadmounMobileApp.dll
 C:\Users\USER\source\repos\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\MadmounMobileApp.pdb
 C:\Users\USER\source\repos\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\MadmounMobileApp.genruntimeconfig.cache
+C:\Users\USER\source\repos\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\Razor\Areas\Admin\Views\SRepService\Form.cshtml.g.cs
+C:\Users\USER\source\repos\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\Razor\Areas\Admin\Views\SRepService\Form2.cshtml.g.cs
+C:\Users\USER\source\repos\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\Razor\Areas\Admin\Views\SRepService\Index.cshtml.g.cs
+C:\Users\USER\source\repos\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\Razor\Areas\Admin\Views\SrOffCity\Form.cshtml.g.cs
+C:\Users\USER\source\repos\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\Razor\Areas\Admin\Views\SrOffCity\Form2.cshtml.g.cs
+C:\Users\USER\source\repos\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\Razor\Areas\Admin\Views\SrOffCity\Index.cshtml.g.cs
+C:\Users\USER\source\repos\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\Razor\Areas\Admin\Views\SrRepCity\Form.cshtml.g.cs
+C:\Users\USER\source\repos\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\Razor\Areas\Admin\Views\SrRepCity\Form2.cshtml.g.cs
+C:\Users\USER\source\repos\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\Razor\Areas\Admin\Views\SrRepCity\Index.cshtml.g.cs

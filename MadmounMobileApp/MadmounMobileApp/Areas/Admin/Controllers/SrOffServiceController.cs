@@ -3,6 +3,7 @@ using Domains;
 using MadmounMobileApp.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,8 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
         CityService cityService;
         AreaService areaService;
         MadmounDbContext ctx;
-        public SrOffServiceController(ServiceCategoryService FL,ServiceService ServiceService,SrOffService SrOffService,ServicesApprovedService SR, ServicesRequiredService SQ, ComplainService complainService, CityService CityService, AreaService AreaService, MadmounDbContext context)
+        UserManager<ApplicationUser> Usermanager;
+        public SrOffServiceController(UserManager<ApplicationUser> usermanager ,ServiceCategoryService FL,ServiceService ServiceService,SrOffService SrOffService,ServicesApprovedService SR, ServicesRequiredService SQ, ComplainService complainService, CityService CityService, AreaService AreaService, MadmounDbContext context)
         {
             areaService = AreaService;
             ctx = context;
@@ -35,6 +37,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             srOffService = SrOffService;
             serviceService = ServiceService;
             fl = FL;
+            Usermanager = usermanager;
         }
         public IActionResult Index()
         {
@@ -47,6 +50,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             model.lstSrOffServiceS = srOffService.getAll();
             model.lstServices = serviceService.getAll();
             model.lstServicecATEGORIES = fl.getAll();
+            model.lstUsers = Usermanager.Users.ToList();
             return View(model);
 
 

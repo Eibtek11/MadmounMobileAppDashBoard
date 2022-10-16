@@ -2,6 +2,7 @@
     Layout = "";
 }
 @model MadmounMobileApp.Models.HomePageModel
+@inject Microsoft.AspNetCore.Identity.UserManager<BL.ApplicationUser> USERmANAGER
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="rtl">
 <!-- BEGIN: Head-->
@@ -858,36 +859,36 @@
                                 {
 
 
-                                <tr>
-                                    <td></td>
+                                    <tr>
+                                        <td></td>
 
-                                    @*<td class="product-name">@item.CompanyDescription</td>*@
-                                    <td class="product-category">@item.ServiceId</td>
-                                    <td class="product-category">@item.SrRepId</td>
-                                    <td class="product-category">@item.SrReqId</td>
-                                    <td class="product-category">@item.AreaId</td>
-                                    <td class="product-category">@item.CityId</td>
-                                    <td class="product-category">@item.ServiceSyntax</td>
-                                    <td class="product-category">@item.SrRequiredDescription</td>
+                                        @*<td class="product-name">@item.CompanyDescription</td>*@
+                                        <td class="product-category">@Model.lstServices.Where(a => a.ServiceId == item.ServiceId).FirstOrDefault().ServiceName</td>
+                                        <td class="product-category">@USERmANAGER.Users.Where(a => a.Id == item.SrRepId).FirstOrDefault().UserName</td>
+                                        <td class="product-category">@USERmANAGER.Users.Where(a => a.Id == item.SrReqId).FirstOrDefault().UserName</td>
+                                        <td class="product-category">@Model.lstAreas.Where(a => a.AreaId == item.AreaId).FirstOrDefault().AreaName</td>
+                                        <td class="product-category">@Model.lstCities.Where(a => a.CityId == item.CityId).FirstOrDefault().CityName</td>
+                                        <td class="product-category">@item.ServiceSyntax</td>
+                                        <td class="product-category">@item.SrRequiredDescription</td>
 
-                                    @*<td>
-            <div class="progress progress-bar-success">
-                <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="40" aria-valuemax="100" style="width:97%"></div>
-            </div>
-        </td>
-        <td>
-            <div class="chip chip-warning">
-                <div class="chip-body">
-                    <div class="chip-text">on hold</div>
-                </div>
-            </div>
-        </td>
-        <td class="product-price">$69.99</td>*@
-                                    <td class="product-action">
-                                        <a asp-controller="ServicesRequired" asp-action="Form" asp-route-id="@item.ServicesRequiredId"><span><i class="feather icon-edit"></i></span></a>
-                                        <a asp-controller="ServicesRequired" asp-action="Delete" asp-route-id="@item.ServicesRequiredId"><span class="action-delete"><i class="feather icon-trash"></i></span></a>
-                                    </td>
-                                </tr>
+                                        @*<td>
+                                                <div class="progress progress-bar-success">
+                                                    <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="40" aria-valuemax="100" style="width:97%"></div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="chip chip-warning">
+                                                    <div class="chip-body">
+                                                        <div class="chip-text">on hold</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="product-price">$69.99</td>*@
+                                        <td class="product-action">
+                                            <a asp-controller="ServicesRequired" asp-action="Form" asp-route-id="@item.ServicesRequiredId"><span><i class="feather icon-edit"></i></span></a>
+                                            <a asp-controller="ServicesRequired" asp-action="Delete" asp-route-id="@item.ServicesRequiredId"><span class="action-delete"><i class="feather icon-trash"></i></span></a>
+                                        </td>
+                                    </tr>
 
 
                                 }

@@ -3,6 +3,7 @@ using Domains;
 using MadmounMobileApp.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -14,13 +15,17 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
     [Area("Admin")]
     public class ServicesRequiredController : Controller
     {
+        ServiceService srRecords;
+        ServicesApprovedService sr;
+        ServicesRequiredService sq;
         ServicesApprovedService servicesApprovedService;
         ServicesRequiredService servicesRequiredService;
         ComplainService ComplainService;
         CityService cityService;
         AreaService areaService;
         MadmounDbContext ctx;
-        public ServicesRequiredController(ServicesApprovedService ServicesApprovedService,ServicesRequiredService ServicesRequiredService,ComplainService complainService, CityService CityService, AreaService AreaService, MadmounDbContext context)
+        UserManager<ApplicationUser> Usermanager;
+        public ServicesRequiredController(UserManager<ApplicationUser> usermanager, ServiceService SrRecords, ServicesApprovedService SR, ServicesRequiredService SQ,ServicesApprovedService ServicesApprovedService,ServicesRequiredService ServicesRequiredService,ComplainService complainService, CityService CityService, AreaService AreaService, MadmounDbContext context)
         {
             areaService = AreaService;
             ctx = context;
@@ -28,14 +33,21 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             ComplainService = complainService;
             servicesRequiredService = ServicesRequiredService;
             servicesApprovedService = ServicesApprovedService;
+            sr = SR;
+            sq = SQ;
+            srRecords = SrRecords;
+            Usermanager = usermanager;
         }
         public IActionResult Index()
         {
             HomePageModel model = new HomePageModel();
+            model.lstServices = srRecords.getAll();
             model.lstAreas = areaService.getAll();
             model.lstCities = cityService.getAll();
             model.lstComplains = ComplainService.getAll();
-            model.lstServicesRequireds = servicesRequiredService.getAll();
+            model.lstServicesRequireds = sq.getAll();
+            model.lstServicesApprovedS = sr.getAll();
+            model.lstUsers = Usermanager.Users.ToList();
             return View(model);
 
 

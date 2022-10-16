@@ -40,6 +40,9 @@ namespace MadmounMobileApp
             services.AddScoped<ServiceApprovedImagesService, ClsServiceApprovedImages>();
             services.AddScoped<ServiceApprovedMilstoneService, ClsServiceApprovedMilstone>();
             services.AddScoped<SrOffService, ClsSrOffService>();
+            services.AddScoped<SrrepService, ClsSrRepService>();
+            services.AddScoped<SrrepCityService, ClsSrRepCity>();
+            services.AddScoped<SroffCityService, ClsSrOffCity>();
             services.AddDbContext<MadmounDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             {

@@ -883,10 +883,11 @@
             </div>
         </td>
         <td class="product-price">$69.99</td>*@
-                                    <td class="product-action">
-                                        <a asp-controller="SrOffService" asp-action="Form2" asp-route-id="@item.SrOffServiceId" asp-route-idd="@item.Id"><span><i class="feather icon-edit"></i></span></a>
-                                        <a asp-controller="SrOffService" asp-action="Delete" asp-route-id="@item.SrOffServiceId"><span class="action-delete"><i class="feather icon-trash"></i></span></a>
-                                    </td>
+                                <td class="product-action">
+                                    <a asp-controller="SrOffService" asp-action="Form2" asp-route-id="@item.SrOffServiceId" asp-route-idd="@item.Id"><span><i class="feather icon-edit"></i></span></a>
+                                    <a asp-controller="SrOffService" asp-action="Delete" asp-route-id="@item.SrOffServiceId"><span class="action-delete"><i class="feather icon-trash"></i></span></a>
+                                    <a asp-controller="SrOffCity" asp-action="Form" asp-route-id="@item.Id"><span class="action-delete">Add city</a>
+                                </td>
                                 </tr>
 
 
