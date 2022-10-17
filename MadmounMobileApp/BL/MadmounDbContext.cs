@@ -36,14 +36,18 @@ namespace BL
         public virtual DbSet<TbSrRepCity> TbSrRepCities { get; set; }
         public virtual DbSet<TbSrRepService> TbSrRepServices { get; set; }
 
-//        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-//        {
-//            if (!optionsBuilder.IsConfigured)
-//            {
-//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-//                optionsBuilder.UseSqlServer("Server=DESKTOP-ABVI0A5;Database=MadmounDb;Trusted_Connection=True;");
-//            }
-//        }
+        public virtual DbSet<TbClientImages> TbClientImages { get; set; }
+
+        public virtual DbSet<TbClients> TbClients { get; set; }
+
+        //        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //        {
+        //            if (!optionsBuilder.IsConfigured)
+        //            {
+        //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+        //                optionsBuilder.UseSqlServer("Server=DESKTOP-ABVI0A5;Database=MadmounDb;Trusted_Connection=True;");
+        //            }
+        //        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -72,6 +76,37 @@ namespace BL
                     .WithMany(p => p.TbAreas)
                     .HasForeignKey(d => d.CityId)
                     .HasConstraintName("FK_TbAreas_TbCities");
+            });
+
+
+
+
+
+
+            modelBuilder.Entity<TbClientImages>(entity =>
+            {
+                entity.HasKey(e => e.ClientImageId);
+
+                entity.Property(e => e.ClientImageId).HasDefaultValueSql("(newid())");
+
+                entity.Property(e => e.ClientImage).HasMaxLength(200);
+
+                entity.Property(e => e.ImageState).HasMaxLength(200);
+
+                entity.Property(e => e.CreatedBy).HasMaxLength(200);
+
+                entity.Property(e => e.CreatedDate).HasColumnType("datetime");
+
+                entity.Property(e => e.Notes).HasMaxLength(200);
+
+                entity.Property(e => e.UpdatedBy).HasMaxLength(200);
+
+                entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
+
+                entity.HasOne(d => d.client)
+                    .WithMany(p => p.TbClientImagess)
+                    .HasForeignKey(d => d.ClientId)
+                    .HasConstraintName("FK_TbClientImages_TbClients");
             });
 
             modelBuilder.Entity<TbChatSrOffSrReq>(entity =>
@@ -176,6 +211,46 @@ namespace BL
 
                 entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
             });
+
+
+
+
+            modelBuilder.Entity<TbClients>(entity =>
+            {
+                entity.HasKey(e => e.ClientId);
+
+                entity.Property(e => e.ClientId).HasDefaultValueSql("(newid())");
+
+                entity.Property(e => e.ClientName).HasMaxLength(200);
+
+                entity.Property(e => e.ClientDescription).HasMaxLength(200);
+
+                entity.Property(e => e.ClientLogo).HasMaxLength(200);
+
+                entity.Property(e => e.ClientVideo).HasMaxLength(200);
+
+
+                entity.Property(e => e.ClientLocation).HasMaxLength(200);
+
+                entity.Property(e => e.CityId).HasColumnType("guid");
+
+                entity.Property(e => e.CityName).HasMaxLength(200);
+
+                entity.Property(e => e.CreatedBy).HasMaxLength(200);
+
+                entity.Property(e => e.CreatedDate).HasColumnType("datetime");
+
+                entity.Property(e => e.Notes).HasMaxLength(200);
+
+                entity.Property(e => e.UpdatedBy).HasMaxLength(200);
+
+                entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
+            });
+
+
+
+
+
 
             modelBuilder.Entity<TbComplain>(entity =>
             {

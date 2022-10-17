@@ -182,7 +182,7 @@ html .pace .pace-progress {
 /*
 * Col 3 layout for detached and general type
 */
-@media (min-width: 992px) {
+/*@media (min-width: 992px) {
   body .content-right {
     width : calc(100vw - (100vw - 100%) - 260px);
     float : left;
@@ -214,7 +214,7 @@ html .pace .pace-progress {
     width : 260px !important;
     margin-top : 6rem;
   }
-}
+}*/
 
 .truncate {
   overflow : hidden !important;
@@ -228,14 +228,14 @@ html .pace .pace-progress {
   }
 }
 
-@media (max-width: 575.98px) {
+/*@media (max-width: 575.98px) {
   body.navbar-static .app-content .header-navbar .navbar-container, body.navbar-sticky .app-content .header-navbar .navbar-container {
     padding-right : 1rem;
     padding-left : 0.5rem;
   }
-}
+}*/
 
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+/*@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   html.full-screen {
     width : 100%;
   }
@@ -244,7 +244,7 @@ html .pace .pace-progress {
     overflow : scroll;
     overflow-x : hidden;
   }
-}
+}*/
 
 /*=========================================================================================
     File Name: sidebar.scss
@@ -934,7 +934,7 @@ body.menu-collapsed .menu-static {
   padding-bottom : calc(100% - 14rem);
 }
 
-@media (max-width: 767.98px) {
+/*@media (max-width: 767.98px) {
   .menu-hide .main-menu, .menu-open .main-menu {
     -webkit-transition : top 0.35s, height 0.35s, -webkit-transform 0.25s;
             transition : top 0.35s, height 0.35s, -webkit-transform 0.25s;
@@ -953,23 +953,23 @@ body.menu-collapsed .menu-static {
     -webkit-transform : translate3d(0, 0, 0);
             transform : translate3d(0, 0, 0);
   }
-}
+}*/
 
-@media (min-width: 768px) {
+/*@media (min-width: 768px) {
   .drag-target {
     z-index : 0;
   }
-}
+}*/
 
 body.fixed-footer .main-menu.menu-fixed {
   height : 100%;
 }
 
-@media (max-width: 1200px) {
+/*@media (max-width: 1200px) {
   body .main-menu.menu-static {
     padding-bottom : 100%;
   }
-}
+}*/
 
 .display-inline {
   display : inline !important;
@@ -3277,7 +3277,7 @@ body.dark-layout .hide-scroll-top-switch .custom-switch .custom-control-label:be
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen  {
   head {
     font-family : 'xl 1200px';
   }

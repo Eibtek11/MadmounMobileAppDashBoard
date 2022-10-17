@@ -1,6 +1,6 @@
 ﻿
 <!DOCTYPE html>
-<html class="loading" lang="en" data-textdirection="ltr">
+<html class="loading" lang="en" data-textdirection="rtl">
 <!-- BEGIN: Head-->
 
 <head>
@@ -17,7 +17,8 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600" rel="stylesheet">
 
     <!-- BEGIN: Vendor CSS-->
-    <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/vendors/css/vendors.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/vendors/css/vendors-rtl.min.css">
+    @*<link rel="stylesheet" type="text/css" href="~/Admin/app-assets/vendors/css/vendors.min.css">*@
     <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/vendors/css/file-uploaders/dropzone.min.css">
     <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/vendors/css/tables/datatable/datatables.min.css">
     <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/vendors/css/tables/datatable/extensions/dataTables.checkboxes.css">
@@ -27,27 +28,51 @@
     <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/vendors/css/extensions/shepherd-theme-default.css">
     <!-- END: Vendor CSS-->
     <!-- BEGIN: Theme CSS-->
-    <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css/bootstrap-extended.css">
-    <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css/colors.css">
-    <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css/components.css">
-    <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css/themes/dark-layout.css">
-    <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css/themes/semi-dark-layout.css">
+    @*<link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css/bootstrap-extended.css">
+        <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css/colors.css">
+        <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css/components.css">
+        <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css/themes/dark-layout.css">
+        <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css/themes/semi-dark-layout.css">*@
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css-rtl/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css-rtl/bootstrap-extended.css">
+    <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css-rtl/colors.css">
+    <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css-rtl/components.css">
+    <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css-rtl/themes/dark-layout.css">
+    <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css-rtl/themes/semi-dark-layout.css">
 
     <!-- BEGIN: Page CSS-->
-    <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css/core/menu/menu-types/vertical-menu.css">
-    <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css/core/colors/palette-gradient.css">
-    <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css/plugins/file-uploaders/dropzone.css">
-    <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css/pages/data-list-view.css">
-    <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css/pages/dashboard-analytics.css">
-    <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css/pages/card-analytics.css">
-    <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css/plugins/tour/tour.css">
+    @*<link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css/core/menu/menu-types/vertical-menu.css">
+        <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css/core/colors/palette-gradient.css">
+        <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css/plugins/file-uploaders/dropzone.css">
+        <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css/pages/data-list-view.css">
+        <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css/pages/dashboard-analytics.css">
+        <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css/pages/card-analytics.css">
+        <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css/plugins/tour/tour.css">*@
+
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css-rtl/core/menu/menu-types/horizontal-menu.css">
+    <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css-rtl/core/colors/palette-gradient.css">
+    <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css-rtl/pages/dashboard-analytics.css">
+    <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css-rtl/pages/card-analytics.css">
+    <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css-rtl/plugins/tour/tour.css">
     <!-- END: Page CSS-->
     <!-- BEGIN: Custom CSS-->
-    <link rel="stylesheet" type="text/css" href="~/Admin/assets/css/style.css">
+
+
+    <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css-rtl/custom-rtl.css">
+    <link rel="stylesheet" type="text/css" href="~/Admin/assets/css/style-rtl.css">
+    @*<link rel="stylesheet" type="text/css" href="~/Admin/assets/css/style.css">*@
     <!-- END: Custom CSS-->
 
-    <link href="~/Admin/app-assets/toastr.css" rel="stylesheet" />
+    @*<link href="~/Admin/app-assets/toastr.css" rel="stylesheet" />*@
 </head>
 <!-- END: Head-->
 <!-- BEGIN: Body-->
@@ -122,6 +147,12 @@
 
                         <li>
                             <a asp-controller="SrOffCity" asp-action="Index"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="eCommerce">Service Offerer Cities</span></a>
+                        </li>
+                        <li>
+                            <a asp-controller="Client" asp-action="Index"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="eCommerce">Client</span></a>
+                        </li>
+                        <li>
+                            <a asp-controller="ClientImage" asp-action="Index"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="eCommerce">Client Image</span></a>
                         </li>
 
                     </ul>

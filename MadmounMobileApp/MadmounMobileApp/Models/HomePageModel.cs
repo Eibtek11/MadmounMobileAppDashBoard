@@ -135,6 +135,10 @@ namespace MadmounMobileApp.Models
 
         public IEnumerable<TbSrOffCity> lstSrOffCity { get; set; }
 
+        public IEnumerable<TbClients> lstClients { get; set; }
+
+        public IEnumerable<TbClientImages> lstClientImages { get; set; }
+
 
 
     }

@@ -146,7 +146,7 @@ namespace BL.Migrations
                     b.Property<string>("Services")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("State")
+                    b.Property<string>("StateName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("TwoFactorEnabled")
@@ -373,6 +373,106 @@ namespace BL.Migrations
                     b.HasKey("CityId");
 
                     b.ToTable("TbCities");
+                });
+
+            modelBuilder.Entity("Domains.TbClientImages", b =>
+                {
+                    b.Property<Guid>("ClientImageId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("(newid())");
+
+                    b.Property<Guid?>("ClientId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ClientImage")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("CreatedBy")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime");
+
+                    b.Property<string>("ImageState")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("Notes")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime");
+
+                    b.HasKey("ClientImageId");
+
+                    b.HasIndex("ClientId");
+
+                    b.ToTable("TbClientImages");
+                });
+
+            modelBuilder.Entity("Domains.TbClients", b =>
+                {
+                    b.Property<Guid>("ClientId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("(newid())");
+
+                    b.Property<Guid>("CityId")
+                        .HasColumnType("guid");
+
+                    b.Property<string>("CityName")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("ClientDescription")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("ClientLocation")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("ClientLogo")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("ClientName")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("ClientVideo")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("CreatedBy")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime");
+
+                    b.Property<string>("Notes")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime");
+
+                    b.HasKey("ClientId");
+
+                    b.ToTable("TbClients");
                 });
 
             modelBuilder.Entity("Domains.TbComplain", b =>
@@ -1096,6 +1196,16 @@ namespace BL.Migrations
                     b.Navigation("Service");
                 });
 
+            modelBuilder.Entity("Domains.TbClientImages", b =>
+                {
+                    b.HasOne("Domains.TbClients", "client")
+                        .WithMany("TbClientImagess")
+                        .HasForeignKey("ClientId")
+                        .HasConstraintName("FK_TbClientImages_TbClients");
+
+                    b.Navigation("client");
+                });
+
             modelBuilder.Entity("Domains.TbService", b =>
                 {
                     b.HasOne("Domains.TbServiceCategory", "ServiceCategory")
@@ -1323,6 +1433,11 @@ namespace BL.Migrations
                     b.Navigation("TbSrOffCities");
 
                     b.Navigation("TbSrRepCities");
+                });
+
+            modelBuilder.Entity("Domains.TbClients", b =>
+                {
+                    b.Navigation("TbClientImagess");
                 });
 
             modelBuilder.Entity("Domains.TbService", b =>
