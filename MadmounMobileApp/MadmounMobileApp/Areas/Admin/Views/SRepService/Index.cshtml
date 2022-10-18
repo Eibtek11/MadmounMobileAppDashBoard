@@ -886,6 +886,7 @@
                                 <td class="product-action">
                                     <a asp-controller="SRepService" asp-action="Form2" asp-route-id="@item.SrRepServiceId" asp-route-idd="@item.Id"><span><i class="feather icon-edit"></i></span></a>
                                     <a asp-controller="SRepService" asp-action="Delete" asp-route-id="@item.SrRepServiceId"><span class="action-delete"><i class="feather icon-trash"></i></span></a>
+                                    <a asp-controller="SRepService" asp-action="Form" asp-route-id="@item.Id"><span class="action-delete">Add ANOTHER SERVICE</a>
                                     <a asp-controller="SrRepCity" asp-action="Form" asp-route-id="@item.Id"><span class="action-delete">Add city</a>
                                 </td>
                                 </tr>

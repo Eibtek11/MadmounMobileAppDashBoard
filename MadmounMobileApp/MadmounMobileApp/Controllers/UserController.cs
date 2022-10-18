@@ -8,20 +8,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Domains;
 
 namespace MadmounMobileApp.Controllers
 {
     public class UserController : Controller
     {
+        LogInHistoryService lgHistory;
         MadmounDbContext Ctx;
         UserManager<ApplicationUser> Usermanager;
         SignInManager<ApplicationUser> SignInManager;
 
-        public UserController(MadmounDbContext ctx, UserManager<ApplicationUser> usermanager, SignInManager<ApplicationUser> signInManager)
+        public UserController(LogInHistoryService LgHistory,MadmounDbContext ctx, UserManager<ApplicationUser> usermanager, SignInManager<ApplicationUser> signInManager)
         {
             Usermanager = usermanager;
             SignInManager = signInManager;
             Ctx = ctx;
+            lgHistory = LgHistory;
 
         }
 
@@ -138,7 +141,13 @@ namespace MadmounMobileApp.Controllers
                 if (result.Succeeded)
                 {
 
+                    string id = Usermanager.Users.Where(a => a.Email == oHomePageModel.Email).FirstOrDefault().Id;
+                    TbLoginHistory item = new TbLoginHistory();
+                    item.Id = id;
+                    item.CreatedDate = DateTime.Now;
+                    item.LogInId = new Guid();
 
+                    lgHistory.Add(item);
 
 
                     result.ToString();

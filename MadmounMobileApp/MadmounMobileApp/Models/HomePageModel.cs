@@ -140,6 +140,12 @@ namespace MadmounMobileApp.Models
         public IEnumerable<TbClientImages> lstClientImages { get; set; }
 
 
+        public IEnumerable<TbAdvertisements> lstAdvertisements { get; set; }
+
+
+        public IEnumerable<TbAdvices> lstAdvices { get; set; }
+
+
 
     }
 }

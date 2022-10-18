@@ -844,20 +844,20 @@
                                     <th>Id</th>
                                     <th>UserName</th>
                                     <th>Email</th>
-                                    <th>FirstName</th>
-                                    <th>LastName</th>
-                                    <th>CityName</th>
-                                    <th>ServiceName</th>
-                                    <th>Area Name</th>
-                                    <th>Gender</th>
-                                    <th>RyadahOrNot</th>
-                                    <th>BirthDate</th>
-                                    <th>DocumentA</th>
-                                    <th>DocumentB</th>
-                                    <th>DocumentC</th>
-                                    <th>DocumentD</th>
-                                    <th>StateName</th>
-
+                                    @*<th>FirstName</th>
+        <th>LastName</th>
+        <th>CityName</th>
+        <th>ServiceName</th>
+        <th>Area Name</th>
+        <th>Gender</th>
+        <th>RyadahOrNot</th>
+        <th>BirthDate</th>
+        <th>DocumentA</th>
+        <th>DocumentB</th>
+        <th>DocumentC</th>
+        <th>DocumentD</th>
+        <th>StateName</th>*@
+                                    <th>ادوات</th>
 
                                 </tr>
                             </thead>
@@ -873,7 +873,7 @@
                                     <td class="product-category">@item.Id</td>
                                     <td class="product-category">@item.UserName</td>
                                     <td class="product-category">@item.Email</td>
-                                    <td class="product-category">@item.FirstName</td>
+                                    @*<td class="product-category">@item.FirstName</td>
                                     <td class="product-category">@item.LastName</td>
                                     <td class="product-category">@item.CityName</td>
                                     <td class="product-category">@item.ServiceName</td>
@@ -893,7 +893,7 @@
                                     <td class="product-img">
                                         <a href="@string.Format("/Uploads/{0}",item.DocumentD)" class="btn btn-primary">Read Now</a>
                                     </td>
-                                    <td class="product-category">@item.StateName</td>
+                                    <td class="product-category">@item.StateName</td>*@
 
 
 

@@ -11,6 +11,7 @@ namespace BL
     {
         List<TbComplain> getAll();
         bool Add(TbComplain client);
+
         bool Edit(TbComplain client);
         bool Delete(TbComplain client);
 

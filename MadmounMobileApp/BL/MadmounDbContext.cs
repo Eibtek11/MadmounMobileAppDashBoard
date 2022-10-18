@@ -40,6 +40,11 @@ namespace BL
 
         public virtual DbSet<TbClients> TbClients { get; set; }
 
+        public virtual DbSet<TbAdvertisements> Advertisementss { get; set; }
+
+        public virtual DbSet<TbAdvices> TbAdvicess { get; set; }
+
+
         //        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //        {
         //            if (!optionsBuilder.IsConfigured)
@@ -318,6 +323,75 @@ namespace BL
                     .HasConstraintName("FK_TbServices_TbServiceCategories");
             });
 
+
+
+
+
+
+            modelBuilder.Entity<TbAdvertisements>(entity =>
+            {
+                entity.HasKey(e => e.AdvertisementId);
+
+                entity.Property(e => e.AdvertisementId).HasDefaultValueSql("(newid())");
+
+                entity.Property(e => e.AdvertisementDescription).HasMaxLength(200);
+
+                entity.Property(e => e.AdvertisementImage).HasMaxLength(200);
+
+                entity.Property(e => e.AdvertisementName).HasMaxLength(200);
+
+                entity.Property(e => e.CreatedDate).HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.CreatedDate).HasColumnType("datetime");
+
+                entity.Property(e => e.Notes).HasMaxLength(200);
+
+                entity.Property(e => e.CreatedBy).HasMaxLength(200);
+
+                entity.Property(e => e.UpdatedBy).HasMaxLength(200);
+
+                entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
+
+                
+            });
+
+
+
+
+
+
+
+
+
+
+
+
+            modelBuilder.Entity<TbAdvices>(entity =>
+            {
+                entity.HasKey(e => e.AdvicetId);
+
+                entity.Property(e => e.AdvicetId).HasDefaultValueSql("(newid())");
+
+                entity.Property(e => e.AdviceName).HasMaxLength(200);
+
+                entity.Property(e => e.AdviceDescription).HasMaxLength(200);
+
+                entity.Property(e => e.AdvertisementImage).HasMaxLength(200);
+
+                entity.Property(e => e.CreatedDate).HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.CreatedDate).HasColumnType("datetime");
+
+                entity.Property(e => e.Notes).HasMaxLength(200);
+
+                entity.Property(e => e.CreatedBy).HasMaxLength(200);
+
+                entity.Property(e => e.UpdatedBy).HasMaxLength(200);
+
+                entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
+
+
+            });
             modelBuilder.Entity<TbServiceApprovedImage>(entity =>
             {
                 entity.HasKey(e => e.ServiceApprovedImageId);
