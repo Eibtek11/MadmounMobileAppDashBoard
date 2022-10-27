@@ -13,6 +13,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http.Features;
 
 namespace MadmounMobileApp
 {
@@ -24,6 +25,7 @@ namespace MadmounMobileApp
         }
 
         public IConfiguration Configuration { get; }
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -47,6 +49,27 @@ namespace MadmounMobileApp
             services.AddScoped<ClientImagesService, ClsClientImages>();
             services.AddScoped<AdvertismentService, ClsAdvertisments>();
             services.AddScoped<AdviceService, ClsAdvice>();
+            services.AddCors(options =>
+            {
+                options.AddPolicy(MyAllowSpecificOrigins,
+                builder => {
+                    //URLs are from the front-end (note that they changed
+                    //since posting my original question due to scrapping
+                    //the original projects and starting over)
+                    builder.WithOrigins("https://localhost:44398/", "http://ismguk.com/")
+                                     .AllowAnyHeader()
+                                     .AllowAnyMethod()
+                                     .AllowCredentials();
+                });
+            });
+            services.Configure<FormOptions>(o => {
+                o.ValueLengthLimit = int.MaxValue;
+                o.MultipartBodyLengthLimit = int.MaxValue;
+                o.MemoryBufferThreshold = int.MaxValue;
+            });
+            services.AddDistributedMemoryCache();
+            services.AddSession();
+            services.AddHttpContextAccessor();
             services.AddDbContext<MadmounDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             {
@@ -86,9 +109,10 @@ namespace MadmounMobileApp
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseCookiePolicy();
+            app.UseCors(MyAllowSpecificOrigins);
             app.UseRouting();
-
+            app.UseSession();
             app.UseAuthentication();
             app.UseAuthorization();
 

@@ -89,7 +89,9 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
                 {
                     Email = oHomePageModel.Email,
                     UserName = oHomePageModel.Email,
-                    LastName = oHomePageModel.LastName
+                    LastName = oHomePageModel.LastName,
+                    state = 1
+
 
                 };
                 var result = await Usermanager.CreateAsync(user, oHomePageModel.Password);
@@ -101,7 +103,8 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
                     result.ToString();
 
                     ViewBag.id = user.Id;
-                    return View(oHomePageModel);
+
+                    return RedirectToAction("Index", "Home", new { area = "Admin" });
                 }
                 else
                 {

@@ -90,7 +90,9 @@ namespace MadmounMobileApp.Controllers
                 {
                     Email = oHomePageModel.Email,
                     UserName = oHomePageModel.Email,
-                    LastName = oHomePageModel.LastName
+                    LastName = oHomePageModel.LastName,
+                    state = oHomePageModel.state
+
 
                 };
                 var result = await Usermanager.CreateAsync(user, oHomePageModel.Password);

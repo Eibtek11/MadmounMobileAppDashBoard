@@ -16,6 +16,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
     [Authorize(Roles = "Admin")]
     public class SrOffServiceController : Controller
     {
+
         ServiceCategoryService fl;
         ServiceService serviceService;
         SrOffService srOffService;
@@ -136,6 +137,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
         public IActionResult Form(Guid? id)
         {
             TbSrOffService oldItem = ctx.TbSrOffServices.Where(a => a.SrOffServiceId == id).FirstOrDefault();
+          
 
             ViewBag.services = serviceService.getAll();
             ViewBag.servicesCATEGORY = fl.getAll();
