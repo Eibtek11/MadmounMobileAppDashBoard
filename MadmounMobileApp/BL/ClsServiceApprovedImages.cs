@@ -1,7 +1,9 @@
 ﻿using Domains;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -11,6 +13,7 @@ namespace BL
     {
         List<TbServiceApprovedImage> getAll();
         bool Add(TbServiceApprovedImage client);
+        bool Add(TbServiceApprovedImage client , IFormFile imagePath);
         bool Edit(TbServiceApprovedImage client);
         bool Delete(TbServiceApprovedImage client);
 
@@ -35,6 +38,33 @@ namespace BL
         {
             try
             {
+                //_4ZsoftwareCompanyTestTaskContext o_4ZsoftwareCompanyTestTaskContext = new _4ZsoftwareCompanyTestTaskContext();
+                item.ServiceApprovedImageId = Guid.NewGuid();
+                ctx.TbServiceApprovedImages.Add(item);
+                ctx.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+
+            }
+        }
+
+
+
+
+        public bool Add(TbServiceApprovedImage item , IFormFile imagePath)
+        {
+            try
+            {
+                string ImageName = Guid.NewGuid().ToString() + ".jpg";
+                var filePaths = Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot\Uploads", ImageName);
+                using (var stream = System.IO.File.Create(filePaths))
+                {
+                    imagePath.CopyToAsync(stream);
+                }
+                item.ImagePath = ImageName;
                 //_4ZsoftwareCompanyTestTaskContext o_4ZsoftwareCompanyTestTaskContext = new _4ZsoftwareCompanyTestTaskContext();
                 item.ServiceApprovedImageId = Guid.NewGuid();
                 ctx.TbServiceApprovedImages.Add(item);

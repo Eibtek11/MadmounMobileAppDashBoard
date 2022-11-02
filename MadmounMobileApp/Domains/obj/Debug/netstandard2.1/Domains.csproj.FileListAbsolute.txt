@@ -7,3 +7,13 @@ C:\Users\USER\source\repos\MadmounMobileApp\Domains\obj\Debug\netstandard2.1\Dom
 C:\Users\USER\source\repos\MadmounMobileApp\Domains\obj\Debug\netstandard2.1\Domains.dll
 C:\Users\USER\source\repos\MadmounMobileApp\Domains\obj\Debug\netstandard2.1\Domains.pdb
 C:\Users\USER\source\repos\MadmounMobileApp\Domains\obj\Debug\netstandard2.1\Domains.csproj.AssemblyReference.cache
+F:\New folder\MadmounMobileApp\Domains\bin\Debug\netstandard2.1\Domains.deps.json
+F:\New folder\MadmounMobileApp\Domains\bin\Debug\netstandard2.1\Domains.dll
+F:\New folder\MadmounMobileApp\Domains\bin\Debug\netstandard2.1\Domains.pdb
+F:\New folder\MadmounMobileApp\Domains\obj\Debug\netstandard2.1\Domains.csproj.AssemblyReference.cache
+F:\New folder\MadmounMobileApp\Domains\obj\Debug\netstandard2.1\Domains.GeneratedMSBuildEditorConfig.editorconfig
+F:\New folder\MadmounMobileApp\Domains\obj\Debug\netstandard2.1\Domains.AssemblyInfoInputs.cache
+F:\New folder\MadmounMobileApp\Domains\obj\Debug\netstandard2.1\Domains.AssemblyInfo.cs
+F:\New folder\MadmounMobileApp\Domains\obj\Debug\netstandard2.1\Domains.csproj.CoreCompileInputs.cache
+F:\New folder\MadmounMobileApp\Domains\obj\Debug\netstandard2.1\Domains.dll
+F:\New folder\MadmounMobileApp\Domains\obj\Debug\netstandard2.1\Domains.pdb

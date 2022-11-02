@@ -44,6 +44,10 @@ namespace BL
 
         public virtual DbSet<TbAdvices> TbAdvicess { get; set; }
 
+        public virtual DbSet<TbServicesOffers> TbServicesOfferss { get; set; }
+
+        
+
 
         //        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //        {
@@ -84,7 +88,39 @@ namespace BL
             });
 
 
+            modelBuilder.Entity<TbServicesOffers>(entity =>
+            {
+                entity.HasKey(e => e.ServicesOffersId);
 
+                entity.Property(e => e.ServicesOffersId).HasDefaultValueSql("(newid())");
+
+                entity.Property(e => e.OfferSyntax).HasMaxLength(200);
+
+                entity.Property(e => e.ServiceOfferDuration).HasMaxLength(200);
+
+                entity.Property(e => e.ServiceOfferCost).HasMaxLength(200);
+
+                entity.Property(e => e.SrRepId).HasMaxLength(450);
+
+                entity.Property(e => e.SrReqId).HasMaxLength(450);
+
+                entity.Property(e => e.SrOffId).HasMaxLength(450);
+
+                entity.Property(e => e.CreatedBy).HasMaxLength(200);
+
+                entity.Property(e => e.CreatedDate).HasColumnType("datetime");
+
+                entity.Property(e => e.Notes).HasMaxLength(200);
+
+                entity.Property(e => e.UpdatedBy).HasMaxLength(200);
+
+                entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
+
+                entity.HasOne(d => d.ServicesRequired)
+                    .WithMany(p => p.TbServicesOfferss)
+                    .HasForeignKey(d => d.ServicesRequiredId)
+                    .HasConstraintName("FK_TbServicesOffers_TbServicesRequired");
+            });
 
 
 

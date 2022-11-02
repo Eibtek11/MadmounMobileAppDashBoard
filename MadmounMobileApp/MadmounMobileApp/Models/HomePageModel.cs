@@ -145,6 +145,8 @@ namespace MadmounMobileApp.Models
 
         public IEnumerable<TbAdvices> lstAdvices { get; set; }
 
+        public IEnumerable<TbServicesOffers> LstServicesOffers { get; set; }
+
 
 
     }

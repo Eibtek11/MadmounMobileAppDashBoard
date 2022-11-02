@@ -859,6 +859,73 @@ namespace BL.Migrations
                     b.ToTable("TbServicesApproved");
                 });
 
+            modelBuilder.Entity("Domains.TbServicesOffers", b =>
+                {
+                    b.Property<Guid>("ServicesOffersId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("(newid())");
+
+                    b.Property<Guid?>("AreaId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("CityId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("CreatedBy")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime");
+
+                    b.Property<string>("Notes")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("OfferSyntax")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<Guid?>("ServiceId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("ServiceOfferCost")
+                        .HasMaxLength(200)
+                        .HasColumnType("int");
+
+                    b.Property<string>("ServiceOfferDuration")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("ServicesRequiredId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("SrOffId")
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("SrRepId")
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("SrReqId")
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime");
+
+                    b.HasKey("ServicesOffersId");
+
+                    b.HasIndex("ServicesRequiredId");
+
+                    b.ToTable("TbServicesOfferss");
+                });
+
             modelBuilder.Entity("Domains.TbServicesRequired", b =>
                 {
                     b.Property<Guid>("ServicesRequiredId")
@@ -1348,6 +1415,16 @@ namespace BL.Migrations
                     b.Navigation("Service");
                 });
 
+            modelBuilder.Entity("Domains.TbServicesOffers", b =>
+                {
+                    b.HasOne("Domains.TbServicesRequired", "ServicesRequired")
+                        .WithMany("TbServicesOfferss")
+                        .HasForeignKey("ServicesRequiredId")
+                        .HasConstraintName("FK_TbServicesOffers_TbServicesRequired");
+
+                    b.Navigation("ServicesRequired");
+                });
+
             modelBuilder.Entity("Domains.TbServicesRequired", b =>
                 {
                     b.HasOne("Domains.TbArea", "Area")
@@ -1557,6 +1634,11 @@ namespace BL.Migrations
                     b.Navigation("TbServiceApprovedImages");
 
                     b.Navigation("TbServiceApprovedMilstones");
+                });
+
+            modelBuilder.Entity("Domains.TbServicesRequired", b =>
+                {
+                    b.Navigation("TbServicesOfferss");
                 });
 #pragma warning restore 612, 618
         }

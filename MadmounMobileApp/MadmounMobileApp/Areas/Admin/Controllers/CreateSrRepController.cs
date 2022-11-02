@@ -90,7 +90,8 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
                     Email = oHomePageModel.Email,
                     UserName = oHomePageModel.Email,
                     LastName = oHomePageModel.LastName,
-                    state = 1
+                    state = 1,
+                    StateName= oHomePageModel.StateName
 
 
                 };

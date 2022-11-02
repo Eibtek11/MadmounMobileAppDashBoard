@@ -91,7 +91,8 @@ namespace MadmounMobileApp.Controllers
                     Email = oHomePageModel.Email,
                     UserName = oHomePageModel.Email,
                     LastName = oHomePageModel.LastName,
-                    state = oHomePageModel.state
+                    state = oHomePageModel.state,
+                    StateName = oHomePageModel.StateName,
 
 
                 };

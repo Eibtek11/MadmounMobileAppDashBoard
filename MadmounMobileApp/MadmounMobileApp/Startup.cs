@@ -49,6 +49,9 @@ namespace MadmounMobileApp
             services.AddScoped<ClientImagesService, ClsClientImages>();
             services.AddScoped<AdvertismentService, ClsAdvertisments>();
             services.AddScoped<AdviceService, ClsAdvice>();
+            services.AddScoped<ServicesOfferService, ClsServicesOffers>();
+
+            
             services.AddCors(options =>
             {
                 options.AddPolicy(MyAllowSpecificOrigins,

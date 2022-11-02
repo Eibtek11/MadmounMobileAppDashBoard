@@ -7,6 +7,12 @@ namespace Domains
 {
     public partial class TbServicesRequired
     {
+        public TbServicesRequired()
+        {
+
+            TbServicesOfferss = new HashSet<TbServicesOffers>();
+
+        }
         public Guid ServicesRequiredId { get; set; }
         public string ServiceSyntax { get; set; }
         public string SrRepId { get; set; }
@@ -24,5 +30,6 @@ namespace Domains
         public virtual TbArea Area { get; set; }
         public virtual TbCity City { get; set; }
         public virtual TbService Service { get; set; }
+        public virtual ICollection<TbServicesOffers> TbServicesOfferss { get; set; }
     }
 }

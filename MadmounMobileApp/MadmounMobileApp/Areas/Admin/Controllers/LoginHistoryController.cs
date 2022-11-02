@@ -3,6 +3,7 @@ using Domains;
 using MadmounMobileApp.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -19,13 +20,15 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
         CityService cityService;
         AreaService areaService;
         MadmounDbContext ctx;
-        public LoginHistoryController(LogInHistoryService LogInHistoryService,ComplainService complainService, CityService CityService, AreaService AreaService, MadmounDbContext context)
+        UserManager<ApplicationUser> Usermanager;
+        public LoginHistoryController(UserManager<ApplicationUser> usermanager, LogInHistoryService LogInHistoryService,ComplainService complainService, CityService CityService, AreaService AreaService, MadmounDbContext context)
         {
             areaService = AreaService;
             ctx = context;
             cityService = CityService;
             ComplainService = complainService;
             logInHistoryService = LogInHistoryService;
+            Usermanager = usermanager;
         }
         public IActionResult Index()
         {
@@ -34,6 +37,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             model.lstCities = cityService.getAll();
             model.lstComplains = ComplainService.getAll();
             model.lstLogInHistories = logInHistoryService.getAll();
+            model.lstUsers = Usermanager.Users.ToList();
             return View(model);
 
 

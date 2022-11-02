@@ -56,7 +56,7 @@
                         <h2 class="brand-text mb-0">تطبيق مضمون</h2>
                     </a>
                 </li>
-
+                <li class="nav-item nav-toggle"><a class="nav-link modern-nav-toggle pr-0" data-toggle="collapse"><i class="feather icon-x d-block d-xl-none font-medium-4 primary toggle-icon"></i><i class="toggle-icon feather icon-disc font-medium-4 d-none d-xl-block collapse-toggle-icon primary" data-ticon="icon-disc"></i></a></li>
             </ul>
         </div>
         <div class="shadow-bottom"></div>
@@ -83,10 +83,10 @@
                         <li>
                             <a asp-controller="ServiceCategory" asp-action="Index"><i class="feather icon-server"></i><span class="menu-item" data-i18n="eCommerce">اقسام الخدمات</span></a>
                         </li>
-                      
-                        <li>
-                            <a asp-controller="Complains" asp-action="Index"><i class="feather icon-headphones"></i><span class="menu-item" data-i18n="eCommerce">الشكاوي</span></a>
-                        </li>
+
+                        @* <li>
+                        <a asp-controller="Complains" asp-action="Index"><i class="feather icon-headphones"></i><span class="menu-item" data-i18n="eCommerce">الشكاوي</span></a>
+                        </li>*@
                         <li>
                             <a asp-controller="LoginHistory" asp-action="Index"><i class="feather icon-user-check"></i><span class="menu-item" data-i18n="eCommerce">المستخدمين النشطين</span></a>
                         </li>
@@ -131,6 +131,56 @@
                     </ul>
                 </li>
 
+
+
+
+                <li class=" nav-item">
+                    <a href="index.html"><i class="feather icon-bar-chart"></i><span class="menu-title" data-i18n="Dashboard">التقارير</span><span class="badge badge badge-warning badge-pill float-right mr-2">13</span></a>
+                    <ul class="menu-content">
+                        <li>
+                            <a asp-controller="Advertisment" asp-action="Index"><i class="feather icon-user"></i><span class="menu-item" data-i18n="eCommerce">المدفوعات لمقدمي الخدمة</span></a>
+                        </li>
+                        <li>
+                            <a asp-controller="Advertisment" asp-action="Index"><i class="feather icon-users"></i><span class="menu-item" data-i18n="Analytics"> المدوعات لمن اشرف عليهم<br /> ممثلي الخدمة</span></a>
+                        </li>
+                        <li>
+                            <a asp-controller="Advertisment" asp-action="Index"><i class="feather icon-octagon"></i><span class="menu-item" data-i18n="eCommerce"> المدفعوت للعميل </span></a>
+                        </li>
+                        <li>
+                            <a asp-controller="Advertisment" asp-action="Index"><i class="feather icon-layers"></i><span class="menu-item" data-i18n="eCommerce"> اجمالي المدفوعات</span></a>
+                        </li>
+                        <li>
+                            <a asp-controller="Advertisment" asp-action="Index"><i class="feather icon-shopping-cart"></i><span class="menu-item" data-i18n="eCommerce">المدفوعات  بالنسبه للمراحل <br /> والمراحل المتبقية للخدمات المستمرة</span></a>
+                        </li>
+                        <li>
+                            <a asp-controller="Advertisment" asp-action="Index"><i class="feather icon-server"></i><span class="menu-item" data-i18n="eCommerce">عدد الخدمات التي تم طلبها</span></a>
+                        </li>
+
+                        <li>
+                            <a asp-controller="Advertisment" asp-action="Index"><i class="feather icon-headphones"></i><span class="menu-item" data-i18n="eCommerce">عدد الخدمات التي تم<br />  قبول عروض اسعارها</span></a>
+                        </li>
+                        <li>
+                            <a asp-controller="Advertisment" asp-action="Index"><i class="feather icon-user-check"></i><span class="menu-item" data-i18n="eCommerce">عدد الخدمات التي تم<br />  رفض عروض اسعارها</span></a>
+                        </li>
+                        <li>
+                            <a asp-controller="Advertisment" asp-action="Index2"><i class="feather icon-shopping-cart"></i><span class="menu-item" data-i18n="eCommerce">رسم بياني يوضح <br /> اكثر الايام تفالا مع العملاء</span></a>
+                        </li>
+                        <li>
+                            <a asp-controller="Advertisment" asp-action="Index"><i class="feather icon-shopping-cart"></i><span class="menu-item" data-i18n="eCommerce">العملاء الذين رفضوا عروض<br />  و قبلوا اخري لنفس الخدمة</span></a>
+                        </li>
+                        <li>
+                            <a asp-controller="Advertisment" asp-action="Index"><i class="feather icon-tv"></i><span class="menu-item" data-i18n="eCommerce">عدد العملاء الفعالين</span></a>
+                        </li>
+                        <li>
+                            <a asp-controller="Advertisment" asp-action="Index2"><i class="feather icon-check-circle"></i><span class="menu-item" data-i18n="eCommerce">رسم بياني يوضح عدد<br />  مقدمي الخدمات حسب <br /> المناطق والمدن</span></a>
+                        </li>
+                        <li>
+                            <a asp-controller="Advertisment" asp-action="Index"><i class="feather icon-users"></i><span class="menu-item" data-i18n="eCommerce">عدد الخدمات ومالراحل المنفذة<br />  لكل عميل لاستخراج اتعاب مضمون</span></a>
+                        </li>
+
+
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>

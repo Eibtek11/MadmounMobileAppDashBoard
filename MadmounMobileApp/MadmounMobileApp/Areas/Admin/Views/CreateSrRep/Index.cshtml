@@ -84,6 +84,13 @@
                                                         <label for="user-password">كلمة السر</label>
                                                     </fieldset>
                                                     <fieldset class="form-label-group position-relative has-icon-left">
+                                                        <input type="text" class="form-control" asp-for="@Model.StateName" placeholder="نوع المستخدم" required>
+                                                        <div class="form-control-position">
+                                                            <i class="feather icon-lock"></i>
+                                                        </div>
+                                                        <label for="user-password">نوع المستخدم</label>
+                                                    </fieldset>
+                                                    <fieldset class="form-label-group position-relative has-icon-left">
                                                         <input type="file" class="form-control" name="files" placeholder="Personal Photo" required>
                                                         <div class="form-control-position">
                                                             <i class="feather icon-lock"></i>

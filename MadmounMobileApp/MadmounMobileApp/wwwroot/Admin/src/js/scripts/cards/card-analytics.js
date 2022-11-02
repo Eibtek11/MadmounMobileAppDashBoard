@@ -490,7 +490,7 @@ $(window).on("load", function(){
         colors: [$label_color, $label_color, $primary, $label_color, $label_color, $label_color],
         series: [{
             name: 'Sessions',
-            data: [75, 125, 225, 175, 125, 75, 25]
+            data: [75, 125, 500, 175, 125, 75, 25]
         }],
         grid: {
             show: false,
