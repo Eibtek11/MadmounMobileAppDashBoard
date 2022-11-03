@@ -9,6 +9,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Domains;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MadmounMobileApp.Controllers
 {
@@ -277,5 +278,39 @@ namespace MadmounMobileApp.Controllers
             }
 
         }
+
+
+        [AllowAnonymous, HttpGet("reset-password")]
+        public IActionResult ResetPassword(string uid, string token)
+        {
+            ResetPasswordModel resetPasswordModel = new ResetPasswordModel
+            {
+                Token = token,
+                UserId = uid
+            };
+            return View(resetPasswordModel);
+        }
+        [AllowAnonymous, HttpPost("reset-password")]
+        public async Task<IActionResult> ResetPassword(ResetPasswordModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                model.Token = model.Token.Replace(' ', '+');
+                var result = await Usermanager.ResetPasswordAsync(await Usermanager.FindByIdAsync(model.UserId), model.Token, model.NewPassword);
+                if (result.Succeeded)
+                {
+                    ModelState.Clear();
+                    model.IsSuccess = true;
+                    return View(model);
+                }
+
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+            }
+            return View(model);
+        }
+
     }
 }

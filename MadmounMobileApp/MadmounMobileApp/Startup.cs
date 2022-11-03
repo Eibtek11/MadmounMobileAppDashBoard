@@ -14,6 +14,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http.Features;
+using EmailService;
+using MadmounMobileApp.Controllers;
 
 namespace MadmounMobileApp
 {
@@ -30,6 +32,11 @@ namespace MadmounMobileApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var emailConfig = Configuration
+          .GetSection("EmailConfiguration")
+          .Get<EmailConfiguration>();
+            services.AddSingleton(emailConfig);
+            services.AddScoped<IEmailSender, EmailSender>();
             services.AddControllersWithViews();
             services.AddScoped<CityService, ClsCity>();
             services.AddScoped<AreaService, ClsArea>();
@@ -50,8 +57,8 @@ namespace MadmounMobileApp
             services.AddScoped<AdvertismentService, ClsAdvertisments>();
             services.AddScoped<AdviceService, ClsAdvice>();
             services.AddScoped<ServicesOfferService, ClsServicesOffers>();
+            services.AddScoped<IAccountRepository, AccountRepository>();
 
-            
             services.AddCors(options =>
             {
                 options.AddPolicy(MyAllowSpecificOrigins,
@@ -82,7 +89,7 @@ namespace MadmounMobileApp
                 options.User.RequireUniqueEmail = true;
                 options.Password.RequireDigit = false;
 
-            }).AddErrorDescriber<CustomIdentityErrorDescriber>().AddEntityFrameworkStores<MadmounDbContext>();
+            }).AddErrorDescriber<CustomIdentityErrorDescriber>().AddEntityFrameworkStores<MadmounDbContext>().AddDefaultTokenProviders();
             services.ConfigureApplicationCookie(options =>
             {
                 options.AccessDeniedPath = "/User/AccessDenied";

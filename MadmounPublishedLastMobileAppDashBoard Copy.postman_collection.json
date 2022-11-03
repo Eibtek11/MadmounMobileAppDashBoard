@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "7ab16a4e-ff77-4dfc-8cf4-41d862116513",
-		"name": "MadmounPublishedMobileAppDashBoard",
+		"_postman_id": "2ef54429-6c6b-47c4-9424-bd7e2d88628e",
+		"name": "MadmounPublishedLastMobileAppDashBoard Copy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "13191479"
 	},
@@ -495,6 +495,224 @@
 					"path": [
 						"api",
 						"RayadahCategoryApi"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login Api",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n    \"Email\" : \"ahmedmostafa706@gmail.com\",\r\n    \"Password\" : \"2812008a1A#\"\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://ismguk.com/api/UserLoginApi/login",
+					"protocol": "http",
+					"host": [
+						"ismguk",
+						"com"
+					],
+					"path": [
+						"api",
+						"UserLoginApi",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register Api",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "PersonalImage",
+							"type": "file",
+							"src": "/F:/New folder/images/3.PNG"
+						},
+						{
+							"key": "firstname",
+							"value": "ahmed",
+							"type": "text"
+						},
+						{
+							"key": "lastname",
+							"value": "ali",
+							"type": "text"
+						},
+						{
+							"key": "Email",
+							"value": "ahmedmostafa70888@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "Password",
+							"value": "2812008a1A#",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://ismguk.com/api/UserLoginApi/signup",
+					"protocol": "http",
+					"host": [
+						"ismguk",
+						"com"
+					],
+					"path": [
+						"api",
+						"UserLoginApi",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit User Api",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "firstname",
+							"value": "ayman",
+							"type": "text"
+						},
+						{
+							"key": "lastname",
+							"value": "dawzy",
+							"type": "text"
+						},
+						{
+							"key": "Email",
+							"value": "ahmedmostafa706@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "Password",
+							"value": "2812008a1A#",
+							"type": "text"
+						},
+						{
+							"key": "Id",
+							"value": "530971a4-c563-4b42-89c1-002b2ebc2505",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://ismguk.com/api/UserLoginApi/edit",
+					"protocol": "http",
+					"host": [
+						"ismguk",
+						"com"
+					],
+					"path": [
+						"api",
+						"UserLoginApi",
+						"edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit User Image Api",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "PersonalImage",
+							"type": "file",
+							"src": "/F:/New folder/images/25.PNG"
+						},
+						{
+							"key": "Id",
+							"value": "530971a4-c563-4b42-89c1-002b2ebc2505",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://ismguk.com/api/ImageUserChangeApi",
+					"protocol": "http",
+					"host": [
+						"ismguk",
+						"com"
+					],
+					"path": [
+						"api",
+						"ImageUserChangeApi"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reset Password Api Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Email",
+							"value": "ahmedmostafa706@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://ismguk.com/api/UserLoginApi/forget",
+					"protocol": "http",
+					"host": [
+						"ismguk",
+						"com"
+					],
+					"path": [
+						"api",
+						"UserLoginApi",
+						"forget"
 					]
 				}
 			},
