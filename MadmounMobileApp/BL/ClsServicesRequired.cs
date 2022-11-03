@@ -37,6 +37,7 @@ namespace BL
             {
                 //_4ZsoftwareCompanyTestTaskContext o_4ZsoftwareCompanyTestTaskContext = new _4ZsoftwareCompanyTestTaskContext();
                 item.ServicesRequiredId = Guid.NewGuid();
+                item.CreatedDate = DateTime.Now;
                 ctx.TbServicesRequireds.Add(item);
                 ctx.SaveChanges();
                 return true;

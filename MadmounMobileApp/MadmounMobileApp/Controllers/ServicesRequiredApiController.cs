@@ -1,8 +1,11 @@
 ﻿using BL;
 using Domains;
 using MadmounMobileApp.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -12,18 +15,20 @@ namespace MadmounMobileApp.Controllers
     [ApiController]
     public class ServicesRequiredApiController : ControllerBase
     {
+        UserManager<ApplicationUser> Usermanager;
         ServicesRequiredService servicesRequiredService;
         ComplainService ComplainService;
         CityService cityService;
         AreaService areaService;
         MadmounDbContext ctx;
-        public ServicesRequiredApiController(ServicesRequiredService ServicesRequiredService,ComplainService complainService, CityService CityService, AreaService AreaService, MadmounDbContext context)
+        public ServicesRequiredApiController(UserManager<ApplicationUser> usermanager, ServicesRequiredService ServicesRequiredService,ComplainService complainService, CityService CityService, AreaService AreaService, MadmounDbContext context)
         {
             areaService = AreaService;
             ctx = context;
             cityService = CityService;
             ComplainService = complainService;
             servicesRequiredService = ServicesRequiredService;
+            Usermanager = usermanager;
         }
         // GET: api/<ServicesRequiredApiController>
         [HttpGet]
@@ -34,9 +39,22 @@ namespace MadmounMobileApp.Controllers
 
         // GET api/<ServicesRequiredApiController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public IEnumerable<TbServicesRequired> Get(string id)
         {
-            return "value";
+            List<TbSrRepService> lstSrRepServices = ctx.TbSrRepServices.Where(a => a.Id == id).ToList();
+            List<TbServicesRequired> lstServicesRequired = ctx.TbServicesRequireds.ToList();
+            List<TbServicesRequired> lstServicesRequiredFinal = new List<TbServicesRequired>();
+            foreach (var i in lstSrRepServices)
+            {
+               foreach(var ii in lstServicesRequired)
+                {
+                    if(i.ServiceId == ii.ServiceId)
+                    {
+                        lstServicesRequiredFinal.Add(ii);
+                    }
+                }
+            }
+            return lstServicesRequiredFinal;
         }
 
         // POST api/<ServicesRequiredApiController>
@@ -45,10 +63,12 @@ namespace MadmounMobileApp.Controllers
         {
             TbServicesRequired oTbServicesRequired = new TbServicesRequired();
             oTbServicesRequired.ServiceSyntax = services.ServiceSyntax;
-            oTbServicesRequired.SrRepId = services.SrRepId;
+            
             oTbServicesRequired.SrReqId = services.SrReqId;
             oTbServicesRequired.ServiceId = services.ServiceId;
-
+            oTbServicesRequired.CreatedBy = services.CreatedBy;
+            oTbServicesRequired.CreatedDate = DateTime.Now;
+            oTbServicesRequired.UpdatedBy = Usermanager.Users.Where(a=> a.Id == oTbServicesRequired.SrReqId).FirstOrDefault().ServiceCategoryName;
             var result = servicesRequiredService.Add(oTbServicesRequired);
 
             if (!result)
@@ -59,6 +79,41 @@ namespace MadmounMobileApp.Controllers
             return Ok(result);
         }
 
+
+        [HttpPost("SendServiceBySrRep")]
+        public IActionResult SendServiceBySrRep([FromForm] ServicesRequiredBySrRepViewPageModel services)
+        {
+            TbServicesRequired oTbServicesRequired = ctx.TbServicesRequireds.Where(a => a.ServicesRequiredId == services.ServicesRequiredId).FirstOrDefault();
+            oTbServicesRequired.SrRepId = services.SrRepId;
+
+           
+
+            var result = servicesRequiredService.Edit(oTbServicesRequired);
+
+            if (!result)
+            {
+                return Unauthorized();
+
+            }
+            return Ok(result);
+        }
+        [HttpPost("SendServiceBySrRepLast")]
+        public IActionResult SendServiceBySrRepLast([FromForm] ServicesRequiredBySrRepViewPageModelLast services)
+        {
+            TbServicesRequired oTbServicesRequired = ctx.TbServicesRequireds.Where(a => a.ServicesRequiredId == services.ServicesRequiredId).FirstOrDefault();
+            oTbServicesRequired.SrRequiredDescription = services.SrRequiredDescription;
+
+
+
+            var result = servicesRequiredService.Edit(oTbServicesRequired);
+
+            if (!result)
+            {
+                return Unauthorized();
+
+            }
+            return Ok(result);
+        }
 
         // PUT api/<ServicesRequiredApiController>/5
         [HttpPut("{id}")]

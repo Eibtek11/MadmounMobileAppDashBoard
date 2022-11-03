@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using System;
 
 namespace MadmounMobileApp.Models
 {
@@ -22,6 +23,15 @@ namespace MadmounMobileApp.Models
         public string image { get; set; }
 
         public string Password { get; set; }
+
+        public string CityName { get; set; }
+        public string UpdatedBy { get; set; }
+
+        public string Gender { get; set; }
+
+        public string Notes { get; set; }
+
+        public string StateName { get; set; }
 
 
     }

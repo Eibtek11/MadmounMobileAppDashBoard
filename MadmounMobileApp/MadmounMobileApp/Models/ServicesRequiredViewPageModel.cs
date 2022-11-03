@@ -10,5 +10,8 @@ namespace MadmounMobileApp.Models
 
         public string SrReqId { get; set; }
         public Guid? ServiceId { get; set; }
+
+
+        public string CreatedBy { get; set; }
     }
 }

@@ -60,8 +60,12 @@ namespace MadmounMobileApp.Controllers
                 ServiceCategoryName = signUpModel.image,
                 Email = signUpModel.Email,
                 UserName = signUpModel.Email,
-                LastName = signUpModel.LastName
-
+                LastName = signUpModel.LastName,
+                CityName = signUpModel.CityName,
+                UpdatedBy = signUpModel.UpdatedBy,
+                Gender = signUpModel.Gender,
+                Notes = signUpModel.Notes,
+                StateName = signUpModel.StateName
 
             };
             await Usermanager.CreateAsync(user, signUpModel.Password);
