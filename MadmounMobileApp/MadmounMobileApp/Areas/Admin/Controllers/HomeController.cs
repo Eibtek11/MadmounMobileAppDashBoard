@@ -42,9 +42,9 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             HomePageModel model = new HomePageModel();
            
 
-            ViewBag.lstUsers = Usermanager.Users.Where(a => a.state == 0).Count();
-            ViewBag.lstSrRepService = Usermanager.Users.Where(a => a.state == 1).Count();
-            ViewBag.lstSrOffServiceS = Usermanager.Users.Where(a => a.state == 2).Count();
+            ViewBag.lstUsers = Usermanager.Users.Where(a => a.StateName == "طالب خدمة").Count();
+            ViewBag.lstSrRepService = Usermanager.Users.Where(a => a.StateName == "ممثل خدمة").Count();
+            ViewBag.lstSrOffServiceS = Usermanager.Users.Where(a => a.StateName == "مقدم خدمة").Count();
             model.lstCities = cityService.getAll();
             ViewBag.lstCities = model.lstCities.Count();
             model.lstAreas = areaService.getAll();

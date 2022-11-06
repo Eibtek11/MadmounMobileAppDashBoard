@@ -1,4 +1,5 @@
 ﻿using BL;
+using BL.Models;
 using Domains;
 using System;
 using System.Collections.Generic;
@@ -146,8 +147,11 @@ namespace MadmounMobileApp.Models
         public IEnumerable<TbAdvices> lstAdvices { get; set; }
 
         public IEnumerable<TbServicesOffers> LstServicesOffers { get; set; }
+        public IEnumerable<TbLastDevelopments> LstLastDevelopments { get; set; }
 
+        public IEnumerable<TbTransaction> LstTransactionS { get; set; }
 
+        public IEnumerable<GetPayment> LstGetPayment { get; set; }
 
     }
 }

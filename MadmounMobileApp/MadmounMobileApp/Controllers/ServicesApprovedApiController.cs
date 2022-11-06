@@ -54,7 +54,9 @@ namespace MadmounMobileApp.Controllers
             oTbServicesApproved.SrOffId = services.SrOffId;
             oTbServicesApproved.CreatedBy = services.CreatedBy;
             oTbServicesApproved.Notes = services.Notes;
-            
+            oTbServicesApproved.ServiceId = services.ServiceId;
+            oTbServicesApproved.CityId = services.CityId;
+            oTbServicesApproved.AreaId = services.AreaId;
 
             var result = servicesApprovedService.Add(oTbServicesApproved);
 

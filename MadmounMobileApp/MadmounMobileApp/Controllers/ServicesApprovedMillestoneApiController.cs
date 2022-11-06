@@ -2,7 +2,9 @@
 using Domains;
 using MadmounMobileApp.Models;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -38,9 +40,9 @@ namespace MadmounMobileApp.Controllers
 
         // GET api/<ServicesApprovedMillestoneApiController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public IEnumerable<TbServiceApprovedMilstone> Get(Guid id)
         {
-            return "value";
+            return ctx.TbServiceApprovedMilstones.Where(a => a.ServiceApprovedId == id).ToList();
         }
 
         // POST api/<ServicesApprovedMillestoneApiController>
@@ -50,6 +52,7 @@ namespace MadmounMobileApp.Controllers
             TbServiceApprovedMilstone oTbServiceApprovedMilstone = new TbServiceApprovedMilstone();
             oTbServiceApprovedMilstone.ServiceApprovedMilstoneDesc = services.ServiceApprovedMilstoneDesc;
             oTbServiceApprovedMilstone.CreatedBy = services.CreatedBy;
+            oTbServiceApprovedMilstone.UpdatedBy = services.UpdatedBy;
             oTbServiceApprovedMilstone.ServiceApprovedId = services.ServiceApprovedId;
            
 

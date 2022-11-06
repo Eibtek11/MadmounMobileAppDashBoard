@@ -45,7 +45,8 @@ namespace BL
         public virtual DbSet<TbAdvices> TbAdvicess { get; set; }
 
         public virtual DbSet<TbServicesOffers> TbServicesOfferss { get; set; }
-
+        public virtual DbSet<TbLastDevelopments> TbLastDevelopmentss { get; set; }
+        public virtual DbSet<TbTransaction> TbTransactions { get; set; }
         
 
 
@@ -63,6 +64,58 @@ namespace BL
             base.OnModelCreating(modelBuilder);
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
 
+            modelBuilder.Entity<TbTransaction>(entity =>
+            {
+                entity.HasKey(e => e.TransactionId);
+
+                entity.Property(e => e.TransactionId).HasDefaultValueSql("(newid())");
+
+                entity.Property(e => e.ServicesRequiredId).HasColumnType("uniqueidentifier");
+
+                entity.Property(e => e.ServicesOffersId).HasColumnType("uniqueidentifier");
+
+                entity.Property(e => e.ServiceApprovedId).HasColumnType("uniqueidentifier");
+
+                entity.Property(e => e.ServiceSyntax).HasMaxLength(450);
+
+                entity.Property(e => e.SrRepId).HasMaxLength(450);
+
+                entity.Property(e => e.SrReqId).HasMaxLength(450);
+
+                entity.Property(e => e.SrOffId).HasMaxLength(450);
+
+                entity.Property(e => e.ServiceId).HasColumnType("uniqueidentifier");
+
+                entity.Property(e => e.ServiceName).HasMaxLength(450);
+
+                entity.Property(e => e.ServiceCategoryId).HasColumnType("uniqueidentifier");
+
+                entity.Property(e => e.ServiceCategoryName).HasMaxLength(450);
+
+                entity.Property(e => e.CityId).HasColumnType("uniqueidentifier");
+
+                entity.Property(e => e.CityName).HasMaxLength(450);
+
+                entity.Property(e => e.AreaId).HasColumnType("uniqueidentifier");
+
+                entity.Property(e => e.AreaName).HasMaxLength(450);
+
+                entity.Property(e => e.ServiceApprovedMilstoneId).HasColumnType("uniqueidentifier");
+
+                entity.Property(e => e.ServiceApprovedMilstoneDesc).HasMaxLength(450);
+
+                entity.Property(e => e.CreatedBy).HasMaxLength(200);
+
+                entity.Property(e => e.CreatedDate).HasColumnType("datetime").HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.Notes).HasMaxLength(200);
+
+                entity.Property(e => e.UpdatedBy).HasMaxLength(200);
+
+                entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
+
+              
+            });
             modelBuilder.Entity<TbArea>(entity =>
             {
                 entity.HasKey(e => e.AreaId);
@@ -413,6 +466,35 @@ namespace BL
                 entity.Property(e => e.AdviceDescription).HasMaxLength(200);
 
                 entity.Property(e => e.AdvertisementImage).HasMaxLength(200);
+
+                entity.Property(e => e.CreatedDate).HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.CreatedDate).HasColumnType("datetime");
+
+                entity.Property(e => e.Notes).HasMaxLength(200);
+
+                entity.Property(e => e.CreatedBy).HasMaxLength(200);
+
+                entity.Property(e => e.UpdatedBy).HasMaxLength(200);
+
+                entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
+
+
+            });
+
+
+
+            modelBuilder.Entity<TbLastDevelopments>(entity =>
+            {
+                entity.HasKey(e => e.LastDevelopmentId);
+
+                entity.Property(e => e.LastDevelopmentId).HasDefaultValueSql("(newid())");
+
+                entity.Property(e => e.LastDevelopmentName).HasMaxLength(200);
+
+                entity.Property(e => e.LastDevelopmentDescription).HasMaxLength(200);
+
+                entity.Property(e => e.LastDevelopmentImage).HasMaxLength(200);
 
                 entity.Property(e => e.CreatedDate).HasDefaultValueSql("(getdate())");
 

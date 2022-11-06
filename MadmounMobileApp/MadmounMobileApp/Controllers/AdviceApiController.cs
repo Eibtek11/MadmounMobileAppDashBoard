@@ -1,6 +1,7 @@
 ﻿using BL;
 using Domains;
 using MadmounMobileApp.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace MadmounMobileApp.Controllers
     [ApiController]
     public class AdviceApiController : ControllerBase
     {
+        UserManager<ApplicationUser> Usermanager;
         AdviceService adviceService;
         AdvertismentService advertismentService;
         ServiceCategoryService srviceCategoryService;
@@ -22,7 +24,7 @@ namespace MadmounMobileApp.Controllers
         CityService cityService;
         AreaService areaService;
         MadmounDbContext ctx;
-        public AdviceApiController(AdviceService AdviceService ,AdvertismentService AdvertismentService, ServiceCategoryService SrviceCategoryService, ServiceService ServiceService, CityService CityService, AreaService AreaService, MadmounDbContext context)
+        public AdviceApiController(UserManager<ApplicationUser> usermanager,AdviceService AdviceService ,AdvertismentService AdvertismentService, ServiceCategoryService SrviceCategoryService, ServiceService ServiceService, CityService CityService, AreaService AreaService, MadmounDbContext context)
         {
            
             areaService = AreaService;
@@ -32,7 +34,8 @@ namespace MadmounMobileApp.Controllers
             srviceCategoryService = SrviceCategoryService;
             advertismentService = AdvertismentService;
             adviceService = AdviceService;
-    }
+            Usermanager = usermanager;
+        }
         // GET: api/<AdviceApiController>
         [HttpGet]
         public IEnumerable<TbAdvices> Get()
@@ -44,9 +47,12 @@ namespace MadmounMobileApp.Controllers
 
         // GET api/<AdviceApiController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public IEnumerable<TbAdvices> Get(string id)
         {
-            return "value";
+            HomePageModel model = new HomePageModel();
+
+            model.lstAdvices = adviceService.getAll().Where(a=> a.CreatedBy == Usermanager.Users.Where(a=> a.Id == id).FirstOrDefault().StateName);
+            return model.lstAdvices;
         }
 
         // POST api/<AdviceApiController>

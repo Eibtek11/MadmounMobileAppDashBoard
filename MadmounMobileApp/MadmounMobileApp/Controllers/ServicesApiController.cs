@@ -1,6 +1,7 @@
 ﻿using BL;
 using Domains;
 using MadmounMobileApp.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -41,9 +42,12 @@ namespace MadmounMobileApp.Controllers
 
         // GET api/<ServicesApiController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public IEnumerable<TbService> Get(Guid id)
         {
-            return "value";
+            HomePageModel model = new HomePageModel();
+
+            model.lstServices = serviceService.getAll().Where(a => a.ServiceCategoryId == id).ToList();
+            return model.lstServices;
         }
 
         // POST api/<ServicesApiController>

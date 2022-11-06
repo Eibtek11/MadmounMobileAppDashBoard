@@ -2,7 +2,9 @@
 using Domains;
 using MadmounMobileApp.Models;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -40,9 +42,9 @@ namespace MadmounMobileApp.Controllers
 
         // GET api/<ServicesApprovedImageApiController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public IEnumerable<TbServiceApprovedImage> Get(Guid id)
         {
-            return "value";
+            return ctx.TbServiceApprovedImages.Where(a => a.ServiceApprovedId == id).ToList();
         }
 
         // POST api/<ServicesApprovedImageApiController>

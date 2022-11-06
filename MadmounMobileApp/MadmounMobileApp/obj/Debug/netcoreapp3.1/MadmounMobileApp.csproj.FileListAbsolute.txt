@@ -297,3 +297,8 @@ F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\runtimes
 F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\EmailServices.dll
 F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\EmailServices.pdb
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Views\User\ResetPassword.cshtml.g.cs
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\LastDevelopment\Form.cshtml.g.cs
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\LastDevelopment\Index.cshtml.g.cs
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Transaction\Form.cshtml.g.cs
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Transaction\Index.cshtml.g.cs
+F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\Dapper.dll

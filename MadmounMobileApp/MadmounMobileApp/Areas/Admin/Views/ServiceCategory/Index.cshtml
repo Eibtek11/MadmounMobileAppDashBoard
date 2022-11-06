@@ -697,7 +697,7 @@
 
                                     <th></th>
 
-
+                                    <th>صورة الخدمة</th>
                                     @*<th>اسم الشركة</th>*@
                                     <th>قسم الخدمة</th>
 
@@ -716,7 +716,9 @@
 
 
                                         <td></td>
-
+                                        <td class="product-img">
+                                            <img src="@string.Format("/Uploads/{0}",item.CreatedBy)" alt="Img placeholder">
+                                        </td>
                                         @*<td class="product-name">@item.CompanyDescription</td>*@
 
                                         <td class="product-category">@item.ServiceCategoryName</td>
