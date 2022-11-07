@@ -14,6 +14,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
     [Authorize(Roles = "Admin")]
     public class HomeController : Controller
     {
+        IGetChat getChat;
         LogInHistoryService logInHistoryService;
         SrrepService srrepService;
         SrOffService srOffService;
@@ -24,7 +25,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
         AreaService areaService;
         MadmounDbContext ctx;
         UserManager<ApplicationUser> Usermanager;
-        public HomeController(LogInHistoryService LogInHistoryService,UserManager<ApplicationUser> usermanager ,SrrepService SrrepService,SrOffService SrOffService,AdvertismentService AdvertismentService, ServiceCategoryService SrviceCategoryService, ServiceService ServiceService, CityService CityService, AreaService AreaService, MadmounDbContext context)
+        public HomeController(IGetChat GetChat,LogInHistoryService LogInHistoryService,UserManager<ApplicationUser> usermanager ,SrrepService SrrepService,SrOffService SrOffService,AdvertismentService AdvertismentService, ServiceCategoryService SrviceCategoryService, ServiceService ServiceService, CityService CityService, AreaService AreaService, MadmounDbContext context)
         {
             areaService = AreaService;
             ctx = context;
@@ -36,6 +37,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             srrepService = SrrepService;
              Usermanager = usermanager;
             logInHistoryService = LogInHistoryService;
+            getChat = GetChat;
         }
         public IActionResult Index()
         {
@@ -82,6 +84,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             
             ViewBag.lstLogInHistoriesMonths = activeMonths.Count();
             model.lstAdvertisements = advertismentService.getAll();
+            //model.LstGetPayment = getChat.GetAll(DateTime.Parse("2022-11-05 22:17:26.510") , DateTime.Parse("2022-11-05 22:44:32.590"));
             return View(model);
         }
     }

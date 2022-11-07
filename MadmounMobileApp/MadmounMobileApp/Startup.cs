@@ -60,6 +60,7 @@ namespace MadmounMobileApp
             services.AddScoped<IAccountRepository, AccountRepository>();
             services.AddScoped<LastDevelopmentService, ClsLastDevelopment > ();
             services.AddScoped<TransactionService, ClsTransaction>();
+            services.AddScoped<IGetChat, ClsGetPayment>();
             services.AddCors(options =>
             {
                 options.AddPolicy(MyAllowSpecificOrigins,

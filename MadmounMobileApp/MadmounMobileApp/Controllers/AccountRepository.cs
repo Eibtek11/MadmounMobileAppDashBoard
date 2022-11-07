@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using System;
 using EmailService;
 using System.Linq;
+using Org.BouncyCastle.Utilities;
+using System.Security.Cryptography.X509Certificates;
 
 namespace MadmounMobileApp.Controllers
 {
@@ -69,7 +71,7 @@ namespace MadmounMobileApp.Controllers
 
             };
             await Usermanager.CreateAsync(user, signUpModel.Password);
-            var res2 = Usermanager.Users.Where(a => a.UserName == user.Email).FirstOrDefault();
+            var res2 = Usermanager.Users.Where(a => a.Id == user.Id).FirstOrDefault();
             return res2;
         }
 
@@ -122,8 +124,12 @@ namespace MadmounMobileApp.Controllers
             user.UserName = model.UserName;
             user.FirstName = model.FirstName;
             user.LastName = model.LastName;
-
-
+            user.CityName = model.CityName;
+            user.UpdatedBy = model.UpdatedBy;
+            user.Gender = model.Gender;
+            user.Notes = model.Notes;
+            user.StateName = model.StateName;
+            user.UserName = model.Email;
 
 
 

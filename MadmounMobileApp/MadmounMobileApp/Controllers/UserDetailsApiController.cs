@@ -38,7 +38,8 @@ namespace MadmounMobileApp.Controllers
         [HttpGet("{id}")]
         public ApplicationUser Get(string id)
         {
-            return Usermanager.Users.Where(a => a.Id == id).FirstOrDefault();
+            var result = Usermanager.Users.Where(a => a.Id == id).FirstOrDefault();
+            return result;
         }
 
         // POST api/<UserDetailsApiController>
