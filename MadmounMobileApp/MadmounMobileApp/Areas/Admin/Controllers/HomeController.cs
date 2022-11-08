@@ -14,6 +14,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
     [Authorize(Roles = "Admin")]
     public class HomeController : Controller
     {
+        ServiceApprovedMilstoneService serviceApprovedMilstoneService;
         IGetChat getChat;
         LogInHistoryService logInHistoryService;
         SrrepService srrepService;
@@ -25,7 +26,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
         AreaService areaService;
         MadmounDbContext ctx;
         UserManager<ApplicationUser> Usermanager;
-        public HomeController(IGetChat GetChat,LogInHistoryService LogInHistoryService,UserManager<ApplicationUser> usermanager ,SrrepService SrrepService,SrOffService SrOffService,AdvertismentService AdvertismentService, ServiceCategoryService SrviceCategoryService, ServiceService ServiceService, CityService CityService, AreaService AreaService, MadmounDbContext context)
+        public HomeController(ServiceApprovedMilstoneService ServiceApprovedMilstoneService,IGetChat GetChat,LogInHistoryService LogInHistoryService,UserManager<ApplicationUser> usermanager ,SrrepService SrrepService,SrOffService SrOffService,AdvertismentService AdvertismentService, ServiceCategoryService SrviceCategoryService, ServiceService ServiceService, CityService CityService, AreaService AreaService, MadmounDbContext context)
         {
             areaService = AreaService;
             ctx = context;
@@ -38,6 +39,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
              Usermanager = usermanager;
             logInHistoryService = LogInHistoryService;
             getChat = GetChat;
+            serviceApprovedMilstoneService = ServiceApprovedMilstoneService;
         }
         public IActionResult Index()
         {
@@ -81,10 +83,61 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
                      k = myVar.Key,
                      c = myVar.Count()
                  });
-            
+            ViewBag.cities = Usermanager.Users.Where(a => a.StateName == "مقدم خدمة").ToList();
             ViewBag.lstLogInHistoriesMonths = activeMonths.Count();
             model.lstAdvertisements = advertismentService.getAll();
-            //model.LstGetPayment = getChat.GetAll(DateTime.Parse("2022-11-05 22:17:26.510") , DateTime.Parse("2022-11-05 22:44:32.590"));
+           
+            return View(model);
+        }
+
+
+
+        public IActionResult Payment(string Id , string DateOne , string DateTwo)
+        {
+            HomePageModel model = new HomePageModel();
+            model.lstServices = serviceService.getAll();
+            model.lstCities = cityService.getAll();
+            model.lstAreas = areaService.getAll();
+            model.lstServiceApprovedMilstone = serviceApprovedMilstoneService.getAll();
+
+            ViewBag.cities = Usermanager.Users.Where(a => a.StateName == "مقدم خدمة").ToList();
+            model.LstGetPayment = getChat.GetAll(DateTime.Parse("2020-11-05 22:17:26.510"), DateTime.Now);
+            if (Id != null)
+            {
+                model.LstGetPayment = getChat.GetAll(DateTime.Parse(DateOne), DateTime.Parse(DateTwo)).Where(a=> a.SrOffId == Id);
+            }
+            return View(model);
+        }
+        public IActionResult Payment2(string Id, string DateOne, string DateTwo)
+        {
+            HomePageModel model = new HomePageModel();
+            model.lstServices = serviceService.getAll();
+            model.lstCities = cityService.getAll();
+            model.lstAreas = areaService.getAll();
+            model.lstServiceApprovedMilstone = serviceApprovedMilstoneService.getAll();
+
+            ViewBag.cities = Usermanager.Users.Where(a => a.StateName == "ممثل خدمة").ToList();
+            model.LstGetPayment = getChat.GetAll(DateTime.Parse("2020-11-05 22:17:26.510"), DateTime.Now);
+            if (Id != null)
+            {
+                model.LstGetPayment = getChat.GetAll(DateTime.Parse(DateOne), DateTime.Parse(DateTwo)).Where(a => a.SrRepId == Id);
+            }
+            return View(model);
+        }
+        public IActionResult Payment3(string Id, string DateOne, string DateTwo)
+        {
+            HomePageModel model = new HomePageModel();
+            model.lstServices = serviceService.getAll();
+            model.lstCities = cityService.getAll();
+            model.lstAreas = areaService.getAll();
+            model.lstServiceApprovedMilstone = serviceApprovedMilstoneService.getAll();
+
+            ViewBag.cities = Usermanager.Users.Where(a => a.StateName == "طالب خدمة").ToList();
+            model.LstGetPayment = getChat.GetAll(DateTime.Parse("2020-11-05 22:17:26.510"), DateTime.Now);
+            if (Id != null && DateOne!=null && DateTwo!=null)
+            {
+                model.LstGetPayment = getChat.GetAll(DateTime.Parse(DateOne), DateTime.Parse(DateTwo)).Where(a => a.SrReqId == Id);
+            }
             return View(model);
         }
     }

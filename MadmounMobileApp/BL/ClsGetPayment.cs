@@ -41,7 +41,7 @@ namespace BL
                 dbConnection.Open();
 
                
-                var SQL = string.Format("EXECUTE dbo.SpGetPayment @DateOne=[{0}] , @DateTwo=[{1}]");
+                var SQL = string.Format("EXECUTE dbo.SpGetPayment @DateOne=[{0}] , @DateTwo=[{1}]" , DateOne, DateTwo);
                 IEnumerable<GetPayment> GetAll = dbConnection.Query<GetPayment>(SQL);
                 return GetAll;
             }

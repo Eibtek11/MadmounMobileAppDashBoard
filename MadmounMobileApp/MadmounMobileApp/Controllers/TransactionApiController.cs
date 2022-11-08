@@ -63,6 +63,7 @@ namespace MadmounMobileApp.Controllers
             oTbTransaction.ServiceApprovedMilstoneId = oTbServiceApprovedMilstone.ServiceApprovedMilstoneId;
             oTbTransaction.CreatedBy = services.CreatedBy;
             oTbTransaction.ServiceApprovedId = (Guid)oTbServiceApprovedMilstone.ServiceApprovedId;
+            oTbTransaction.ServicesOffersId = Guid.Parse(oldItem.SrOffId);
             transactionService.Add(oTbTransaction);
             return oTbTransaction;
         }
