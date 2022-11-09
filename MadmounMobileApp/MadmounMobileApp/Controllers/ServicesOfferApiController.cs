@@ -2,7 +2,9 @@
 using Domains;
 using MadmounMobileApp.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Linq;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -36,9 +38,9 @@ namespace MadmounMobileApp.Controllers
 
         // GET api/<ServicesOfferApiController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public IEnumerable<TbServicesRequired> Get(string id)
         {
-            return "value";
+            return ctx.TbServicesRequireds.Include(a => a.Service).Include(a=> a.TbServicesOfferss).ToList().Where(a => a.SrReqId == id);
         }
 
         // POST api/<ServicesOfferApiController>

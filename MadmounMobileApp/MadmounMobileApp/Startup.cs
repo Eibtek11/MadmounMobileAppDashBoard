@@ -37,7 +37,8 @@ namespace MadmounMobileApp
           .Get<EmailConfiguration>();
             services.AddSingleton(emailConfig);
             services.AddScoped<IEmailSender, EmailSender>();
-            services.AddControllersWithViews();
+            services.AddControllersWithViews().AddNewtonsoftJson(options =>options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+);
             services.AddScoped<CityService, ClsCity>();
             services.AddScoped<AreaService, ClsArea>();
             services.AddScoped<ServiceCategoryService, ClsServiceCategories>();

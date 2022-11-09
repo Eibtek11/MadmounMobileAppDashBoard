@@ -13,7 +13,7 @@ namespace Domains
             TbChatSrOffSrReqs = new HashSet<TbChatSrOffSrReq>();
             TbChatSrRepSroffs = new HashSet<TbChatSrRepSroff>();
             TbServicesApproveds = new HashSet<TbServicesApproved>();
-            TbServicesRequireds = new HashSet<TbServicesRequired>();
+            //TbServicesRequireds = new HashSet<TbServicesRequired>();
             TbSrOffCities = new HashSet<TbSrOffCity>();
             TbSrRepCities = new HashSet<TbSrRepCity>();
         }
@@ -30,7 +30,7 @@ namespace Domains
         public virtual ICollection<TbChatSrOffSrReq> TbChatSrOffSrReqs { get; set; }
         public virtual ICollection<TbChatSrRepSroff> TbChatSrRepSroffs { get; set; }
         public virtual ICollection<TbServicesApproved> TbServicesApproveds { get; set; }
-        public virtual ICollection<TbServicesRequired> TbServicesRequireds { get; set; }
+        //public virtual ICollection<TbServicesRequired> TbServicesRequireds { get; set; }
         public virtual ICollection<TbSrOffCity> TbSrOffCities { get; set; }
         public virtual ICollection<TbSrRepCity> TbSrRepCities { get; set; }
     }

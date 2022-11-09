@@ -102,9 +102,9 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
 
             ViewBag.cities = Usermanager.Users.Where(a => a.StateName == "مقدم خدمة").ToList();
             model.LstGetPayment = getChat.GetAll(DateTime.Parse("2020-11-05 22:17:26.510"), DateTime.Now);
-            if (Id != null)
+            if (Id != null && DateOne != null && DateTwo != null)
             {
-                model.LstGetPayment = getChat.GetAll(DateTime.Parse(DateOne), DateTime.Parse(DateTwo)).Where(a=> a.SrOffId == Id);
+                model.LstGetPayment = getChat.GetAll(DateTime.Parse(DateOne), DateTime.Parse(DateTwo)).Where(a => a.SrReqId == Id);
             }
             return View(model);
         }
@@ -118,9 +118,9 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
 
             ViewBag.cities = Usermanager.Users.Where(a => a.StateName == "ممثل خدمة").ToList();
             model.LstGetPayment = getChat.GetAll(DateTime.Parse("2020-11-05 22:17:26.510"), DateTime.Now);
-            if (Id != null)
+            if (Id != null && DateOne != null && DateTwo != null)
             {
-                model.LstGetPayment = getChat.GetAll(DateTime.Parse(DateOne), DateTime.Parse(DateTwo)).Where(a => a.SrRepId == Id);
+                model.LstGetPayment = getChat.GetAll(DateTime.Parse(DateOne), DateTime.Parse(DateTwo)).Where(a => a.SrReqId == Id);
             }
             return View(model);
         }

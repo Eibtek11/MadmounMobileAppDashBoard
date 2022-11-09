@@ -305,3 +305,6 @@ F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\Razor\
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\Razor\Areas\Admin\Views\Home\Payment.cshtml.g.cs
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\Razor\Areas\Admin\Views\Home\Payment2.cshtml.g.cs
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\Razor\Areas\Admin\Views\Home\Payment3.cshtml.g.cs
+F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Release\netcoreapp3.1\Newtonsoft.Json.Bson.dll

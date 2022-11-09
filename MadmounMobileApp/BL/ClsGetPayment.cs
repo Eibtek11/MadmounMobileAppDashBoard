@@ -20,7 +20,7 @@ namespace BL
         public ClsGetPayment(MadmounDbContext contex)
         {
             ctx = contex;
-            connectionString = @"Server=DESKTOP-262OT74;Database=MadmounDb;Trusted_Connection=True;";
+            connectionString = @"Server=SQL5105.site4now.net;Database=db_a788b5_madmoundatabase;User Id=db_a788b5_madmoundatabase_admin;Password=2812008a1A@;";
             //connectionString = @"Server=SQL5103.site4now.net;Database=db_a788b5_habibaahmedm;User Id=db_a788b5_habibaahmedm_admin;Password=2812008a1";
         }
 

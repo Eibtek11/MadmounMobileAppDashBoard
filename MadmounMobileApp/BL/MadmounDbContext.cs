@@ -657,10 +657,10 @@ namespace BL
                     .HasForeignKey(d => d.AreaId)
                     .HasConstraintName("FK_TbServicesRequired_TbAreas");
 
-                entity.HasOne(d => d.City)
-                    .WithMany(p => p.TbServicesRequireds)
-                    .HasForeignKey(d => d.CityId)
-                    .HasConstraintName("FK_TbServicesRequired_TbCities");
+                //entity.HasOne(d => d.City)
+                //    .WithMany(p => p.TbServicesRequireds)
+                //    .HasForeignKey(d => d.CityId)
+                //    .HasConstraintName("FK_TbServicesRequired_TbCities");
 
                 entity.HasOne(d => d.Service)
                     .WithMany(p => p.TbServicesRequireds)
