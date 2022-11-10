@@ -691,6 +691,42 @@
                         </div>
                     </div>
                     <!-- dataTable starts -->
+
+                     <div class="action-btns d-none">
+                        <div class="btn-dropdown mr-1 mb-1">
+                            <div class="btn-group dropdown actions-dropodown">
+                                <a asp-controller="City" asp-action="Form"><button class="btn btn-primary mr-1 mb-1">اضف مدينة جديدة</button></a>
+                            </div>
+                        </div>
+                    </div>
+
+                         <div class="row">
+
+                              @*  <div class="col-md-6 form-group">
+                                    <label class="col-sm-1 control-label">طالب الخدمة</label>
+                                    <div class="col-sm-11 form-group">
+                                @Html.DropDownList("Id", (new SelectList(ViewBag.cities , "Id" , "Email")), "اختر" , new { @class = "form-control select2 col-sm-9 form-control", id = "CourseDdl" })
+                                    </div>
+                                </div>*@
+
+
+
+
+                                <div class="col-md-3 form-group">
+                            <label class="col-sm-1 control-label">من تاريخ</label>
+                            <div class="col-sm-11 form-group">
+                                <input id="CourseDdl2" type="datetime-local" required />
+                            </div>
+                        </div>
+                                <div class="col-md-3 form-group">
+                            <label class="col-sm-1 control-label">الي تاريخ</label>
+                            <div class="col-sm-11 form-group">
+                                <input id="CourseDdl3" type="datetime-local" required />
+                            </div>
+                        </div>
+
+
+                         </div>
                     <div class="table-responsive">
                         <table class="table data-thumb-view">
                             <thead>
@@ -710,7 +746,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach (var item in Model.lstServicesApprovedS)
+                                @foreach (var item in Model.LstGetServicesApproed)
                                 {
 
 
@@ -743,6 +779,7 @@
                                         <td class="product-action">
                                             <a asp-controller="ServicesApproved" asp-action="Form" asp-route-id="@item.ServiceApprovedId"><span><i class="feather icon-edit"></i></span></a>
                                             <a asp-controller="ServicesApproved" asp-action="Delete" asp-route-id="@item.ServiceApprovedId"><span class="action-delete"><i class="feather icon-trash"></i></span></a>
+                                            <a asp-controller="ServicesApproved" asp-action="Final" asp-route-id="@item.ServiceApprovedId"><span class="action-delete">انهاء الخدمة</span></a>
                                           
                                         </td>
                                     </tr>
@@ -801,6 +838,62 @@
     <script src="~/Admin/app-assets/js/scripts/ui/data-list-view.js"></script>
     <!-- END: Page JS-->
 
+
+    <script>
+        var url = '@Url.Action("Index", "ServicesApproved")';
+        //var url = window.location.href;
+
+        $("#CourseDdl").change(function () {
+            //var end = this.value;
+            var end2 = $("#CourseDdl2").val();
+
+            if (end2 === "") {
+                alert("choose date from");
+            }
+
+            var end3 = $("#CourseDdl3").val();
+            if (end3 === "") {
+                alert("choose date to");
+            }
+
+            //location.replace(url+ "/?Id=" + this.value);
+            //location.replace(url + "/?CourseId=" + this.value);
+
+            //$("#CourseDdl2").on("change keyup paste", function () {
+            //    var end2 = this.value;
+            //    location.replace(url + "/?Id=" + $("#CourseDdl").value + "/?DateOne=" + this.value);
+            //})
+        });
+        $("#CourseDdl2").change(function () {
+            var end2 = $("#CourseDdl2").val();
+
+            var end = $("#CourseDdl").val();
+
+            var end3 = $("#CourseDdl3").val();
+            if (end3 === "") {
+                alert("choose date to");
+            }
+
+            //location.replace(url + "/?Id=" + end + "&DateOne=" + end2);
+        });
+
+        $("#CourseDdl3").change(function () {
+            var end2 = $("#CourseDdl2").val();
+            if (end2 === "") {
+                alert("choose date from");
+            }
+
+            end2 = $("#CourseDdl2").val();
+
+            var end = $("#CourseDdl").val();
+
+            var end3 = $("#CourseDdl3").val();
+
+
+            location.replace(url + "/?DateOne=" + end2 + "&DateTwo=" + end3);
+
+        });
+    </script>
 </body>
 <!-- END: Body-->
 

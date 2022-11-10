@@ -13,5 +13,7 @@ namespace MadmounMobileApp.Models
 
 
         public string CreatedBy { get; set; }
+
+        public string Notes { get; set; }
     }
 }

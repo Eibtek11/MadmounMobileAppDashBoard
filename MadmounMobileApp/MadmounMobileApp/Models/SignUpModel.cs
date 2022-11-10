@@ -32,6 +32,9 @@ namespace MadmounMobileApp.Models
         public string Notes { get; set; }
 
         public string StateName { get; set; }
+        public string RyadahOrNot { get; set; }
+
+        
 
 
     }

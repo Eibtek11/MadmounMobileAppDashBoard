@@ -67,7 +67,8 @@ namespace MadmounMobileApp.Controllers
                 UpdatedBy = signUpModel.UpdatedBy,
                 Gender = signUpModel.Gender,
                 Notes = signUpModel.Notes,
-                StateName = signUpModel.StateName
+                StateName = signUpModel.StateName,
+                RyadahOrNot = signUpModel.RyadahOrNot
 
             };
             await Usermanager.CreateAsync(user, signUpModel.Password);

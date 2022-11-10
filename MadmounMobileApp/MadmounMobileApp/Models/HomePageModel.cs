@@ -153,5 +153,9 @@ namespace MadmounMobileApp.Models
 
         public IEnumerable<GetPayment> LstGetPayment { get; set; }
 
+        public IEnumerable<GetServicesNo> LstGetServicesNo { get; set; }
+
+        public IEnumerable<GetServicesApproed> LstGetServicesApproed { get; set; }
+
     }
 }

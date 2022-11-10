@@ -2,6 +2,7 @@
 using Domains;
 using MadmounMobileApp.Models;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -57,6 +58,7 @@ namespace MadmounMobileApp.Controllers
             oTbServicesApproved.ServiceId = services.ServiceId;
             oTbServicesApproved.CityId = services.CityId;
             oTbServicesApproved.AreaId = services.AreaId;
+            oTbServicesApproved.CreatedDate = DateTime.Now;
 
             var result = servicesApprovedService.Add(oTbServicesApproved);
 

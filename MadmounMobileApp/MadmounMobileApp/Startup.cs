@@ -62,6 +62,7 @@ namespace MadmounMobileApp
             services.AddScoped<LastDevelopmentService, ClsLastDevelopment > ();
             services.AddScoped<TransactionService, ClsTransaction>();
             services.AddScoped<IGetChat, ClsGetPayment>();
+            services.AddScoped<IGetServiceApproved, ClsGetServiceApproved>();
             services.AddCors(options =>
             {
                 options.AddPolicy(MyAllowSpecificOrigins,

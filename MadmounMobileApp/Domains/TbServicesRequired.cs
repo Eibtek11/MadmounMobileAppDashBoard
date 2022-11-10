@@ -27,6 +27,8 @@ namespace Domains
         public Guid? AreaId { get; set; }
         public string SrRequiredDescription { get; set; }
 
+        //public int? CurrentState { get; set; }
+
         public virtual TbArea Area { get; set; }
         public virtual TbCity City { get; set; }
         public virtual TbService Service { get; set; }

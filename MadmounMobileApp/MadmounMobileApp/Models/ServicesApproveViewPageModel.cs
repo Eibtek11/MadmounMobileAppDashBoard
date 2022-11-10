@@ -16,5 +16,7 @@ namespace MadmounMobileApp.Models
         public Guid? CityId { get; set; }
 
         public Guid? AreaId { get; set; }
+
+        public DateTime? CreatedDate { get; set; }
     }
 }

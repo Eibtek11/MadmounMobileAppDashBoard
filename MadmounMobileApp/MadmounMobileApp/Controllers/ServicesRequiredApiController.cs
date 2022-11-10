@@ -69,6 +69,7 @@ namespace MadmounMobileApp.Controllers
             oTbServicesRequired.CreatedBy = services.CreatedBy;
             oTbServicesRequired.CreatedDate = DateTime.Now;
             oTbServicesRequired.UpdatedBy = Usermanager.Users.Where(a=> a.Id == oTbServicesRequired.SrReqId).FirstOrDefault().ServiceCategoryName;
+            oTbServicesRequired.Notes = services.Notes;
             var result = servicesRequiredService.Add(oTbServicesRequired);
 
             if (!result)

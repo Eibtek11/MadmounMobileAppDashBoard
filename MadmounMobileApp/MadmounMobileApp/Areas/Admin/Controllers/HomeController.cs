@@ -1,8 +1,10 @@
 ﻿using BL;
+using BL.Models;
 using MadmounMobileApp.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -104,8 +106,10 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             model.LstGetPayment = getChat.GetAll(DateTime.Parse("2020-11-05 22:17:26.510"), DateTime.Now);
             if (Id != null && DateOne != null && DateTwo != null)
             {
-                model.LstGetPayment = getChat.GetAll(DateTime.Parse(DateOne), DateTime.Parse(DateTwo)).Where(a => a.SrReqId == Id);
+                model.LstGetPayment = getChat.GetAll(DateTime.Parse(DateOne), DateTime.Parse(DateTwo)).Where(a => a.SrOffId == Id);
             }
+            int count = model.LstGetPayment.Sum(a => int.Parse(a.CreatedBy));
+            ViewBag.lstSrOffServiceS = count;
             return View(model);
         }
         public IActionResult Payment2(string Id, string DateOne, string DateTwo)
@@ -120,8 +124,11 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             model.LstGetPayment = getChat.GetAll(DateTime.Parse("2020-11-05 22:17:26.510"), DateTime.Now);
             if (Id != null && DateOne != null && DateTwo != null)
             {
-                model.LstGetPayment = getChat.GetAll(DateTime.Parse(DateOne), DateTime.Parse(DateTwo)).Where(a => a.SrReqId == Id);
+                model.LstGetPayment = getChat.GetAll(DateTime.Parse(DateOne), DateTime.Parse(DateTwo)).Where(a => a.SrRepId == Id);
             }
+            int count = model.LstGetPayment.Sum(a => int.Parse(a.CreatedBy));
+            ViewBag.lstSrOffServiceS = count;
+
             return View(model);
         }
         public IActionResult Payment3(string Id, string DateOne, string DateTwo)
@@ -138,6 +145,71 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             {
                 model.LstGetPayment = getChat.GetAll(DateTime.Parse(DateOne), DateTime.Parse(DateTwo)).Where(a => a.SrReqId == Id);
             }
+            int count = model.LstGetPayment.Sum(a => int.Parse(a.CreatedBy));
+            ViewBag.lstSrOffServiceS = count;
+            return View(model);
+        }
+
+        public IActionResult Payment4( string DateOne, string DateTwo)
+        {
+            HomePageModel model = new HomePageModel();
+            model.lstServices = serviceService.getAll();
+            model.lstCities = cityService.getAll();
+            model.lstAreas = areaService.getAll();
+            model.lstServiceApprovedMilstone = serviceApprovedMilstoneService.getAll();
+
+            ViewBag.cities = Usermanager.Users.Where(a => a.StateName == "طالب خدمة").ToList();
+            model.LstGetPayment = getChat.GetAll(DateTime.Parse("2020-11-05 22:17:26.510"), DateTime.Now);
+            if ( DateOne != null && DateTwo != null)
+            {
+                model.LstGetPayment = getChat.GetAll(DateTime.Parse(DateOne), DateTime.Parse(DateTwo));
+            }
+            int count = model.LstGetPayment.Sum(a => int.Parse(a.CreatedBy));
+            ViewBag.lstSrOffServiceS = count;
+            return View(model);
+        }
+
+        public IActionResult Payment5(string Id, string DateOne, string DateTwo)
+        {
+            HomePageModel model = new HomePageModel();
+            model.lstServices = serviceService.getAll();
+            model.lstCities = cityService.getAll();
+            model.lstAreas = areaService.getAll();
+            model.lstServiceApprovedMilstone = serviceApprovedMilstoneService.getAll();
+
+            ViewBag.cities = serviceService.getAll();
+            model.LstGetPayment = getChat.GetAll(DateTime.Parse("2020-11-05 22:17:26.510"), DateTime.Now);
+            if (DateOne != null && DateTwo != null)
+            {
+                model.LstGetPayment = getChat.GetAll(DateTime.Parse(DateOne), DateTime.Parse(DateTwo)).Where(a => a.ServiceId == Guid.Parse(Id));
+            }
+            int count = model.LstGetPayment.Sum(a => int.Parse(a.CreatedBy));
+            ViewBag.lstSrOffServiceS = count;
+            return View(model);
+        }
+
+
+        public IActionResult Payment6()
+        {
+            HomePageModel model = new HomePageModel();
+            var servicesNoRequested = (from t in ctx.TbServicesRequireds.Include(a => a.Service).ToList()
+                                       group t by t.Service.ServiceName into myVar
+                                       select new
+                                       {
+                                           k = myVar.Key,
+                                           c = myVar.Count()
+                                       });
+            
+            List<GetServicesNo> lstgetServicesNos = new List<GetServicesNo>();
+            foreach (var i in servicesNoRequested)
+            {
+                GetServicesNo element = new GetServicesNo();
+                element.ServiceName = i.k;
+                element.count = i.c;
+                lstgetServicesNos.Add(element);
+
+            }
+            model.LstGetServicesNo = lstgetServicesNos;
             return View(model);
         }
     }

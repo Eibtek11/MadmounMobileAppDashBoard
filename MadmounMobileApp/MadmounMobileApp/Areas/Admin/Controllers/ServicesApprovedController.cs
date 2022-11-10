@@ -1,4 +1,5 @@
 ﻿using BL;
+using BL.Models;
 using Domains;
 using MadmounMobileApp.Models;
 using Microsoft.AspNetCore.Http;
@@ -14,6 +15,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
     [Area("Admin")]
     public class ServicesApprovedController : Controller
     {
+        IGetServiceApproved getServicesApproed;
         ServiceService srRecords;
         ServicesApprovedService sr;
         ServicesRequiredService sq;
@@ -22,7 +24,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
         AreaService areaService;
         MadmounDbContext ctx;
         UserManager<ApplicationUser> Usermanager;
-        public ServicesApprovedController(UserManager<ApplicationUser> usermanager ,ServiceService SrRecords,ServicesApprovedService SR,ServicesRequiredService SQ, ComplainService complainService, CityService CityService, AreaService AreaService, MadmounDbContext context)
+        public ServicesApprovedController(IGetServiceApproved GetServicesApproed,UserManager<ApplicationUser> usermanager ,ServiceService SrRecords,ServicesApprovedService SR,ServicesRequiredService SQ, ComplainService complainService, CityService CityService, AreaService AreaService, MadmounDbContext context)
         {
             areaService = AreaService;
             ctx = context;
@@ -32,8 +34,9 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             sq = SQ;
             srRecords = SrRecords;
             Usermanager = usermanager;
+            getServicesApproed = GetServicesApproed;
         }
-        public IActionResult Index()
+        public IActionResult Index( string DateOne, string DateTwo)
         {
             HomePageModel model = new HomePageModel();
             model.lstServices = srRecords.getAll();
@@ -41,7 +44,11 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             model.lstCities = cityService.getAll();
             model.lstComplains = ComplainService.getAll();
             model.lstServicesRequireds = sq.getAll();
-            model.lstServicesApprovedS = sr.getAll();
+            model.LstGetServicesApproed = getServicesApproed.GetAll(DateTime.Parse("2020-11-05 22:17:26.510"), DateTime.Now);
+            if ( DateOne != null && DateTwo != null)
+            {
+                model.LstGetServicesApproed = getServicesApproed.GetAll(DateTime.Parse(DateOne), DateTime.Parse(DateTwo));
+            }
             model.lstUsers = Usermanager.Users.ToList();
             return View(model);
 
@@ -84,11 +91,14 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
 
 
             HomePageModel model = new HomePageModel();
+            model.lstServices = srRecords.getAll();
             model.lstAreas = areaService.getAll();
             model.lstCities = cityService.getAll();
             model.lstComplains = ComplainService.getAll();
             model.lstServicesRequireds = sq.getAll();
             model.lstServicesApprovedS = sr.getAll();
+            model.lstUsers = Usermanager.Users.ToList();
+            model.LstGetServicesApproed = getServicesApproed.GetAll(DateTime.Parse("2020-11-05 22:17:26.510"), DateTime.Now);
             return View("Index", model);
         }
 
@@ -104,11 +114,37 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             sr.Delete(oldItem);
 
             HomePageModel model = new HomePageModel();
+            model.lstServices = srRecords.getAll();
             model.lstAreas = areaService.getAll();
             model.lstCities = cityService.getAll();
             model.lstComplains = ComplainService.getAll();
             model.lstServicesRequireds = sq.getAll();
             model.lstServicesApprovedS = sr.getAll();
+            model.lstUsers = Usermanager.Users.ToList();
+            model.LstGetServicesApproed = getServicesApproed.GetAll(DateTime.Parse("2020-11-05 22:17:26.510"), DateTime.Now);
+
+            return View("Index", model);
+
+
+
+        }
+
+        public IActionResult Final(Guid id)
+        {
+
+            TbServicesApproved oldItem = ctx.TbServicesApproveds.Where(a => a.ServiceApprovedId == id).FirstOrDefault();
+            oldItem.ServiceSyntax = "Finished";
+            sr.Edit(oldItem);
+
+            HomePageModel model = new HomePageModel();
+            model.lstServices = srRecords.getAll();
+            model.lstAreas = areaService.getAll();
+            model.lstCities = cityService.getAll();
+            model.lstComplains = ComplainService.getAll();
+            model.lstServicesRequireds = sq.getAll();
+            model.lstServicesApprovedS = sr.getAll();
+            model.lstUsers = Usermanager.Users.ToList();
+            model.LstGetServicesApproed = getServicesApproed.GetAll(DateTime.Parse("2020-11-05 22:17:26.510"), DateTime.Now);
             return View("Index", model);
 
 
