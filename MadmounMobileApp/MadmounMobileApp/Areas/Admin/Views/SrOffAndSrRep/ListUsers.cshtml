@@ -2,6 +2,7 @@
     Layout = "";
 }
 @inject Microsoft.AspNetCore.Identity.UserManager<BL.ApplicationUser> USERmANAGER
+@model MadmounMobileApp.Models.HomePageModel
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="rtl">
 <!-- BEGIN: Head-->
@@ -698,6 +699,7 @@
                                     <th>نوع المستخدم</th>
                                     <th>اسم المستخدم</th>
                                     <th>الايميل</th>
+                                    <th>الحالة</th>
                                     @*<th>FirstName</th>
                                         <th>LastName</th>
                                         <th>CityName</th>
@@ -716,7 +718,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach (var item in USERmANAGER.Users)
+                                @foreach (var item in Model.lstUsers)
                                 {
 
 
@@ -727,6 +729,7 @@
                                         <td class="product-category">@item.StateName</td>
                                         <td class="product-category">@item.UserName</td>
                                         <td class="product-category">@item.Email</td>
+                                        <td class="product-category">@item.ServiceName</td>
                                         @*<td class="product-category">@item.FirstName</td>
                                             <td class="product-category">@item.LastName</td>
                                             <td class="product-category">@item.CityName</td>
@@ -758,9 +761,9 @@
                                             <a asp-controller="SrOffAndSrRep" asp-action="EditUsers" asp-route-id="@item.Id"><span><i class="feather icon-edit"></i></span></a>
                                             <a asp-controller="SrOffAndSrRep" asp-action="Delete" asp-route-id="@item.Id"><span class="action-delete"><i class="feather icon-trash"></i></span></a>
                                             <br />
-                                            <a asp-controller="SrOffService" asp-action="Form" asp-route-id="@item.Id"><span class="action-delete">اضف كمقدم خدمة</a>
+                                            <a asp-controller="SrOffService" asp-action="Form" asp-route-id="@item.Id"><span class="action-delete">القبول كمقدم خدمة</a>
                                             <br />
-                                            <a asp-controller="SRepService" asp-action="Form" asp-route-id="@item.Id"><span class="action-delete">اضف كممثل خدمة</a>
+                                            <a asp-controller="SrOffAndSrRep" asp-action="ListUsers" asp-route-id="@item.Id"><span class="action-delete">وقف مقدم الخدمة</a>
 
                                         </td>
                                         @*<td>

@@ -358,6 +358,10 @@
             "NETCore.MailKit": {
               "target": "Package",
               "version": "[2.1.0, )"
+            },
+            "Twilio": {
+              "target": "Package",
+              "version": "[5.81.2, )"
             }
           },
           "imports": [

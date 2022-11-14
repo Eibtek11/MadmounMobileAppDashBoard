@@ -68,9 +68,16 @@ namespace MadmounMobileApp.Controllers
                 Gender = signUpModel.Gender,
                 Notes = signUpModel.Notes,
                 StateName = signUpModel.StateName,
-                RyadahOrNot = signUpModel.RyadahOrNot
+                RyadahOrNot = signUpModel.RyadahOrNot,
+               
+                ServiceName = signUpModel.ServiceName
 
             };
+            if(user.StateName == "مقدم خدمة")
+            {
+                user.ServiceName = "pending";
+                user.state = 0;
+            }
             await Usermanager.CreateAsync(user, signUpModel.Password);
             var res2 = Usermanager.Users.Where(a => a.Id == user.Id).FirstOrDefault();
             return res2;

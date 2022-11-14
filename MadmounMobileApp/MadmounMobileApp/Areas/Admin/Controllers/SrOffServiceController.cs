@@ -57,6 +57,23 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
 
         }
 
+        public IActionResult Index2()
+        {
+            HomePageModel model = new HomePageModel();
+            model.lstAreas = areaService.getAll();
+            model.lstCities = cityService.getAll();
+            model.lstComplains = ComplainService.getAll();
+            model.lstServicesRequireds = sq.getAll();
+            model.lstServicesApprovedS = sr.getAll();
+            model.lstSrOffServiceS = srOffService.getAll();
+            model.lstServices = serviceService.getAll();
+            model.lstServicecATEGORIES = fl.getAll();
+            model.lstUsers = Usermanager.Users.Where(a=> a.StateName == "مقدم خدمة").ToList();
+            return View(model);
+
+
+        }
+
 
 
 
@@ -132,10 +149,35 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
         }
 
 
-
-
-        public IActionResult Form(Guid? id)
+        public async Task<IActionResult> DeactiveAsync(Guid id)
         {
+
+           
+
+            HomePageModel model = new HomePageModel();
+            model.lstAreas = areaService.getAll();
+            model.lstCities = cityService.getAll();
+            model.lstComplains = ComplainService.getAll();
+            model.lstServicesRequireds = sq.getAll();
+            model.lstServicesApprovedS = sr.getAll();
+            model.lstSrOffServiceS = srOffService.getAll();
+            model.lstServices = serviceService.getAll();
+            model.lstServicecATEGORIES = fl.getAll();
+            return View("Index", model);
+
+
+
+        }
+
+
+
+
+        public async Task<IActionResult> FormAsync(Guid? id)
+        {
+            var user = await Usermanager.FindByIdAsync(id.ToString());
+            user.ServiceName = "Approved";
+            user.state = 1;
+            var result = await Usermanager.UpdateAsync(user);
             TbSrOffService oldItem = ctx.TbSrOffServices.Where(a => a.SrOffServiceId == id).FirstOrDefault();
           
 

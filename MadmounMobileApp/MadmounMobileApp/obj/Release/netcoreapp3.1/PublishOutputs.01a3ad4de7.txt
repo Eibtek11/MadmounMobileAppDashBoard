@@ -3202,6 +3202,7 @@ F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\PubTmp
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.Extensions.Options.dll
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.Extensions.Primitives.dll
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.Identity.Client.dll
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.IdentityModel.Abstractions.dll
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.IdentityModel.JsonWebTokens.dll
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.IdentityModel.Logging.dll
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.IdentityModel.Protocols.dll
@@ -3225,6 +3226,7 @@ F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\PubTmp
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\PubTmp\Out\System.Security.Cryptography.Pkcs.dll
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\PubTmp\Out\System.Security.Cryptography.ProtectedData.dll
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\PubTmp\Out\System.Text.Encoding.CodePages.dll
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\PubTmp\Out\Twilio.dll
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\PubTmp\Out\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\PubTmp\Out\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\PubTmp\Out\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll

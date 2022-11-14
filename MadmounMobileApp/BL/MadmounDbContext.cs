@@ -1,4 +1,5 @@
 ﻿using System;
+using BL.Models;
 using Domains;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -47,7 +48,8 @@ namespace BL
         public virtual DbSet<TbServicesOffers> TbServicesOfferss { get; set; }
         public virtual DbSet<TbLastDevelopments> TbLastDevelopmentss { get; set; }
         public virtual DbSet<TbTransaction> TbTransactions { get; set; }
-        
+        public DbSet<TwoFactorCodeModel> TwoFactorCodes { get; set; }
+
 
 
         //        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

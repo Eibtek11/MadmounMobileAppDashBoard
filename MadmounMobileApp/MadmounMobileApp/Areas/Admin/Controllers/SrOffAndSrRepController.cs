@@ -37,10 +37,26 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             areaService = AreaService;
         }
         [HttpGet]
-        public IActionResult ListUsers()
+        public async Task<IActionResult> ListUsersAsync(Guid?id)
         {
-            var users = Usermanager.Users;
-            return View(users);
+            if(id != null)
+            {
+                var user = await Usermanager.FindByIdAsync(id.ToString());
+                user.ServiceName = "Hanged";
+                user.state = 2;
+                var result = await Usermanager.UpdateAsync(user);
+            }
+           
+            HomePageModel model = new HomePageModel();
+            model.lstUsers = Usermanager.Users.Where(a=> a.StateName == "مقدم خدمة").ToList();
+            return View(model);
+        }
+        [HttpGet]
+        public IActionResult ListUsers2()
+        {
+            HomePageModel model = new HomePageModel();
+            model.lstUsers = Usermanager.Users.Where(a => a.StateName == "ممثل خدمة").ToList();
+            return View(model);
         }
         [HttpGet]
         public async Task<IActionResult> EditUsers(string id)

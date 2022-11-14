@@ -137,6 +137,14 @@ C:\Users\USER\source\repos\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreap
 C:\Users\USER\source\repos\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Advice\Index.cshtml.g.cs
 C:\Users\USER\source\repos\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\CreateSrRep\Index.cshtml.g.cs
 C:\Users\USER\source\repos\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\CreateSrRep\Register.cshtml.g.cs
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\MadmounMobileApp.csproj.AssemblyReference.cache
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\MadmounMobileApp.GeneratedMSBuildEditorConfig.editorconfig
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\MadmounMobileApp.AssemblyInfoInputs.cache
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\MadmounMobileApp.AssemblyInfo.cs
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\MadmounMobileApp.csproj.CoreCompileInputs.cache
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\MadmounMobileApp.MvcApplicationPartsAssemblyInfo.cache
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\MadmounMobileApp.RazorAssemblyInfo.cache
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\MadmounMobileApp.RazorAssemblyInfo.cs
 F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\appsettings.Development.json
 F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\appsettings.json
 F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\MadmounMobileApp.StaticWebAssets.xml
@@ -155,6 +163,8 @@ F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\Microsof
 F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Features.dll
 F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
 F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
@@ -173,6 +183,7 @@ F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\Microsof
 F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
 F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
 F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Abstractions.dll
 F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
 F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
 F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
@@ -181,6 +192,7 @@ F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\Microsof
 F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\MimeKit.dll
 F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\NETCore.MailKit.dll
 F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
 F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
 F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
 F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\System.ComponentModel.Annotations.dll
@@ -195,6 +207,7 @@ F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\System.S
 F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\System.Security.Cryptography.Pkcs.dll
 F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
 F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\System.Text.Encoding.CodePages.dll
+F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\Twilio.dll
 F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
@@ -216,14 +229,6 @@ F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\EmailSer
 F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\BL.pdb
 F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\Domains.pdb
 F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\EmailServices.pdb
-F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\MadmounMobileApp.csproj.AssemblyReference.cache
-F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\MadmounMobileApp.GeneratedMSBuildEditorConfig.editorconfig
-F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\MadmounMobileApp.AssemblyInfoInputs.cache
-F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\MadmounMobileApp.AssemblyInfo.cs
-F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\MadmounMobileApp.csproj.CoreCompileInputs.cache
-F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\MadmounMobileApp.MvcApplicationPartsAssemblyInfo.cache
-F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\MadmounMobileApp.RazorAssemblyInfo.cache
-F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\MadmounMobileApp.RazorAssemblyInfo.cs
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\staticwebassets\MadmounMobileApp.StaticWebAssets.Manifest.cache
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\MadmounMobileApp.TagHelpers.input.cache
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\MadmounMobileApp.TagHelpers.output.cache
@@ -250,6 +255,9 @@ F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Ar
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\Payment.cshtml.g.cs
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\Payment2.cshtml.g.cs
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\Payment3.cshtml.g.cs
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\Payment4.cshtml.g.cs
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\Payment5.cshtml.g.cs
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\Payment6.cshtml.g.cs
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\LastDevelopment\Form.cshtml.g.cs
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\LastDevelopment\Index.cshtml.g.cs
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\LoginHistory\Form.cshtml.g.cs
@@ -275,12 +283,14 @@ F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Ar
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\SRepService\Index.cshtml.g.cs
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\SrOffAndSrRep\EditUsers.cshtml.g.cs
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\SrOffAndSrRep\ListUsers.cshtml.g.cs
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\SrOffAndSrRep\ListUsers2.cshtml.g.cs
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\SrOffCity\Form.cshtml.g.cs
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\SrOffCity\Form2.cshtml.g.cs
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\SrOffCity\Index.cshtml.g.cs
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\SrOffService\Form.cshtml.g.cs
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\SrOffService\Form2.cshtml.g.cs
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\SrOffService\Index.cshtml.g.cs
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\SrOffService\Index2.cshtml.g.cs
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\SrRepCity\Form.cshtml.g.cs
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\SrRepCity\Form2.cshtml.g.cs
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\SrRepCity\Index.cshtml.g.cs
@@ -305,9 +315,3 @@ F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\MadmounM
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\MadmounMobileApp.dll
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\MadmounMobileApp.pdb
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\MadmounMobileApp.genruntimeconfig.cache
-F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
-F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
-F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
-F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\Payment4.cshtml.g.cs
-F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\Payment5.cshtml.g.cs
-F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\Payment6.cshtml.g.cs

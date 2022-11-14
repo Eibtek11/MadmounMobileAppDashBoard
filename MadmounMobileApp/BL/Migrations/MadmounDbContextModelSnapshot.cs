@@ -181,6 +181,77 @@ namespace BL.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("BL.Models.TwoFactorCodeModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Attempts")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("CodeExpired")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("CodeIsUsed")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DeviceId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DeviceIdExpiry")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("EncryptionKey2Fa")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EncryptionKeyForDeviceId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("ExpiryDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("IpAddress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeviceIdExpired")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("RememberDevice")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SelectedProvider")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Token")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TwoFactorCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserAgent")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TwoFactorCodes");
+                });
+
             modelBuilder.Entity("Domains.TbAdvertisements", b =>
                 {
                     b.Property<Guid>("AdvertisementId")
@@ -1576,9 +1647,8 @@ namespace BL.Migrations
                         .HasConstraintName("FK_TbServicesRequired_TbAreas");
 
                     b.HasOne("Domains.TbCity", "City")
-                        .WithMany("TbServicesRequireds")
-                        .HasForeignKey("CityId")
-                        .HasConstraintName("FK_TbServicesRequired_TbCities");
+                        .WithMany()
+                        .HasForeignKey("CityId");
 
                     b.HasOne("Domains.TbService", "Service")
                         .WithMany("TbServicesRequireds")
@@ -1735,8 +1805,6 @@ namespace BL.Migrations
                     b.Navigation("TbChatSrRepSroffs");
 
                     b.Navigation("TbServicesApproveds");
-
-                    b.Navigation("TbServicesRequireds");
 
                     b.Navigation("TbSrOffCities");
 

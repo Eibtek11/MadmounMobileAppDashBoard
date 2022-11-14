@@ -10,6 +10,8 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Domains;
 using Microsoft.AspNetCore.Authorization;
+using MadmounMobileApp.Services;
+using MadmounMobileApp.Dtos;
 
 namespace MadmounMobileApp.Controllers
 {
@@ -19,13 +21,14 @@ namespace MadmounMobileApp.Controllers
         MadmounDbContext Ctx;
         UserManager<ApplicationUser> Usermanager;
         SignInManager<ApplicationUser> SignInManager;
-
-        public UserController(LogInHistoryService LgHistory,MadmounDbContext ctx, UserManager<ApplicationUser> usermanager, SignInManager<ApplicationUser> signInManager)
+        private readonly ISMSService _smsService;
+        public UserController(ISMSService smsService,LogInHistoryService LgHistory,MadmounDbContext ctx, UserManager<ApplicationUser> usermanager, SignInManager<ApplicationUser> signInManager)
         {
             Usermanager = usermanager;
             SignInManager = signInManager;
             Ctx = ctx;
             lgHistory = LgHistory;
+            _smsService = smsService;
 
         }
 
@@ -35,7 +38,13 @@ namespace MadmounMobileApp.Controllers
 
             return View();
         }
+        [HttpGet]
+        public IActionResult LoginWith2fa()
+        {
 
+            return View();
+        }
+        
 
         [HttpPost]
         public async Task<IActionResult> Register(HomePageModel oHomePageModel)
@@ -153,10 +162,15 @@ namespace MadmounMobileApp.Controllers
 
                     lgHistory.Add(item);
 
-
+                    SendSMSDto dto = new SendSMSDto();
+                    dto.MobileNumber = Usermanager.Users.Where(a => a.Id == id).FirstOrDefault().PhoneNumber;
+                    dto.Body = "hellow";
                     result.ToString();
+                    var resultt = _smsService.Send(dto.MobileNumber, dto.Body);
                     return Redirect(oHomePageModel.ReturnUrl);
                 }
+            
+
                 else
                 {
 

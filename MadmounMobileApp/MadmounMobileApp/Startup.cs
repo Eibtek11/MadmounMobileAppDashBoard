@@ -17,6 +17,9 @@ using Microsoft.AspNetCore.Http.Features;
 using EmailService;
 using MadmounMobileApp.Controllers;
 
+using MadmounMobileApp.Helpers;
+using MadmounMobileApp.Services;
+
 namespace MadmounMobileApp
 {
     public class Startup
@@ -63,6 +66,14 @@ namespace MadmounMobileApp
             services.AddScoped<TransactionService, ClsTransaction>();
             services.AddScoped<IGetChat, ClsGetPayment>();
             services.AddScoped<IGetServiceApproved, ClsGetServiceApproved>();
+           
+            //services.Configure<SMSOptions>(Configuration);
+
+
+            services.Configure<TwilioSettings>(Configuration.GetSection("Twilio"));
+            services.AddTransient<ISMSService, SMSService>();
+
+
             services.AddCors(options =>
             {
                 options.AddPolicy(MyAllowSpecificOrigins,
