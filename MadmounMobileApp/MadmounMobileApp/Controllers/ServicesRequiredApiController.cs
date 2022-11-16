@@ -46,7 +46,7 @@ namespace MadmounMobileApp.Controllers
             List<TbServicesRequired> lstServicesRequiredFinal = new List<TbServicesRequired>();
             foreach (var i in lstSrRepServices)
             {
-               foreach(var ii in lstServicesRequired)
+               foreach(var ii in lstServicesRequired.Where(a=> a.ApprovalStatus != "Approved"))
                 {
                     if(i.ServiceId == ii.ServiceId)
                     {
@@ -103,7 +103,8 @@ namespace MadmounMobileApp.Controllers
         {
             TbServicesRequired oTbServicesRequired = ctx.TbServicesRequireds.Where(a => a.ServicesRequiredId == services.ServicesRequiredId).FirstOrDefault();
             oTbServicesRequired.SrRequiredDescription = services.SrRequiredDescription;
-
+            oTbServicesRequired.SrRepId = services.SrRepId;
+            oTbServicesRequired.SrReqName = Usermanager.Users.Where(a=> a.Id == oTbServicesRequired.SrReqId).FirstOrDefault().Email;
 
 
             var result = servicesRequiredService.Edit(oTbServicesRequired);

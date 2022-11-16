@@ -35,7 +35,13 @@ namespace MadmounMobileApp.Models
         public string RyadahOrNot { get; set; }
 
         public string ServiceName { get; set; }
-        
+
+        public string PhoneNumber { get; set; }
+
+        public Guid? ServiceId { get; set; }
+
+        public Guid? CityId { get; set; }
+
 
     }
 }

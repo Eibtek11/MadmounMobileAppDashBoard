@@ -22,12 +22,19 @@ namespace EmailService
             _emailConfig = emailConfig;
             _configuration = configuration;
         }
-
+      
         public void SendEmail(Message message, string id)
         {
             var emailMessage = CreateEmailMessage(message, id , "" , "");
 
             Send(emailMessage);
+        }
+
+
+        public async Task SendEmaillAsync(Message message ,string email, string subject, string messages)
+        {
+            var mailMessage = CreateEmaillMessage(message,email, subject, messages);
+            await SendAsync(mailMessage);
         }
 
         public async Task SendEmailAsync(Message message, string id , string user , string email)
@@ -175,6 +182,45 @@ namespace EmailService
             emailMessage.Body = bodyBuilder.ToMessageBody();
             return emailMessage;
         }
+
+
+
+
+        private MimeMessage CreateEmaillMessage(Message message,  string email,  string subject, string messages)
+        {
+            var emailMessage = new MimeMessage();
+            emailMessage.From.Add(new MailboxAddress(_emailConfig.From, _emailConfig.From));
+            emailMessage.To.AddRange(message.To);
+            emailMessage.Subject = message.Subject;
+
+            string body = CreateBody(messages, subject, email);
+
+
+
+
+
+
+            var bodyBuilder = new BodyBuilder { HtmlBody = CreateBody(messages, subject, email) };
+
+            if (message.Attachments != null && message.Attachments.Any())
+            {
+                byte[] fileBytes;
+                foreach (var attachment in message.Attachments)
+                {
+                    using (var ms = new MemoryStream())
+                    {
+                        attachment.CopyTo(ms);
+                        fileBytes = ms.ToArray();
+                    }
+
+                    bodyBuilder.Attachments.Add(attachment.FileName, fileBytes, ContentType.Parse(attachment.ContentType));
+                }
+            }
+
+            emailMessage.Body = bodyBuilder.ToMessageBody();
+            return emailMessage;
+        }
+
 
 
 
@@ -473,5 +519,7 @@ namespace EmailService
 
             return Body;
         }
+
+      
     }
 }

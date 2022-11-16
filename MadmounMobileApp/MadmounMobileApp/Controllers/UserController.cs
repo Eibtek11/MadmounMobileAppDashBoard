@@ -12,6 +12,13 @@ using Domains;
 using Microsoft.AspNetCore.Authorization;
 using MadmounMobileApp.Services;
 using MadmounMobileApp.Dtos;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using EmailService;
+using Microsoft.AspNetCore.Http;
+using Twilio.TwiML.Messaging;
+using Microsoft.IdentityModel.Tokens;
+using SignInResult = Microsoft.AspNetCore.Identity.SignInResult;
+using System.Text.Encodings.Web;
 
 namespace MadmounMobileApp.Controllers
 {
@@ -20,21 +27,40 @@ namespace MadmounMobileApp.Controllers
         LogInHistoryService lgHistory;
         MadmounDbContext Ctx;
         UserManager<ApplicationUser> Usermanager;
+        IUserValidator<ApplicationUser> v;
         SignInManager<ApplicationUser> SignInManager;
         private readonly ISMSService _smsService;
-        public UserController(ISMSService smsService,LogInHistoryService LgHistory,MadmounDbContext ctx, UserManager<ApplicationUser> usermanager, SignInManager<ApplicationUser> signInManager)
+        IEmailSender _emailSender;
+        private readonly ISmsSender _smsSender;
+        private readonly UrlEncoder _urlEncoder;
+        public UserController(UrlEncoder urlEncoder, IUserValidator<ApplicationUser> V,ISmsSender smsSender, IEmailSender emailSender, ISMSService smsService,LogInHistoryService LgHistory,MadmounDbContext ctx, UserManager<ApplicationUser> usermanager, SignInManager<ApplicationUser> signInManager)
         {
             Usermanager = usermanager;
             SignInManager = signInManager;
             Ctx = ctx;
             lgHistory = LgHistory;
             _smsService = smsService;
-
+            _emailSender = emailSender;
+            _smsSender = smsSender;
+            _urlEncoder = urlEncoder;
+            v = V;
         }
 
 
         public IActionResult Index()
         {
+
+            return View();
+        }
+        public IActionResult SendCode(SendCodeViewModel model)
+        {
+            var user =  SignInManager.GetTwoFactorAuthenticationUserAsync();
+            if (user == null)
+            {
+                return View("Error");
+            }
+            //var userFactors =  Usermanager.GetValidTwoFactorProvidersAsync(user);
+            //var factorOptions = userFactors.Select(purpose => new SelectListItem { Text = purpose, Value = purpose }).ToList();
 
             return View();
         }
@@ -44,7 +70,8 @@ namespace MadmounMobileApp.Controllers
 
             return View();
         }
-        
+       
+
 
         [HttpPost]
         public async Task<IActionResult> Register(HomePageModel oHomePageModel)
@@ -52,49 +79,7 @@ namespace MadmounMobileApp.Controllers
             try
             {
 
-                //if (ModelState.IsValid)
-                //{
-                //    var user = new ApplicationUser()
-                //    {
-                //        Email = oHomePageModel.Email,
-                //        UserName = oHomePageModel.Email
-
-                //    };
-                //    var result = await Usermanager.CreateAsync(user, oHomePageModel.Password);
-                //    if (result.Succeeded)
-                //    {
-
-
-
-
-
-                //        result.ToString();
-
-                //        return Redirect("~/");
-                //    }
-                //    else
-                //    {
-                //        var error = result.Errors.ToList();
-                //        string erresult = "";
-                //        string erresult2 = "";
-                //        foreach (var er in error)
-                //        {
-                //            erresult = string.Format("{0}\t\t{1}", erresult, er.Description);
-
-
-
-                //        }
-
-                //        this.ModelState.AddModelError("Password", erresult);
-                //        this.ModelState.AddModelError("Email", erresult2);
-                //        return View("LogIn", oHomePageModel);
-                //    }
-                //}
-                //else
-                //{
-                //    return View("LogIn", oHomePageModel);
-                //}
-
+               
 
                 var user = new ApplicationUser()
                 {
@@ -103,6 +88,7 @@ namespace MadmounMobileApp.Controllers
                     LastName = oHomePageModel.LastName,
                     state = oHomePageModel.state,
                     StateName = oHomePageModel.StateName,
+                    TwoFactorEnabled = true,
 
 
                 };
@@ -144,9 +130,13 @@ namespace MadmounMobileApp.Controllers
         {
             try
             {
+              
 
-                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+               
+             
                 var result = await SignInManager.PasswordSignInAsync(oHomePageModel.Email, oHomePageModel.Password, true, true);
+               
+
                 if (string.IsNullOrEmpty(oHomePageModel.ReturnUrl))
                 {
                     oHomePageModel.ReturnUrl = "~/";
@@ -154,23 +144,39 @@ namespace MadmounMobileApp.Controllers
                 if (result.Succeeded)
                 {
 
+                   
                     string id = Usermanager.Users.Where(a => a.Email == oHomePageModel.Email).FirstOrDefault().Id;
                     TbLoginHistory item = new TbLoginHistory();
                     item.Id = id;
                     item.CreatedDate = DateTime.Now;
                     item.LogInId = new Guid();
-
                     lgHistory.Add(item);
+
+
 
                     SendSMSDto dto = new SendSMSDto();
                     dto.MobileNumber = Usermanager.Users.Where(a => a.Id == id).FirstOrDefault().PhoneNumber;
-                    dto.Body = "hellow";
-                    result.ToString();
+                    var user  = await Usermanager.FindByEmailAsync(oHomePageModel.Email);
+                    var code = await Usermanager.GenerateTwoFactorTokenAsync(user, "Phone");
+                    var UserWithCode = Usermanager.Users.Where(a => a.Id == id).FirstOrDefault();
+                    UserWithCode.AreaName = code;
+                    var addCode = await Usermanager.UpdateAsync(UserWithCode);
+                    if (string.IsNullOrWhiteSpace(code))
+                    {
+                        return View("Error");
+                    }
+                  
+                    var message = "Your security code is: " + code;
+                    dto.Body = message;
+                  
+                   
                     var resultt = _smsService.Send(dto.MobileNumber, dto.Body);
-                    return Redirect(oHomePageModel.ReturnUrl);
+                 
+                    //await _smsSender.SendSmsAsync(await Usermanager.GetPhoneNumberAsync(Usermanager.Users.Where(a => a.Id == id).FirstOrDefault()),);
+                  
+                    return RedirectToAction(nameof(VerifyCode), new { ReturnUrl = oHomePageModel.ReturnUrl, Id = id });
+                 
                 }
-            
-
                 else
                 {
 
@@ -182,6 +188,11 @@ namespace MadmounMobileApp.Controllers
                     //erresult = "Password";
                     //erresult2 = "Email";
                 }
+                if (result.RequiresTwoFactor)
+                {
+                    return RedirectToAction(nameof(VerifyAuthenticatorCode), new { oHomePageModel.ReturnUrl, oHomePageModel.RememberMe });
+                }
+
                 return View("LogIn", oHomePageModel);
             }
             catch (Exception ex)
@@ -326,5 +337,207 @@ namespace MadmounMobileApp.Controllers
             return View(model);
         }
 
+
+        //
+        // GET: /Account/ResetPasswordConfirmation
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult ResetPasswordConfirmation()
+        {
+            return View();
+        }
+
+        //
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<ActionResult> SendCode(string returnUrl = null, bool rememberMe = false)
+        {
+            var user = await SignInManager.GetTwoFactorAuthenticationUserAsync();
+            if (user == null)
+            {
+                return View("Error");
+            }
+            var userFactors = await Usermanager.GetValidTwoFactorProvidersAsync(user);
+            var factorOptions = userFactors.Select(purpose => new SelectListItem { Text = purpose, Value = purpose }).ToList();
+            return View(new SendCodeViewModel { Providers = factorOptions, ReturnUrl = returnUrl, RememberMe = rememberMe });
+        }
+
+        //
+        // POST: /Account/SendCode
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SendCode(SendCodeViewModel model,IFormFileCollection files)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
+            var user = await SignInManager.GetTwoFactorAuthenticationUserAsync();
+            if (user == null)
+            {
+                return View("Error");
+            }
+
+            // Generate the token and send it
+            var code = await Usermanager.GenerateTwoFactorTokenAsync(user, model.SelectedProvider);
+            if (string.IsNullOrWhiteSpace(code))
+            {
+                return View("Error");
+            }
+
+            var message = "Your security code is: " + code;
+            if (model.SelectedProvider == "Email")
+            {
+                //var messages = new Message(new string[] { user.Email }, "Email From Customer " + "His name is " + user.UserName + "\n" + " His Email Is " + user.Email + "\n", "This is the content from our async email. i am happy", files, user.Id);
+                //await _emailSender.SendEmaillAsync(messages,await Usermanager.GetEmailAsync(user), "Security Code", message);
+            }
+            else if (model.SelectedProvider == "Phone")
+            {
+                await _smsSender.SendSmsAsync(await Usermanager.GetPhoneNumberAsync(user), message);
+            }
+
+            return RedirectToAction(nameof(VerifyCode), new { Provider = model.SelectedProvider, ReturnUrl = model.ReturnUrl, RememberMe = model.RememberMe });
+        }
+
+        //
+        // GET: /Account/VerifyCode
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<IActionResult> VerifyCode(string Id , string ReturnUrl)
+        {
+           
+            // Require that the user has already logged in via username/password or external login
+           
+           
+            return View(new VerifyCodeViewModel { ReturnUrl = ReturnUrl , Provider = Id });
+        }
+
+        //
+        // POST: /Account/VerifyCode
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> VerifyCode(VerifyCodeViewModel model)
+        {
+            var UserWithCode = Usermanager.Users.Where(a => a.Id == model.Provider).FirstOrDefault();
+
+            if (UserWithCode.AreaName == model.Code)
+            {
+                return Redirect(model.ReturnUrl);
+            }
+            else
+            {
+                return View("LogIn");
+            }
+        }
+        private IActionResult RedirectToLocal(string returnUrl)
+        {
+            if (Url.IsLocalUrl(returnUrl))
+            {
+                return Redirect(returnUrl);
+            }
+            else
+            {
+                return RedirectToAction(nameof(HomeController.Index), "Home");
+            }
+        }
+
+
+
+
+        [HttpGet]
+        public async Task<IActionResult> EnableAuthenticator()
+        {
+            string AuthenticatorUriFormat = "otpauth://totp/{0}:{1}?secret={2}&issuer={0}&digits=6";
+
+            var user = await Usermanager.GetUserAsync(User);
+            await Usermanager.ResetAuthenticatorKeyAsync(user);
+            var token = await Usermanager.GetAuthenticatorKeyAsync(user);
+            //var code = await Usermanager.GenerateTwoFactorTokenAsync(user, "Phone");
+          
+            //SendSMSDto dto = new SendSMSDto();
+            
+            //var message = "Your security code is: " + code;
+            //dto.Body = message;
+            //dto.MobileNumber = Usermanager.Users.Where(a => a.Email == user.Email).FirstOrDefault().PhoneNumber;
+
+            //var resultt = _smsService.Send(dto.MobileNumber, dto.Body);
+            string AuthenticatorUri = string.Format(AuthenticatorUriFormat, _urlEncoder.Encode("MadmounMobileApp"),
+                _urlEncoder.Encode(user.Email), token);
+            var model = new TwoFactorAuthenticationViewModel() { Token = token, QRCodeUrl = AuthenticatorUri };
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EnableAuthenticator(TwoFactorAuthenticationViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await Usermanager.GetUserAsync(User);
+                var succeeded = await Usermanager.VerifyTwoFactorTokenAsync(user, Usermanager.Options.Tokens.AuthenticatorTokenProvider, model.Code);
+                if (succeeded)
+                {
+                    await Usermanager.SetTwoFactorEnabledAsync(user, true);
+                }
+                else
+                {
+                    ModelState.AddModelError("Verify", "Your two factor auth code could not be avalidated.");
+                    return View(model);
+                }
+
+            }
+            return RedirectToAction(nameof(AuthenticatorConfirmation));
+        }
+
+        [HttpGet]
+        public IActionResult AuthenticatorConfirmation()
+        {
+            return View();
+        }
+
+
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<IActionResult> VerifyAuthenticatorCode(bool rememberMe, string returnUrl = null)
+        {
+            var user = await SignInManager.GetTwoFactorAuthenticationUserAsync();
+            if (user == null)
+            {
+                return View("Error");
+            }
+            ViewData["ReturnUrl"] = returnUrl;
+            return View(new VerifyAuthenticatorViewModel { ReturnUrl = returnUrl, RememberMe = rememberMe });
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> VerifyAuthenticatorCode(VerifyAuthenticatorViewModel model)
+        {
+            model.ReturnUrl = model.ReturnUrl ?? Url.Content("~/");
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var result = await SignInManager.TwoFactorAuthenticatorSignInAsync(model.Code, model.RememberMe, rememberClient: false);
+        
+            if (result.Succeeded)
+            {
+                return LocalRedirect(model.ReturnUrl);
+            }
+            if (result.IsLockedOut)
+            {
+                return View("Lockout");
+            }
+            else
+            {
+                ModelState.AddModelError(string.Empty, "Invalid Code.");
+                return View(model);
+            }
+
+        }
     }
 }

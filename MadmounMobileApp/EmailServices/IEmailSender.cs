@@ -7,6 +7,7 @@ namespace EmailService
 {
     public interface IEmailSender
     {
+        Task SendEmaillAsync(Message message, string email, string subject, string messages);
         void SendEmail(Message message, string id);
         Task SendEmailAsync(Message message, string id , string user, string email);
         //Task SendEmailAsync2(Message message, string id, string user, TbRequest element);

@@ -315,3 +315,8 @@ F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Release\netcoreapp3.1\Micros
 F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Release\netcoreapp3.1\Twilio.dll
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\Razor\Areas\Admin\Views\SrOffAndSrRep\ListUsers2.cshtml.g.cs
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\Razor\Areas\Admin\Views\SrOffService\Index2.cshtml.g.cs
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\Razor\Views\User\AuthenticatorConfirmation.cshtml.g.cs
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\Razor\Views\User\EnableAuthenticator.cshtml.g.cs
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\Razor\Views\User\SendCode.cshtml.g.cs
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\Razor\Views\User\VerifyAuthenticatorCode.cshtml.g.cs
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\Razor\Views\User\VerifyCode.cshtml.g.cs

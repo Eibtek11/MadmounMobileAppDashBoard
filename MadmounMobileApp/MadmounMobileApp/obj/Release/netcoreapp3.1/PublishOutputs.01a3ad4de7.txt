@@ -3062,6 +3062,7 @@ F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\PubTmp
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Admin\starter-kit\rtl\vertical-menu-template\sk-layout-floating-navbar.html
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\css\site.css
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\favicon.ico
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\qrcode.js
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\site.js
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
@@ -3139,6 +3140,7 @@ F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\PubTmp
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Uploads\70f9e58b-384b-4e7e-8641-cbaa25d6c2ca.jpg
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Uploads\722b4059-1052-4b0e-b824-5ea2e7dd5b71.jpg
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Uploads\74d68677-9e4b-4843-8a0d-fb9a56081d19.mp4
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Uploads\7c7ef87f-7a78-4bff-9777-77769f78bad3.jpg
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Uploads\8c103918-d852-4af0-9a5b-24fcf33c1703.pdf
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Uploads\8e105551-f296-47cc-a153-d6d49532fc8e.mp4
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Uploads\913740d2-dc86-40b0-8032-9582f57e6ffc.jpg
@@ -3160,6 +3162,7 @@ F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\PubTmp
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Uploads\d4ae87b5-228b-421d-b7dc-310c8ee6a732.jpg
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Uploads\d793b987-e41f-4f36-94c5-eacb2eb7526f.jpg
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Uploads\dbbb3338-26e7-491a-a19e-7d08db1039e9.jpg
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Uploads\dce03fee-057f-499f-8e2c-984ca6275398.jpg
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Uploads\dd4aa4bd-a5c0-41ab-a20b-35d85c980eaf.jpg
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Uploads\dd4e25dc-939b-494c-affc-97b8c4bccfb5.jpg
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Uploads\de65e233-f3bb-4100-bc02-2ccc419ada29.jpg

@@ -13,26 +13,31 @@ using EmailService;
 using System.Linq;
 using Org.BouncyCastle.Utilities;
 using System.Security.Cryptography.X509Certificates;
+using MadmounMobileApp.Dtos;
+using MadmounMobileApp.Services;
+using Twilio.Types;
 
 namespace MadmounMobileApp.Controllers
 {
     public class AccountRepository : IAccountRepository
     {
-       
+        private readonly ISmsSender _smsSender;
         MadmounDbContext Ctx;
         UserManager<ApplicationUser> Usermanager;
         SignInManager<ApplicationUser> SignInManager;
         private readonly IConfiguration _configuration;
         IEmailSender _emailSender;
-        public AccountRepository(IEmailSender emailSender, IConfiguration configuration, MadmounDbContext ctx, UserManager<ApplicationUser> usermanager, SignInManager<ApplicationUser> signInManager)
+        private readonly ISMSService _smsService;
+        public AccountRepository(ISMSService smsService, ISmsSender smsSender, IEmailSender emailSender, IConfiguration configuration, MadmounDbContext ctx, UserManager<ApplicationUser> usermanager, SignInManager<ApplicationUser> signInManager)
         {
             Usermanager = usermanager;
             SignInManager = signInManager;
             Ctx = ctx;
             _configuration = configuration;
             _emailSender = emailSender;
+            _smsSender = smsSender;
+            _smsService = smsService;
 
-            
         }
 
 
@@ -69,8 +74,11 @@ namespace MadmounMobileApp.Controllers
                 Notes = signUpModel.Notes,
                 StateName = signUpModel.StateName,
                 RyadahOrNot = signUpModel.RyadahOrNot,
-               
-                ServiceName = signUpModel.ServiceName
+                PhoneNumber = signUpModel.PhoneNumber,
+                ServiceName = signUpModel.ServiceName,
+                ServiceId = signUpModel.ServiceId,
+                CityId = signUpModel.CityId
+
 
             };
             if(user.StateName == "مقدم خدمة")
@@ -78,9 +86,42 @@ namespace MadmounMobileApp.Controllers
                 user.ServiceName = "pending";
                 user.state = 0;
             }
+            SendSMSDto dto = new SendSMSDto();
+            dto.MobileNumber = user.PhoneNumber;
+           
+            var code = await Usermanager.GenerateTwoFactorTokenAsync(user, "Phone");
+
+            user.AreaName = code;
+          
+          
+
+            var message = "Your security code is: " + code;
+            dto.Body = message;
+
+
+            var resultt = _smsService.Send(dto.MobileNumber, dto.Body);
             await Usermanager.CreateAsync(user, signUpModel.Password);
             var res2 = Usermanager.Users.Where(a => a.Id == user.Id).FirstOrDefault();
             return res2;
+        }
+
+
+
+
+
+        public string pHONEcON(SignUpModel signUpModel)
+        {
+            var res2 = Usermanager.Users.Where(a => a.Id == signUpModel.Notes).FirstOrDefault();
+            if(res2.AreaName == signUpModel.CityName)
+            {
+                return "Success";
+            }
+            else
+            {
+                return "wrong code";
+            }
+           
+            
         }
 
         public async Task<ApplicationUser> LLoginAsync(SignInModel signInModel)

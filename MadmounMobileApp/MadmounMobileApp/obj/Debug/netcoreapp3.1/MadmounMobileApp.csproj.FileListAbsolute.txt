@@ -137,14 +137,6 @@ C:\Users\USER\source\repos\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreap
 C:\Users\USER\source\repos\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Advice\Index.cshtml.g.cs
 C:\Users\USER\source\repos\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\CreateSrRep\Index.cshtml.g.cs
 C:\Users\USER\source\repos\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\CreateSrRep\Register.cshtml.g.cs
-F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\MadmounMobileApp.csproj.AssemblyReference.cache
-F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\MadmounMobileApp.GeneratedMSBuildEditorConfig.editorconfig
-F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\MadmounMobileApp.AssemblyInfoInputs.cache
-F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\MadmounMobileApp.AssemblyInfo.cs
-F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\MadmounMobileApp.csproj.CoreCompileInputs.cache
-F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\MadmounMobileApp.MvcApplicationPartsAssemblyInfo.cache
-F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\MadmounMobileApp.RazorAssemblyInfo.cache
-F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\MadmounMobileApp.RazorAssemblyInfo.cs
 F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\appsettings.Development.json
 F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\appsettings.json
 F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\MadmounMobileApp.StaticWebAssets.xml
@@ -229,6 +221,14 @@ F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\EmailSer
 F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\BL.pdb
 F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\Domains.pdb
 F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\EmailServices.pdb
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\MadmounMobileApp.csproj.AssemblyReference.cache
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\MadmounMobileApp.GeneratedMSBuildEditorConfig.editorconfig
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\MadmounMobileApp.AssemblyInfoInputs.cache
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\MadmounMobileApp.AssemblyInfo.cs
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\MadmounMobileApp.csproj.CoreCompileInputs.cache
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\MadmounMobileApp.MvcApplicationPartsAssemblyInfo.cache
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\MadmounMobileApp.RazorAssemblyInfo.cache
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\MadmounMobileApp.RazorAssemblyInfo.cs
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\staticwebassets\MadmounMobileApp.StaticWebAssets.Manifest.cache
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\MadmounMobileApp.TagHelpers.input.cache
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\MadmounMobileApp.TagHelpers.output.cache
@@ -304,8 +304,13 @@ F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Vi
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Views\User\AccessDenied.cshtml.g.cs
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Views\User\AuthenticatorConfirmation.cshtml.g.cs
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Views\User\EnableAuthenticator.cshtml.g.cs
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Views\User\LogIn.cshtml.g.cs
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Views\User\ResetPassword.cshtml.g.cs
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Views\User\SendCode.cshtml.g.cs
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Views\User\VerifyAuthenticatorCode.cshtml.g.cs
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Views\User\VerifyCode.cshtml.g.cs
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\MadmounMobileApp.RazorTargetAssemblyInfo.cache

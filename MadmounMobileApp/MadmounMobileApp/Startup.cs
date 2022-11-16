@@ -66,13 +66,17 @@ namespace MadmounMobileApp
             services.AddScoped<TransactionService, ClsTransaction>();
             services.AddScoped<IGetChat, ClsGetPayment>();
             services.AddScoped<IGetServiceApproved, ClsGetServiceApproved>();
-           
+            services.AddScoped<ServicesFinishedService, ClsServicesFinished>();
+
             //services.Configure<SMSOptions>(Configuration);
 
 
             services.Configure<TwilioSettings>(Configuration.GetSection("Twilio"));
             services.AddTransient<ISMSService, SMSService>();
 
+            services.AddTransient<IEmailSenderr, AuthMessageSender>();
+            services.AddTransient<ISmsSender, AuthMessageSender>();
+            services.Configure<SMSoptions>(Configuration);
 
             services.AddCors(options =>
             {
@@ -101,7 +105,7 @@ namespace MadmounMobileApp
                 options.Password.RequiredLength = 1;
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireUppercase = false;
-                options.User.RequireUniqueEmail = true;
+                options.User.RequireUniqueEmail = false;
                 options.Password.RequireDigit = false;
 
             }).AddErrorDescriber<CustomIdentityErrorDescriber>().AddEntityFrameworkStores<MadmounDbContext>().AddDefaultTokenProviders();
@@ -114,6 +118,7 @@ namespace MadmounMobileApp
                 options.LoginPath = "/User/LogIn";
                 options.ReturnUrlParameter = CookieAuthenticationDefaults.ReturnUrlParameter;
                 options.SlidingExpiration = true;
+
 
 
             });
@@ -140,7 +145,7 @@ namespace MadmounMobileApp
             app.UseSession();
             app.UseAuthentication();
             app.UseAuthorization();
-
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

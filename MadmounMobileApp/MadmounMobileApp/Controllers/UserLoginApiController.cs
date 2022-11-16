@@ -37,6 +37,20 @@ namespace MobileAppDashBoard.Controllers
 
         }
 
+        [HttpPost("PhoneCon")]
+        public async Task<IActionResult> PhoneCon([FromForm] SignUpModel signUpModel)
+        {
+            var result =  _accountRepository.pHONEcON(signUpModel);
+
+            if (result == "wrong code")
+            {
+                return Unauthorized();
+
+            }
+            return Ok(result);
+
+        }
+
         [HttpPost("edit")]
         public async Task<IActionResult> edit([FromForm] EditUserViewModell editModel)
         {

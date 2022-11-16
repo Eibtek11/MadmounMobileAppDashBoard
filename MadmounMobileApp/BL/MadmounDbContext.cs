@@ -48,6 +48,7 @@ namespace BL
         public virtual DbSet<TbServicesOffers> TbServicesOfferss { get; set; }
         public virtual DbSet<TbLastDevelopments> TbLastDevelopmentss { get; set; }
         public virtual DbSet<TbTransaction> TbTransactions { get; set; }
+        public virtual DbSet<TbServicesFinished> TbServicesFinisheds { get; set; }
         public DbSet<TwoFactorCodeModel> TwoFactorCodes { get; set; }
 
 
@@ -628,6 +629,46 @@ namespace BL
                     .HasConstraintName("FK_TbServicesApproved_TbServices");
             });
 
+
+
+
+            modelBuilder.Entity<TbServicesFinished>(entity =>
+            {
+                entity.HasKey(e => e.ServiceFinishedId)
+                    .HasName("PK_TbServicesRequested");
+
+                entity.ToTable("TbServicesFinished");
+
+                entity.Property(e => e.ServiceApprovedId).HasDefaultValueSql("(newid())");
+
+                entity.Property(e => e.ContractPdf).HasMaxLength(200);
+
+                entity.Property(e => e.CreatedBy).HasMaxLength(200);
+
+                entity.Property(e => e.CreatedDate).HasColumnType("datetime");
+
+                entity.Property(e => e.Notes).HasMaxLength(200);
+
+                entity.Property(e => e.ServiceSyntax).HasMaxLength(200);
+
+                entity.Property(e => e.SrApprovedDescription).HasMaxLength(200);
+
+                entity.Property(e => e.ServiceApprovedId).HasMaxLength(450);
+
+                entity.Property(e => e.SrOffId).HasMaxLength(450);
+
+                entity.Property(e => e.SrRepId).HasMaxLength(450);
+
+                entity.Property(e => e.SrReqId).HasMaxLength(450);
+
+                entity.Property(e => e.UpdatedBy).HasMaxLength(200);
+
+                entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
+
+               
+             
+            });
+
             modelBuilder.Entity<TbServicesRequired>(entity =>
             {
                 entity.HasKey(e => e.ServicesRequiredId);
@@ -643,6 +684,13 @@ namespace BL
                 entity.Property(e => e.Notes).HasMaxLength(200);
 
                 entity.Property(e => e.ServiceSyntax).HasMaxLength(200);
+
+                entity.Property(e => e.SrReqName).HasMaxLength(200);
+
+
+                entity.Property(e => e.ApprovalStatus).HasMaxLength(200);
+
+                
 
                 entity.Property(e => e.SrRepId).HasMaxLength(450);
 

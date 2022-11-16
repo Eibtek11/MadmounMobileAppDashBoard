@@ -44,6 +44,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             model.lstCities = cityService.getAll();
             model.lstComplains = ComplainService.getAll();
             model.lstServicesRequireds = sq.getAll();
+            model.lstServicesApprovedS = sr.getAll();
             model.LstGetServicesApproed = getServicesApproed.GetAll(DateTime.Parse("2020-11-05 22:17:26.510"), DateTime.Now);
             if ( DateOne != null && DateTwo != null)
             {
@@ -98,6 +99,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             model.lstServicesRequireds = sq.getAll();
             model.lstServicesApprovedS = sr.getAll();
             model.lstUsers = Usermanager.Users.ToList();
+            model.lstServicesApprovedS = sr.getAll();
             model.LstGetServicesApproed = getServicesApproed.GetAll(DateTime.Parse("2020-11-05 22:17:26.510"), DateTime.Now);
             return View("Index", model);
         }
@@ -121,6 +123,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             model.lstServicesRequireds = sq.getAll();
             model.lstServicesApprovedS = sr.getAll();
             model.lstUsers = Usermanager.Users.ToList();
+            model.lstServicesApprovedS = sr.getAll();
             model.LstGetServicesApproed = getServicesApproed.GetAll(DateTime.Parse("2020-11-05 22:17:26.510"), DateTime.Now);
 
             return View("Index", model);
@@ -144,6 +147,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             model.lstServicesRequireds = sq.getAll();
             model.lstServicesApprovedS = sr.getAll();
             model.lstUsers = Usermanager.Users.ToList();
+            model.lstServicesApprovedS = sr.getAll();
             model.LstGetServicesApproed = getServicesApproed.GetAll(DateTime.Parse("2020-11-05 22:17:26.510"), DateTime.Now);
             return View("Index", model);
 

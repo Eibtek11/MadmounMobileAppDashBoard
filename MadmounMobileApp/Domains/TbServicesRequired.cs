@@ -17,6 +17,8 @@ namespace Domains
         public string ServiceSyntax { get; set; }
         public string SrRepId { get; set; }
         public string SrReqId { get; set; }
+
+        public string SrReqName { get; set; }
         public string CreatedBy { get; set; }
         public string UpdatedBy { get; set; }
         public DateTime? CreatedDate { get; set; }
@@ -26,6 +28,9 @@ namespace Domains
         public Guid? CityId { get; set; }
         public Guid? AreaId { get; set; }
         public string SrRequiredDescription { get; set; }
+
+
+        public string ApprovalStatus { get; set; }
 
         //public int? CurrentState { get; set; }
 

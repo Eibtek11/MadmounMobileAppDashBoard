@@ -11,6 +11,8 @@ namespace MadmounMobileApp.Controllers
 
        
         Task<ApplicationUser> SSignUpAsync(SignUpModel signUpModel);
+
+       string pHONEcON(SignUpModel signUpModel);
         Task<ApplicationUser> LLoginAsync(SignInModel signInModel);
 
         Task<ApplicationUser> EditUsers(EditUserViewModell editModel);

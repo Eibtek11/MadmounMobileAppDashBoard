@@ -1,4 +1,6 @@
-﻿using MadmounMobileApp.Models;
+﻿using BL;
+using MadmounMobileApp.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -12,14 +14,16 @@ namespace MadmounMobileApp.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        UserManager<ApplicationUser> Usermanager;
+        public HomeController(UserManager<ApplicationUser> usermanager, ILogger<HomeController> logger)
         {
             _logger = logger;
+            Usermanager = usermanager;
         }
 
         public IActionResult Index()
         {
+           
             return View();
         }
 

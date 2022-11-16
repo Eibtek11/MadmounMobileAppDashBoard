@@ -49,6 +49,9 @@ namespace MadmounMobileApp.Controllers
         [HttpPost("approveService")]
         public IActionResult Post([FromForm] ServicesApproveViewPageModel services)
         {
+            TbServicesRequired oTbServicesRequired = ctx.TbServicesRequireds.Where(a => a.ServicesRequiredId == Guid.Parse(services.CreatedBy)).FirstOrDefault();
+            oTbServicesRequired.ApprovalStatus = "Approved";
+            servicesRequiredService.Edit(oTbServicesRequired);
             TbServicesApproved oTbServicesApproved = new TbServicesApproved();
             oTbServicesApproved.SrRepId = services.SrRepId;
             oTbServicesApproved.SrReqId = services.SrReqId;

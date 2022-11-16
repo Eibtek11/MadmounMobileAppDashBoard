@@ -22,6 +22,9 @@ namespace MadmounMobileApp.Models
         public string Password { get; set; }
 
 
+        public bool RememberMe { get; set; }
+
+
         public string LastName { get; set; }
         public string ReturnUrl { get; set; }
 
@@ -150,6 +153,8 @@ namespace MadmounMobileApp.Models
         public IEnumerable<TbLastDevelopments> LstLastDevelopments { get; set; }
 
         public IEnumerable<TbTransaction> LstTransactionS { get; set; }
+
+        public IEnumerable<TbServicesFinished> LstTbServicesFinished { get; set; }
 
         public IEnumerable<GetPayment> LstGetPayment { get; set; }
 
