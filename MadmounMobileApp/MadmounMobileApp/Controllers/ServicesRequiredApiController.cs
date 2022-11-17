@@ -70,6 +70,9 @@ namespace MadmounMobileApp.Controllers
             oTbServicesRequired.CreatedDate = DateTime.Now;
             oTbServicesRequired.UpdatedBy = Usermanager.Users.Where(a=> a.Id == oTbServicesRequired.SrReqId).FirstOrDefault().ServiceCategoryName;
             oTbServicesRequired.Notes = services.Notes;
+            oTbServicesRequired.SrReqName = Usermanager.Users.Where(a => a.Id == oTbServicesRequired.SrReqId).FirstOrDefault().Email;
+            oTbServicesRequired.ServiceName = ctx.TbServices.Where(a => a.ServiceId == services.ServiceId).FirstOrDefault().ServiceName;
+            oTbServicesRequired.ServiceImage = ctx.TbServices.Where(a => a.ServiceId == services.ServiceId).FirstOrDefault().CreatedBy;
             var result = servicesRequiredService.Add(oTbServicesRequired);
 
             if (!result)

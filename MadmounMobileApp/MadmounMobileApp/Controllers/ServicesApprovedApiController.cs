@@ -1,7 +1,9 @@
 ﻿using BL;
 using Domains;
 using MadmounMobileApp.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +16,7 @@ namespace MadmounMobileApp.Controllers
     [ApiController]
     public class ServicesApprovedApiController : ControllerBase
     {
+        UserManager<ApplicationUser> Usermanager;
         ServicesApprovedService servicesApprovedService;
         ServicesOfferService servicesOfferService;
         ServicesRequiredService servicesRequiredService;
@@ -21,7 +24,7 @@ namespace MadmounMobileApp.Controllers
         CityService cityService;
         AreaService areaService;
         MadmounDbContext ctx;
-        public ServicesApprovedApiController(ServicesApprovedService ServicesApprovedService,ServicesOfferService ServicesOfferService, ServicesRequiredService ServicesRequiredService, ComplainService complainService, CityService CityService, AreaService AreaService, MadmounDbContext context)
+        public ServicesApprovedApiController(UserManager<ApplicationUser> usermanager, ServicesApprovedService ServicesApprovedService,ServicesOfferService ServicesOfferService, ServicesRequiredService ServicesRequiredService, ComplainService complainService, CityService CityService, AreaService AreaService, MadmounDbContext context)
         {
             areaService = AreaService;
             ctx = context;
@@ -30,6 +33,7 @@ namespace MadmounMobileApp.Controllers
             servicesRequiredService = ServicesRequiredService;
             servicesOfferService = ServicesOfferService;
             servicesApprovedService = ServicesApprovedService;
+            Usermanager = usermanager;
         }
         // GET: api/<ServicesApprovedApiController>
         [HttpGet]
@@ -62,7 +66,8 @@ namespace MadmounMobileApp.Controllers
             oTbServicesApproved.CityId = services.CityId;
             oTbServicesApproved.AreaId = services.AreaId;
             oTbServicesApproved.CreatedDate = DateTime.Now;
-
+            oTbServicesApproved.UpdatedBy = Usermanager.Users.Where(a => a.Id == oTbServicesRequired.SrReqId).FirstOrDefault().Email;
+            oTbServicesApproved.ContractPdf = oTbServicesRequired.CreatedBy;
             var result = servicesApprovedService.Add(oTbServicesApproved);
 
             if (!result)
@@ -71,6 +76,17 @@ namespace MadmounMobileApp.Controllers
 
             }
             return Ok(result);
+        }
+
+
+
+
+        [HttpPost("underDoing")]
+        public IEnumerable<TbServicesApproved> underDoing([FromForm] ServicesApproveViewPageModel services)
+        {
+
+
+            return ctx.TbServicesApproveds.Include(a => a.TbServiceApprovedMilstones).ToList().Where(a => a.SrRepId == services.SrRepId);
         }
 
         // PUT api/<ServicesApprovedApiController>/5

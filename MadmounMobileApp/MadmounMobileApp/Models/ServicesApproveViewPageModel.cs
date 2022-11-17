@@ -11,6 +11,9 @@ namespace MadmounMobileApp.Models
        
         public string Notes { get; set; }
 
+
+     
+
         public Guid? ServiceId { get; set; }
 
         public Guid? CityId { get; set; }

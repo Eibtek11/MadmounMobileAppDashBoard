@@ -1,6 +1,7 @@
 ﻿using BL;
 using Domains;
 using MadmounMobileApp.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -14,13 +15,14 @@ namespace MadmounMobileApp.Controllers
     [ApiController]
     public class ServicesOfferApiController : ControllerBase
     {
+        UserManager<ApplicationUser> Usermanager;
         ServicesOfferService servicesOfferService;
         ServicesRequiredService servicesRequiredService;
         ComplainService ComplainService;
         CityService cityService;
         AreaService areaService;
         MadmounDbContext ctx;
-        public ServicesOfferApiController(ServicesOfferService ServicesOfferService,ServicesRequiredService ServicesRequiredService, ComplainService complainService, CityService CityService, AreaService AreaService, MadmounDbContext context)
+        public ServicesOfferApiController(UserManager<ApplicationUser> usermanager, ServicesOfferService ServicesOfferService,ServicesRequiredService ServicesRequiredService, ComplainService complainService, CityService CityService, AreaService AreaService, MadmounDbContext context)
         {
             areaService = AreaService;
             ctx = context;
@@ -28,6 +30,7 @@ namespace MadmounMobileApp.Controllers
             ComplainService = complainService;
             servicesRequiredService = ServicesRequiredService;
             servicesOfferService = ServicesOfferService;
+            Usermanager = usermanager;
         }
         // GET: api/<ServicesOfferApiController>
         [HttpGet]
@@ -56,7 +59,8 @@ namespace MadmounMobileApp.Controllers
             oTbServicesOffers.SrRepId = services.SrRepId;
             oTbServicesOffers.SrReqId = services.SrReqId;
             oTbServicesOffers.ServiceId = services.ServiceId;
-
+            oTbServicesOffers.CreatedBy =ctx.TbServices.Where(a=> a.ServiceId == services.ServiceId).FirstOrDefault().ServiceName;
+            oTbServicesOffers.UpdatedBy = ctx.TbServices.Where(a => a.ServiceId == services.ServiceId).FirstOrDefault().CreatedBy;
             var result = servicesOfferService.Add(oTbServicesOffers);
 
             if (!result)

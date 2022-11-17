@@ -1,6 +1,7 @@
 ﻿using BL;
 using Domains;
 using MadmounMobileApp.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace MadmounMobileApp.Controllers
     [ApiController]
     public class ServicesApprovedMillestoneApiController : ControllerBase
     {
+        UserManager<ApplicationUser> Usermanager;
         ServiceApprovedMilstoneService serviceApprovedMilstoneService;
         ServicesOfferService servicesOfferService;
         ServicesRequiredService servicesRequiredService;
@@ -21,7 +23,7 @@ namespace MadmounMobileApp.Controllers
         CityService cityService;
         AreaService areaService;
         MadmounDbContext ctx;
-        public ServicesApprovedMillestoneApiController(ServiceApprovedMilstoneService ServiceApprovedMilstoneService,ServicesOfferService ServicesOfferService, ServicesRequiredService ServicesRequiredService, ComplainService complainService, CityService CityService, AreaService AreaService, MadmounDbContext context)
+        public ServicesApprovedMillestoneApiController(UserManager<ApplicationUser> usermanager, ServiceApprovedMilstoneService ServiceApprovedMilstoneService,ServicesOfferService ServicesOfferService, ServicesRequiredService ServicesRequiredService, ComplainService complainService, CityService CityService, AreaService AreaService, MadmounDbContext context)
         {
             areaService = AreaService;
             ctx = context;
@@ -30,6 +32,7 @@ namespace MadmounMobileApp.Controllers
             servicesRequiredService = ServicesRequiredService;
             servicesOfferService = ServicesOfferService;
             serviceApprovedMilstoneService = ServiceApprovedMilstoneService;
+            Usermanager = usermanager;
         }
         // GET: api/<ServicesApprovedMillestoneApiController>
         [HttpGet]
@@ -54,8 +57,8 @@ namespace MadmounMobileApp.Controllers
             oTbServiceApprovedMilstone.CreatedBy = services.CreatedBy;
             oTbServiceApprovedMilstone.UpdatedBy = services.UpdatedBy;
             oTbServiceApprovedMilstone.ServiceApprovedId = services.ServiceApprovedId;
-           
-
+            string srReq = ctx.TbServicesApproveds.Where(a => a.ServiceApprovedId == services.ServiceApprovedId).FirstOrDefault().SrReqId;
+            oTbServiceApprovedMilstone.Notes = Usermanager.Users.Where(a => a.Id == srReq).FirstOrDefault().Email;
             var result = serviceApprovedMilstoneService.Add(oTbServiceApprovedMilstone);
 
             if (!result)

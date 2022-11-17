@@ -1142,6 +1142,14 @@ namespace BL.Migrations
                     b.Property<Guid?>("ServiceId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("ServiceImage")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("ServiceName")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
                     b.Property<string>("ServiceSyntax")
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");

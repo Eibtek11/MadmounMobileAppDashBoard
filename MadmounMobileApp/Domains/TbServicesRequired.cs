@@ -29,6 +29,11 @@ namespace Domains
         public Guid? AreaId { get; set; }
         public string SrRequiredDescription { get; set; }
 
+        public string ServiceName { get; set; }
+
+
+        public string ServiceImage { get; set; }
+
 
         public string ApprovalStatus { get; set; }
 

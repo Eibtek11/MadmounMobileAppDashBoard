@@ -1,0 +1,1517 @@
+{
+	"info": {
+		"_postman_id": "256c73d6-b7d8-444f-84c5-994cc2fb0c0d",
+		"name": "1511MadmounMobileAppDashBoard Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13191479"
+	},
+	"item": [
+		{
+			"name": "Advertisment",
+			"item": [
+				{
+					"name": "Bring Data of Ads",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://ismguk.com/api/AdvertisementApi",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"AdvertisementApi"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "خر تطوراتنا",
+			"item": [
+				{
+					"name": "داتا اخر تطوراتنا",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://ismguk.com/api/LastDevelopmentApi",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"LastDevelopmentApi"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Advices",
+			"item": [
+				{
+					"name": "Bring Data of Advices",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://ismguk.com/api/AdviceApi",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"AdviceApi"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bring Data of Advices by state of uer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://ismguk.com/api/AdviceApi/530971a4-c563-4b42-89c1-002b2ebc2505",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"AdviceApi",
+								"530971a4-c563-4b42-89c1-002b2ebc2505"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Areas",
+			"item": [
+				{
+					"name": "Bring Data of Areas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://ismguk.com/api/AreaAPi",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"AreaAPi"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cities",
+			"item": [
+				{
+					"name": "Bring Data of Cities",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://ismguk.com/api/CityApi",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"CityApi"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Clients",
+			"item": [
+				{
+					"name": "Bring Data of All Clients",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://ismguk.com/api/ClientApi",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"ClientApi"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bring Detalis of A Client Images",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://ismguk.com/api/ClientApi/7f9f75e5-2261-4ca6-8cba-5721032c3344",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"ClientApi",
+								"7f9f75e5-2261-4ca6-8cba-5721032c3344"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Services",
+			"item": [
+				{
+					"name": "Bring Data Of All Services",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://ismguk.com/api/ServicesApi",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"ServicesApi"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bring Data Of Services Under Category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://ismguk.com/api/ServicesApi/dd5d9db9-e651-4873-b58d-23e122085711",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"ServicesApi",
+								"dd5d9db9-e651-4873-b58d-23e122085711"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bring Data Of All Services Categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://ismguk.com/api/ServiceCategoryApi",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"ServiceCategoryApi"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "داتا شركات الخدمات التمويلية",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://ismguk.com/api/RayadahCategoryApi",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"RayadahCategoryApi"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Login Api Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"Email\" : \"ahmedmostafa706@gmail.com\",\r\n    \"Password\" : \"2812008a1A#\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://ismguk.com/api/UserLoginApi/login",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"UserLoginApi",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ارسال كود التفعيل كرسالة نصية",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Notes",
+									"value": "e4ef159d-571d-40a1-af90-fd85af3d44fd",
+									"type": "text"
+								},
+								{
+									"key": "CityName",
+									"value": "150008",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://ismguk.com/api/UserLoginApi/PhoneCon",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"UserLoginApi",
+								"PhoneCon"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "تسجيل مقدم خدمة",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "PersonalImage",
+									"type": "file",
+									"src": "/F:/New folder/images/3.PNG"
+								},
+								{
+									"key": "firstname",
+									"value": "mostafa",
+									"type": "text"
+								},
+								{
+									"key": "Email",
+									"value": "alaaaa@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "Password",
+									"value": "2812008a1A#",
+									"type": "text"
+								},
+								{
+									"key": "StateName",
+									"value": "طالب خدمة",
+									"type": "text"
+								},
+								{
+									"key": "CityName",
+									"value": "alexandria",
+									"type": "text"
+								},
+								{
+									"key": "UpdatedBy",
+									"value": "13/09/1999",
+									"type": "text"
+								},
+								{
+									"key": "Gender",
+									"value": "male",
+									"type": "text"
+								},
+								{
+									"key": "Notes",
+									"value": "01033927555",
+									"type": "text"
+								},
+								{
+									"key": "PhoneNumber",
+									"value": "+201033927725",
+									"type": "text"
+								},
+								{
+									"key": "ServiceId",
+									"value": "b6b1706a-9c09-4781-b61e-059ac6e56ee1",
+									"type": "text"
+								},
+								{
+									"key": "CityId",
+									"value": "7df61e20-fa56-45c0-94f3-74d631228b92",
+									"type": "text"
+								},
+								{
+									"key": "serviceName",
+									"value": "ريادة",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://ismguk.com/api/UserLoginApi/signup",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"UserLoginApi",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "تسجيل مستخدم",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "PersonalImage",
+									"type": "file",
+									"src": "/F:/New folder/images/25.PNG"
+								},
+								{
+									"key": "firstname",
+									"value": "mostafa",
+									"type": "text"
+								},
+								{
+									"key": "Email",
+									"value": "MMMmostafa@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "Password",
+									"value": "2812008a1A#",
+									"type": "text"
+								},
+								{
+									"key": "StateName",
+									"value": "طالب خدمة",
+									"type": "text"
+								},
+								{
+									"key": "CityName",
+									"value": "alexandria",
+									"type": "text"
+								},
+								{
+									"key": "UpdatedBy",
+									"value": "13/09/1999",
+									"type": "text"
+								},
+								{
+									"key": "Gender",
+									"value": "male",
+									"type": "text"
+								},
+								{
+									"key": "Notes",
+									"value": "01033927555",
+									"type": "text"
+								},
+								{
+									"key": "RyadahOrNot",
+									"value": "yes",
+									"type": "text"
+								},
+								{
+									"key": "PhoneNumber",
+									"value": "+201033927725",
+									"type": "text"
+								},
+								{
+									"key": "ServiceId",
+									"value": "b6b1706a-9c09-4781-b61e-059ac6e56ee1",
+									"type": "text"
+								},
+								{
+									"key": "CityId",
+									"value": "7df61e20-fa56-45c0-94f3-74d631228b92",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://ismguk.com/api/UserLoginApi/signup",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"UserLoginApi",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit User Api Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "firstname",
+									"value": "laila",
+									"type": "text"
+								},
+								{
+									"key": "lastname",
+									"value": "laila",
+									"type": "text"
+								},
+								{
+									"key": "Email",
+									"value": "laila@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "Password",
+									"value": "2812008a1A#",
+									"type": "text"
+								},
+								{
+									"key": "Id",
+									"value": "83e47579-ad33-4286-901d-709b0ca8aea9",
+									"type": "text"
+								},
+								{
+									"key": "Notes",
+									"value": "010339277555",
+									"type": "text"
+								},
+								{
+									"key": "Gender",
+									"value": "mle",
+									"type": "text"
+								},
+								{
+									"key": "UpdatedBy",
+									"value": "13/09/1985",
+									"type": "text"
+								},
+								{
+									"key": "StateName",
+									"value": "طالب خدمة",
+									"type": "text"
+								},
+								{
+									"key": "CityName",
+									"value": "amrica",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://ismguk.com/api/UserLoginApi/edit",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"UserLoginApi",
+								"edit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit User Image Api",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "PersonalImage",
+									"type": "file",
+									"src": "/F:/New folder/images/WhatsApp Image 2022-09-04 at 11.32.07 AM.jpeg"
+								},
+								{
+									"key": "Id",
+									"value": "83e47579-ad33-4286-901d-709b0ca8aea9",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://ismguk.com/api/ImageUserChangeApi",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"ImageUserChangeApi"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Password Api Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Email",
+									"value": "ahmedmostafa706@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://ismguk.com/api/UserLoginApi/forget",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"UserLoginApi",
+								"forget"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bring Data of One User With Its Details Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://ismguk.com/api/UserDetailsApi/83e47579-ad33-4286-901d-709b0ca8aea9",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"UserDetailsApi",
+								"83e47579-ad33-4286-901d-709b0ca8aea9"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Complains",
+			"item": [
+				{
+					"name": "Send Complain",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Id",
+									"value": "3d037b86-bcb2-4235-84c9-32187f661640",
+									"type": "text"
+								},
+								{
+									"key": "CreatedBy",
+									"value": "Mostafa",
+									"type": "text"
+								},
+								{
+									"key": "UpdatedBy",
+									"value": "attia",
+									"type": "text"
+								},
+								{
+									"key": "CreatedDate",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "UpdatedDate",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "Notes",
+									"value": "attia",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://ismguk.com/api/ComplainsApi/SendComplain",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"ComplainsApi",
+								"SendComplain"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "مقدم الخدمة",
+			"item": [
+				{
+					"name": "المشاريع الجديدة",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://ismguk.com/api/OffServicesRequiredApi/1ff44455-45d1-4dce-954e-ad548a97d5bd",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"OffServicesRequiredApi",
+								"1ff44455-45d1-4dce-954e-ad548a97d5bd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "العروض",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://ismguk.com/api/OffServicesOffersApi/1ff44455-45d1-4dce-954e-ad548a97d5bd",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"OffServicesOffersApi",
+								"1ff44455-45d1-4dce-954e-ad548a97d5bd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send Service Offer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "OfferSyntax",
+									"value": "programming",
+									"type": "text"
+								},
+								{
+									"key": "SrRepId",
+									"value": "35deabf8-69f6-4cfa-9936-23fcd84b4a1f",
+									"type": "text"
+								},
+								{
+									"key": "SrReqId",
+									"value": "0c49f46d-7d17-4a64-ba05-d7b736987b80",
+									"type": "text"
+								},
+								{
+									"key": "SrOffId",
+									"value": "1ff44455-45d1-4dce-954e-ad548a97d5bd",
+									"type": "text"
+								},
+								{
+									"key": "ServiceOfferCost",
+									"value": "500 $",
+									"type": "text"
+								},
+								{
+									"key": "ServiceOfferDuration",
+									"value": "2 Months",
+									"type": "text"
+								},
+								{
+									"key": "ServiceId",
+									"value": "8da35074-3dbe-4444-ada9-652b48dbff4c",
+									"type": "text"
+								},
+								{
+									"key": "ServicesRequiredId",
+									"value": "838f35b6-eb80-431a-8ed4-c02e5252dd0e",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://ismguk.com/api/ServicesOfferApi/offerService",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"ServicesOfferApi",
+								"offerService"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Record of  Service Offer Copy",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "OfferSyntax",
+									"value": "programming",
+									"type": "text"
+								},
+								{
+									"key": "SrRepId",
+									"value": "35deabf8-69f6-4cfa-9936-23fcd84b4a1f",
+									"type": "text"
+								},
+								{
+									"key": "SrReqId",
+									"value": "0c49f46d-7d17-4a64-ba05-d7b736987b80",
+									"type": "text"
+								},
+								{
+									"key": "SrOffId",
+									"value": "3b941741-1503-4e74-af7a-785a987342a8",
+									"type": "text"
+								},
+								{
+									"key": "ServiceOfferCost",
+									"value": "500 $",
+									"type": "text"
+								},
+								{
+									"key": "ServiceOfferDuration",
+									"value": "2 Months",
+									"type": "text"
+								},
+								{
+									"key": "ServiceId",
+									"value": "8da35074-3dbe-4444-ada9-652b48dbff4c",
+									"type": "text"
+								},
+								{
+									"key": "ServicesRequiredId",
+									"value": "36dc66fb-1c98-444a-987b-5bfd757c42b3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://ismguk.com/api/DeleteServiceRequiredApi/7ef7ab97-7ab8-4f43-9610-393ef4dbdeb7",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"DeleteServiceRequiredApi",
+								"7ef7ab97-7ab8-4f43-9610-393ef4dbdeb7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "الموافقة عل عرض السعر",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "SrRepId",
+									"value": "a829ad91-bd09-446f-82e1-7125cc48dc23",
+									"type": "text"
+								},
+								{
+									"key": "SrReqId",
+									"value": "0c49f46d-7d17-4a64-ba05-d7b736987b80",
+									"type": "text"
+								},
+								{
+									"key": "SrOffId",
+									"value": "3b941741-1503-4e74-af7a-785a987342a8",
+									"type": "text"
+								},
+								{
+									"key": "CreatedBy",
+									"value": "429437c3-4ac1-4c79-beec-6631d92c93a5",
+									"type": "text"
+								},
+								{
+									"key": "Notes",
+									"value": "2 Months",
+									"type": "text"
+								},
+								{
+									"key": "CityId",
+									"value": "7df61e20-fa56-45c0-94f3-74d631228b92",
+									"type": "text"
+								},
+								{
+									"key": "AreaId",
+									"value": "08b555fd-99c6-4b7a-8150-179840cdf1c8",
+									"type": "text"
+								},
+								{
+									"key": "ServiceId",
+									"value": "7906473b-28eb-460e-885e-125b4aae31e4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://ismguk.com/api/ServicesApprovedApi/approveService",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"ServicesApprovedApi",
+								"approveService"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "تحديد مراحل المشروع",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "ServiceApprovedMilstoneDesc",
+									"value": "social",
+									"type": "text"
+								},
+								{
+									"key": "ServiceApprovedId",
+									"value": "911ffe73-77da-4cc2-acef-fe1752f668b4",
+									"type": "text"
+								},
+								{
+									"key": "CreatedBy",
+									"value": "10000$",
+									"type": "text"
+								},
+								{
+									"key": "UpdatedBy",
+									"value": "10 days",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://ismguk.com/api/ServicesApprovedMillestoneApi/millestone",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"ServicesApprovedMillestoneApi",
+								"millestone"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send Service Image",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "ImagePath",
+									"type": "file",
+									"src": "/F:/New folder/images/25.PNG"
+								},
+								{
+									"key": "ServiceApprovedId",
+									"value": "65718afc-9ff4-4acf-a4f9-7e88efa70d4c",
+									"type": "text"
+								},
+								{
+									"key": "CreatedBy",
+									"value": "500 $",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://ismguk.com/api/ServicesApprovedImageApi/imageApprove",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"ServicesApprovedImageApi",
+								"imageApprove"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Payment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "ServiceApprovedMilstoneId",
+									"value": "b44eb4f1-4f81-4289-8953-ffd9d4a39e05",
+									"type": "text"
+								},
+								{
+									"key": "CreatedBy",
+									"value": "1000",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://ismguk.com/api/TransactionApi/transaction",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"TransactionApi",
+								"transaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bring ServiceApproved Millstone",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://ismguk.com/api/ServicesApprovedMillestoneApi/5e263f52-415f-4629-944e-27b6ffd4217d",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"ServicesApprovedMillestoneApi",
+								"5e263f52-415f-4629-944e-27b6ffd4217d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bring ServiceApproved Images",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://ismguk.com/api/ServicesApprovedImageApi/65718afc-9ff4-4acf-a4f9-7e88efa70d4c",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"ServicesApprovedImageApi",
+								"65718afc-9ff4-4acf-a4f9-7e88efa70d4c"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "طالب الخدمة",
+			"item": [
+				{
+					"name": "ارسال طلب خدمة",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "ServiceSyntax",
+									"value": "make sms message",
+									"type": "text"
+								},
+								{
+									"key": "SrReqId",
+									"value": "5ae16197-f851-4ffe-992c-d23ec3b821ed",
+									"type": "text"
+								},
+								{
+									"key": "ServiceId",
+									"value": "7906473b-28eb-460e-885e-125b4aae31e4",
+									"type": "text"
+								},
+								{
+									"key": "CreatedBy",
+									"value": "cairo",
+									"type": "text"
+								},
+								{
+									"key": "Notes",
+									"value": "Notes",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://ismguk.com/api/ServicesRequiredApi/sendService",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"ServicesRequiredApi",
+								"sendService"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "كل الطلبات",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://ismguk.com/api/ServicesRequiredByRequesterApi/0c49f46d-7d17-4a64-ba05-d7b736987b80",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"ServicesRequiredByRequesterApi",
+								"0c49f46d-7d17-4a64-ba05-d7b736987b80"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "المطلوبة",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://ismguk.com/api/ServicesRequiredByRequesterApi/0c49f46d-7d17-4a64-ba05-d7b736987b80",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"ServicesRequiredByRequesterApi",
+								"0c49f46d-7d17-4a64-ba05-d7b736987b80"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "المطلوبة عروض الاسعار",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://ismguk.com/api/ServicesRequiredByRequester2Api/6ebb5c39-87c8-43c1-b17c-06394c0f56a1",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"ServicesRequiredByRequester2Api",
+								"6ebb5c39-87c8-43c1-b17c-06394c0f56a1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "قيد التنفيذ",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://ismguk.com/api/ServicesDoingToRequesterApi/0c49f46d-7d17-4a64-ba05-d7b736987b80",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"ServicesDoingToRequesterApi",
+								"0c49f46d-7d17-4a64-ba05-d7b736987b80"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "قيد التنفذ الخط الزمني للمشروع",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://ismguk.com/api/ServicesDoingToRequesterApi/0c49f46d-7d17-4a64-ba05-d7b736987b80",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"ServicesDoingToRequesterApi",
+								"0c49f46d-7d17-4a64-ba05-d7b736987b80"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "المنتهية",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://ismguk.com/api/FinishedServicesApi/0c49f46d-7d17-4a64-ba05-d7b736987b80",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"FinishedServicesApi",
+								"0c49f46d-7d17-4a64-ba05-d7b736987b80"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ممثل الخدمة",
+			"item": [
+				{
+					"name": "ارسال الصيغة النهائية للخدمة",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "ServicesRequiredId",
+									"value": "429437c3-4ac1-4c79-beec-6631d92c93a5",
+									"type": "text"
+								},
+								{
+									"key": "SrRequiredDescription",
+									"value": "motion graphisssssssssssss",
+									"type": "text"
+								},
+								{
+									"key": "SrRepId",
+									"value": "35deabf8-69f6-4cfa-9936-23fcd84b4a1f",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://ismguk.com/api/ServicesRequiredApi/SendServiceBySrRepLast",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"ServicesRequiredApi",
+								"SendServiceBySrRepLast"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "الواردة",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://ismguk.com/api/ServicesRequiredApi/a829ad91-bd09-446f-82e1-7125cc48dc23",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"ServicesRequiredApi",
+								"a829ad91-bd09-446f-82e1-7125cc48dc23"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "المقبولة",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://ismguk.com/api/ServicesApprovedApi/a829ad91-bd09-446f-82e1-7125cc48dc23",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"ServicesApprovedApi",
+								"a829ad91-bd09-446f-82e1-7125cc48dc23"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "قيد التنفيذ",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "SrRepId",
+									"value": "a829ad91-bd09-446f-82e1-7125cc48dc23",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://ismguk.com/api/ServicesApprovedApi/underDoing",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"ServicesApprovedApi",
+								"underDoing"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -690,7 +690,14 @@ namespace BL
 
                 entity.Property(e => e.ApprovalStatus).HasMaxLength(200);
 
-                
+
+                entity.Property(e => e.ServiceImage).HasMaxLength(200);
+
+
+
+                entity.Property(e => e.ServiceName).HasMaxLength(200);
+
+
 
                 entity.Property(e => e.SrRepId).HasMaxLength(450);
 

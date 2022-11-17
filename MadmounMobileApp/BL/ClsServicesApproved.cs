@@ -37,6 +37,7 @@ namespace BL
             {
                 //_4ZsoftwareCompanyTestTaskContext o_4ZsoftwareCompanyTestTaskContext = new _4ZsoftwareCompanyTestTaskContext();
                 item.ServiceApprovedId = Guid.NewGuid();
+                item.CreatedDate = DateTime.Now;
                 ctx.TbServicesApproveds.Add(item);
                 ctx.SaveChanges();
                 return true;
