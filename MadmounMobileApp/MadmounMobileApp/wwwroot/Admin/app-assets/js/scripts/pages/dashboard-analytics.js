@@ -1,4 +1,4 @@
-/*=========================================================================================
+﻿/*=========================================================================================
     File Name: dashboard-analytics.js
     Description: dashboard analytics page content with Apexchart Examples
     ----------------------------------------------------------------------------------------
@@ -61,8 +61,8 @@ $(window).on("load", function () {
       }
     },
     series: [{
-      name: 'Subscribers',
-      data: [28, 40, 36, 52, 38, 60, 55]
+      name: 'عدد مقدمي الخدمات',
+      data: [1, 2, 4, 5, 6]
     }],
 
     xaxis: {
@@ -134,8 +134,8 @@ $(window).on("load", function () {
       }
     },
     series: [{
-      name: 'Orders',
-      data: [10, 15, 8, 15, 7, 12, 8]
+      name: 'عدد ممثلي الخدمات',
+      data: [1, 3, 4, 5, 8]
     }],
 
     xaxis: {
@@ -270,8 +270,8 @@ $(window).on("load", function () {
     stroke: {
       dashArray: 8
     },
-    series: [83],
-    labels: ['Completed Tickets'],
+    series: [],
+    labels: ['اجمالي المدفوعات'],
 
   }
 
@@ -330,18 +330,18 @@ $(window).on("load", function () {
           },
           total: {
             show: true,
-            label: 'Total',
+            label: 'عدد المستخدمين',
 
             formatter: function (w) {
               // By default this function returns the average of all series. The below is just an example to show the use of custom formatter function
-              return 42459
+              return 18
             }
           }
         }
       }
     },
-    series: [70, 52, 26],
-    labels: ['Finished', 'Pending', 'Rejected'],
+    series: [5, 5, 5],
+      labels: ['المستخدمين النشطيين خلال اخر يوم', 'المستخدمين النشطيين خلال اخراسبوع', 'المستخدمين النشطيين خلال اخر شهر'],
 
   }
 

@@ -153,29 +153,30 @@ namespace MadmounMobileApp.Controllers
                     lgHistory.Add(item);
 
 
+                    // i hased 15 line
+                    //SendSMSDto dto = new SendSMSDto();
+                    //dto.MobileNumber = Usermanager.Users.Where(a => a.Id == id).FirstOrDefault().PhoneNumber;
+                    //var user  = await Usermanager.FindByEmailAsync(oHomePageModel.Email);
+                    //var code = await Usermanager.GenerateTwoFactorTokenAsync(user, "Phone");
+                    //var UserWithCode = Usermanager.Users.Where(a => a.Id == id).FirstOrDefault();
+                    //UserWithCode.AreaName = code;
+                    //var addCode = await Usermanager.UpdateAsync(UserWithCode);
+                    //if (string.IsNullOrWhiteSpace(code))
+                    //{
+                    //return View("Error");
+                    //}
 
-                    SendSMSDto dto = new SendSMSDto();
-                    dto.MobileNumber = Usermanager.Users.Where(a => a.Id == id).FirstOrDefault().PhoneNumber;
-                    var user  = await Usermanager.FindByEmailAsync(oHomePageModel.Email);
-                    var code = await Usermanager.GenerateTwoFactorTokenAsync(user, "Phone");
-                    var UserWithCode = Usermanager.Users.Where(a => a.Id == id).FirstOrDefault();
-                    UserWithCode.AreaName = code;
-                    var addCode = await Usermanager.UpdateAsync(UserWithCode);
-                    if (string.IsNullOrWhiteSpace(code))
-                    {
-                        return View("Error");
-                    }
-                  
-                    var message = "Your security code is: " + code;
-                    dto.Body = message;
-                  
-                   
-                    var resultt = _smsService.Send(dto.MobileNumber, dto.Body);
-                 
-                    //await _smsSender.SendSmsAsync(await Usermanager.GetPhoneNumberAsync(Usermanager.Users.Where(a => a.Id == id).FirstOrDefault()),);
-                  
-                    return RedirectToAction(nameof(VerifyCode), new { ReturnUrl = oHomePageModel.ReturnUrl, Id = id });
-                 
+                    //var message = "Your security code is: " + code;
+                    //dto.Body = message;
+
+
+                    //var resultt = _smsService.Send(dto.MobileNumber, dto.Body);
+
+
+
+                    //return RedirectToAction(nameof(VerifyCode), new { ReturnUrl = oHomePageModel.ReturnUrl, Id = id });
+                    return Redirect(oHomePageModel.ReturnUrl);
+
                 }
                 else
                 {

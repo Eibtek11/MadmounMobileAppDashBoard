@@ -114,7 +114,7 @@ $(window).on("load", function(){
                 }
             }
         },
-        series: [70, 52, 26],
+        series: [100,100, 100],
         labels: ['Finished', 'Pending', 'Rejected'],
 
     }

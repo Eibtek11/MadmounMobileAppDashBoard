@@ -69,14 +69,17 @@
         <div class="shadow-bottom"></div>
         <div class="main-menu-content">
             <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-                <li class=" nav-item">
-                    <a href="index.html"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">لوحة التحكم</span><span class="badge badge badge-warning badge-pill float-right mr-2">21</span></a>
+                <li class=" nav-item open">
+                    <a><i class="feather icon-home"></i><span data-i18n="Dashboard">لوحة التحكم</span><span class="badge badge badge-warning badge-pill float-right mr-2">21</span></a>
                     <ul class="menu-content">
                         <li>
                             <a asp-controller="CreateSrRep" asp-action="Index"><i class="feather icon-user"></i><span class="menu-item" data-i18n="eCommerce">اضافة ممثلي الخدمة</span></a>
                         </li>
                         <li>
-                            <a asp-controller="SrOffAndSrRep" asp-action="ListUsers"><i class="feather icon-users"></i><span class="menu-item" data-i18n="Analytics"> المستخدمين</span></a>
+                            <a asp-controller="SrOffAndSrRep" asp-action="ListUsers"><i class="feather icon-users"></i><span class="menu-item" data-i18n="Analytics"> مقدمي الخدمات</span></a>
+                        </li>
+                        <li>
+                            <a asp-controller="SrOffAndSrRep" asp-action="ListUsers2"><i class="feather icon-users"></i><span class="menu-item" data-i18n="Analytics"> ممثلي الخدمات</span></a>
                         </li>
                         <li>
                             <a asp-controller="City" asp-action="Index"><i class="feather icon-octagon"></i><span class="menu-item" data-i18n="eCommerce"> المدن </span></a>
@@ -100,21 +103,22 @@
                         <li>
                             <a asp-controller="ServicesRequired" asp-action="Index"><i class="feather icon-shopping-cart"></i><span class="menu-item" data-i18n="eCommerce">الخدمات المطلوبة من المستخدمين</span></a>
                         </li>
-                        <li>
-                            <a asp-controller="ServicesApproved" asp-action="Index"><i class="feather icon-shopping-cart"></i><span class="menu-item" data-i18n="eCommerce">الخدمات المتفق عليها<br /> مع المستخدمين</span></a>
+                        @* <li>
+                        <a asp-controller="ServicesApproved" asp-action="Index"><i class="feather icon-shopping-cart"></i><span class="menu-item" data-i18n="eCommerce">الخدمات المتفق عليها<br /> مع المستخدمين</span></a>
+                        </li>*@
+                        @*  <li>
+                        <a asp-controller="ServiceApprovedImages" asp-action="Index"><i class="feather icon-tv"></i><span class="menu-item" data-i18n="eCommerce">صور الخدمات المتفق عليها<br /> مع المستخدمين</span></a>
                         </li>
                         <li>
-                            <a asp-controller="ServiceApprovedImages" asp-action="Index"><i class="feather icon-tv"></i><span class="menu-item" data-i18n="eCommerce">صور الخدمات المتفق عليها<br /> مع المستخدمين</span></a>
+                        <a asp-controller="ServiceApprovedMilstone" asp-action="Index"><i class="feather icon-check-circle"></i><span class="menu-item" data-i18n="eCommerce">مراحل تنفيذ الخدمات المتفق عليها<br /> مع المستخدمين</span></a>
+                        </li>*@
+                        @* <li>
+                        <a asp-controller="SrOffService" asp-action="Index"><i class="feather icon-users"></i><span class="menu-item" data-i18n="eCommerce">مقدمي الخدمة</span></a>
                         </li>
+
                         <li>
-                            <a asp-controller="ServiceApprovedMilstone" asp-action="Index"><i class="feather icon-check-circle"></i><span class="menu-item" data-i18n="eCommerce">مراحل تنفيذ الخدمات المتفق عليها<br /> مع المستخدمين</span></a>
-                        </li>
-                        <li>
-                            <a asp-controller="SrOffService" asp-action="Index"><i class="feather icon-users"></i><span class="menu-item" data-i18n="eCommerce">مقدمي الخدمة</span></a>
-                        </li>
-                        <li>
-                            <a asp-controller="SRepService" asp-action="Index"><i class="feather icon-users"></i><span class="menu-item" data-i18n="eCommerce">ممثلي الخدمات</span></a>
-                        </li>
+                        <a asp-controller="SRepService" asp-action="Index"><i class="feather icon-users"></i><span class="menu-item" data-i18n="eCommerce">ممثلي الخدمات</span></a>
+                        </li>*@
                         <li>
                             <a asp-controller="SrRepCity" asp-action="Index"><i class="feather icon-octagon"></i><span class="menu-item" data-i18n="eCommerce">مدن ممثلي الخدمات</span></a>
                         </li>
@@ -134,6 +138,20 @@
                         <li>
                             <a asp-controller="Advice" asp-action="Index"><i class="feather icon-umbrella"></i><span class="menu-item" data-i18n="eCommerce">النصائح</span></a>
                         </li>
+                        @*  <li>
+                        <a asp-controller="ServicesRequired" asp-action="Index"><i class="feather icon-umbrella"></i><span class="menu-item" data-i18n="eCommerce">الخدمات المطلوبة من العملاء</span></a>
+                        </li>*@
+                        <li>
+                            <a asp-controller="ServicesOffers" asp-action="Index"><i class="feather icon-umbrella"></i><span class="menu-item" data-i18n="eCommerce">عروض اسعار </span></a>
+                        </li>
+                        <li>
+                            <a asp-controller="LastDevelopment" asp-action="Index"><i class="feather icon-umbrella"></i><span class="menu-item" data-i18n="eCommerce">اخر تطوراتنا </span></a>
+                        </li>
+                        @*
+                        <li>
+                        <a asp-controller="Transaction" asp-action="Index"><i class="feather icon-umbrella"></i><span class="menu-item" data-i18n="eCommerce">المدفوعات </span></a>
+                        </li>*@
+
 
                     </ul>
                 </li>
@@ -141,26 +159,29 @@
 
 
 
-                <li class=" nav-item">
-                    <a href="index.html"><i class="feather icon-bar-chart"></i><span class="menu-title" data-i18n="Dashboard">التقارير</span><span class="badge badge badge-warning badge-pill float-right mr-2">13</span></a>
-                    <ul class="menu-content">
+                <li class=" nav-item open">
+                    <a><i class="feather icon-bar-chart"></i><span data-i18n="Dashboard">التقارير</span><span class="badge badge badge-warning badge-pill float-right mr-2">13</span></a>
+                    <ul class="menu-content ">
                         <li>
-                            <a asp-controller="Advertisment" asp-action="Index"><i class="feather icon-user"></i><span class="menu-item" data-i18n="eCommerce">المدفوعات لمقدمي الخدمة</span></a>
+                            <a asp-controller="Home" asp-action="Payment"><i class="feather icon-user"></i><span class="menu-item" data-i18n="eCommerce">المدفوعات لمقدمي الخدمة</span></a>
                         </li>
                         <li>
-                            <a asp-controller="Advertisment" asp-action="Index"><i class="feather icon-users"></i><span class="menu-item" data-i18n="Analytics"> المدوعات لمن اشرف عليهم<br /> ممثلي الخدمة</span></a>
+                            <a asp-controller="Home" asp-action="Payment2"><i class="feather icon-users"></i><span class="menu-item" data-i18n="Analytics"> المدوعات لمن اشرف عليهم<br /> ممثلي الخدمة</span></a>
                         </li>
                         <li>
-                            <a asp-controller="Advertisment" asp-action="Index"><i class="feather icon-octagon"></i><span class="menu-item" data-i18n="eCommerce"> المدفعوت للعميل </span></a>
+                            <a asp-controller="Home" asp-action="Payment3"><i class="feather icon-octagon"></i><span class="menu-item" data-i18n="eCommerce"> المدفعوت للعميل </span></a>
                         </li>
                         <li>
-                            <a asp-controller="Advertisment" asp-action="Index"><i class="feather icon-layers"></i><span class="menu-item" data-i18n="eCommerce"> اجمالي المدفوعات</span></a>
+                            <a asp-controller="Home" asp-action="Payment4"><i class="feather icon-layers"></i><span class="menu-item" data-i18n="eCommerce"> اجمالي المدفوعات</span></a>
+                        </li>
+                        <li>
+                            <a asp-controller="Home" asp-action="Payment5"><i class="feather icon-layers"></i><span class="menu-item" data-i18n="eCommerce">اجمالي المدفوعات بالخدمة </span></a>
                         </li>
                         <li>
                             <a asp-controller="Advertisment" asp-action="Index"><i class="feather icon-shopping-cart"></i><span class="menu-item" data-i18n="eCommerce">المدفوعات  بالنسبه للمراحل <br /> والمراحل المتبقية للخدمات المستمرة</span></a>
                         </li>
                         <li>
-                            <a asp-controller="Advertisment" asp-action="Index"><i class="feather icon-server"></i><span class="menu-item" data-i18n="eCommerce">عدد الخدمات التي تم طلبها</span></a>
+                            <a asp-controller="Home" asp-action="Payment6"><i class="feather icon-server"></i><span class="menu-item" data-i18n="eCommerce">عدد الخدمات التي تم طلبها</span></a>
                         </li>
 
                         <li>

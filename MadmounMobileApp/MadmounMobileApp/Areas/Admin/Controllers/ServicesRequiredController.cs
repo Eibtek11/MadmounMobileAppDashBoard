@@ -46,6 +46,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             model.lstCities = cityService.getAll();
             model.lstComplains = ComplainService.getAll();
             model.lstServicesRequireds = sq.getAll();
+          
             model.lstServicesApprovedS = sr.getAll();
             model.lstUsers = Usermanager.Users.ToList();
             return View(model);
@@ -93,6 +94,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             model.lstCities = cityService.getAll();
             model.lstComplains = ComplainService.getAll();
             model.lstServicesRequireds = servicesRequiredService.getAll();
+            model.lstUsers = Usermanager.Users.ToList();
             return View("Index", model);
         }
 
@@ -112,6 +114,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             model.lstCities = cityService.getAll();
             model.lstComplains = ComplainService.getAll();
             model.lstServicesRequireds = servicesRequiredService.getAll();
+            model.lstUsers = Usermanager.Users.ToList();
             return View("Index", model);
 
 
