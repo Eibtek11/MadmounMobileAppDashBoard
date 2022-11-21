@@ -77,7 +77,8 @@ namespace MadmounMobileApp.Controllers
                 PhoneNumber = signUpModel.PhoneNumber,
                 ServiceName = signUpModel.ServiceName,
                 ServiceId = signUpModel.ServiceId,
-                CityId = signUpModel.CityId
+                CityId = signUpModel.CityId,
+                Services = signUpModel.Services
 
 
             };

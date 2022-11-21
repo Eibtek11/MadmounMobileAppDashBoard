@@ -320,3 +320,7 @@ F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\Razor\
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\Razor\Views\User\SendCode.cshtml.g.cs
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\Razor\Views\User\VerifyAuthenticatorCode.cshtml.g.cs
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\Razor\Views\User\VerifyCode.cshtml.g.cs
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\Razor\Areas\Admin\Views\Home\Payment10.cshtml.g.cs
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\Razor\Areas\Admin\Views\Home\Payment7.cshtml.g.cs
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\Razor\Areas\Admin\Views\Home\Payment8.cshtml.g.cs
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\Razor\Areas\Admin\Views\Home\Payment9.cshtml.g.cs

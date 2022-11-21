@@ -16,6 +16,8 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
     [Authorize(Roles = "Admin")]
     public class HomeController : Controller
     {
+        SrrepCityService srrepCityService;
+        SroffCityService sroffCityService;
         ServiceApprovedMilstoneService serviceApprovedMilstoneService;
         IGetChat getChat;
         LogInHistoryService logInHistoryService;
@@ -28,8 +30,9 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
         AreaService areaService;
         MadmounDbContext ctx;
         UserManager<ApplicationUser> Usermanager;
-        public HomeController(ServiceApprovedMilstoneService ServiceApprovedMilstoneService,IGetChat GetChat,LogInHistoryService LogInHistoryService,UserManager<ApplicationUser> usermanager ,SrrepService SrrepService,SrOffService SrOffService,AdvertismentService AdvertismentService, ServiceCategoryService SrviceCategoryService, ServiceService ServiceService, CityService CityService, AreaService AreaService, MadmounDbContext context)
+        public HomeController(SrrepCityService SrrepCityService,SroffCityService SroffCityService,ServiceApprovedMilstoneService ServiceApprovedMilstoneService,IGetChat GetChat,LogInHistoryService LogInHistoryService,UserManager<ApplicationUser> usermanager ,SrrepService SrrepService,SrOffService SrOffService,AdvertismentService AdvertismentService, ServiceCategoryService SrviceCategoryService, ServiceService ServiceService, CityService CityService, AreaService AreaService, MadmounDbContext context)
         {
+            
             areaService = AreaService;
             ctx = context;
             cityService = CityService;
@@ -42,6 +45,8 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             logInHistoryService = LogInHistoryService;
             getChat = GetChat;
             serviceApprovedMilstoneService = ServiceApprovedMilstoneService;
+            sroffCityService = SroffCityService;
+            srrepCityService = SrrepCityService;
         }
         public IActionResult Index()
         {
@@ -210,6 +215,87 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
 
             }
             model.LstGetServicesNo = lstgetServicesNos;
+            return View(model);
+        }
+
+
+
+        public IActionResult Payment7(string Id)
+        {
+            HomePageModel model = new HomePageModel();
+            model.lstServices = serviceService.getAll();
+            model.lstCities = cityService.getAll();
+            model.lstAreas = areaService.getAll();
+            model.lstServiceApprovedMilstone = serviceApprovedMilstoneService.getAll();
+            model.lstSrOffServiceS = srOffService.getAll();
+            model.LstVwFilterOffs = ctx.VwFilterOffs.ToList();
+            if (Id != null)
+            {
+                model.LstVwFilterOffs = ctx.VwFilterOffs.ToList().Where(a => a.ServiceId == Guid.Parse(Id));
+                
+            }
+           
+            ViewBag.cities = serviceService.getAll();
+           
+            return View(model);
+        }
+
+
+        public IActionResult Payment8(string Id)
+        {
+            HomePageModel model = new HomePageModel();
+            model.lstServices = serviceService.getAll();
+            model.lstCities = cityService.getAll();
+            model.lstAreas = areaService.getAll();
+            model.lstServiceApprovedMilstone = serviceApprovedMilstoneService.getAll();
+            model.lstSrRepService = srrepService.getAll();
+            model.LstVwFilterreps = ctx.VwFilterreps.ToList();
+            if (Id != null)
+            {
+                model.LstVwFilterreps = ctx.VwFilterreps.ToList().Where(a => a.ServiceId == Guid.Parse(Id));
+            }
+
+            ViewBag.cities = serviceService.getAll();
+
+            return View(model);
+        }
+
+
+        public IActionResult Payment9(string Id)
+        {
+            HomePageModel model = new HomePageModel();
+            model.lstServices = serviceService.getAll();
+            model.lstCities = cityService.getAll();
+            model.lstAreas = areaService.getAll();
+            model.lstServiceApprovedMilstone = serviceApprovedMilstoneService.getAll();
+            model.lstSrOffCity = sroffCityService.getAll();
+            if (Id != null)
+            {
+                model.lstSrOffCity = sroffCityService.getAll().Where(a => a.CityId == Guid.Parse(Id));
+            }
+
+            ViewBag.cities = cityService.getAll();
+
+            return View(model);
+        }
+
+
+
+        public IActionResult Payment10(string Id)
+        {
+            HomePageModel model = new HomePageModel();
+            model.lstServices = serviceService.getAll();
+            model.lstCities = cityService.getAll();
+            model.lstAreas = areaService.getAll();
+            model.lstServiceApprovedMilstone = serviceApprovedMilstoneService.getAll();
+            model.lstSrRepCity = srrepCityService.getAll();
+            if (Id != null)
+            {
+                model.lstSrRepCity = srrepCityService.getAll().Where(a => a.CityId == Guid.Parse(Id));
+            }
+
+            ViewBag.cities = cityService.getAll();
+
             return View(model);
         }
     }

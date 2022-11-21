@@ -61,6 +61,7 @@ namespace MadmounMobileApp.Controllers
             oTbServicesOffers.ServiceId = services.ServiceId;
             oTbServicesOffers.CreatedBy =ctx.TbServices.Where(a=> a.ServiceId == services.ServiceId).FirstOrDefault().ServiceName;
             oTbServicesOffers.UpdatedBy = ctx.TbServices.Where(a => a.ServiceId == services.ServiceId).FirstOrDefault().CreatedBy;
+            oTbServicesOffers.Notes = "بانتظار الرد";
             var result = servicesOfferService.Add(oTbServicesOffers);
 
             if (!result)

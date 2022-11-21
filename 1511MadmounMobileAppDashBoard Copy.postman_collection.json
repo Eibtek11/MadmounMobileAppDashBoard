@@ -219,12 +219,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://ismguk.com/api/ServicesApi",
-							"protocol": "http",
+							"raw": "https://localhost:44337/api/ServicesApi",
+							"protocol": "https",
 							"host": [
-								"ismguk",
-								"com"
+								"localhost"
 							],
+							"port": "44337",
 							"path": [
 								"api",
 								"ServicesApi"
@@ -382,16 +382,16 @@
 								{
 									"key": "PersonalImage",
 									"type": "file",
-									"src": "/F:/New folder/images/3.PNG"
+									"src": "/F:/New folder/images/WhatsApp Image 2022-09-04 at 11.31.49 AM.jpeg"
 								},
 								{
 									"key": "firstname",
-									"value": "mostafa",
+									"value": "latef",
 									"type": "text"
 								},
 								{
 									"key": "Email",
-									"value": "alaaaa@gmail.com",
+									"value": "latef@gmail.com",
 									"type": "text"
 								},
 								{
@@ -401,7 +401,7 @@
 								},
 								{
 									"key": "StateName",
-									"value": "طالب خدمة",
+									"value": "مقدم خدمة",
 									"type": "text"
 								},
 								{
@@ -440,8 +440,8 @@
 									"type": "text"
 								},
 								{
-									"key": "serviceName",
-									"value": "ريادة",
+									"key": "Services",
+									"value": "برمجة تطبيقات سطح المكتب",
 									"type": "text"
 								}
 							]
@@ -845,7 +845,70 @@
 					"response": []
 				},
 				{
-					"name": "Send Service Offer",
+					"name": "قيد التنفيذ",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://ismguk.com/api/ServicesDoingToOffererApi/1ff44455-45d1-4dce-954e-ad548a97d5bd",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"ServicesDoingToOffererApi",
+								"1ff44455-45d1-4dce-954e-ad548a97d5bd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "قيد التنفذ الخط الزمني للمشروع",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://ismguk.com/api/OffererProjectMillestoneApi/0d015b40-5fb3-4968-92a8-0423ece85314",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"OffererProjectMillestoneApi",
+								"0d015b40-5fb3-4968-92a8-0423ece85314"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "المنتهية",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://ismguk.com/api/OffererFinishedServicesApi/1ff44455-45d1-4dce-954e-ad548a97d5bd",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"OffererFinishedServicesApi",
+								"1ff44455-45d1-4dce-954e-ad548a97d5bd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ارسال عرض سعر",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -874,7 +937,7 @@
 								},
 								{
 									"key": "ServiceOfferCost",
-									"value": "500 $",
+									"value": "9000",
 									"type": "text"
 								},
 								{
@@ -884,12 +947,12 @@
 								},
 								{
 									"key": "ServiceId",
-									"value": "8da35074-3dbe-4444-ada9-652b48dbff4c",
+									"value": "7906473b-28eb-460e-885e-125b4aae31e4",
 									"type": "text"
 								},
 								{
 									"key": "ServicesRequiredId",
-									"value": "838f35b6-eb80-431a-8ed4-c02e5252dd0e",
+									"value": "c9e4093b-59ec-472e-a441-13863caf406f",
 									"type": "text"
 								}
 							]
@@ -911,7 +974,7 @@
 					"response": []
 				},
 				{
-					"name": "Delete Record of  Service Offer Copy",
+					"name": "مسح عرض سعر",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1004,12 +1067,12 @@
 								},
 								{
 									"key": "CreatedBy",
-									"value": "429437c3-4ac1-4c79-beec-6631d92c93a5",
+									"value": "835ad4f1-c594-429d-87c0-95591a2a9de4",
 									"type": "text"
 								},
 								{
 									"key": "Notes",
-									"value": "2 Months",
+									"value": "5 Months",
 									"type": "text"
 								},
 								{
@@ -1055,22 +1118,22 @@
 							"formdata": [
 								{
 									"key": "ServiceApprovedMilstoneDesc",
-									"value": "social",
+									"value": "market",
 									"type": "text"
 								},
 								{
 									"key": "ServiceApprovedId",
-									"value": "911ffe73-77da-4cc2-acef-fe1752f668b4",
+									"value": "0d015b40-5fb3-4968-92a8-0423ece85314",
 									"type": "text"
 								},
 								{
 									"key": "CreatedBy",
-									"value": "10000$",
+									"value": "100$",
 									"type": "text"
 								},
 								{
 									"key": "UpdatedBy",
-									"value": "10 days",
+									"value": "100 days",
 									"type": "text"
 								}
 							]
@@ -1092,7 +1155,7 @@
 					"response": []
 				},
 				{
-					"name": "Send Service Image",
+					"name": "ارسال صور لمراحل المشروع",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -1133,7 +1196,7 @@
 					"response": []
 				},
 				{
-					"name": "Add Payment",
+					"name": "اضافة دفعات لمراحل المشروع",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -1167,48 +1230,6 @@
 						}
 					},
 					"response": []
-				},
-				{
-					"name": "Bring ServiceApproved Millstone",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://ismguk.com/api/ServicesApprovedMillestoneApi/5e263f52-415f-4629-944e-27b6ffd4217d",
-							"protocol": "http",
-							"host": [
-								"ismguk",
-								"com"
-							],
-							"path": [
-								"api",
-								"ServicesApprovedMillestoneApi",
-								"5e263f52-415f-4629-944e-27b6ffd4217d"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Bring ServiceApproved Images",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://ismguk.com/api/ServicesApprovedImageApi/65718afc-9ff4-4acf-a4f9-7e88efa70d4c",
-							"protocol": "http",
-							"host": [
-								"ismguk",
-								"com"
-							],
-							"path": [
-								"api",
-								"ServicesApprovedImageApi",
-								"65718afc-9ff4-4acf-a4f9-7e88efa70d4c"
-							]
-						}
-					},
-					"response": []
 				}
 			]
 		},
@@ -1225,12 +1246,12 @@
 							"formdata": [
 								{
 									"key": "ServiceSyntax",
-									"value": "make sms message",
+									"value": "make finance plan",
 									"type": "text"
 								},
 								{
 									"key": "SrReqId",
-									"value": "5ae16197-f851-4ffe-992c-d23ec3b821ed",
+									"value": "0c49f46d-7d17-4a64-ba05-d7b736987b80",
 									"type": "text"
 								},
 								{
@@ -1314,7 +1335,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://ismguk.com/api/ServicesRequiredByRequester2Api/6ebb5c39-87c8-43c1-b17c-06394c0f56a1",
+							"raw": "http://ismguk.com/api/ServicesRequiredByRequester2Api/0c49f46d-7d17-4a64-ba05-d7b736987b80",
 							"protocol": "http",
 							"host": [
 								"ismguk",
@@ -1323,7 +1344,7 @@
 							"path": [
 								"api",
 								"ServicesRequiredByRequester2Api",
-								"6ebb5c39-87c8-43c1-b17c-06394c0f56a1"
+								"0c49f46d-7d17-4a64-ba05-d7b736987b80"
 							]
 						}
 					},
@@ -1356,7 +1377,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://ismguk.com/api/ServicesDoingToRequesterApi/0c49f46d-7d17-4a64-ba05-d7b736987b80",
+							"raw": "http://ismguk.com/api/ProjectMillestoneApi/0d015b40-5fb3-4968-92a8-0423ece85314",
 							"protocol": "http",
 							"host": [
 								"ismguk",
@@ -1364,8 +1385,8 @@
 							],
 							"path": [
 								"api",
-								"ServicesDoingToRequesterApi",
-								"0c49f46d-7d17-4a64-ba05-d7b736987b80"
+								"ProjectMillestoneApi",
+								"0d015b40-5fb3-4968-92a8-0423ece85314"
 							]
 						}
 					},

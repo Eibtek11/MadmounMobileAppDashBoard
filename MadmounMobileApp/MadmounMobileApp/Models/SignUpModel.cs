@@ -38,6 +38,9 @@ namespace MadmounMobileApp.Models
 
         public string PhoneNumber { get; set; }
 
+
+        public string Services { get; set; }
+
         public Guid? ServiceId { get; set; }
 
         public Guid? CityId { get; set; }

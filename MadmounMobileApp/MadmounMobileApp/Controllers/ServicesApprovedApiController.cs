@@ -51,16 +51,19 @@ namespace MadmounMobileApp.Controllers
 
         // POST api/<ServicesApprovedApiController>
         [HttpPost("approveService")]
-        public IActionResult Post([FromForm] ServicesApproveViewPageModel services)
+        public TbServicesApproved Post([FromForm] ServicesApproveViewPageModel services)
         {
-            TbServicesRequired oTbServicesRequired = ctx.TbServicesRequireds.Where(a => a.ServicesRequiredId == Guid.Parse(services.CreatedBy)).FirstOrDefault();
+            TbServicesOffers oTbServicesOffers = ctx.TbServicesOfferss.Where(a => a.ServicesOffersId == Guid.Parse(services.CreatedBy)).FirstOrDefault();
+            oTbServicesOffers.Notes = "موافقة";
+            servicesOfferService.Edit(oTbServicesOffers);
+            TbServicesRequired oTbServicesRequired = ctx.TbServicesRequireds.Where(a => a.ServicesRequiredId == oTbServicesOffers.ServicesRequiredId).FirstOrDefault();
             oTbServicesRequired.ApprovalStatus = "Approved";
             servicesRequiredService.Edit(oTbServicesRequired);
             TbServicesApproved oTbServicesApproved = new TbServicesApproved();
             oTbServicesApproved.SrRepId = services.SrRepId;
             oTbServicesApproved.SrReqId = services.SrReqId;
             oTbServicesApproved.SrOffId = services.SrOffId;
-            oTbServicesApproved.CreatedBy = services.CreatedBy;
+            oTbServicesApproved.CreatedBy =  oTbServicesOffers.ServicesRequiredId.ToString();
             oTbServicesApproved.Notes = services.Notes;
             oTbServicesApproved.ServiceId = services.ServiceId;
             oTbServicesApproved.CityId = services.CityId;
@@ -70,12 +73,8 @@ namespace MadmounMobileApp.Controllers
             oTbServicesApproved.ContractPdf = oTbServicesRequired.CreatedBy;
             var result = servicesApprovedService.Add(oTbServicesApproved);
 
-            if (!result)
-            {
-                return Unauthorized();
-
-            }
-            return Ok(result);
+          
+            return oTbServicesApproved;
         }
 
 

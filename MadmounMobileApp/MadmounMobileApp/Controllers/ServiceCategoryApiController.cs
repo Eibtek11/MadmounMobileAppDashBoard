@@ -35,7 +35,7 @@ namespace MadmounMobileApp.Controllers
         public IEnumerable<TbServiceCategory> Get()
         {
             HomePageModel model = new HomePageModel();
-            model.lstServicecATEGORIES = srviceCategoryService.getAll();
+            model.lstServicecATEGORIES = srviceCategoryService.getAll().Where(a => a.ServiceCategoryId != Guid.Parse("371b893c-3f5a-4335-a2c0-b9aa197d35ae"));
             return model.lstServicecATEGORIES;
         }
 

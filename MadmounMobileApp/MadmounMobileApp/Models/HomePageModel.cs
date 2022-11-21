@@ -162,5 +162,13 @@ namespace MadmounMobileApp.Models
 
         public IEnumerable<GetServicesApproed> LstGetServicesApproed { get; set; }
 
+
+        public IEnumerable<VwFilterOff> LstVwFilterOffs { get; set; }
+
+
+
+
+        public IEnumerable<VwFilterrep> LstVwFilterreps { get; set; }
+
     }
 }

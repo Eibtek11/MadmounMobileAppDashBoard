@@ -46,7 +46,7 @@ namespace MadmounMobileApp.Controllers
         public IEnumerable<TbServicesApproved> Get(string id)
         {
          
-            return ctx.TbServicesApproveds.Include(a => a.Service).Include(a => a.TbServiceApprovedMilstones).Include(a=> a.City).ToList().Where(a => a.SrReqId == id);
+            return ctx.TbServicesApproveds.Where(a=> a.ServiceSyntax != "Finished").Include(a => a.Service).Include(a => a.TbServiceApprovedMilstones).Include(a=> a.City).ToList().Where(a => a.SrReqId == id);
         }
 
         // POST api/<ServicesDoingToRequesterApiController>

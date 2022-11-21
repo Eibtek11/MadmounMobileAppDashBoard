@@ -50,6 +50,9 @@ namespace BL
         public virtual DbSet<TbTransaction> TbTransactions { get; set; }
         public virtual DbSet<TbServicesFinished> TbServicesFinisheds { get; set; }
         public DbSet<TwoFactorCodeModel> TwoFactorCodes { get; set; }
+        public DbSet<VwFilterOff> VwFilterOffs { get; set; }
+
+        public DbSet<VwFilterrep> VwFilterreps { get; set; }
 
 
 
@@ -178,7 +181,24 @@ namespace BL
                     .HasConstraintName("FK_TbServicesOffers_TbServicesRequired");
             });
 
+            modelBuilder.Entity<VwFilterOff>(entity =>
+            {
+                entity.HasNoKey();
 
+                entity.ToView("VwFilterOff");
+
+
+            });
+
+
+            modelBuilder.Entity<VwFilterrep>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("VwFilterrep");
+
+
+            });
 
             modelBuilder.Entity<TbClientImages>(entity =>
             {

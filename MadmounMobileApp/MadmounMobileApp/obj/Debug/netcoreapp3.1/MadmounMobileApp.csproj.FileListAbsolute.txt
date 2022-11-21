@@ -320,3 +320,7 @@ F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\MadmounM
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\MadmounMobileApp.dll
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\MadmounMobileApp.pdb
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\MadmounMobileApp.genruntimeconfig.cache
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\Payment7.cshtml.g.cs
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\Payment8.cshtml.g.cs
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\Payment10.cshtml.g.cs
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\Payment9.cshtml.g.cs
