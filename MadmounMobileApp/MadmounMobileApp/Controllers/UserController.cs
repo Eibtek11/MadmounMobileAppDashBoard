@@ -27,13 +27,14 @@ namespace MadmounMobileApp.Controllers
         LogInHistoryService lgHistory;
         MadmounDbContext Ctx;
         UserManager<ApplicationUser> Usermanager;
+        private readonly RoleManager<IdentityRole> _roleManager;
         IUserValidator<ApplicationUser> v;
         SignInManager<ApplicationUser> SignInManager;
         private readonly ISMSService _smsService;
         IEmailSender _emailSender;
         private readonly ISmsSender _smsSender;
         private readonly UrlEncoder _urlEncoder;
-        public UserController(UrlEncoder urlEncoder, IUserValidator<ApplicationUser> V,ISmsSender smsSender, IEmailSender emailSender, ISMSService smsService,LogInHistoryService LgHistory,MadmounDbContext ctx, UserManager<ApplicationUser> usermanager, SignInManager<ApplicationUser> signInManager)
+        public UserController(RoleManager<IdentityRole> roleManager,UrlEncoder urlEncoder, IUserValidator<ApplicationUser> V,ISmsSender smsSender, IEmailSender emailSender, ISMSService smsService,LogInHistoryService LgHistory,MadmounDbContext ctx, UserManager<ApplicationUser> usermanager, SignInManager<ApplicationUser> signInManager)
         {
             Usermanager = usermanager;
             SignInManager = signInManager;
@@ -44,6 +45,7 @@ namespace MadmounMobileApp.Controllers
             _smsSender = smsSender;
             _urlEncoder = urlEncoder;
             v = V;
+            _roleManager = roleManager;
         }
 
 
@@ -76,6 +78,12 @@ namespace MadmounMobileApp.Controllers
         [HttpPost]
         public async Task<IActionResult> Register(HomePageModel oHomePageModel)
         {
+            if (!await _roleManager.RoleExistsAsync("Admin"))
+            {
+                //create roles
+                await _roleManager.CreateAsync(new IdentityRole("Admin"));
+                await _roleManager.CreateAsync(new IdentityRole("User"));
+            }
             try
             {
 
@@ -540,5 +548,38 @@ namespace MadmounMobileApp.Controllers
             }
 
         }
+
+
+
+
+
+        [HttpPost]
+        public IActionResult LockUnlock(string userId)
+        {
+
+            ApplicationUser objFromDb = Usermanager.Users.Where(u => u.Id == userId).FirstOrDefault();
+            if (objFromDb == null)
+            {
+                return NotFound();
+            }
+            if (objFromDb.LockoutEnd != null && objFromDb.LockoutEnd > DateTime.Now)
+            {
+                //user is locked and will remain locked untill lockoutend time
+                //clicking on this action will unlock them
+                objFromDb.LockoutEnd = DateTime.Now;
+                //TempData[SD.Success] = "User unlocked successfully.";
+            }
+            else
+            {
+                //user is not locked, and we want to lock the user
+                objFromDb.LockoutEnd = DateTime.Now.AddYears(1000);
+                //TempData[SD.Success] = "User locked successfully.";
+            }
+            Ctx.SaveChanges();
+            return RedirectToAction(nameof(Index));
+
+        }
+
+       
     }
 }

@@ -101,6 +101,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             model.lstServices = serviceService.getAll();
             model.lstServicecATEGORIES = fl.getAll();
             model.lstSrRepService = srrepService.getAll();
+            model.lstUsers = Usermanager.Users.ToList();
             return View("Index", model);
         }
 
@@ -134,8 +135,26 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
 
 
 
-        public IActionResult Form(Guid? id)
+        public async Task<IActionResult> FormAsync(Guid? id)
         {
+            var user = await Usermanager.FindByIdAsync(id.ToString());
+            user.ServiceName = "Approved";
+            user.state = 1;
+            ApplicationUser objFromDb = Usermanager.Users.Where(u => u.Id == id.ToString()).FirstOrDefault();
+            if (objFromDb == null)
+            {
+                return NotFound();
+            }
+            if (objFromDb.LockoutEnd != null && objFromDb.LockoutEnd > DateTime.Now)
+            {
+                //user is locked and will remain locked untill lockoutend time
+                //clicking on this action will unlock them
+                objFromDb.LockoutEnd = DateTime.Now;
+                //TempData[SD.Success] = "User unlocked successfully.";
+            }
+
+            ctx.SaveChanges();
+            var result = await Usermanager.UpdateAsync(user);
             TbSrRepService oldItem = ctx.TbSrRepServices.Where(a => a.SrRepServiceId == id).FirstOrDefault();
 
             ViewBag.services = serviceService.getAll();

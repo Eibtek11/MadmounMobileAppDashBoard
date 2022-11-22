@@ -55,6 +55,9 @@ namespace BL
         public DbSet<VwFilterrep> VwFilterreps { get; set; }
 
 
+        public DbSet<VwStages> VwStagess { get; set; }
+
+
 
         //        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //        {
@@ -186,6 +189,17 @@ namespace BL
                 entity.HasNoKey();
 
                 entity.ToView("VwFilterOff");
+
+
+            });
+
+
+
+            modelBuilder.Entity<VwStages>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("VwStages");
 
 
             });

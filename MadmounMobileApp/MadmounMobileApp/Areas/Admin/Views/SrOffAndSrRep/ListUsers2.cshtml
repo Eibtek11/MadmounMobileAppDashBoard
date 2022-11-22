@@ -785,6 +785,8 @@
                                            @* <a asp-controller="SrOffService" asp-action="Form" asp-route-id="@item.Id"><span class="action-delete">اضف كمقدم خدمة</a>*@
                                             <br />
                                             <a asp-controller="SRepService" asp-action="Form" asp-route-id="@item.Id"><span class="action-delete">القبول كممثل خدمة</a>
+                                            <br />
+                                            <a asp-controller="SrOffAndSrRep" asp-action="ListUsers2" asp-route-id="@item.Id"><span class="action-delete">وقف مقدم الخدمة</a>
 
                                         </td>
                                         @*<td>

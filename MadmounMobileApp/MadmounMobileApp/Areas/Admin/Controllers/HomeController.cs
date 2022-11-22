@@ -1,5 +1,6 @@
 ﻿using BL;
 using BL.Models;
+using Domains;
 using MadmounMobileApp.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -16,6 +17,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
     [Authorize(Roles = "Admin")]
     public class HomeController : Controller
     {
+        ServicesRequiredService servicesRequiredService;
         SrrepCityService srrepCityService;
         SroffCityService sroffCityService;
         ServiceApprovedMilstoneService serviceApprovedMilstoneService;
@@ -30,7 +32,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
         AreaService areaService;
         MadmounDbContext ctx;
         UserManager<ApplicationUser> Usermanager;
-        public HomeController(SrrepCityService SrrepCityService,SroffCityService SroffCityService,ServiceApprovedMilstoneService ServiceApprovedMilstoneService,IGetChat GetChat,LogInHistoryService LogInHistoryService,UserManager<ApplicationUser> usermanager ,SrrepService SrrepService,SrOffService SrOffService,AdvertismentService AdvertismentService, ServiceCategoryService SrviceCategoryService, ServiceService ServiceService, CityService CityService, AreaService AreaService, MadmounDbContext context)
+        public HomeController(ServicesRequiredService ServicesRequiredService,SrrepCityService SrrepCityService,SroffCityService SroffCityService,ServiceApprovedMilstoneService ServiceApprovedMilstoneService,IGetChat GetChat,LogInHistoryService LogInHistoryService,UserManager<ApplicationUser> usermanager ,SrrepService SrrepService,SrOffService SrOffService,AdvertismentService AdvertismentService, ServiceCategoryService SrviceCategoryService, ServiceService ServiceService, CityService CityService, AreaService AreaService, MadmounDbContext context)
         {
             
             areaService = AreaService;
@@ -47,6 +49,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             serviceApprovedMilstoneService = ServiceApprovedMilstoneService;
             sroffCityService = SroffCityService;
             srrepCityService = SrrepCityService;
+            servicesRequiredService = ServicesRequiredService;
         }
         public IActionResult Index()
         {
@@ -296,6 +299,49 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
 
             ViewBag.cities = cityService.getAll();
 
+            return View(model);
+        }
+
+
+
+        public IActionResult Payment11(string Id)
+        {
+            HomePageModel model = new HomePageModel();
+            model.lstServices = serviceService.getAll();
+            model.lstCities = cityService.getAll();
+            model.lstAreas = areaService.getAll();
+            model.lstServiceApprovedMilstone = serviceApprovedMilstoneService.getAll();
+            model.lstSrRepCity = srrepCityService.getAll();
+            model.LstVwStages = ctx.VwStagess.ToList();
+            if (Id != null)
+            {
+                model.LstVwStages = ctx.VwStagess.ToList().Where(a => a.ServicesRequiredId == Guid.Parse(Id));
+            }
+
+            ViewBag.cities = servicesRequiredService.getAll();
+            int count = model.LstVwStages.Sum(a => int.Parse(a.PaidAmount));
+            ViewBag.lstSrOffServiceS = count;
+           
+            int c = 0;
+            foreach(var i in model.lstServiceApprovedMilstone)
+            {
+                c += int.Parse(i.CreatedBy);
+            }
+            int count2 = c;
+            TbServicesApproved o = ctx.TbServicesApproveds.Where(a => a.CreatedBy ==Id).FirstOrDefault();
+
+            if (Id != null && o !=null)
+            {
+                c = 0;
+                foreach (var i in model.lstServiceApprovedMilstone.Where(a=> a.ServiceApprovedId == o.ServiceApprovedId))
+                {
+                    c += int.Parse(i.CreatedBy);
+                }
+            }
+            count2 = c;
+            ViewBag.lstSrOffServiceS2 = count2;
+            int count3 = count2- count;
+            ViewBag.lstSrOffServiceS3 = count3;
             return View(model);
         }
     }

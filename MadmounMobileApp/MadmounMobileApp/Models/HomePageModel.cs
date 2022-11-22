@@ -170,5 +170,8 @@ namespace MadmounMobileApp.Models
 
         public IEnumerable<VwFilterrep> LstVwFilterreps { get; set; }
 
+
+        public IEnumerable<VwStages> LstVwStages { get; set; }
+
     }
 }

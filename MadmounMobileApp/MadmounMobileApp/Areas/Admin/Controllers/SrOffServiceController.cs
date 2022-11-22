@@ -177,6 +177,20 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             var user = await Usermanager.FindByIdAsync(id.ToString());
             user.ServiceName = "Approved";
             user.state = 1;
+            ApplicationUser objFromDb = Usermanager.Users.Where(u => u.Id == id.ToString()).FirstOrDefault();
+            if (objFromDb == null)
+            {
+                return NotFound();
+            }
+            if (objFromDb.LockoutEnd != null && objFromDb.LockoutEnd > DateTime.Now)
+            {
+                //user is locked and will remain locked untill lockoutend time
+                //clicking on this action will unlock them
+                objFromDb.LockoutEnd = DateTime.Now;
+                //TempData[SD.Success] = "User unlocked successfully.";
+            }
+           
+            ctx.SaveChanges();
             var result = await Usermanager.UpdateAsync(user);
             TbSrOffService oldItem = ctx.TbSrOffServices.Where(a => a.SrOffServiceId == id).FirstOrDefault();
           

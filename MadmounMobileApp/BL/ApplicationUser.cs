@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+using System.Web.Mvc;
+
 namespace BL
 {
     public class ApplicationUser:IdentityUser
@@ -78,6 +80,8 @@ namespace BL
 
 
         public string PersonalPhoto { get; set; }
+        //public IEnumerable<SelectListItem> RoleList { get; set; }
+        //public string RoleSelected { get; set; }
 
 
     }

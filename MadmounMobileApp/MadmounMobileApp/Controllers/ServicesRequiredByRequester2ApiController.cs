@@ -3,6 +3,7 @@ using Domains;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -42,7 +43,7 @@ namespace MadmounMobileApp.Controllers
         {
 
 
-            return ctx.TbServicesRequireds.Include(a=> a.TbServicesOfferss).ToList().Where(a => a.SrReqId == id);
+            return ctx.TbServicesRequireds.Include(a=> a.TbServicesOfferss).ToList().Where(a => a.ServicesRequiredId == Guid.Parse(id));
         }
 
         // POST api/<ServicesRequiredByRequester2ApiController>

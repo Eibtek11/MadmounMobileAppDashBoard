@@ -45,6 +45,18 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
                 user.ServiceName = "Hanged";
                 user.state = 2;
                 var result = await Usermanager.UpdateAsync(user);
+                ApplicationUser objFromDb = Usermanager.Users.Where(u => u.Id == id.ToString()).FirstOrDefault();
+                if (objFromDb == null)
+                {
+                    return NotFound();
+                }
+               
+               
+                    //user is not locked, and we want to lock the user
+                    objFromDb.LockoutEnd = DateTime.Now.AddYears(1000);
+                    //TempData[SD.Success] = "User locked successfully.";
+              
+                Ctx.SaveChanges();
             }
            
             HomePageModel model = new HomePageModel();
@@ -52,8 +64,27 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             return View(model);
         }
         [HttpGet]
-        public IActionResult ListUsers2()
+        public async Task<IActionResult> ListUsers2Async(Guid? id)
         {
+            if (id != null)
+            {
+                var user = await Usermanager.FindByIdAsync(id.ToString());
+                user.ServiceName = "Hanged";
+                user.state = 2;
+                var result = await Usermanager.UpdateAsync(user);
+                ApplicationUser objFromDb = Usermanager.Users.Where(u => u.Id == id.ToString()).FirstOrDefault();
+                if (objFromDb == null)
+                {
+                    return NotFound();
+                }
+
+
+                //user is not locked, and we want to lock the user
+                objFromDb.LockoutEnd = DateTime.Now.AddYears(1000);
+                //TempData[SD.Success] = "User locked successfully.";
+
+                Ctx.SaveChanges();
+            }
             HomePageModel model = new HomePageModel();
             model.lstUsers = Usermanager.Users.Where(a => a.StateName == "ممثل خدمة").ToList();
             return View(model);
