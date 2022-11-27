@@ -19,6 +19,7 @@ using MadmounMobileApp.Controllers;
 
 using MadmounMobileApp.Helpers;
 using MadmounMobileApp.Services;
+using MadmounMobileApp.Hubs;
 
 namespace MadmounMobileApp
 {
@@ -42,6 +43,7 @@ namespace MadmounMobileApp
             services.AddScoped<IEmailSender, EmailSender>();
             services.AddControllersWithViews().AddNewtonsoftJson(options =>options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
 );
+            services.AddSignalR();
             services.AddScoped<CityService, ClsCity>();
             services.AddScoped<AreaService, ClsArea>();
             services.AddScoped<ServiceCategoryService, ClsServiceCategories>();
@@ -85,7 +87,7 @@ namespace MadmounMobileApp
                     //URLs are from the front-end (note that they changed
                     //since posting my original question due to scrapping
                     //the original projects and starting over)
-                    builder.WithOrigins("https://localhost:44398/", "http://ismguk.com/")
+                    builder.WithOrigins("https://localhost:44398/", "http://ismguk.com/" , "http://localhost:60097/" , "")
                                      .AllowAnyHeader()
                                      .AllowAnyMethod()
                                      .AllowCredentials();
@@ -155,6 +157,22 @@ namespace MadmounMobileApp
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
+                endpoints.MapHub<UserHub>("/hubs/userCount");
+
+                endpoints.MapHub<DeathlyHallowsHub>("hubs/deathyhallows");
+
+
+                //endpoints.MapHub<DeathlyHallowsHub>("/hubs/houseGroup");
+
+
+                endpoints.MapHub<NotificationHub>("/hubs/notification");
+
+                endpoints.MapHub<BasicChatHub>("/hubs/basicchat");
+
+                endpoints.MapHub<ChatHub>("/hubs/chat");
+
             });
         }
     }

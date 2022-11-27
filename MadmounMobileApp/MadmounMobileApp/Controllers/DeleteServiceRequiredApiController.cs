@@ -41,15 +41,24 @@ namespace MadmounMobileApp.Controllers
         [HttpGet("{id}")]
         public string Get(string id)
         {
-            TbServicesRequired oTbServicesRequired = ctx.TbServicesRequireds.Where(a => a.ServicesRequiredId == Guid.Parse(id)).FirstOrDefault();
-            bool result = servicesRequiredService.Delete(oTbServicesRequired);
-            if(result)
+            TbServicesApproved oTbServicesApproved = ctx.TbServicesApproveds.Where(a => a.CreatedBy == id).FirstOrDefault();
+            if(oTbServicesApproved!=null)
             {
-                return "The Service Is Delted";
+                return "The Service already has millestones we can not delete";
             }
             else
             {
-                return "The Service already has millestones we can not delete";
+                TbServicesOffers oTbServicesOffers = ctx.TbServicesOfferss.Where(a => a.ServicesRequiredId == Guid.Parse(id)).FirstOrDefault();
+                bool result = servicesOfferService.Delete(oTbServicesOffers);
+                if(result)
+                {
+                    return "The Service Is Delted";
+                }
+                else
+                {
+                    return "No Service Is Delted";
+                }
+               
             }
           
         }

@@ -264,6 +264,50 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
         }
 
 
+
+
+        public IActionResult New(string Id)
+        {
+            HomePageModel model = new HomePageModel();
+            model.lstServices = serviceService.getAll();
+            model.lstCities = cityService.getAll();
+            model.lstAreas = areaService.getAll();
+            model.lstServiceApprovedMilstone = serviceApprovedMilstoneService.getAll();
+            model.lstSrRepCity = srrepCityService.getAll();
+            model.LstVwStages = ctx.VwStagess.ToList();
+            if (Id != null)
+            {
+                model.LstVwStages = ctx.VwStagess.ToList().Where(a => a.ServicesRequiredId == Guid.Parse(Id));
+            }
+
+            ViewBag.cities = servicesRequiredService.getAll();
+            int count = model.LstVwStages.Sum(a => int.Parse(a.PaidAmount));
+            ViewBag.lstSrOffServiceS = count;
+
+            int c = 0;
+            foreach (var i in model.lstServiceApprovedMilstone)
+            {
+                c += int.Parse(i.CreatedBy);
+            }
+            int count2 = c;
+            TbServicesApproved o = ctx.TbServicesApproveds.Where(a => a.CreatedBy == Id).FirstOrDefault();
+
+            if (Id != null && o != null)
+            {
+                c = 0;
+                foreach (var i in model.lstServiceApprovedMilstone.Where(a => a.ServiceApprovedId == o.ServiceApprovedId))
+                {
+                    c += int.Parse(i.CreatedBy);
+                }
+            }
+            count2 = c;
+            ViewBag.lstSrOffServiceS2 = count2;
+            int count3 = count2 - count;
+            ViewBag.lstSrOffServiceS3 = count3;
+            return View(model);
+        }
+
+
         public IActionResult Payment9(string Id)
         {
             HomePageModel model = new HomePageModel();
@@ -304,7 +348,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
 
 
 
-        public IActionResult Payment11(string Id)
+        public IActionResult stages(string Id)
         {
             HomePageModel model = new HomePageModel();
             model.lstServices = serviceService.getAll();
@@ -344,5 +388,11 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             ViewBag.lstSrOffServiceS3 = count3;
             return View(model);
         }
+
+
+       
+
+
+        
     }
 }

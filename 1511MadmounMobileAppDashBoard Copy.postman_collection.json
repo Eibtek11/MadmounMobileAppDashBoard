@@ -382,16 +382,16 @@
 								{
 									"key": "PersonalImage",
 									"type": "file",
-									"src": "/F:/New folder/images/WhatsApp Image 2022-09-04 at 11.31.49 AM.jpeg"
+									"src": "/F:/New folder/images/1.PNG"
 								},
 								{
 									"key": "firstname",
-									"value": "latef",
+									"value": "alaa",
 									"type": "text"
 								},
 								{
 									"key": "Email",
-									"value": "latef@gmail.com",
+									"value": "alaa@gmail.com",
 									"type": "text"
 								},
 								{
@@ -482,7 +482,7 @@
 								},
 								{
 									"key": "Email",
-									"value": "MMMmostafa@gmail.com",
+									"value": "MMaaaaMmostafa@gmail.com",
 									"type": "text"
 								},
 								{
@@ -538,8 +538,8 @@
 							]
 						},
 						"url": {
-							"raw": "http://ismguk.com/api/UserLoginApi/signup",
-							"protocol": "http",
+							"raw": "https://ismguk.com/api/UserLoginApi/signup",
+							"protocol": "https",
 							"host": [
 								"ismguk",
 								"com"
@@ -808,8 +808,8 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://ismguk.com/api/OffServicesRequiredApi/1ff44455-45d1-4dce-954e-ad548a97d5bd",
-							"protocol": "http",
+							"raw": "https://ismguk.com/api/OffServicesRequiredApi/18af311b-3699-455d-ba23-d9520fffba86",
+							"protocol": "https",
 							"host": [
 								"ismguk",
 								"com"
@@ -817,7 +817,7 @@
 							"path": [
 								"api",
 								"OffServicesRequiredApi",
-								"1ff44455-45d1-4dce-954e-ad548a97d5bd"
+								"18af311b-3699-455d-ba23-d9520fffba86"
 							]
 						}
 					},
@@ -829,8 +829,8 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://ismguk.com/api/OffServicesOffersApi/1ff44455-45d1-4dce-954e-ad548a97d5bd",
-							"protocol": "http",
+							"raw": "https://ismguk.com/api/OffServicesOffersApi/18af311b-3699-455d-ba23-d9520fffba86",
+							"protocol": "https",
 							"host": [
 								"ismguk",
 								"com"
@@ -838,7 +838,7 @@
 							"path": [
 								"api",
 								"OffServicesOffersApi",
-								"1ff44455-45d1-4dce-954e-ad548a97d5bd"
+								"18af311b-3699-455d-ba23-d9520fffba86"
 							]
 						}
 					},
@@ -917,49 +917,49 @@
 							"formdata": [
 								{
 									"key": "OfferSyntax",
-									"value": "programming",
+									"value": "ديكور فيلا خمس غرف 2",
 									"type": "text"
 								},
 								{
 									"key": "SrRepId",
-									"value": "35deabf8-69f6-4cfa-9936-23fcd84b4a1f",
+									"value": "ff4d2dbf-72c7-40f4-bb0b-dbdde3e1f7f0",
 									"type": "text"
 								},
 								{
 									"key": "SrReqId",
-									"value": "0c49f46d-7d17-4a64-ba05-d7b736987b80",
+									"value": "5ae16197-f851-4ffe-992c-d23ec3b821ed",
 									"type": "text"
 								},
 								{
 									"key": "SrOffId",
-									"value": "1ff44455-45d1-4dce-954e-ad548a97d5bd",
+									"value": "18af311b-3699-455d-ba23-d9520fffba86",
 									"type": "text"
 								},
 								{
 									"key": "ServiceOfferCost",
-									"value": "9000",
+									"value": "1000000",
 									"type": "text"
 								},
 								{
 									"key": "ServiceOfferDuration",
-									"value": "2 Months",
+									"value": "20 Months",
 									"type": "text"
 								},
 								{
 									"key": "ServiceId",
-									"value": "7906473b-28eb-460e-885e-125b4aae31e4",
+									"value": "25939882-f2b6-4627-b620-ea26c96e5afc",
 									"type": "text"
 								},
 								{
 									"key": "ServicesRequiredId",
-									"value": "c9e4093b-59ec-472e-a441-13863caf406f",
+									"value": "a0970088-163b-476d-af12-a8b9e947af6e",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://ismguk.com/api/ServicesOfferApi/offerService",
-							"protocol": "http",
+							"raw": "https://ismguk.com/api/ServicesOfferApi/offerService",
+							"protocol": "https",
 							"host": [
 								"ismguk",
 								"com"
@@ -983,126 +983,19 @@
 						"header": [],
 						"body": {
 							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "OfferSyntax",
-									"value": "programming",
-									"type": "text"
-								},
-								{
-									"key": "SrRepId",
-									"value": "35deabf8-69f6-4cfa-9936-23fcd84b4a1f",
-									"type": "text"
-								},
-								{
-									"key": "SrReqId",
-									"value": "0c49f46d-7d17-4a64-ba05-d7b736987b80",
-									"type": "text"
-								},
-								{
-									"key": "SrOffId",
-									"value": "3b941741-1503-4e74-af7a-785a987342a8",
-									"type": "text"
-								},
-								{
-									"key": "ServiceOfferCost",
-									"value": "500 $",
-									"type": "text"
-								},
-								{
-									"key": "ServiceOfferDuration",
-									"value": "2 Months",
-									"type": "text"
-								},
-								{
-									"key": "ServiceId",
-									"value": "8da35074-3dbe-4444-ada9-652b48dbff4c",
-									"type": "text"
-								},
-								{
-									"key": "ServicesRequiredId",
-									"value": "36dc66fb-1c98-444a-987b-5bfd757c42b3",
-									"type": "text"
-								}
-							]
+							"formdata": []
 						},
 						"url": {
-							"raw": "http://ismguk.com/api/DeleteServiceRequiredApi/7ef7ab97-7ab8-4f43-9610-393ef4dbdeb7",
-							"protocol": "http",
+							"raw": "https://localhost:44337/api/DeleteServiceRequiredApi/e27fd6f6-25fb-49b9-9397-4be7c570b286",
+							"protocol": "https",
 							"host": [
-								"ismguk",
-								"com"
+								"localhost"
 							],
+							"port": "44337",
 							"path": [
 								"api",
 								"DeleteServiceRequiredApi",
-								"7ef7ab97-7ab8-4f43-9610-393ef4dbdeb7"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "الموافقة عل عرض السعر",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "SrRepId",
-									"value": "a829ad91-bd09-446f-82e1-7125cc48dc23",
-									"type": "text"
-								},
-								{
-									"key": "SrReqId",
-									"value": "0c49f46d-7d17-4a64-ba05-d7b736987b80",
-									"type": "text"
-								},
-								{
-									"key": "SrOffId",
-									"value": "3b941741-1503-4e74-af7a-785a987342a8",
-									"type": "text"
-								},
-								{
-									"key": "CreatedBy",
-									"value": "835ad4f1-c594-429d-87c0-95591a2a9de4",
-									"type": "text"
-								},
-								{
-									"key": "Notes",
-									"value": "5 Months",
-									"type": "text"
-								},
-								{
-									"key": "CityId",
-									"value": "7df61e20-fa56-45c0-94f3-74d631228b92",
-									"type": "text"
-								},
-								{
-									"key": "AreaId",
-									"value": "08b555fd-99c6-4b7a-8150-179840cdf1c8",
-									"type": "text"
-								},
-								{
-									"key": "ServiceId",
-									"value": "7906473b-28eb-460e-885e-125b4aae31e4",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "http://ismguk.com/api/ServicesApprovedApi/approveService",
-							"protocol": "http",
-							"host": [
-								"ismguk",
-								"com"
-							],
-							"path": [
-								"api",
-								"ServicesApprovedApi",
-								"approveService"
+								"e27fd6f6-25fb-49b9-9397-4be7c570b286"
 							]
 						}
 					},
@@ -1246,17 +1139,17 @@
 							"formdata": [
 								{
 									"key": "ServiceSyntax",
-									"value": "make finance plan",
+									"value": "تصميم ملابس 2",
 									"type": "text"
 								},
 								{
 									"key": "SrReqId",
-									"value": "0c49f46d-7d17-4a64-ba05-d7b736987b80",
+									"value": "afa4bc21-ae49-47c9-bc7d-69fdf3eb1e0f",
 									"type": "text"
 								},
 								{
 									"key": "ServiceId",
-									"value": "7906473b-28eb-460e-885e-125b4aae31e4",
+									"value": "25939882-f2b6-4627-b620-ea26c96e5afc",
 									"type": "text"
 								},
 								{
@@ -1272,8 +1165,8 @@
 							]
 						},
 						"url": {
-							"raw": "http://ismguk.com/api/ServicesRequiredApi/sendService",
-							"protocol": "http",
+							"raw": "https://ismguk.com/api/ServicesRequiredApi/sendService",
+							"protocol": "https",
 							"host": [
 								"ismguk",
 								"com"
@@ -1314,16 +1207,16 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://ismguk.com/api/ServicesRequiredByRequesterApi/0c49f46d-7d17-4a64-ba05-d7b736987b80",
-							"protocol": "http",
+							"raw": "https://localhost:44337/api/ServicesRequiredByRequesterApi/afa4bc21-ae49-47c9-bc7d-69fdf3eb1e0f",
+							"protocol": "https",
 							"host": [
-								"ismguk",
-								"com"
+								"localhost"
 							],
+							"port": "44337",
 							"path": [
 								"api",
 								"ServicesRequiredByRequesterApi",
-								"0c49f46d-7d17-4a64-ba05-d7b736987b80"
+								"afa4bc21-ae49-47c9-bc7d-69fdf3eb1e0f"
 							]
 						}
 					},
@@ -1335,16 +1228,82 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://ismguk.com/api/ServicesRequiredByRequester2Api/aaaa1e99-5b8e-4e93-b991-02b22fc352db",
-							"protocol": "http",
+							"raw": "https://localhost:44337/api/ServicesRequiredByRequester2Api/e27fd6f6-25fb-49b9-9397-4be7c570b286",
+							"protocol": "https",
 							"host": [
-								"ismguk",
-								"com"
+								"localhost"
 							],
+							"port": "44337",
 							"path": [
 								"api",
 								"ServicesRequiredByRequester2Api",
-								"aaaa1e99-5b8e-4e93-b991-02b22fc352db"
+								"e27fd6f6-25fb-49b9-9397-4be7c570b286"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "الموافقة عل عرض السعر",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "SrRepId",
+									"value": "ff4d2dbf-72c7-40f4-bb0b-dbdde3e1f7f0",
+									"type": "text"
+								},
+								{
+									"key": "SrReqId",
+									"value": "afa4bc21-ae49-47c9-bc7d-69fdf3eb1e0f",
+									"type": "text"
+								},
+								{
+									"key": "SrOffId",
+									"value": "18af311b-3699-455d-ba23-d9520fffba86",
+									"type": "text"
+								},
+								{
+									"key": "CreatedBy",
+									"value": "5290d8da-ef80-4555-8bc7-d2fa7f85342c",
+									"type": "text"
+								},
+								{
+									"key": "Notes",
+									"value": "5 Months",
+									"type": "text"
+								},
+								{
+									"key": "CityId",
+									"value": "7df61e20-fa56-45c0-94f3-74d631228b92",
+									"type": "text"
+								},
+								{
+									"key": "AreaId",
+									"value": "08b555fd-99c6-4b7a-8150-179840cdf1c8",
+									"type": "text"
+								},
+								{
+									"key": "ServiceId",
+									"value": "25939882-f2b6-4627-b620-ea26c96e5afc",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:44337/api/ServicesApprovedApi/approveService",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44337",
+							"path": [
+								"api",
+								"ServicesApprovedApi",
+								"approveService"
 							]
 						}
 					},
@@ -1356,7 +1315,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://ismguk.com/api/ServicesDoingToRequesterApi/0c49f46d-7d17-4a64-ba05-d7b736987b80",
+							"raw": "http://ismguk.com/api/ServicesDoingToRequesterApi/86fee82c-9f44-49ac-8abd-128b2d03e6e6",
 							"protocol": "http",
 							"host": [
 								"ismguk",
@@ -1365,7 +1324,7 @@
 							"path": [
 								"api",
 								"ServicesDoingToRequesterApi",
-								"0c49f46d-7d17-4a64-ba05-d7b736987b80"
+								"86fee82c-9f44-49ac-8abd-128b2d03e6e6"
 							]
 						}
 					},
@@ -1398,16 +1357,16 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://ismguk.com/api/FinishedServicesApi/0c49f46d-7d17-4a64-ba05-d7b736987b80",
-							"protocol": "http",
+							"raw": "https://localhost:44337/api/FinishedServicesApi/86fee82c-9f44-49ac-8abd-128b2d03e6e6",
+							"protocol": "https",
 							"host": [
-								"ismguk",
-								"com"
+								"localhost"
 							],
+							"port": "44337",
 							"path": [
 								"api",
 								"FinishedServicesApi",
-								"0c49f46d-7d17-4a64-ba05-d7b736987b80"
+								"86fee82c-9f44-49ac-8abd-128b2d03e6e6"
 							]
 						}
 					},
@@ -1428,24 +1387,24 @@
 							"formdata": [
 								{
 									"key": "ServicesRequiredId",
-									"value": "429437c3-4ac1-4c79-beec-6631d92c93a5",
+									"value": "a0970088-163b-476d-af12-a8b9e947af6e",
 									"type": "text"
 								},
 								{
 									"key": "SrRequiredDescription",
-									"value": "motion graphisssssssssssss",
+									"value": "تصميم ديكور فيلا 2",
 									"type": "text"
 								},
 								{
 									"key": "SrRepId",
-									"value": "35deabf8-69f6-4cfa-9936-23fcd84b4a1f",
+									"value": "ff4d2dbf-72c7-40f4-bb0b-dbdde3e1f7f0",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://ismguk.com/api/ServicesRequiredApi/SendServiceBySrRepLast",
-							"protocol": "http",
+							"raw": "https://ismguk.com/api/ServicesRequiredApi/SendServiceBySrRepLast",
+							"protocol": "https",
 							"host": [
 								"ismguk",
 								"com"
@@ -1465,8 +1424,8 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://ismguk.com/api/ServicesRequiredApi/a829ad91-bd09-446f-82e1-7125cc48dc23",
-							"protocol": "http",
+							"raw": "https://ismguk.com/api/ServicesRequiredApi/ff4d2dbf-72c7-40f4-bb0b-dbdde3e1f7f0",
+							"protocol": "https",
 							"host": [
 								"ismguk",
 								"com"
@@ -1474,7 +1433,7 @@
 							"path": [
 								"api",
 								"ServicesRequiredApi",
-								"a829ad91-bd09-446f-82e1-7125cc48dc23"
+								"ff4d2dbf-72c7-40f4-bb0b-dbdde3e1f7f0"
 							]
 						}
 					},

@@ -21,7 +21,7 @@ namespace BL
         {
             ctx = contex;
             //connectionString = @"Server=DESKTOP-262OT74;Database=MadmounDb;Trusted_Connection=True;";
-            connectionString = @"Server=SQL5105.site4now.net;Database=db_a788b5_madmoundatabase;User Id=db_a788b5_madmoundatabase_admin;Password=2812008a1A@;";
+            connectionString = @"Server=SQL5070.site4now.net;Database=db_a788b5_newmadmon;User Id=db_a788b5_newmadmon_admin;Password=2812008a1A#;";
             //connectionString = @"Server=157.90.215.53;Database=MostafaEibtek_mad;User Id=mad;Password=2812008a1A#;";
         }
 

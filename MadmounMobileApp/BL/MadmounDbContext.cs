@@ -57,7 +57,7 @@ namespace BL
 
         public DbSet<VwStages> VwStagess { get; set; }
 
-
+        public DbSet<ChatRoom> ChatRoom { get; set; }
 
         //        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //        {
