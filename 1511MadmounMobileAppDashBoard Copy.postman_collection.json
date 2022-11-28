@@ -386,12 +386,12 @@
 								},
 								{
 									"key": "firstname",
-									"value": "alaa",
+									"value": "tafeda",
 									"type": "text"
 								},
 								{
 									"key": "Email",
-									"value": "alaa@gmail.com",
+									"value": "tafeda@gmail.com",
 									"type": "text"
 								},
 								{
@@ -420,18 +420,8 @@
 									"type": "text"
 								},
 								{
-									"key": "Notes",
-									"value": "01033927555",
-									"type": "text"
-								},
-								{
 									"key": "PhoneNumber",
 									"value": "+201033927725",
-									"type": "text"
-								},
-								{
-									"key": "ServiceId",
-									"value": "b6b1706a-9c09-4781-b61e-059ac6e56ee1",
 									"type": "text"
 								},
 								{
@@ -447,12 +437,12 @@
 							]
 						},
 						"url": {
-							"raw": "http://ismguk.com/api/UserLoginApi/signup",
-							"protocol": "http",
+							"raw": "https://localhost:44337/api/UserLoginApi/signup",
+							"protocol": "https",
 							"host": [
-								"ismguk",
-								"com"
+								"localhost"
 							],
+							"port": "44337",
 							"path": [
 								"api",
 								"UserLoginApi",
@@ -473,16 +463,16 @@
 								{
 									"key": "PersonalImage",
 									"type": "file",
-									"src": "/F:/New folder/images/25.PNG"
+									"src": "/F:/New folder/images/3.PNG"
 								},
 								{
 									"key": "firstname",
-									"value": "mostafa",
+									"value": "ateat",
 									"type": "text"
 								},
 								{
 									"key": "Email",
-									"value": "MMaaaaMmostafa@gmail.com",
+									"value": "ateat@gmail.com",
 									"type": "text"
 								},
 								{
@@ -511,11 +501,6 @@
 									"type": "text"
 								},
 								{
-									"key": "Notes",
-									"value": "01033927555",
-									"type": "text"
-								},
-								{
 									"key": "RyadahOrNot",
 									"value": "yes",
 									"type": "text"
@@ -538,12 +523,12 @@
 							]
 						},
 						"url": {
-							"raw": "https://ismguk.com/api/UserLoginApi/signup",
+							"raw": "https://localhost:44337/api/UserLoginApi/signup",
 							"protocol": "https",
 							"host": [
-								"ismguk",
-								"com"
+								"localhost"
 							],
+							"port": "44337",
 							"path": [
 								"api",
 								"UserLoginApi",
@@ -808,16 +793,37 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://ismguk.com/api/OffServicesRequiredApi/18af311b-3699-455d-ba23-d9520fffba86",
+							"raw": "https://localhost:44337/api/OffServicesRequiredApi/18af311b-3699-455d-ba23-d9520fffba86",
 							"protocol": "https",
 							"host": [
-								"ismguk",
-								"com"
+								"localhost"
 							],
+							"port": "44337",
 							"path": [
 								"api",
 								"OffServicesRequiredApi",
 								"18af311b-3699-455d-ba23-d9520fffba86"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "عدد عروض اسعار كل خدمة",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44337/api/SrOfferCountApi/422b0f5d-fda0-44cc-9c24-64bb513f2930",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44337",
+							"path": [
+								"api",
+								"SrOfferCountApi",
+								"422b0f5d-fda0-44cc-9c24-64bb513f2930"
 							]
 						}
 					},
@@ -829,12 +835,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://ismguk.com/api/OffServicesOffersApi/18af311b-3699-455d-ba23-d9520fffba86",
+							"raw": "https://localhost:44337/api/OffServicesOffersApi/18af311b-3699-455d-ba23-d9520fffba86",
 							"protocol": "https",
 							"host": [
-								"ismguk",
-								"com"
+								"localhost"
 							],
+							"port": "44337",
 							"path": [
 								"api",
 								"OffServicesOffersApi",
@@ -850,16 +856,16 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://ismguk.com/api/ServicesDoingToOffererApi/1ff44455-45d1-4dce-954e-ad548a97d5bd",
-							"protocol": "http",
+							"raw": "https://localhost:44337/api/ServicesDoingToOffererApi/18af311b-3699-455d-ba23-d9520fffba86",
+							"protocol": "https",
 							"host": [
-								"ismguk",
-								"com"
+								"localhost"
 							],
+							"port": "44337",
 							"path": [
 								"api",
 								"ServicesDoingToOffererApi",
-								"1ff44455-45d1-4dce-954e-ad548a97d5bd"
+								"18af311b-3699-455d-ba23-d9520fffba86"
 							]
 						}
 					},
@@ -871,7 +877,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://ismguk.com/api/OffererProjectMillestoneApi/0d015b40-5fb3-4968-92a8-0423ece85314",
+							"raw": "http://ismguk.com/api/OffererProjectMillestoneApi/3d1e2e01-edf6-4c42-83d6-087a89425575",
 							"protocol": "http",
 							"host": [
 								"ismguk",
@@ -880,7 +886,7 @@
 							"path": [
 								"api",
 								"OffererProjectMillestoneApi",
-								"0d015b40-5fb3-4968-92a8-0423ece85314"
+								"3d1e2e01-edf6-4c42-83d6-087a89425575"
 							]
 						}
 					},
@@ -892,16 +898,16 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://ismguk.com/api/OffererFinishedServicesApi/1ff44455-45d1-4dce-954e-ad548a97d5bd",
-							"protocol": "http",
+							"raw": "https://localhost:44337/api/OffererFinishedServicesApi/18af311b-3699-455d-ba23-d9520fffba86",
+							"protocol": "https",
 							"host": [
-								"ismguk",
-								"com"
+								"localhost"
 							],
+							"port": "44337",
 							"path": [
 								"api",
 								"OffererFinishedServicesApi",
-								"1ff44455-45d1-4dce-954e-ad548a97d5bd"
+								"18af311b-3699-455d-ba23-d9520fffba86"
 							]
 						}
 					},
@@ -917,7 +923,7 @@
 							"formdata": [
 								{
 									"key": "OfferSyntax",
-									"value": "ديكور فيلا خمس غرف 2",
+									"value": "شراء قماش",
 									"type": "text"
 								},
 								{
@@ -927,7 +933,7 @@
 								},
 								{
 									"key": "SrReqId",
-									"value": "5ae16197-f851-4ffe-992c-d23ec3b821ed",
+									"value": "afa4bc21-ae49-47c9-bc7d-69fdf3eb1e0f",
 									"type": "text"
 								},
 								{
@@ -952,18 +958,18 @@
 								},
 								{
 									"key": "ServicesRequiredId",
-									"value": "a0970088-163b-476d-af12-a8b9e947af6e",
+									"value": "062d7a5f-729b-41e6-bad0-c9d4881462c9",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "https://ismguk.com/api/ServicesOfferApi/offerService",
+							"raw": "https://localhost:44337/api/ServicesOfferApi/offerService",
 							"protocol": "https",
 							"host": [
-								"ismguk",
-								"com"
+								"localhost"
 							],
+							"port": "44337",
 							"path": [
 								"api",
 								"ServicesOfferApi",
@@ -1011,12 +1017,12 @@
 							"formdata": [
 								{
 									"key": "ServiceApprovedMilstoneDesc",
-									"value": "market",
+									"value": "شراء ماكينة خياطة",
 									"type": "text"
 								},
 								{
 									"key": "ServiceApprovedId",
-									"value": "0d015b40-5fb3-4968-92a8-0423ece85314",
+									"value": "56d3c252-8131-4051-9c05-bc8bbe78408c",
 									"type": "text"
 								},
 								{
@@ -1032,12 +1038,12 @@
 							]
 						},
 						"url": {
-							"raw": "http://ismguk.com/api/ServicesApprovedMillestoneApi/millestone",
-							"protocol": "http",
+							"raw": "https://localhost:44337/api/ServicesApprovedMillestoneApi/millestone",
+							"protocol": "https",
 							"host": [
-								"ismguk",
-								"com"
+								"localhost"
 							],
+							"port": "44337",
 							"path": [
 								"api",
 								"ServicesApprovedMillestoneApi",
@@ -1139,7 +1145,7 @@
 							"formdata": [
 								{
 									"key": "ServiceSyntax",
-									"value": "تصميم ملابس 2",
+									"value": "تصميم ملابس 3",
 									"type": "text"
 								},
 								{
@@ -1165,12 +1171,12 @@
 							]
 						},
 						"url": {
-							"raw": "https://ismguk.com/api/ServicesRequiredApi/sendService",
+							"raw": "https://localhost:44337/api/ServicesRequiredApi/sendService",
 							"protocol": "https",
 							"host": [
-								"ismguk",
-								"com"
+								"localhost"
 							],
+							"port": "44337",
 							"path": [
 								"api",
 								"ServicesRequiredApi",
@@ -1182,27 +1188,6 @@
 				},
 				{
 					"name": "كل الطلبات",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://ismguk.com/api/ServicesRequiredByRequesterApi/0c49f46d-7d17-4a64-ba05-d7b736987b80",
-							"protocol": "http",
-							"host": [
-								"ismguk",
-								"com"
-							],
-							"path": [
-								"api",
-								"ServicesRequiredByRequesterApi",
-								"0c49f46d-7d17-4a64-ba05-d7b736987b80"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "المطلوبة",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -1223,12 +1208,33 @@
 					"response": []
 				},
 				{
+					"name": "المطلوبة",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://ismguk.com/api/ServicesRequiredByRequesterApi/afa4bc21-ae49-47c9-bc7d-69fdf3eb1e0f",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"ServicesRequiredByRequesterApi",
+								"afa4bc21-ae49-47c9-bc7d-69fdf3eb1e0f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "المطلوبة عروض الاسعار",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:44337/api/ServicesRequiredByRequester2Api/e27fd6f6-25fb-49b9-9397-4be7c570b286",
+							"raw": "https://localhost:44337/api/ServicesRequiredByRequester2Api/4ece24d3-ec33-44d8-9c0f-ff23bd49d21f",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -1237,7 +1243,7 @@
 							"path": [
 								"api",
 								"ServicesRequiredByRequester2Api",
-								"e27fd6f6-25fb-49b9-9397-4be7c570b286"
+								"4ece24d3-ec33-44d8-9c0f-ff23bd49d21f"
 							]
 						}
 					},
@@ -1268,7 +1274,7 @@
 								},
 								{
 									"key": "CreatedBy",
-									"value": "5290d8da-ef80-4555-8bc7-d2fa7f85342c",
+									"value": "7e076ef4-f55c-402d-a60d-2b8b2744d7d1",
 									"type": "text"
 								},
 								{
@@ -1310,21 +1316,49 @@
 					"response": []
 				},
 				{
+					"name": "مسح طلب الخدمة",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "https://localhost:44337/api/DeleteServiceBySrReqApi/acdca97f-5c3e-466d-b347-7e65e6c081c4",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44337",
+							"path": [
+								"api",
+								"DeleteServiceBySrReqApi",
+								"acdca97f-5c3e-466d-b347-7e65e6c081c4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "قيد التنفيذ",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://ismguk.com/api/ServicesDoingToRequesterApi/86fee82c-9f44-49ac-8abd-128b2d03e6e6",
-							"protocol": "http",
+							"raw": "https://localhost:44337/api/ServicesDoingToRequesterApi/afa4bc21-ae49-47c9-bc7d-69fdf3eb1e0f",
+							"protocol": "https",
 							"host": [
-								"ismguk",
-								"com"
+								"localhost"
 							],
+							"port": "44337",
 							"path": [
 								"api",
 								"ServicesDoingToRequesterApi",
-								"86fee82c-9f44-49ac-8abd-128b2d03e6e6"
+								"afa4bc21-ae49-47c9-bc7d-69fdf3eb1e0f"
 							]
 						}
 					},
@@ -1336,16 +1370,16 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://ismguk.com/api/ProjectMillestoneApi/0d015b40-5fb3-4968-92a8-0423ece85314",
-							"protocol": "http",
+							"raw": "https://localhost:44337/api/ProjectMillestoneApi/56d3c252-8131-4051-9c05-bc8bbe78408c",
+							"protocol": "https",
 							"host": [
-								"ismguk",
-								"com"
+								"localhost"
 							],
+							"port": "44337",
 							"path": [
 								"api",
 								"ProjectMillestoneApi",
-								"0d015b40-5fb3-4968-92a8-0423ece85314"
+								"56d3c252-8131-4051-9c05-bc8bbe78408c"
 							]
 						}
 					},
@@ -1367,6 +1401,27 @@
 								"api",
 								"FinishedServicesApi",
 								"86fee82c-9f44-49ac-8abd-128b2d03e6e6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "المعلقة",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44337/api/HangedSrReqApi/afa4bc21-ae49-47c9-bc7d-69fdf3eb1e0f",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44337",
+							"path": [
+								"api",
+								"HangedSrReqApi",
+								"afa4bc21-ae49-47c9-bc7d-69fdf3eb1e0f"
 							]
 						}
 					},
@@ -1424,12 +1479,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://ismguk.com/api/ServicesRequiredApi/ff4d2dbf-72c7-40f4-bb0b-dbdde3e1f7f0",
+							"raw": "https://localhost:44337/api/ServicesRequiredApi/ff4d2dbf-72c7-40f4-bb0b-dbdde3e1f7f0",
 							"protocol": "https",
 							"host": [
-								"ismguk",
-								"com"
+								"localhost"
 							],
+							"port": "44337",
 							"path": [
 								"api",
 								"ServicesRequiredApi",
@@ -1445,16 +1500,16 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://ismguk.com/api/ServicesApprovedApi/a829ad91-bd09-446f-82e1-7125cc48dc23",
-							"protocol": "http",
+							"raw": "https://localhost:44337/api/ServicesApprovedApi/ff4d2dbf-72c7-40f4-bb0b-dbdde3e1f7f0",
+							"protocol": "https",
 							"host": [
-								"ismguk",
-								"com"
+								"localhost"
 							],
+							"port": "44337",
 							"path": [
 								"api",
 								"ServicesApprovedApi",
-								"a829ad91-bd09-446f-82e1-7125cc48dc23"
+								"ff4d2dbf-72c7-40f4-bb0b-dbdde3e1f7f0"
 							]
 						}
 					},
@@ -1470,18 +1525,18 @@
 							"formdata": [
 								{
 									"key": "SrRepId",
-									"value": "a829ad91-bd09-446f-82e1-7125cc48dc23",
+									"value": "ff4d2dbf-72c7-40f4-bb0b-dbdde3e1f7f0",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://ismguk.com/api/ServicesApprovedApi/underDoing",
-							"protocol": "http",
+							"raw": "https://localhost:44337/api/ServicesApprovedApi/underDoing",
+							"protocol": "https",
 							"host": [
-								"ismguk",
-								"com"
+								"localhost"
 							],
+							"port": "44337",
 							"path": [
 								"api",
 								"ServicesApprovedApi",

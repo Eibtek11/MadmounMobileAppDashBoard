@@ -71,7 +71,7 @@ namespace MadmounMobileApp.Controllers
                 CityName = signUpModel.CityName,
                 UpdatedBy = signUpModel.UpdatedBy,
                 Gender = signUpModel.Gender,
-                Notes = signUpModel.Notes,
+              
                 StateName = signUpModel.StateName,
                 RyadahOrNot = signUpModel.RyadahOrNot,
                 PhoneNumber = signUpModel.PhoneNumber,

@@ -46,7 +46,7 @@ namespace MadmounMobileApp.Controllers
         [HttpGet("{id}")]
         public IEnumerable<TbServicesApproved> Get(string id)
         {
-            return ctx.TbServicesApproveds.Where(a => a.SrRepId == id).ToList();
+            return ctx.TbServicesApproveds.Where(a => a.SrRepId == id).Include(a=> a.Service).ToList();
         }
 
         // POST api/<ServicesApprovedApiController>
@@ -85,7 +85,7 @@ namespace MadmounMobileApp.Controllers
         {
 
 
-            return ctx.TbServicesApproveds.Include(a => a.TbServiceApprovedMilstones).ToList().Where(a => a.SrRepId == services.SrRepId);
+            return ctx.TbServicesApproveds.Include(a => a.Service).Include(a => a.TbServiceApprovedMilstones).ToList().Where(a => a.SrRepId == services.SrRepId);
         }
 
         // PUT api/<ServicesApprovedApiController>/5
