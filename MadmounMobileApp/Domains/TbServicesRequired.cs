@@ -38,7 +38,7 @@ namespace Domains
         public string ApprovalStatus { get; set; }
 
         //public int? CurrentState { get; set; }
-
+        public string RyadahOrNot { get; set; }
         public virtual TbArea Area { get; set; }
         public virtual TbCity City { get; set; }
         public virtual TbService Service { get; set; }

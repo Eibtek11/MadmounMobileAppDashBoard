@@ -109,6 +109,7 @@ namespace MadmounMobileApp
                 options.Password.RequireUppercase = false;
                 options.User.RequireUniqueEmail = false;
                 options.Password.RequireDigit = false;
+                options.Password.RequireLowercase = false;
 
             }).AddErrorDescriber<CustomIdentityErrorDescriber>().AddEntityFrameworkStores<MadmounDbContext>().AddDefaultTokenProviders();
             services.ConfigureApplicationCookie(options =>

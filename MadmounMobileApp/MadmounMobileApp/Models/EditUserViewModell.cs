@@ -81,6 +81,7 @@ namespace MadmounMobileApp.Models
 
         public string Cateegory { get; set; }
 
+        public string PhoneNumber { get; set; }
 
         public int? category { get; set; }
 

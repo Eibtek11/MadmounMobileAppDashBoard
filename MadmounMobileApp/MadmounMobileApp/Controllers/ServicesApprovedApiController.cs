@@ -71,6 +71,7 @@ namespace MadmounMobileApp.Controllers
             oTbServicesApproved.CreatedDate = DateTime.Now;
             oTbServicesApproved.UpdatedBy = Usermanager.Users.Where(a => a.Id == oTbServicesRequired.SrReqId).FirstOrDefault().Email;
             oTbServicesApproved.ContractPdf = oTbServicesRequired.CreatedBy;
+            oTbServicesApproved.SrApprovedDescription = oTbServicesRequired.RyadahOrNot;
             var result = servicesApprovedService.Add(oTbServicesApproved);
 
           
@@ -86,6 +87,13 @@ namespace MadmounMobileApp.Controllers
 
 
             return ctx.TbServicesApproveds.Include(a => a.Service).Include(a => a.TbServiceApprovedMilstones).ToList().Where(a => a.SrRepId == services.SrRepId);
+        }
+        [HttpPost("underDoingrayadah")]
+        public IEnumerable<TbServicesApproved> underDoingrayadah([FromForm] ServicesApproveViewPageModel services)
+        {
+
+            TbSrRepService oTbSrRepService = ctx.TbSrRepServices.Where(a=> a.Id == services.SrRepId).FirstOrDefault();
+            return ctx.TbServicesApproveds.Where(a => a.ServiceSyntax != "Finished").Include(a => a.Service).Include(a => a.TbServiceApprovedMilstones).ToList().Where(a => a.SrApprovedDescription == oTbSrRepService.ServiceId.ToString());
         }
 
         // PUT api/<ServicesApprovedApiController>/5

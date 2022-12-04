@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -59,11 +60,17 @@ namespace MadmounMobileApp.Controllers
 
         // POST api/<ServicesRequiredApiController>
         [HttpPost("SendService")]
-        public IActionResult Post([FromForm] ServicesRequiredViewPageModel services)
+        public async Task<IActionResult> PostAsync([FromForm] ServicesRequiredViewPageModel services)
         {
+            var user = await Usermanager.FindByIdAsync(services.SrReqId);
+
             TbServicesRequired oTbServicesRequired = new TbServicesRequired();
+            if(user.ServiceId!=null)
+            {
+                oTbServicesRequired.RyadahOrNot = user.ServiceId.ToString();
+            }
             oTbServicesRequired.ServiceSyntax = services.ServiceSyntax;
-            
+           
             oTbServicesRequired.SrReqId = services.SrReqId;
             oTbServicesRequired.ServiceId = services.ServiceId;
             oTbServicesRequired.CreatedBy = services.CreatedBy;

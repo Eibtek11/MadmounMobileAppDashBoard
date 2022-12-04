@@ -100,6 +100,11 @@ namespace MadmounMobileApp.Controllers
 
 
                 };
+                if (user.StateName == "ممثل خدمة")
+                {
+                    user.ServiceName = "pending";
+                    user.state = 1;
+                }
                 var result = await Usermanager.CreateAsync(user, oHomePageModel.Password);
                 if (result.Succeeded)
                 {

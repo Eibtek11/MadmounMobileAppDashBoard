@@ -252,6 +252,22 @@ namespace BL.Migrations
                     b.ToTable("TwoFactorCodes");
                 });
 
+            modelBuilder.Entity("Domains.ChatRoom", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ChatRoom");
+                });
+
             modelBuilder.Entity("Domains.TbAdvertisements", b =>
                 {
                     b.Property<Guid>("AdvertisementId")
@@ -1139,6 +1155,10 @@ namespace BL.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
+                    b.Property<string>("RyadahOrNot")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
                     b.Property<Guid?>("ServiceId")
                         .HasColumnType("uniqueidentifier");
 
@@ -1459,6 +1479,105 @@ namespace BL.Migrations
                     b.HasKey("TransactionId");
 
                     b.ToTable("TbTransactions");
+                });
+
+            modelBuilder.Entity("Domains.VwFilterOff", b =>
+                {
+                    b.Property<Guid?>("AreaId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("CityId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("ServiceId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("SrOffServiceId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.ToView("VwFilterOff");
+                });
+
+            modelBuilder.Entity("Domains.VwFilterrep", b =>
+                {
+                    b.Property<Guid?>("AreaId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("CityId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("ServiceId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("SrRepServiceId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.ToView("VwFilterrep");
+                });
+
+            modelBuilder.Entity("Domains.VwStages", b =>
+                {
+                    b.Property<Guid?>("AreaId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("CityId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("PaidAmount")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("PaidDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ProjectPeriod")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProposedAmount")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ServiceApprovedMilstoneDesc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("ServiceApprovedMilstoneId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ServiceId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ServiceSyntax")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("ServicesRequiredId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("SrOffId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SrRepId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SrReqId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SrRequiredDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("TransactionId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.ToView("VwStages");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

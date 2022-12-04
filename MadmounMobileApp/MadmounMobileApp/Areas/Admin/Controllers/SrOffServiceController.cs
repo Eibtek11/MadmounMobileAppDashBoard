@@ -176,7 +176,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
         {
             var user = await Usermanager.FindByIdAsync(id.ToString());
             user.ServiceName = "Approved";
-            user.state = 1;
+            
             ApplicationUser objFromDb = Usermanager.Users.Where(u => u.Id == id.ToString()).FirstOrDefault();
             if (objFromDb == null)
             {

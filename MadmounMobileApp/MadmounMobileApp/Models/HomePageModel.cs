@@ -1,6 +1,7 @@
 ﻿using BL;
 using BL.Models;
 using Domains;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -103,8 +104,9 @@ namespace MadmounMobileApp.Models
 
         public int? category { get; set; }
 
+        public string image { get; set; }
 
-        public string PersonalPhoto { get; set; }
+        public IFormFile PersonalPhoto { get; set; }
 
         public List<string> Claims { get; set; }
 

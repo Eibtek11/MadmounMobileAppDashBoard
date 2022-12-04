@@ -43,7 +43,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             {
                 var user = await Usermanager.FindByIdAsync(id.ToString());
                 user.ServiceName = "Hanged";
-                user.state = 2;
+                
                 var result = await Usermanager.UpdateAsync(user);
                 ApplicationUser objFromDb = Usermanager.Users.Where(u => u.Id == id.ToString()).FirstOrDefault();
                 if (objFromDb == null)
@@ -70,7 +70,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             {
                 var user = await Usermanager.FindByIdAsync(id.ToString());
                 user.ServiceName = "Hanged";
-                user.state = 2;
+            
                 var result = await Usermanager.UpdateAsync(user);
                 ApplicationUser objFromDb = Usermanager.Users.Where(u => u.Id == id.ToString()).FirstOrDefault();
                 if (objFromDb == null)

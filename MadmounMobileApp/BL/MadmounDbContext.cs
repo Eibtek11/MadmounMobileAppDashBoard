@@ -713,6 +713,8 @@ namespace BL
 
                 entity.Property(e => e.CreatedBy).HasMaxLength(200);
 
+                entity.Property(e => e.RyadahOrNot).HasMaxLength(200);
+
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
                 entity.Property(e => e.Notes).HasMaxLength(200);

@@ -87,20 +87,26 @@ namespace MadmounMobileApp.Controllers
                 user.ServiceName = "pending";
                 user.state = 0;
             }
-            SendSMSDto dto = new SendSMSDto();
-            dto.MobileNumber = user.PhoneNumber;
+            else if(user.StateName == "طالب خدمة") 
+            {
+                user.ServiceName = "طالب خدمة";
+                user.state = 2;
+            }
            
-            var code = await Usermanager.GenerateTwoFactorTokenAsync(user, "Phone");
+            //SendSMSDto dto = new SendSMSDto();
+            //dto.MobileNumber = user.PhoneNumber;
+           
+            //var code = await Usermanager.GenerateTwoFactorTokenAsync(user, "Phone");
 
-            user.AreaName = code;
+            //user.AreaName = code;
           
           
 
-            var message = "Your security code is: " + code;
-            dto.Body = message;
+            //var message = "Your security code is: " + code;
+            //dto.Body = message;
 
 
-            var resultt = _smsService.Send(dto.MobileNumber, dto.Body);
+            //var resultt = _smsService.Send(dto.MobileNumber, dto.Body);
             await Usermanager.CreateAsync(user, signUpModel.Password);
             var res2 = Usermanager.Users.Where(a => a.Id == user.Id).FirstOrDefault();
             return res2;
@@ -177,7 +183,7 @@ namespace MadmounMobileApp.Controllers
             user.CityName = model.CityName;
             user.UpdatedBy = model.UpdatedBy;
             user.Gender = model.Gender;
-            user.Notes = model.Notes;
+            user.PhoneNumber = model.PhoneNumber;
             user.StateName = model.StateName;
             user.UserName = model.Email;
 

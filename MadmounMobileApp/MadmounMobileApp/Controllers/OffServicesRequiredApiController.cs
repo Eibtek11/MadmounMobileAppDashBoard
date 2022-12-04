@@ -42,6 +42,7 @@ namespace MadmounMobileApp.Controllers
             List<TbSrOffService> lstSrOffServices = ctx.TbSrOffServices.Where(a => a.Id == id).ToList();
             List<TbServicesRequired> lstServicesRequired = ctx.TbServicesRequireds.ToList();
             List<TbServicesRequired> lstServicesRequiredFinal = new List<TbServicesRequired>();
+            List<TbServicesRequired> lstServicesRequiredFinal2 = new List<TbServicesRequired>();
             foreach (var i in lstSrOffServices)
             {
                 foreach (var ii in lstServicesRequired.Where(a => a.ApprovalStatus != "Approved"))
@@ -52,7 +53,23 @@ namespace MadmounMobileApp.Controllers
                     }
                 }
             }
-            return lstServicesRequiredFinal;
+            foreach(var i in lstServicesRequiredFinal)
+            {
+                lstServicesRequiredFinal2.Add(i);
+            }
+           
+            foreach (var i in ctx.TbServicesOfferss.ToList())
+            {
+                foreach(var e in lstServicesRequiredFinal)
+                {
+                    if(e.ServicesRequiredId == i.ServicesRequiredId && i.SrOffId == id)
+                    {
+                        lstServicesRequiredFinal2.Remove(e);
+                    }
+                }
+            }
+            
+            return lstServicesRequiredFinal2;
         }
 
         // POST api/<OffServicesRequiredApiController>

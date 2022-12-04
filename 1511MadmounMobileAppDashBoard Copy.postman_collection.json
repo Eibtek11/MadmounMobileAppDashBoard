@@ -239,8 +239,8 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://ismguk.com/api/ServicesApi/dd5d9db9-e651-4873-b58d-23e122085711",
-							"protocol": "http",
+							"raw": "https://ismguk.com/api/ServicesApi/dd5d9db9-e651-4873-b58d-23e122085711",
+							"protocol": "https",
 							"host": [
 								"ismguk",
 								"com"
@@ -306,6 +306,36 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"Email\" : \"dr_ahmedmostafa.2011@yahoo.com\",\r\n    \"Password\" : \"2812008a1A@\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44337/api/UserLoginApi/login",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44337",
+							"path": [
+								"api",
+								"UserLoginApi",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Api Copy 2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
 							"raw": "{\r\n    \r\n    \"Email\" : \"ahmedmostafa706@gmail.com\",\r\n    \"Password\" : \"2812008a1A#\"\r\n    \r\n}",
 							"options": {
 								"raw": {
@@ -314,11 +344,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://ismguk.com/api/UserLoginApi/login",
-							"protocol": "http",
+							"raw": "https://determined-kapitsa.157-90-215-53.plesk.page/api/UserLoginApi/login",
+							"protocol": "https",
 							"host": [
-								"ismguk",
-								"com"
+								"determined-kapitsa",
+								"157-90-215-53",
+								"plesk",
+								"page"
 							],
 							"path": [
 								"api",
@@ -382,16 +414,16 @@
 								{
 									"key": "PersonalImage",
 									"type": "file",
-									"src": "/F:/New folder/images/1.PNG"
+									"src": "/F:/New folder/images/3.PNG"
 								},
 								{
 									"key": "firstname",
-									"value": "tafeda",
+									"value": "lamis",
 									"type": "text"
 								},
 								{
 									"key": "Email",
-									"value": "tafeda@gmail.com",
+									"value": "lamis@gmail.com",
 									"type": "text"
 								},
 								{
@@ -437,12 +469,95 @@
 							]
 						},
 						"url": {
-							"raw": "https://localhost:44337/api/UserLoginApi/signup",
+							"raw": "http://ismguk.com/api/UserLoginApi/signup",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"UserLoginApi",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "تسجيل مقدم خدمة Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "PersonalImage",
+									"type": "file",
+									"src": "/F:/New folder/images/3.PNG"
+								},
+								{
+									"key": "firstname",
+									"value": "haifenallllncyyy",
+									"type": "text"
+								},
+								{
+									"key": "Email",
+									"value": "haifenlllllancyyy@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "Password",
+									"value": "2812008a1A#",
+									"type": "text"
+								},
+								{
+									"key": "StateName",
+									"value": "مقدم خدمة",
+									"type": "text"
+								},
+								{
+									"key": "CityName",
+									"value": "alexandria",
+									"type": "text"
+								},
+								{
+									"key": "UpdatedBy",
+									"value": "13/09/1999",
+									"type": "text"
+								},
+								{
+									"key": "Gender",
+									"value": "male",
+									"type": "text"
+								},
+								{
+									"key": "PhoneNumber",
+									"value": "+201033927725",
+									"type": "text"
+								},
+								{
+									"key": "CityId",
+									"value": "7df61e20-fa56-45c0-94f3-74d631228b92",
+									"type": "text"
+								},
+								{
+									"key": "Services",
+									"value": "برمجة تطبيقات سطح المكتب",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://determined-kapitsa.157-90-215-53.plesk.page/api/UserLoginApi/signup",
 							"protocol": "https",
 							"host": [
-								"localhost"
+								"determined-kapitsa",
+								"157-90-215-53",
+								"plesk",
+								"page"
 							],
-							"port": "44337",
 							"path": [
 								"api",
 								"UserLoginApi",
@@ -467,12 +582,98 @@
 								},
 								{
 									"key": "firstname",
-									"value": "ateat",
+									"value": "ahmedattia",
 									"type": "text"
 								},
 								{
 									"key": "Email",
-									"value": "ateat@gmail.com",
+									"value": "dr_ahmedmostafa.2011@yahoo.com",
+									"type": "text"
+								},
+								{
+									"key": "Password",
+									"value": "2812008a1A#",
+									"type": "text"
+								},
+								{
+									"key": "StateName",
+									"value": "طالب خدمة",
+									"type": "text"
+								},
+								{
+									"key": "CityName",
+									"value": "alexandria",
+									"type": "text"
+								},
+								{
+									"key": "UpdatedBy",
+									"value": "13/09/1999",
+									"type": "text"
+								},
+								{
+									"key": "Gender",
+									"value": "male",
+									"type": "text"
+								},
+								{
+									"key": "RyadahOrNot",
+									"value": "yes",
+									"type": "text"
+								},
+								{
+									"key": "PhoneNumber",
+									"value": "+201033927725",
+									"type": "text"
+								},
+								{
+									"key": "ServiceId",
+									"value": "65407eff-8a1e-4d40-9a30-f265bbb11353",
+									"type": "text"
+								},
+								{
+									"key": "CityId",
+									"value": "7df61e20-fa56-45c0-94f3-74d631228b92",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://ismguk.com/api/UserLoginApi/signup",
+							"protocol": "http",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"UserLoginApi",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "تسجيل مستخدم Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "PersonalImage",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "firstname",
+									"value": "haifaawahby",
+									"type": "text"
+								},
+								{
+									"key": "Email",
+									"value": "haifaawahby@gmail.com",
 									"type": "text"
 								},
 								{
@@ -523,12 +724,14 @@
 							]
 						},
 						"url": {
-							"raw": "https://localhost:44337/api/UserLoginApi/signup",
+							"raw": "https://determined-kapitsa.157-90-215-53.plesk.page/api/UserLoginApi/signup",
 							"protocol": "https",
 							"host": [
-								"localhost"
+								"determined-kapitsa",
+								"157-90-215-53",
+								"plesk",
+								"page"
 							],
-							"port": "44337",
 							"path": [
 								"api",
 								"UserLoginApi",
@@ -572,8 +775,8 @@
 									"type": "text"
 								},
 								{
-									"key": "Notes",
-									"value": "010339277555",
+									"key": "PhoneNumber",
+									"value": "0103392771111",
 									"type": "text"
 								},
 								{
@@ -599,12 +802,12 @@
 							]
 						},
 						"url": {
-							"raw": "http://ismguk.com/api/UserLoginApi/edit",
-							"protocol": "http",
+							"raw": "https://localhost:44337/api/UserLoginApi/edit",
+							"protocol": "https",
 							"host": [
-								"ismguk",
-								"com"
+								"localhost"
 							],
+							"port": "44337",
 							"path": [
 								"api",
 								"UserLoginApi",
@@ -659,7 +862,7 @@
 							"formdata": [
 								{
 									"key": "Email",
-									"value": "ahmedmostafa706@gmail.com",
+									"value": "dr_ahmedmostafa.2011@yahoo.com",
 									"type": "text"
 								},
 								{
@@ -685,12 +888,12 @@
 							]
 						},
 						"url": {
-							"raw": "http://ismguk.com/api/UserLoginApi/forget",
-							"protocol": "http",
+							"raw": "https://localhost:44337/api/UserLoginApi/forget",
+							"protocol": "https",
 							"host": [
-								"ismguk",
-								"com"
+								"localhost"
 							],
+							"port": "44337",
 							"path": [
 								"api",
 								"UserLoginApi",
@@ -877,16 +1080,16 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://ismguk.com/api/OffererProjectMillestoneApi/3d1e2e01-edf6-4c42-83d6-087a89425575",
-							"protocol": "http",
+							"raw": "https://localhost:44337/api/OffererProjectMillestoneApi/647ebd96-7d4c-4195-a396-09a0d546ba41",
+							"protocol": "https",
 							"host": [
-								"ismguk",
-								"com"
+								"localhost"
 							],
+							"port": "44337",
 							"path": [
 								"api",
 								"OffererProjectMillestoneApi",
-								"3d1e2e01-edf6-4c42-83d6-087a89425575"
+								"647ebd96-7d4c-4195-a396-09a0d546ba41"
 							]
 						}
 					},
@@ -923,7 +1126,7 @@
 							"formdata": [
 								{
 									"key": "OfferSyntax",
-									"value": "شراء قماش",
+									"value": "ماذنة و بناء مسجد",
 									"type": "text"
 								},
 								{
@@ -933,7 +1136,7 @@
 								},
 								{
 									"key": "SrReqId",
-									"value": "afa4bc21-ae49-47c9-bc7d-69fdf3eb1e0f",
+									"value": "54ef824e-4a21-4548-9510-be2e768bd87f",
 									"type": "text"
 								},
 								{
@@ -958,7 +1161,7 @@
 								},
 								{
 									"key": "ServicesRequiredId",
-									"value": "062d7a5f-729b-41e6-bad0-c9d4881462c9",
+									"value": "ec9f8236-ca86-40d9-af8c-229332a20a09",
 									"type": "text"
 								}
 							]
@@ -1017,17 +1220,17 @@
 							"formdata": [
 								{
 									"key": "ServiceApprovedMilstoneDesc",
-									"value": "شراء ماكينة خياطة",
+									"value": "شراء منبر",
 									"type": "text"
 								},
 								{
 									"key": "ServiceApprovedId",
-									"value": "56d3c252-8131-4051-9c05-bc8bbe78408c",
+									"value": "647ebd96-7d4c-4195-a396-09a0d546ba41",
 									"type": "text"
 								},
 								{
 									"key": "CreatedBy",
-									"value": "100$",
+									"value": "100",
 									"type": "text"
 								},
 								{
@@ -1145,12 +1348,12 @@
 							"formdata": [
 								{
 									"key": "ServiceSyntax",
-									"value": "تصميم ملابس 3",
+									"value": "بناء مسجد",
 									"type": "text"
 								},
 								{
 									"key": "SrReqId",
-									"value": "afa4bc21-ae49-47c9-bc7d-69fdf3eb1e0f",
+									"value": "54ef824e-4a21-4548-9510-be2e768bd87f",
 									"type": "text"
 								},
 								{
@@ -1192,7 +1395,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:44337/api/ServicesRequiredByRequesterApi/afa4bc21-ae49-47c9-bc7d-69fdf3eb1e0f",
+							"raw": "https://localhost:44337/api/ServicesRequiredByRequesterApi/54ef824e-4a21-4548-9510-be2e768bd87f",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -1201,7 +1404,7 @@
 							"path": [
 								"api",
 								"ServicesRequiredByRequesterApi",
-								"afa4bc21-ae49-47c9-bc7d-69fdf3eb1e0f"
+								"54ef824e-4a21-4548-9510-be2e768bd87f"
 							]
 						}
 					},
@@ -1213,16 +1416,16 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://ismguk.com/api/ServicesRequiredByRequesterApi/afa4bc21-ae49-47c9-bc7d-69fdf3eb1e0f",
-							"protocol": "http",
+							"raw": "https://localhost:44337/api/ServicesRequiredByRequesterApi/54ef824e-4a21-4548-9510-be2e768bd87f",
+							"protocol": "https",
 							"host": [
-								"ismguk",
-								"com"
+								"localhost"
 							],
+							"port": "44337",
 							"path": [
 								"api",
 								"ServicesRequiredByRequesterApi",
-								"afa4bc21-ae49-47c9-bc7d-69fdf3eb1e0f"
+								"54ef824e-4a21-4548-9510-be2e768bd87f"
 							]
 						}
 					},
@@ -1234,7 +1437,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:44337/api/ServicesRequiredByRequester2Api/4ece24d3-ec33-44d8-9c0f-ff23bd49d21f",
+							"raw": "https://localhost:44337/api/ServicesRequiredByRequester2Api/ec9f8236-ca86-40d9-af8c-229332a20a09",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -1243,7 +1446,7 @@
 							"path": [
 								"api",
 								"ServicesRequiredByRequester2Api",
-								"4ece24d3-ec33-44d8-9c0f-ff23bd49d21f"
+								"ec9f8236-ca86-40d9-af8c-229332a20a09"
 							]
 						}
 					},
@@ -1264,7 +1467,7 @@
 								},
 								{
 									"key": "SrReqId",
-									"value": "afa4bc21-ae49-47c9-bc7d-69fdf3eb1e0f",
+									"value": "54ef824e-4a21-4548-9510-be2e768bd87f",
 									"type": "text"
 								},
 								{
@@ -1274,7 +1477,7 @@
 								},
 								{
 									"key": "CreatedBy",
-									"value": "7e076ef4-f55c-402d-a60d-2b8b2744d7d1",
+									"value": "1449ecc4-9db0-4171-bf66-28e58a3445cf",
 									"type": "text"
 								},
 								{
@@ -1442,12 +1645,12 @@
 							"formdata": [
 								{
 									"key": "ServicesRequiredId",
-									"value": "a0970088-163b-476d-af12-a8b9e947af6e",
+									"value": "ec9f8236-ca86-40d9-af8c-229332a20a09",
 									"type": "text"
 								},
 								{
 									"key": "SrRequiredDescription",
-									"value": "تصميم ديكور فيلا 2",
+									"value": "عمل خيري",
 									"type": "text"
 								},
 								{
@@ -1458,12 +1661,12 @@
 							]
 						},
 						"url": {
-							"raw": "https://ismguk.com/api/ServicesRequiredApi/SendServiceBySrRepLast",
+							"raw": "https://localhost:44337/api/ServicesRequiredApi/SendServiceBySrRepLast",
 							"protocol": "https",
 							"host": [
-								"ismguk",
-								"com"
+								"localhost"
 							],
+							"port": "44337",
 							"path": [
 								"api",
 								"ServicesRequiredApi",
@@ -1500,12 +1703,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:44337/api/ServicesApprovedApi/ff4d2dbf-72c7-40f4-bb0b-dbdde3e1f7f0",
+							"raw": "https://ismguk.com/api/ServicesApprovedApi/ff4d2dbf-72c7-40f4-bb0b-dbdde3e1f7f0",
 							"protocol": "https",
 							"host": [
-								"localhost"
+								"ismguk",
+								"com"
 							],
-							"port": "44337",
 							"path": [
 								"api",
 								"ServicesApprovedApi",
@@ -1531,16 +1734,94 @@
 							]
 						},
 						"url": {
-							"raw": "https://localhost:44337/api/ServicesApprovedApi/underDoing",
+							"raw": "https://ismguk.com/api/ServicesApprovedApi/underDoing",
 							"protocol": "https",
 							"host": [
-								"localhost"
+								"ismguk",
+								"com"
 							],
-							"port": "44337",
 							"path": [
 								"api",
 								"ServicesApprovedApi",
 								"underDoing"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ممثل الخدمة ريادة",
+			"item": [
+				{
+					"name": "قيد التنفيذ",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "SrRepId",
+									"value": "61c8a0af-8adf-473c-aaf2-3dcc5b7bbf5c",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://ismguk.com/api/ServicesApprovedApi/underDoingrayadah",
+							"protocol": "https",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"ServicesApprovedApi",
+								"underDoingrayadah"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "قيد التنفذ الخط الزمني للمشروع Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://ismguk.com/api/ProjectMillestoneApi/647ebd96-7d4c-4195-a396-09a0d546ba41",
+							"protocol": "https",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"ProjectMillestoneApi",
+								"647ebd96-7d4c-4195-a396-09a0d546ba41"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "المنتهية Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://ismguk.com/api/RayaFinishedServicesApi/61c8a0af-8adf-473c-aaf2-3dcc5b7bbf5c",
+							"protocol": "https",
+							"host": [
+								"ismguk",
+								"com"
+							],
+							"path": [
+								"api",
+								"RayaFinishedServicesApi",
+								"61c8a0af-8adf-473c-aaf2-3dcc5b7bbf5c"
 							]
 						}
 					},

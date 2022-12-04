@@ -2,10 +2,12 @@
 using Domains;
 using MadmounMobileApp.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -35,11 +37,32 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Register(HomePageModel oHomePageModel)
+        public async Task<IActionResult> Register(HomePageModel oHomePageModel , List<IFormFile> files)
         {
             oHomePageModel.lstAdvices = Ctx.TbAdvicess.ToList();
             try
             {
+                if (files != null)
+                {
+                    foreach (var file in files)
+                    {
+                        if (file.Length > 0)
+                        {
+                            string ImageName = Guid.NewGuid().ToString() + ".jpg";
+                            var filePaths = Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot\Uploads", ImageName);
+                            using (var stream = System.IO.File.Create(filePaths))
+                            {
+                                await file.CopyToAsync(stream);
+                            }
+                            oHomePageModel.image = ImageName;
+                        }
+                    }
+                }
+                else
+                {
+                    oHomePageModel.image = "6bfaa416-900f-478b-a44d-984e099bd723.jpg";
+
+                }
 
                 //if (ModelState.IsValid)
                 //{
@@ -87,14 +110,16 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
 
                 var user = new ApplicationUser()
                 {
+                    FirstName = oHomePageModel.Email,
+                    ServiceCategoryName = oHomePageModel.image,
                     Email = oHomePageModel.Email,
                     UserName = oHomePageModel.Email,
                     LastName = oHomePageModel.LastName,
                     state = 1,
-                    StateName= oHomePageModel.StateName
+                    StateName= "ممثل خدمة",
+                    ServiceName = "pending"
 
-
-                };
+            };
                 var result = await Usermanager.CreateAsync(user, oHomePageModel.Password);
                 if (result.Succeeded)
                 {

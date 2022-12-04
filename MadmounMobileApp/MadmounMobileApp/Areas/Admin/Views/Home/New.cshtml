@@ -443,9 +443,9 @@
                         @* <td class="product-category">@item.CreatedDate</td>
                                             <td class="product-category">@Model.lstServices.Where(a => a.ServiceId == item.ServiceId).FirstOrDefault().ServiceName</td>
                                             <td class="product-category">@item.SrRequiredDescription</td>
-                                            <td class="product-category">@USERmANAGER.Users.Where(a => a.Id == item.SrReqId).FirstOrDefault().UserName</td>
-                                            <td class="product-category">@USERmANAGER.Users.Where(a => a.Id == item.SrOffId).FirstOrDefault().UserName</td>
-                                            <td class="product-category">@USERmANAGER.Users.Where(a => a.Id == item.SrRepId).FirstOrDefault().UserName</td>
+                                            <td class="product-category">@USERmANAGER.Users.Where(a => a.Id == item.SrReqId).FirstOrDefault().Email</td>
+                                            <td class="product-category">@USERmANAGER.Users.Where(a => a.Id == item.SrOffId).FirstOrDefault().Email</td>
+                                            <td class="product-category">@USERmANAGER.Users.Where(a => a.Id == item.SrRepId).FirstOrDefault().Email</td>
                                             <td class="product-category">@Model.lstCities.Where(a => a.CityId == item.CityId).FirstOrDefault().CityName</td>
                                             <td class="product-category">@Model.lstAreas.Where(a => a.AreaId == item.AreaId).FirstOrDefault().AreaName</td>*@
 
