@@ -162,6 +162,36 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             return View(oldItem);
         }
 
+
+
+
+        public async Task<IActionResult> FormRayadahAsync(Guid? id)
+        {
+            var user = await Usermanager.FindByIdAsync(id.ToString());
+            user.ServiceName = "Approved";
+            user.state = 1;
+            ApplicationUser objFromDb = Usermanager.Users.Where(u => u.Id == id.ToString()).FirstOrDefault();
+            if (objFromDb == null)
+            {
+                return NotFound();
+            }
+            if (objFromDb.LockoutEnd != null && objFromDb.LockoutEnd > DateTime.Now)
+            {
+                //user is locked and will remain locked untill lockoutend time
+                //clicking on this action will unlock them
+                objFromDb.LockoutEnd = DateTime.Now;
+                //TempData[SD.Success] = "User unlocked successfully.";
+            }
+
+            ctx.SaveChanges();
+            var result = await Usermanager.UpdateAsync(user);
+            TbSrRepService oldItem = ctx.TbSrRepServices.Where(a => a.SrRepServiceId == id).FirstOrDefault();
+
+            ViewBag.services = serviceService.getAll().Where(a=> a.ServiceCategoryId == Guid.Parse("371b893c-3f5a-4335-a2c0-b9aa197d35ae"));
+            ViewBag.servicesCATEGORY = fl.getAll().Where(a=> a.ServiceCategoryId == Guid.Parse("371b893c-3f5a-4335-a2c0-b9aa197d35ae"));
+            return View(oldItem);
+        }
+
         public IActionResult Form2(Guid? id, string idd)
         {
             TbSrRepService oldItem = ctx.TbSrRepServices.Where(a => a.SrRepServiceId == id).FirstOrDefault();

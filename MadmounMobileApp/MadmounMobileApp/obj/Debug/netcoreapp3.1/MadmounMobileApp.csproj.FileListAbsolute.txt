@@ -678,3 +678,7 @@ F:\New folder\MadmounMobileApp\MadmounMobileApp\bin\Debug\netcoreapp3.1\zh-Hant\
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Views\Home\Notification.cshtml.g.cs
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Views\Home\BasicChat.cshtml.g.cs
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\CreateSrRep\RegisterRayadah.cshtml.g.cs
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\CreateSrRep\IndexRayadah.cshtml.g.cs
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\SRepService\FormRayadah.cshtml.g.cs
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\SrOffAndSrRep\ListUsersRayadah.cshtml.g.cs

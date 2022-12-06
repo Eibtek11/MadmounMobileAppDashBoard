@@ -89,6 +89,35 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             model.lstUsers = Usermanager.Users.Where(a => a.StateName == "ممثل خدمة").ToList();
             return View(model);
         }
+
+        public async Task<IActionResult> ListUsersRayadahAsync(Guid? id)
+        {
+            if (id != null)
+            {
+                var user = await Usermanager.FindByIdAsync(id.ToString());
+                user.ServiceName = "Hanged";
+
+                var result = await Usermanager.UpdateAsync(user);
+                ApplicationUser objFromDb = Usermanager.Users.Where(u => u.Id == id.ToString()).FirstOrDefault();
+                if (objFromDb == null)
+                {
+                    return NotFound();
+                }
+
+
+                //user is not locked, and we want to lock the user
+                objFromDb.LockoutEnd = DateTime.Now.AddYears(1000);
+                //TempData[SD.Success] = "User locked successfully.";
+
+                Ctx.SaveChanges();
+            }
+            HomePageModel model = new HomePageModel();
+            model.lstUsers = Usermanager.Users.Where(a => a.StateName == "ممثل خدمة").ToList().Where(a=> a.Services == "خدمات تمويلية");
+            return View(model);
+        }
+
+
+        
         [HttpGet]
         public async Task<IActionResult> EditUsers(string id)
         {
