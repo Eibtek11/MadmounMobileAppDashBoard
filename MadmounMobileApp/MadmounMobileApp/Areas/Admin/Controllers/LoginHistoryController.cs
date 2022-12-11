@@ -1,4 +1,5 @@
 ﻿using BL;
+using BL.Models;
 using Domains;
 using MadmounMobileApp.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -15,13 +16,14 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
     [Area("Admin")]
     public class LoginHistoryController : Controller
     {
+        IGetLogInHistory getLogInHistory;
         LogInHistoryService logInHistoryService;
         ComplainService ComplainService;
         CityService cityService;
         AreaService areaService;
         MadmounDbContext ctx;
         UserManager<ApplicationUser> Usermanager;
-        public LoginHistoryController(UserManager<ApplicationUser> usermanager, LogInHistoryService LogInHistoryService,ComplainService complainService, CityService CityService, AreaService AreaService, MadmounDbContext context)
+        public LoginHistoryController(IGetLogInHistory GetLogInHistory,UserManager<ApplicationUser> usermanager, LogInHistoryService LogInHistoryService,ComplainService complainService, CityService CityService, AreaService AreaService, MadmounDbContext context)
         {
             areaService = AreaService;
             ctx = context;
@@ -29,8 +31,9 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             ComplainService = complainService;
             logInHistoryService = LogInHistoryService;
             Usermanager = usermanager;
+            getLogInHistory = GetLogInHistory;
         }
-        public IActionResult Index()
+        public IActionResult Index(string DateOne, string DateTwo)
         {
             HomePageModel model = new HomePageModel();
             model.lstAreas = areaService.getAll();
@@ -38,6 +41,30 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             model.lstComplains = ComplainService.getAll();
             model.lstLogInHistories = logInHistoryService.getAll();
             model.lstUsers = Usermanager.Users.ToList();
+            model.LstGetLogInHistory = getLogInHistory.GetAll(DateTime.Parse("2020-11-05 22:17:26.510"), DateTime.Now);
+            if (DateOne != null && DateTwo != null)
+            {
+                model.LstGetLogInHistory = getLogInHistory.GetAll(DateTime.Parse(DateOne), DateTime.Parse(DateTwo));
+            }
+            var servicesNoRequested = (from t in model.LstGetLogInHistory
+                                       group t by t.Id into myVar
+                                       select new
+                                       {
+                                           k = myVar.Key,
+                                           c = myVar.Count()
+                                       });
+
+            List<GetActiveUsersNo> lstgetServicesNos = new List<GetActiveUsersNo>();
+            foreach (var i in servicesNoRequested)
+            {
+                GetActiveUsersNo element = new GetActiveUsersNo();
+                element.Id = Guid.Parse(i.k);
+                element.count = i.c;
+                lstgetServicesNos.Add(element);
+
+            }
+            model.LstGetActiveUsersNo = lstgetServicesNos;
+           
             return View(model);
 
 

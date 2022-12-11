@@ -57,6 +57,11 @@ namespace BL
 
         public DbSet<VwStages> VwStagess { get; set; }
 
+        public DbSet<VwMillestone> VwMillestones { get; set; }
+
+
+        
+
         public DbSet<ChatRoom> ChatRoom { get; set; }
 
         //        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -193,8 +198,17 @@ namespace BL
 
             });
 
+            modelBuilder.Entity<VwMillestone>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("VwMillestone");
 
 
+            });
+
+
+            
             modelBuilder.Entity<VwStages>(entity =>
             {
                 entity.HasNoKey();

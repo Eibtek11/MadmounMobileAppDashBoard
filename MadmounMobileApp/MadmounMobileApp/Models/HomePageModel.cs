@@ -162,12 +162,27 @@ namespace MadmounMobileApp.Models
 
         public IEnumerable<GetServicesNo> LstGetServicesNo { get; set; }
 
+
+        public IEnumerable<GetOffersNo> LstGetOffersNo { get; set; }
+
+
+        public IEnumerable<GetActiveUsersNo> LstGetActiveUsersNo { get; set; }
+
         public IEnumerable<GetServicesApproed> LstGetServicesApproed { get; set; }
+
+
+        public IEnumerable<GetServicesOffers> LstGetServicesOffers { get; set; }
+
+
+        public IEnumerable<GetLogInHistory> LstGetLogInHistory { get; set; }
 
 
         public IEnumerable<VwFilterOff> LstVwFilterOffs { get; set; }
 
 
+        public IEnumerable<VwMillestone> LstVwMillestone { get; set; }
+
+        
 
 
         public IEnumerable<VwFilterrep> LstVwFilterreps { get; set; }

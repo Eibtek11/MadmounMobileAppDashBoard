@@ -68,6 +68,8 @@ namespace MadmounMobileApp
             services.AddScoped<TransactionService, ClsTransaction>();
             services.AddScoped<IGetChat, ClsGetPayment>();
             services.AddScoped<IGetServiceApproved, ClsGetServiceApproved>();
+            services.AddScoped<IGetServiceOffers, ClsGetServicesOffers>();
+            services.AddScoped<IGetLogInHistory, ClsGetLogInHistory>();
             services.AddScoped<ServicesFinishedService, ClsServicesFinished>();
 
             //services.Configure<SMSOptions>(Configuration);
@@ -84,10 +86,11 @@ namespace MadmounMobileApp
             {
                 options.AddPolicy(MyAllowSpecificOrigins,
                 builder => {
+                    builder.AllowAnyOrigin();
                     //URLs are from the front-end (note that they changed
                     //since posting my original question due to scrapping
                     //the original projects and starting over)
-                    builder.WithOrigins("https://localhost:44398/", "http://ismguk.com/" , "http://localhost:60097/" , "")
+                    builder.WithOrigins("https://localhost:44398/", "http://ismguk.com/" , "http://localhost:60097/" , "http://localhost:4200/")
                                      .AllowAnyHeader()
                                      .AllowAnyMethod()
                                      .AllowCredentials();
@@ -144,6 +147,7 @@ namespace MadmounMobileApp
             app.UseStaticFiles();
             app.UseCookiePolicy();
             app.UseCors(MyAllowSpecificOrigins);
+            app.UseCors(option=> option.AllowAnyOrigin());
             app.UseRouting();
             app.UseSession();
             app.UseAuthentication();

@@ -34,7 +34,7 @@ $(document).ready(function() {
     pageLength:20,
     buttons: [
       {
-        text: "<i class='feather icon-plus'></i> Add New",
+        text: "",
         action: function() {
           $(this).removeClass("btn-secondary")
           $(".add-new-data").addClass("show")
@@ -42,7 +42,7 @@ $(document).ready(function() {
           $("#data-name, #data-price").val("")
           $("#data-category, #data-status").prop("selectedIndex", 0)
         },
-        className: "btn-outline-primary"
+        className: ""
       }
     ],
     initComplete: function(settings, json) {
@@ -83,13 +83,13 @@ $(document).ready(function() {
     pageLength: 20,
     buttons: [
       {
-        text: "<i class='feather icon-plus'></i> Add New",
+        text: "",
         action: function() {
           $(this).removeClass("btn-secondary")
           $(".add-new-data").addClass("show")
           $(".overlay-bg").addClass("show")
         },
-        className: "btn-outline-primary"
+        className: ""
       }
     ],
     initComplete: function(settings, json) {

@@ -12,7 +12,7 @@ namespace BL.Models
         public string SrReqId { get; set; }
         public string SrOffId { get; set; }
         public string CreatedBy { get; set; }
-        public string UpdatedBy { get; set; }
+      
         public DateTime? CreatedDate { get; set; }
         public DateTime? UpdatedDate { get; set; }
         public string Notes { get; set; }
@@ -21,5 +21,9 @@ namespace BL.Models
         public Guid? AreaId { get; set; }
         public string ContractPdf { get; set; }
         public string SrApprovedDescription { get; set; }
+        public string ServiceName { get; set; }
+        public Guid? ServiceCategoryId { get; set; }
+
+        public string UpdatedBy { get; set; }
     }
 }

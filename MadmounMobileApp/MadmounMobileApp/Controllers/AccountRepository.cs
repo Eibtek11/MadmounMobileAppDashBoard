@@ -16,6 +16,7 @@ using System.Security.Cryptography.X509Certificates;
 using MadmounMobileApp.Dtos;
 using MadmounMobileApp.Services;
 using Twilio.Types;
+using Domains;
 
 namespace MadmounMobileApp.Controllers
 {
@@ -28,7 +29,8 @@ namespace MadmounMobileApp.Controllers
         private readonly IConfiguration _configuration;
         IEmailSender _emailSender;
         private readonly ISMSService _smsService;
-        public AccountRepository(ISMSService smsService, ISmsSender smsSender, IEmailSender emailSender, IConfiguration configuration, MadmounDbContext ctx, UserManager<ApplicationUser> usermanager, SignInManager<ApplicationUser> signInManager)
+        LogInHistoryService lgHistory;
+        public AccountRepository(LogInHistoryService LgHistory, ISMSService smsService, ISmsSender smsSender, IEmailSender emailSender, IConfiguration configuration, MadmounDbContext ctx, UserManager<ApplicationUser> usermanager, SignInManager<ApplicationUser> signInManager)
         {
             Usermanager = usermanager;
             SignInManager = signInManager;
@@ -37,6 +39,7 @@ namespace MadmounMobileApp.Controllers
             _emailSender = emailSender;
             _smsSender = smsSender;
             _smsService = smsService;
+            lgHistory = LgHistory;
 
         }
 
@@ -134,14 +137,23 @@ namespace MadmounMobileApp.Controllers
         public async Task<ApplicationUser> LLoginAsync(SignInModel signInModel)
         {
             var result = await SignInManager.PasswordSignInAsync(signInModel.Email, signInModel.Password, true, true);
-
+            
             if (!result.Succeeded)
             {
                 return null;
             }
             else
             {
-
+                if(Usermanager.Users.Where(a => a.Email == signInModel.Email).FirstOrDefault().state == 2)
+                {
+                    string id = Usermanager.Users.Where(a => a.Email == signInModel.Email).FirstOrDefault().Id;
+                    TbLoginHistory item = new TbLoginHistory();
+                    item.Id = id;
+                    item.CreatedDate = DateTime.Now;
+                    item.LogInId = new Guid();
+                    lgHistory.Add(item);
+                }
+               
                 var res2 = Usermanager.Users.Where(a => a.UserName == signInModel.Email).FirstOrDefault();
 
                 return res2;

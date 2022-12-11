@@ -218,6 +218,92 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
 
             }
             model.LstGetServicesNo = lstgetServicesNos;
+            
+            return View(model);
+        }
+
+
+
+        public IActionResult noOffersByService()
+        {
+            HomePageModel model = new HomePageModel();
+            var servicesNoRequested = (from t in ctx.TbServicesOfferss.ToList()
+                                       group t by t.ServiceId into myVar
+                                       select new
+                                       {
+                                           k = myVar.Key,
+                                           c = myVar.Count()
+                                       });
+
+            List<GetOffersNo> lstgetServicesNos = new List<GetOffersNo>();
+            foreach (var i in servicesNoRequested)
+            {
+                GetOffersNo element = new GetOffersNo();
+                element.ServiceId = i.k;
+                element.count = i.c;
+                lstgetServicesNos.Add(element);
+
+            }
+            model.LstGetOffersNo = lstgetServicesNos;
+            model.lstServices = serviceService.getAll();
+            return View(model);
+        }
+
+
+
+
+        public IActionResult noOffersByServiceApproved()
+        {
+            HomePageModel model = new HomePageModel();
+            var servicesNoRequested = (from t in ctx.TbServicesOfferss.ToList().Where(a=> a.Notes == "موافقة")
+                                       group t by t.ServiceId into myVar
+                                       select new
+                                       {
+                                           k = myVar.Key,
+                                           c = myVar.Count()
+                                       });
+
+            List<GetOffersNo> lstgetServicesNos = new List<GetOffersNo>();
+            foreach (var i in servicesNoRequested)
+            {
+                GetOffersNo element = new GetOffersNo();
+                element.ServiceId = i.k;
+                element.count = i.c;
+                lstgetServicesNos.Add(element);
+
+            }
+            model.LstGetOffersNo = lstgetServicesNos;
+            model.lstServices = serviceService.getAll();
+            return View(model);
+        }
+
+
+
+
+
+
+        public IActionResult noOffersByServiceRejected()
+        {
+            HomePageModel model = new HomePageModel();
+            var servicesNoRequested = (from t in ctx.TbServicesOfferss.ToList().Where(a => a.Notes != "موافقة")
+                                       group t by t.ServiceId into myVar
+                                       select new
+                                       {
+                                           k = myVar.Key,
+                                           c = myVar.Count()
+                                       });
+
+            List<GetOffersNo> lstgetServicesNos = new List<GetOffersNo>();
+            foreach (var i in servicesNoRequested)
+            {
+                GetOffersNo element = new GetOffersNo();
+                element.ServiceId = i.k;
+                element.count = i.c;
+                lstgetServicesNos.Add(element);
+
+            }
+            model.LstGetOffersNo = lstgetServicesNos;
+            model.lstServices = serviceService.getAll();
             return View(model);
         }
 

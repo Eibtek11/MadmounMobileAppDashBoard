@@ -9,12 +9,15 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System;
+using BL.Models;
 
 namespace MadmounMobileApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class ServicesOffersController : Controller
     {
+
+        IGetServiceOffers getServiceOffers;
         ServicesOfferService servicesOfferService;
         AdvertismentService advertismentService;
         ServiceCategoryService srviceCategoryService;
@@ -23,7 +26,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
         AreaService areaService;
         MadmounDbContext ctx;
         UserManager<ApplicationUser> Usermanager;
-        public ServicesOffersController(ServicesOfferService ServicesOfferService,UserManager<ApplicationUser> usermanager, AdvertismentService AdvertismentService, ServiceCategoryService SrviceCategoryService, ServiceService ServiceService, CityService CityService, AreaService AreaService, MadmounDbContext context)
+        public ServicesOffersController(IGetServiceOffers GetServiceOffers, ServicesOfferService ServicesOfferService,UserManager<ApplicationUser> usermanager, AdvertismentService AdvertismentService, ServiceCategoryService SrviceCategoryService, ServiceService ServiceService, CityService CityService, AreaService AreaService, MadmounDbContext context)
         {
             areaService = AreaService;
             ctx = context;
@@ -33,8 +36,9 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             advertismentService = AdvertismentService;
             Usermanager = usermanager;
             servicesOfferService = ServicesOfferService;
+            getServiceOffers = GetServiceOffers;
         }
-        public IActionResult Index()
+        public IActionResult Index(string DateOne, string DateTwo)
         {
             HomePageModel model = new HomePageModel();
             model.lstAreas = areaService.getAll();
@@ -43,6 +47,11 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             model.lstServicecATEGORIES = srviceCategoryService.getAll();
             model.lstAdvertisements = advertismentService.getAll();
             model.LstServicesOffers = servicesOfferService.getAll();
+            model.LstGetServicesOffers = getServiceOffers.GetAll(DateTime.Parse("2020-11-05 22:17:26.510"), DateTime.Now);
+            if (DateOne != null && DateTwo != null)
+            {
+                model.LstGetServicesOffers = getServiceOffers.GetAll(DateTime.Parse(DateOne), DateTime.Parse(DateTwo));
+            }
             return View(model);
 
 

@@ -1,6 +1,7 @@
 ﻿using BL;
 using Domains;
 using MadmounMobileApp.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -12,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace MadmounMobileApp.Controllers
 {
+   
     [Route("api/[controller]")]
     [ApiController]
     public class ServicesApiController : ControllerBase

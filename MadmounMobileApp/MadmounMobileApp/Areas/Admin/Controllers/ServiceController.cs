@@ -29,13 +29,20 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             serviceService = ServiceService;
             srviceCategoryService = SrviceCategoryService;
         }
-        public IActionResult Index()
+        public IActionResult Index(string Id)
         {
+            ViewBag.cities = ctx.TbCities.ToList();
             HomePageModel model = new HomePageModel();
             model.lstAreas = areaService.getAll();
             model.lstCities = cityService.getAll();
             model.lstServices = serviceService.getAll();
             model.lstServicecATEGORIES = srviceCategoryService.getAll();
+            model.lstCities = cityService.getAll();
+            if (Id != null)
+            {
+                model.lstServices = serviceService.getAll().ToList().Where(a => a.UpdatedBy == Id);
+
+            }
             return View(model);
 
 
@@ -105,6 +112,8 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             model.lstCities = cityService.getAll();
             model.lstServices = serviceService.getAll();
             model.lstServicecATEGORIES = srviceCategoryService.getAll();
+            model.lstCities = cityService.getAll();
+            ViewBag.cities = ctx.TbCities.ToList();
             return View("Index", model);
         }
 
@@ -114,7 +123,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
 
         public IActionResult Delete(Guid id)
         {
-
+            ViewBag.cities = ctx.TbCities.ToList();
             TbService oldItem = ctx.TbServices.Where(a => a.ServiceId == id).FirstOrDefault();
 
             serviceService.Delete(oldItem);
@@ -124,6 +133,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             model.lstCities = cityService.getAll();
             model.lstServices = serviceService.getAll();
             model.lstServicecATEGORIES = srviceCategoryService.getAll();
+            model.lstCities = cityService.getAll();
             return View("Index", model);
 
 
@@ -138,6 +148,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             TbService oldItem = ctx.TbServices.Where(a => a.ServiceId == id).FirstOrDefault();
             oldItem = ctx.TbServices.Where(a => a.ServiceId == id).FirstOrDefault();
             ViewBag.services = ctx.TbServiceCategories.ToList();
+            ViewBag.cities = ctx.TbCities.ToList();
             return View(oldItem);
         }
     }

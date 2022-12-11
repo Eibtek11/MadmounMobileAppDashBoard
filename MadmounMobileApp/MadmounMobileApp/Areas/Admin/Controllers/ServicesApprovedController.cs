@@ -15,6 +15,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
     [Area("Admin")]
     public class ServicesApprovedController : Controller
     {
+        IGetServiceOffers getServiceOffers;
         IGetServiceApproved getServicesApproed;
         ServiceService srRecords;
         ServicesApprovedService sr;
@@ -24,7 +25,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
         AreaService areaService;
         MadmounDbContext ctx;
         UserManager<ApplicationUser> Usermanager;
-        public ServicesApprovedController(IGetServiceApproved GetServicesApproed,UserManager<ApplicationUser> usermanager ,ServiceService SrRecords,ServicesApprovedService SR,ServicesRequiredService SQ, ComplainService complainService, CityService CityService, AreaService AreaService, MadmounDbContext context)
+        public ServicesApprovedController(IGetServiceOffers GetServiceOffers,IGetServiceApproved GetServicesApproed,UserManager<ApplicationUser> usermanager ,ServiceService SrRecords,ServicesApprovedService SR,ServicesRequiredService SQ, ComplainService complainService, CityService CityService, AreaService AreaService, MadmounDbContext context)
         {
             areaService = AreaService;
             ctx = context;
@@ -35,6 +36,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             srRecords = SrRecords;
             Usermanager = usermanager;
             getServicesApproed = GetServicesApproed;
+            getServiceOffers = GetServiceOffers;
         }
         public IActionResult Index( string DateOne, string DateTwo)
         {

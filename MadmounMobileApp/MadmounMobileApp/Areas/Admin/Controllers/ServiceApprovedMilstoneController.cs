@@ -42,6 +42,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             model.lstServicesApprovedS = sr.getAll();
             model.lstServiceApprovedImageS = srAppImage.getAll();
             model.lstServiceApprovedMilstone = srAppMil.getAll();
+            model.LstVwMillestone = ctx.VwMillestones.ToList();
             return View(model);
 
 
@@ -90,6 +91,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             model.lstServicesApprovedS = sr.getAll();
             model.lstServiceApprovedImageS = srAppImage.getAll();
             model.lstServiceApprovedMilstone = srAppMil.getAll();
+            model.LstVwMillestone = ctx.VwMillestones.ToList();
             return View("Index", model);
         }
 
@@ -112,6 +114,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             model.lstServicesApprovedS = sr.getAll();
             model.lstServiceApprovedImageS = srAppImage.getAll();
             model.lstServiceApprovedMilstone = srAppMil.getAll();
+            model.LstVwMillestone = ctx.VwMillestones.ToList();
             return View("Index", model);
 
 

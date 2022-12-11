@@ -157,13 +157,17 @@ namespace MadmounMobileApp.Controllers
                 if (result.Succeeded)
                 {
 
-                   
-                    string id = Usermanager.Users.Where(a => a.Email == oHomePageModel.Email).FirstOrDefault().Id;
-                    TbLoginHistory item = new TbLoginHistory();
-                    item.Id = id;
-                    item.CreatedDate = DateTime.Now;
-                    item.LogInId = new Guid();
-                    lgHistory.Add(item);
+                    if (Usermanager.Users.Where(a => a.Email == oHomePageModel.Email).FirstOrDefault().state == 2)
+                    {
+                        string id = Usermanager.Users.Where(a => a.Email == oHomePageModel.Email).FirstOrDefault().Id;
+                        TbLoginHistory item = new TbLoginHistory();
+                        item.Id = id;
+                        item.CreatedDate = DateTime.Now;
+                        item.LogInId = new Guid();
+                        lgHistory.Add(item);
+
+                    }
+                 
 
 
                     // i hased 15 line
