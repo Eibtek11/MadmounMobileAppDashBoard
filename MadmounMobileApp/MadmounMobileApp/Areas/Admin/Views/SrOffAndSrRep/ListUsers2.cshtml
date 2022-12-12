@@ -69,6 +69,7 @@
                 <li class=" nav-item open">
                     <a><i class="feather icon-home"></i><span data-i18n="Dashboard">لوحة التحكم</span><span class="badge badge badge-warning badge-pill float-right mr-2">21</span></a>
                     <ul class="menu-content">
+
                         <li>
                             <a asp-controller="CreateSrRep" asp-action="Index"><i class="feather icon-user"></i><span class="menu-item" data-i18n="eCommerce">اضافة ممثلي الخدمة</span></a>
                         </li>
@@ -97,35 +98,36 @@
                         <li>
                             <a asp-controller="ServiceCategory" asp-action="Index"><i class="feather icon-server"></i><span class="menu-item" data-i18n="eCommerce">اقسام الخدمات</span></a>
                         </li>
-
-                        @* <li>
-                        <a asp-controller="Complains" asp-action="Index"><i class="feather icon-headphones"></i><span class="menu-item" data-i18n="eCommerce">الشكاوي</span></a>
-                        </li>*@
                         <li>
-                            <a asp-controller="LoginHistory" asp-action="Index"><i class="feather icon-user-check"></i><span class="menu-item" data-i18n="eCommerce">المستخدمين النشطين</span></a>
+                            <a asp-controller="Home" asp-action="Payment6"><i class="feather icon-server"></i><span class="menu-item" data-i18n="eCommerce">عدد الخدمات التي تم طلبها</span></a>
                         </li>
                         <li>
-                            <a asp-controller="ServicesRequired" asp-action="Index"><i class="feather icon-shopping-cart"></i><span class="menu-item" data-i18n="eCommerce">جدول الخدمات المطلوبة</span></a>
+                            <a asp-controller="ServicesOffers" asp-action="Index"><i class="feather icon-umbrella"></i><span class="menu-item" data-i18n="eCommerce"> عروض اسعار/ حالة العرض مقبولة  <br /> او مرفوضة</span></a>
+                        </li>
+                        <li>
+                            <a asp-controller="ServicesApproved" asp-action="Index"><i class="feather icon-shopping-cart"></i><span class="menu-item" data-i18n="eCommerce">العقود المبرمة <br /> مع العملاء</span></a>
                         </li>
 
                         <li>
-                            <a asp-controller="ServicesApproved" asp-action="Index"><i class="feather icon-shopping-cart"></i><span class="menu-item" data-i18n="eCommerce">جدول قبول الخدمات <br /> من مقدم الخدمة</span></a>
+                            <a asp-controller="LoginHistory" asp-action="Index"><i class="feather icon-user-check"></i><span class="menu-item" data-i18n="eCommerce">عدد العملاء الفعالين</span></a>
                         </li>
 
-
-
-
                         <li>
-                            <a asp-controller="serviceapprovedimages" asp-action="index"><i class="feather icon-tv"></i><span class="menu-item" data-i18n="ecommerce">صور الخدمات المتفق عليها<br /> مع المستخدمين</span></a>
+                            <a asp-controller="ActiveCustomers" asp-action="ShowData"><i class="feather icon-user-check"></i><span class="menu-item" data-i18n="eCommerce">رسم بياني يوضح عدد العملاء الفعالين</span></a>
                         </li>
 
 
 
 
-
+                        @*
                         <li>
-                            <a asp-controller="ServiceApprovedMilstone" asp-action="Index"><i class="feather icon-check-circle"></i><span class="menu-item" data-i18n="eCommerce">جدول مراحل كل مشروع<br /> وتكلفة كل مرحلة</span></a>
+                        <a asp-controller="serviceapprovedimages" asp-action="index"><i class="feather icon-tv"></i><span class="menu-item" data-i18n="ecommerce">صور مراحل  الخدمات قبل و بعد    </span></a>
                         </li>
+                        *@
+
+
+
+
                         @* <li>
                         <a asp-controller="SrOffService" asp-action="Index"><i class="feather icon-users"></i><span class="menu-item" data-i18n="eCommerce">مقدمي الخدمة</span></a>
                         </li>
@@ -133,22 +135,18 @@
                         <li>
                         <a asp-controller="SRepService" asp-action="Index"><i class="feather icon-users"></i><span class="menu-item" data-i18n="eCommerce">ممثلي الخدمات</span></a>
                         </li>*@
-                        <li>
-                            <a asp-controller="SrRepCity" asp-action="Index"><i class="feather icon-octagon"></i><span class="menu-item" data-i18n="eCommerce">مدن ممثلي الخدمات</span></a>
+                        @*  <li>
+                        <a asp-controller="SrRepCity" asp-action="Index"><i class="feather icon-octagon"></i><span class="menu-item" data-i18n="eCommerce">مدن ممثلي الخدمات</span></a>
                         </li>
 
                         <li>
-                            <a asp-controller="SrOffCity" asp-action="Index"><i class="feather icon-octagon"></i><span class="menu-item" data-i18n="eCommerce">مدن مقدمي الخدمات</span></a>
+                        <a asp-controller="SrOffCity" asp-action="Index"><i class="feather icon-octagon"></i><span class="menu-item" data-i18n="eCommerce">مدن مقدمي الخدمات</span></a>
                         </li>
+                        *@
 
 
-                        <li>
-                            <a asp-controller="ServicesApproved" asp-action="Index"><i class="feather icon-shopping-cart"></i><span class="menu-item" data-i18n="eCommerce">العقود المبرمة <br /> مع المستخدمين</span></a>
-                        </li>
 
-                        <li>
-                            <a asp-controller="ServicesOffers" asp-action="Index"><i class="feather icon-umbrella"></i><span class="menu-item" data-i18n="eCommerce">عروض اسعار </span></a>
-                        </li>
+
                         <li>
                             <a asp-controller="Client" asp-action="Index"><i class="feather icon-users"></i><span class="menu-item" data-i18n="eCommerce">العملاء</span></a>
                         </li>
@@ -160,6 +158,12 @@
                         </li>
                         <li>
                             <a asp-controller="Advice" asp-action="Index"><i class="feather icon-umbrella"></i><span class="menu-item" data-i18n="eCommerce">النصائح/ نصائح لمقدم<br />  و ممثل الخدمة</span></a>
+                        </li>
+                        <li>
+                            <a asp-controller="Advice" asp-action="Index"><i class="feather icon-umbrella"></i><span class="menu-item" data-i18n="eCommerce">الاشعارات/ اشعارات لمقدم<br />  و ممثل الخدمة</span></a>
+                        </li>
+                        <li>
+                            <a asp-controller="Complains" asp-action="Index"><i class="feather icon-headphones"></i><span class="menu-item" data-i18n="eCommerce">الشكاوي</span></a>
                         </li>
                         @*  <li>
                         <a asp-controller="ServicesRequired" asp-action="Index"><i class="feather icon-umbrella"></i><span class="menu-item" data-i18n="eCommerce">الخدمات المطلوبة من العملاء</span></a>
@@ -199,10 +203,10 @@
                             <a asp-controller="Home" asp-action="Payment5"><i class="feather icon-layers"></i><span class="menu-item" data-i18n="eCommerce">اجمالي المدفوعات بالخدمة </span></a>
                         </li>
                         <li>
-                            <a asp-controller="Home" asp-action="Payment7"><i class="feather icon-layers"></i><span class="menu-item" data-i18n="eCommerce">فرز مقدمي الخدمات حسب الخدمة و المدينة </span></a>
+                            <a asp-controller="Home" asp-action="Payment7"><i class="feather icon-layers"></i><span class="menu-item" data-i18n="eCommerce">عدد مقدمي الخدمات <br />حسب الخدمة و المدينة </span></a>
                         </li>
                         <li>
-                            <a asp-controller="Home" asp-action="Payment8"><i class="feather icon-layers"></i><span class="menu-item" data-i18n="eCommerce">فرز ممثلي الخدمات حسب الخدمة و المدينة </span></a>
+                            <a asp-controller="Home" asp-action="Payment8"><i class="feather icon-layers"></i><span class="menu-item" data-i18n="eCommerce">عدد ممثلي الخدمات <br />حسب الخدمة و المدينة </span></a>
                         </li>
                         @* <li>
                         <a asp-controller="Home" asp-action="Payment9"><i class="feather icon-layers"></i><span class="menu-item" data-i18n="eCommerce">فرز مقدمي الخدمات حسب المدينة </span></a>
@@ -210,40 +214,55 @@
                         <li>
                         <a asp-controller="Home" asp-action="Payment10"><i class="feather icon-layers"></i><span class="menu-item" data-i18n="eCommerce">فرز ممثلي الخدمات حسب المدينة </span></a>
                         </li>*@
-                        <li>
-                            <a asp-controller="Home" asp-action="stages"><i class="feather icon-shopping-cart"></i><span class="menu-item" data-i18n="eCommerce">المدفوعات  بالنسبه للمراحل <br /> والمراحل المتبقية للخدمات المستمرة</span></a>
-                        </li>
+                        @*<li>
+                        <a asp-controller="Home" asp-action="stages"><i class="feather icon-shopping-cart"></i><span class="menu-item" data-i18n="eCommerce">المدفوعات  بالنسبه للمراحل <br /> والمراحل المتبقية للخدمات المستمرة</span></a>
+                        </li>*@
                         <li>
                             <a asp-controller="Home" asp-action="New"><i class="feather icon-shopping-cart"></i><span class="menu-item" data-i18n="eCommerce">المدفوعات  بالنسبه للمراحل <br /> والمراحل المتبقية للخدمات المستمرة</span></a>
                         </li>
+
                         <li>
-                            <a asp-controller="Home" asp-action="Payment6"><i class="feather icon-server"></i><span class="menu-item" data-i18n="eCommerce">عدد الخدمات التي تم طلبها</span></a>
+                            <a asp-controller="ServicesRequired" asp-action="Index"><i class="feather icon-shopping-cart"></i><span class="menu-item" data-i18n="eCommerce">جدول الخدمات المطلوبة</span></a>
                         </li>
 
+                        <li>
+                            <a asp-controller="ServicesApproved" asp-action="Index"><i class="feather icon-shopping-cart"></i><span class="menu-item" data-i18n="eCommerce">جدول قبول الخدمات <br /> من مقدم الخدمة</span></a>
+                        </li>
+
+                        <li>
+                            <a asp-controller="ServiceApprovedMilstone" asp-action="Index"><i class="feather icon-check-circle"></i><span class="menu-item" data-i18n="eCommerce">جدول مراحل كل مشروع<br /> وتكلفة كل مرحلة</span></a>
+                        </li>
                         <li>
                             <a asp-controller="Home" asp-action="noOffersByService"><i class="feather icon-headphones"></i><span class="menu-item" data-i18n="eCommerce">عدد الخدمات التي تم<br />  تقديم عروض اسعارها</span></a>
                         </li>
                         <li>
-                            <a asp-controller="Home" asp-action="noOffersByServiceApproved"><i class="feather icon-user-check"></i><span class="menu-item" data-i18n="eCommerce">عدد الخدمات التي تم<br />  قبول عروض اسعارها</span></a>
+                            <a asp-controller="Home" asp-action="noOffersByServiceApproved"><i class="feather icon-user-check"></i><span class="menu-item" data-i18n="eCommerce">عدد العقود المبرمة<br /> </span></a>
                         </li>
                         <li>
                             <a asp-controller="Home" asp-action="noOffersByServiceRejected"><i class="feather icon-user-check"></i><span class="menu-item" data-i18n="eCommerce">عدد الخدمات التي تم<br />  رفض عروض اسعارها</span></a>
                         </li>
+
                         <li>
-                            <a asp-controller="Advertisment" asp-action="Index2"><i class="feather icon-shopping-cart"></i><span class="menu-item" data-i18n="eCommerce">رسم بياني يوضح <br /> اكثر الايام تفالا مع العملاء</span></a>
+                            <a asp-controller="Home" asp-action="noOffByCity"><i class="feather icon-check-circle"></i><span class="menu-item" data-i18n="eCommerce"> عدد<br />  مقدمي الخدمات حسب <br />  المدن</span></a>
                         </li>
                         <li>
-                            <a asp-controller="Advertisment" asp-action="Index"><i class="feather icon-shopping-cart"></i><span class="menu-item" data-i18n="eCommerce">العملاء الذين رفضوا عروض<br />  و قبلوا اخري لنفس الخدمة</span></a>
+                            <a asp-controller="SalesRecord" asp-action="ShowData"><i class="feather icon-check-circle"></i><span class="menu-item" data-i18n="eCommerce">رسم بياني يوضح عدد<br />  مقدمي الخدمات حسب <br />  المدن</span></a>
+                        </li>
+
+
+                        @*    <li>
+                        <a asp-controller="Advertisment" asp-action="Index2"><i class="feather icon-shopping-cart"></i><span class="menu-item" data-i18n="eCommerce">رسم بياني يوضح <br /> اكثر الايام تفالا مع العملاء</span></a>
                         </li>
                         <li>
-                            <a asp-controller="Advertisment" asp-action="Index"><i class="feather icon-tv"></i><span class="menu-item" data-i18n="eCommerce">عدد العملاء الفعالين</span></a>
+                        <a asp-controller="Advertisment" asp-action="Index"><i class="feather icon-shopping-cart"></i><span class="menu-item" data-i18n="eCommerce">العملاء الذين رفضوا عروض<br />  و قبلوا اخري لنفس الخدمة</span></a>
                         </li>
                         <li>
-                            <a asp-controller="Advertisment" asp-action="Index2"><i class="feather icon-check-circle"></i><span class="menu-item" data-i18n="eCommerce">رسم بياني يوضح عدد<br />  مقدمي الخدمات حسب <br /> المناطق والمدن</span></a>
-                        </li>
-                        <li>
-                            <a asp-controller="Advertisment" asp-action="Index"><i class="feather icon-users"></i><span class="menu-item" data-i18n="eCommerce">عدد الخدمات ومالراحل المنفذة<br />  لكل عميل لاستخراج اتعاب مضمون</span></a>
-                        </li>
+                        <a asp-controller="Advertisment" asp-action="Index"><i class="feather icon-tv"></i><span class="menu-item" data-i18n="eCommerce">عدد العملاء الفعالين</span></a>
+                        </li>*@
+
+                        @* <li>
+                        <a asp-controller="Advertisment" asp-action="Index"><i class="feather icon-users"></i><span class="menu-item" data-i18n="eCommerce">عدد الخدمات ومالراحل المنفذة<br />  لكل عميل لاستخراج اتعاب مضمون</span></a>
+                        </li>*@
 
 
                     </ul>
@@ -762,6 +781,8 @@
                                     <th>نوع المستخدم</th>
                                     <th>اسم المستخدم</th>
                                     <th>الايميل</th>
+                                    
+
                                     <th>الحالة</th>
                                     @*<th>FirstName</th>
                                         <th>LastName</th>
@@ -792,6 +813,7 @@
                                         <td class="product-category">@item.StateName</td>
                                         <td class="product-category">@item.Email</td>
                                         <td class="product-category">@item.Email</td>
+                                       
                                         <td class="product-category">@item.ServiceName</td>
                                         @*<td class="product-category">@item.FirstName</td>
                                             <td class="product-category">@item.LastName</td>

@@ -37,7 +37,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             areaService = AreaService;
         }
         [HttpGet]
-        public async Task<IActionResult> ListUsersAsync(Guid?id)
+        public async Task<IActionResult> ListUsersAsync(Guid?id, string DateOne, string DateTwo)
         {
             if(id != null)
             {
@@ -60,9 +60,15 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             }
            
             HomePageModel model = new HomePageModel();
-            model.lstUsers = Usermanager.Users.Where(a=> a.StateName == "مقدم خدمة").ToList();
+            model.lstUsers = Usermanager.Users.Where(a => a.StateName == "مقدم خدمة").ToList();
+            if (DateOne != null && DateTwo != null)
+            {
+                model.lstUsers = model.lstUsers = Usermanager.Users.Where(a => a.StateName == "مقدم خدمة").ToList().Where(a=> a.CreatedDate>= DateTime.Parse(DateOne) && a.CreatedDate<= DateTime.Parse(DateTwo));
+            }
+           
             return View(model);
         }
+      
         [HttpGet]
         public async Task<IActionResult> ListUsers2Async(Guid? id)
         {

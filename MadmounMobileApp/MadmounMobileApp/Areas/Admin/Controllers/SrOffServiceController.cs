@@ -79,7 +79,9 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
 
         public async Task<IActionResult> Save(string ahmed ,TbSrOffService ITEM, int id, List<IFormFile> files , string idd , string serviceid , string servicoffeid)
         {
-
+            //var user = await Usermanager.FindByIdAsync(ITEM.Id);
+            //ITEM.CreatedBy = user.CityName;
+            //ITEM.UpdatedBy = user.CityId.ToString();
             //_4ZsoftwareCompanyTestTaskContext o_4ZsoftwareCompanyTestTaskContext = new _4ZsoftwareCompanyTestTaskContext();
 
             //ClsItems oClsItems = new ClsItems();

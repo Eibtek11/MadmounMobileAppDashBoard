@@ -121,9 +121,10 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
                     LastName = oHomePageModel.LastName,
                     state = 1,
                     StateName= "ممثل خدمة",
-                    ServiceName = "pending"
+                    ServiceName = "pending",
+                    CreatedDate = DateTime.Now
 
-            };
+                };
                 var result = await Usermanager.CreateAsync(user, oHomePageModel.Password);
                 if (result.Succeeded)
                 {
@@ -241,7 +242,8 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
                     state = 1,
                     StateName = "ممثل خدمة",
                     ServiceName = "pending",
-                    Services = "خدمات تمويلية"
+                    Services = "خدمات تمويلية",
+                    CreatedDate = DateTime.Now
 
                 };
                 var result = await Usermanager.CreateAsync(user, oHomePageModel.Password);

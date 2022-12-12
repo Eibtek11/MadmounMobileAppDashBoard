@@ -74,14 +74,16 @@ namespace MadmounMobileApp.Controllers
                 CityName = signUpModel.CityName,
                 UpdatedBy = signUpModel.UpdatedBy,
                 Gender = signUpModel.Gender,
-              
+
                 StateName = signUpModel.StateName,
                 RyadahOrNot = signUpModel.RyadahOrNot,
                 PhoneNumber = signUpModel.PhoneNumber,
                 ServiceName = signUpModel.ServiceName,
                 ServiceId = signUpModel.ServiceId,
                 CityId = signUpModel.CityId,
-                Services = signUpModel.Services
+                Services = signUpModel.Services,
+                CreatedDate = DateTime.Now
+                
 
 
             };
@@ -150,6 +152,7 @@ namespace MadmounMobileApp.Controllers
                     TbLoginHistory item = new TbLoginHistory();
                     item.Id = id;
                     item.CreatedDate = DateTime.Now;
+                    item.UpdatedBy = Usermanager.Users.Where(a => a.Email == signInModel.Email).FirstOrDefault().Email;
                     item.LogInId = new Guid();
                     lgHistory.Add(item);
                 }

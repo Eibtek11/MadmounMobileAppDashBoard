@@ -685,3 +685,6 @@ F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\Razor\
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\Razor\Areas\Admin\Views\Home\noOffersByService.cshtml.g.cs
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\Razor\Areas\Admin\Views\Home\noOffersByServiceApproved.cshtml.g.cs
 F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\Razor\Areas\Admin\Views\Home\noOffersByServiceRejected.cshtml.g.cs
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\Razor\Areas\Admin\Views\ActiveCustomers\ShowData.cshtml.g.cs
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\Razor\Areas\Admin\Views\Home\noOffByCity.cshtml.g.cs
+F:\New folder\MadmounMobileApp\MadmounMobileApp\obj\Release\netcoreapp3.1\Razor\Areas\Admin\Views\SalesRecord\ShowData.cshtml.g.cs

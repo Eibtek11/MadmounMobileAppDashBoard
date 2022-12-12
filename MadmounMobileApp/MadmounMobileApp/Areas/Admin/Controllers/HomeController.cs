@@ -223,6 +223,38 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
         }
 
 
+        public IActionResult noOffByCity(string DateOne, string DateTwo)
+        {
+           
+            HomePageModel model = new HomePageModel();
+            model.lstUsers = Usermanager.Users.Where(a => a.StateName == "مقدم خدمة").ToList();
+            if (DateOne != null && DateTwo != null)
+            {
+                model.lstUsers = model.lstUsers = Usermanager.Users.Where(a => a.StateName == "مقدم خدمة").ToList().Where(a => a.CreatedDate >= DateTime.Parse(DateOne) && a.CreatedDate <= DateTime.Parse(DateTwo));
+            }
+            var servicesNoRequested = (from t in model.lstUsers
+                                       group t by t.CityName into myVar
+                                       select new
+                                       {
+                                           k = myVar.Key,
+                                           c = myVar.Count()
+                                       });
+
+            List<GetNoOffByCity> lstgetServicesNos = new List<GetNoOffByCity>();
+            foreach (var i in servicesNoRequested)
+            {
+                GetNoOffByCity element = new GetNoOffByCity();
+                element.CityName = i.k;
+                element.count = i.c;
+                lstgetServicesNos.Add(element);
+
+            }
+            model.LstGetNoOffByCity = lstgetServicesNos;
+
+            return View(model);
+        }
+
+
 
         public IActionResult noOffersByService()
         {

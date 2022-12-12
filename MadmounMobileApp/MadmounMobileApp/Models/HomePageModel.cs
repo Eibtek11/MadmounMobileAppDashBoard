@@ -170,6 +170,8 @@ namespace MadmounMobileApp.Models
 
         public IEnumerable<GetServicesApproed> LstGetServicesApproed { get; set; }
 
+        public IEnumerable<GetNoOffByCity> LstGetNoOffByCity { get; set; }
+
 
         public IEnumerable<GetServicesOffers> LstGetServicesOffers { get; set; }
 

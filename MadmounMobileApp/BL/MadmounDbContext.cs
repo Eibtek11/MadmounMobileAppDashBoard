@@ -60,7 +60,10 @@ namespace BL
         public DbSet<VwMillestone> VwMillestones { get; set; }
 
 
-        
+        public DbSet<SalesEntity> SalesData { get; set; }
+
+
+        public DbSet<ActiveUsers> ActiveUserss { get; set; }
 
         public DbSet<ChatRoom> ChatRoom { get; set; }
 

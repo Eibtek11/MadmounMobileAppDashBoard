@@ -36,12 +36,14 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
         }
         public IActionResult Index()
         {
+            ViewBag.cities = ctx.TbCities.ToList();
             HomePageModel model = new HomePageModel();
             model.lstAreas = areaService.getAll();
             model.lstCities = cityService.getAll();
             model.lstServices = serviceService.getAll();
             model.lstServicecATEGORIES = srviceCategoryService.getAll();
             model.lstAdvertisements = advertismentService.getAll();
+            model.lstCities = cityService.getAll();
             return View(model);
 
 
@@ -112,13 +114,14 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
 
             }
 
-
+            ViewBag.cities = ctx.TbCities.ToList();
             HomePageModel model = new HomePageModel();
             model.lstAreas = areaService.getAll();
             model.lstCities = cityService.getAll();
             model.lstServices = serviceService.getAll();
             model.lstServicecATEGORIES = srviceCategoryService.getAll();
             model.lstAdvertisements = advertismentService.getAll();
+            model.lstCities = cityService.getAll();
             return View("Index", model);
         }
 
@@ -132,13 +135,14 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             TbAdvertisements oldItem = ctx.Advertisementss.Where(a => a.AdvertisementId == id).FirstOrDefault();
 
             advertismentService.Delete(oldItem);
-
+            ViewBag.cities = ctx.TbCities.ToList();
             HomePageModel model = new HomePageModel();
             model.lstAreas = areaService.getAll();
             model.lstCities = cityService.getAll();
             model.lstServices = serviceService.getAll();
             model.lstServicecATEGORIES = srviceCategoryService.getAll();
             model.lstAdvertisements = advertismentService.getAll();
+            model.lstCities = cityService.getAll();
             return View("Index", model);
 
 
@@ -151,8 +155,8 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
         public IActionResult Form(Guid? id)
         {
             TbAdvertisements oldItem = ctx.Advertisementss.Where(a => a.AdvertisementId == id).FirstOrDefault();
-            
-           
+            ViewBag.cities = ctx.TbCities.ToList();
+
             return View(oldItem);
         }
 

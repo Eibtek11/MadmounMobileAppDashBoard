@@ -6,7 +6,7 @@ namespace BL.Models
 {
     public class GetActiveUsersNo
     {
-        public Guid? Id { get; set; }
+        public string Id { get; set; }
         public int count { get; set; }
     }
 }

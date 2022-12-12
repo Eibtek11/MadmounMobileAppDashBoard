@@ -1,0 +1,125 @@
+﻿
+
+
+
+
+
+
+
+
+
+@{
+    Layout = "";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Charts</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body class="vertical-layout vertical-menu-modern dark-layout 2-columns  navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="2-columns" data-layout="dark-layout">
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            <div class="text-center">
+                <h4 class="d            isplay-4">رسم بياني يوضح عدد مقدمي  الخدمات حسب المدن</h4>
+                <h3><a href="~/Admin">Back</a></h3>
+                <div class="card">
+                    <div class="card-header">
+                       <p>
+                           <div class="row">
+                               <div class="col-1">
+                                   <label><b>Chart-Type</b></label>
+                               </div>
+                               <div class="col-2">
+                                   <select id="ChartType" class="form-control" style="width:150px;">
+                                       <option selected>--Seelect Chart Type--</option>
+                                       <option>bar</option>
+                                        <option>line</option>
+                                        <option>pie</option>
+                                        <option>doughnut</option>
+
+                                   </select>
+                               </div>
+                               <div class="col-4">
+                                    <input id="ID" value="Show Graph" type="button" />
+                               </div>
+                           </div>
+                       </p>
+                      
+                        <br />
+
+                        <div style="width:700px;height: 430px; align-items:center ">
+                            <div id="chartView">
+                                <canvas id="myChart" style="max-width:750px; max-height:400px;"></canvas>
+                            </div>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - StudentManagement
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $("#ID").click(function () {
+                var chartType = $("#ChartType").val();
+                var chartView = document.getElementById('chartView');
+                chartView.innerHTML = '&nbsp;'
+                $('#chartView').append('<canvas id="myChart" style="max-width:750px; max-height:400px;"></canvas>')
+                $.ajax({
+                    type: "POST",
+                    url: "/Admin/SalesRecord/GetSalesData",
+                    data: "",
+                    contextType: "application/json; charset=utf-8",
+                    datatype: "json",
+                    success: OnSuccessResult,
+                    error: OnError
+                });
+                function OnSuccessResult(data) {
+                   
+                    var _data=data;
+                    var _chartLabels=_data[0];
+                    console.log(_chartLabels);
+                    var _chartData=_data[1];
+
+                    var barColor=["red" , "green" , "blue", "orange" , "brown" ,"purple"];
+                    new Chart("myChart",{
+                        type: chartType,
+                        data:{
+                            labels: _chartLabels,
+                            datasets:[{
+                                backgroundColor:barColor,
+                                data: _chartData
+                            }]
+                        }
+                    });
+
+                }
+                function OnError(data) {
+
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

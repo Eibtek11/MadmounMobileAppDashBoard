@@ -58,7 +58,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             foreach (var i in servicesNoRequested)
             {
                 GetActiveUsersNo element = new GetActiveUsersNo();
-                element.Id = Guid.Parse(i.k);
+                element.Id = i.k;
                 element.count = i.c;
                 lstgetServicesNos.Add(element);
 

@@ -97,7 +97,7 @@ namespace MadmounMobileApp.Controllers
                     state = oHomePageModel.state,
                     StateName = oHomePageModel.StateName,
                     TwoFactorEnabled = true,
-
+                    CreatedDate = DateTime.Now
 
                 };
                 if (user.StateName == "ممثل خدمة")
@@ -163,6 +163,7 @@ namespace MadmounMobileApp.Controllers
                         TbLoginHistory item = new TbLoginHistory();
                         item.Id = id;
                         item.CreatedDate = DateTime.Now;
+                        item.UpdatedBy = Usermanager.Users.Where(a => a.Email == oHomePageModel.Email).FirstOrDefault().Email;
                         item.LogInId = new Guid();
                         lgHistory.Add(item);
 

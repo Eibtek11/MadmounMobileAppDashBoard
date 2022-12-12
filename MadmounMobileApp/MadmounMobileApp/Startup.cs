@@ -43,6 +43,7 @@ namespace MadmounMobileApp
             services.AddScoped<IEmailSender, EmailSender>();
             services.AddControllersWithViews().AddNewtonsoftJson(options =>options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
 );
+            services.AddRazorPages().AddRazorRuntimeCompilation();
             services.AddSignalR();
             services.AddScoped<CityService, ClsCity>();
             services.AddScoped<AreaService, ClsArea>();
