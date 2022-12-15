@@ -11,7 +11,7 @@ using System.Linq;
 namespace MadmounMobileApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin")]
+   
     public class ActiveCustomersController : Controller
     {
         IGetLogInHistory getLogInHistory;
@@ -51,14 +51,17 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
 
             getLogInHistory = GetLogInHistory;
         }
+        [Authorize(Roles = "Admin,Account")]
         public IActionResult Index()
         {
             return View();
         }
+        [Authorize(Roles = "Admin,Account")]
         public IActionResult ShowData()
         {
             return View();
         }
+        [Authorize(Roles = "Admin,Account")]
         [HttpPost]
         public List<object> GetSalesData(string DateOne, string DateTwo)
         {

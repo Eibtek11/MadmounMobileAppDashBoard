@@ -170,6 +170,11 @@ namespace MadmounMobileApp.Models
 
         public IEnumerable<GetServicesApproed> LstGetServicesApproed { get; set; }
 
+
+        public IEnumerable<GetServicesRequired> LstGetServicesRequired { get; set; }
+
+        public IEnumerable<GetServicesApproedMillestone> LstGetServicesApproedMillestone { get; set; }
+
         public IEnumerable<GetNoOffByCity> LstGetNoOffByCity { get; set; }
 
 
@@ -191,6 +196,9 @@ namespace MadmounMobileApp.Models
 
 
         public IEnumerable<VwStages> LstVwStages { get; set; }
+
+
+        public IEnumerable<GetCollectiveReport> LstGetCollectiveReport { get; set; }
 
     }
 }

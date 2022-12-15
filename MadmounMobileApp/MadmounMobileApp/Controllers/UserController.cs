@@ -34,6 +34,7 @@ namespace MadmounMobileApp.Controllers
         IEmailSender _emailSender;
         private readonly ISmsSender _smsSender;
         private readonly UrlEncoder _urlEncoder;
+       
         public UserController(RoleManager<IdentityRole> roleManager,UrlEncoder urlEncoder, IUserValidator<ApplicationUser> V,ISmsSender smsSender, IEmailSender emailSender, ISMSService smsService,LogInHistoryService LgHistory,MadmounDbContext ctx, UserManager<ApplicationUser> usermanager, SignInManager<ApplicationUser> signInManager)
         {
             Usermanager = usermanager;
@@ -83,6 +84,7 @@ namespace MadmounMobileApp.Controllers
                 //create roles
                 await _roleManager.CreateAsync(new IdentityRole("Admin"));
                 await _roleManager.CreateAsync(new IdentityRole("User"));
+
             }
             try
             {
@@ -165,6 +167,7 @@ namespace MadmounMobileApp.Controllers
                         item.CreatedDate = DateTime.Now;
                         item.UpdatedBy = Usermanager.Users.Where(a => a.Email == oHomePageModel.Email).FirstOrDefault().Email;
                         item.LogInId = new Guid();
+                        item.CreatedBy = Usermanager.Users.Where(a => a.Email == oHomePageModel.Email).FirstOrDefault().CityName;
                         lgHistory.Add(item);
 
                     }
@@ -577,19 +580,103 @@ namespace MadmounMobileApp.Controllers
                 //user is locked and will remain locked untill lockoutend time
                 //clicking on this action will unlock them
                 objFromDb.LockoutEnd = DateTime.Now;
-                //TempData[SD.Success] = "User unlocked successfully.";
+                TempData[SD.Success] = "User unlocked successfully.";
             }
             else
             {
                 //user is not locked, and we want to lock the user
                 objFromDb.LockoutEnd = DateTime.Now.AddYears(1000);
-                //TempData[SD.Success] = "User locked successfully.";
+                TempData[SD.Success] = "User locked successfully.";
             }
             Ctx.SaveChanges();
             return RedirectToAction(nameof(Index));
 
         }
+        [Authorize(Roles = "Admin")]
+        public IActionResult Indexx()
+        {
+            var userList = Ctx.Users.ToList();
+            var userRole = Ctx.UserRoles.ToList();
+            var roles = Ctx.Roles.ToList();
+            foreach (var user in userList)
+            {
+                var role = userRole.FirstOrDefault(u => u.UserId == user.Id);
+                if (role == null)
+                {
+                    user.Role = "None";
+                }
+                else
+                {
+                    user.Role = roles.FirstOrDefault(u => u.Id == role.RoleId).Name;
+                }
+            }
+            return View();
 
-       
+        }
+        [Authorize(Roles = "Admin")]
+        public IActionResult Edit(string userId)
+        {
+            ViewBag.cities = _roleManager.Roles.ToList();
+            var objFromDb = Ctx.Users.FirstOrDefault(u => u.Id == userId);
+            if (objFromDb == null)
+            {
+                return NotFound();
+            }
+            var userRole = Ctx.UserRoles.ToList();
+            var roles = Ctx.Roles.ToList();
+            var role = userRole.FirstOrDefault(u => u.UserId == objFromDb.Id);
+            if (role != null)
+            {
+                objFromDb.RoleId = roles.FirstOrDefault(u => u.Id == role.RoleId).Id;
+            }
+            objFromDb.RoleList = Ctx.Roles.Select(u => new System.Web.Mvc.SelectListItem
+            {
+                Text = u.Name,
+                Value = u.Id
+            });
+            return View(objFromDb);
+        }
+
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Edit(ApplicationUser user)
+        {
+            ViewBag.cities = _roleManager.Roles.ToList();
+
+            var objFromDb = Ctx.Users.FirstOrDefault(u => u.Id == user.Id);
+            if (objFromDb == null)
+            {
+                return NotFound();
+            }
+            var userRole = Ctx.UserRoles.FirstOrDefault(u => u.UserId == objFromDb.Id);
+            if (userRole != null)
+            {
+                var previousRoleName = Ctx.Roles.Where(u => u.Id == userRole.RoleId).Select(e => e.Name).FirstOrDefault();
+                //removing the old role
+                await Usermanager.RemoveFromRoleAsync(objFromDb, previousRoleName);
+
+            }
+
+            //add new role
+            await Usermanager.AddToRoleAsync(objFromDb, Ctx.Roles.FirstOrDefault(u => u.Id == user.RoleId).Name);
+            objFromDb.Email = user.Email;
+            Ctx.SaveChanges();
+            TempData[SD.Success] = "User has been edited successfully.";
+            return RedirectToAction(nameof(Indexx));
+
+
+
+            user.RoleList = Ctx.Roles.Select(u => new System.Web.Mvc.SelectListItem
+            {
+                Text = u.Name,
+                Value = u.Id
+            });
+            return View(user);
+        }
+
+
     }
 }

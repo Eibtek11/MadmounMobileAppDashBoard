@@ -10,10 +10,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using System;
 using BL.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MadmounMobileApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
+  
     public class ServicesOffersController : Controller
     {
 
@@ -38,7 +40,8 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             servicesOfferService = ServicesOfferService;
             getServiceOffers = GetServiceOffers;
         }
-        public IActionResult Index(string DateOne, string DateTwo)
+        [Authorize(Roles = "Admin,Account")]
+        public IActionResult Index(string id,string DateOne, string DateTwo)
         {
             HomePageModel model = new HomePageModel();
             model.lstAreas = areaService.getAll();
@@ -50,16 +53,16 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             model.LstGetServicesOffers = getServiceOffers.GetAll(DateTime.Parse("2020-11-05 22:17:26.510"), DateTime.Now);
             if (DateOne != null && DateTwo != null)
             {
-                model.LstGetServicesOffers = getServiceOffers.GetAll(DateTime.Parse(DateOne), DateTime.Parse(DateTwo));
+                model.LstGetServicesOffers = getServiceOffers.GetAll(DateTime.Parse(DateOne), DateTime.Parse(DateTwo)).Where(a=> a.Notes == id);
             }
             return View(model);
 
 
         }
-       
 
 
 
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Save(TbServicesOffers ITEM, int id, List<IFormFile> files)
         {
 
@@ -105,7 +108,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
 
 
 
-
+        [Authorize(Roles = "Admin")]
         public IActionResult Delete(Guid id)
         {
 
@@ -128,7 +131,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
 
 
 
-
+        [Authorize(Roles = "Admin")]
         public IActionResult Form(Guid? id)
         {
             TbServicesOffers oldItem = ctx.TbServicesOfferss.Where(a => a.ServicesOffersId == id).FirstOrDefault();

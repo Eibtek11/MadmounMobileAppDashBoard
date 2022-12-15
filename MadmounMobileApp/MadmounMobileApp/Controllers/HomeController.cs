@@ -52,20 +52,20 @@ namespace MadmounMobileApp.Controllers
 
             return View();
         }
-        public async Task<IActionResult> DeathlyHallows(string type)
-        {
-            if (SD.DealthyHallowRace.ContainsKey(type))
-            {
-                SD.DealthyHallowRace[type]++;
-            }
-            await _deathlyHub.Clients.All.SendAsync("updateDealthyHallowCount",
-              SD.DealthyHallowRace[SD.Cloak],
-              SD.DealthyHallowRace[SD.Stone],
-              SD.DealthyHallowRace[SD.Wand]);
+        //public async Task<IActionResult> DeathlyHallows(string type)
+        //{
+        //    if (SD.DealthyHallowRace.ContainsKey(type))
+        //    {
+        //        SD.DealthyHallowRace[type]++;
+        //    }
+        //    await _deathlyHub.Clients.All.SendAsync("updateDealthyHallowCount",
+        //      SD.DealthyHallowRace[SD.Cloak],
+        //      SD.DealthyHallowRace[SD.Stone],
+        //      SD.DealthyHallowRace[SD.Wand]);
 
 
-            return Accepted();
-        }
+        //    return Accepted();
+        //}
 
         public IActionResult Notification()
         {

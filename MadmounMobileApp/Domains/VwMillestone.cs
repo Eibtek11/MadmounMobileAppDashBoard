@@ -8,7 +8,7 @@ namespace Domains
     {
         public Guid ServiceApprovedMilstoneId { get; set; }
         public string ServiceApprovedMilstoneDesc { get; set; }
-      
+        public DateTime? CreatedDate { get; set; }
         public Guid? ServiceApprovedId { get; set; }
         public string MillestoneCost { get; set; }
         public string MillestoneDuration { get; set; }

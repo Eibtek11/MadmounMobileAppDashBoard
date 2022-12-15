@@ -37,6 +37,7 @@ namespace BL
             {
                 //_4ZsoftwareCompanyTestTaskContext o_4ZsoftwareCompanyTestTaskContext = new _4ZsoftwareCompanyTestTaskContext();
                 item.ServiceApprovedMilstoneId = Guid.NewGuid();
+                item.CreatedDate = DateTime.Now;
                 ctx.TbServiceApprovedMilstones.Add(item);
                 ctx.SaveChanges();
                 return true;

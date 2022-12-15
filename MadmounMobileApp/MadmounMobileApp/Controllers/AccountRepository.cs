@@ -154,6 +154,7 @@ namespace MadmounMobileApp.Controllers
                     item.CreatedDate = DateTime.Now;
                     item.UpdatedBy = Usermanager.Users.Where(a => a.Email == signInModel.Email).FirstOrDefault().Email;
                     item.LogInId = new Guid();
+                    item.CreatedBy = Usermanager.Users.Where(a => a.Email == signInModel.Email).FirstOrDefault().CityName;
                     lgHistory.Add(item);
                 }
                

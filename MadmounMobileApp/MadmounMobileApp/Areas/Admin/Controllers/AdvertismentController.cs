@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 namespace MadmounMobileApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
-   
+    [Authorize(Roles = "Admin,Administeration")]
     public class AdvertismentController : Controller
     {
         AdvertismentService advertismentService;

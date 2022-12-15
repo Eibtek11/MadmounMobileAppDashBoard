@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 namespace MadmounMobileApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
+   
     public class LoginHistoryController : Controller
     {
         IGetLogInHistory getLogInHistory;
@@ -33,8 +34,10 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             Usermanager = usermanager;
             getLogInHistory = GetLogInHistory;
         }
-        public IActionResult Index(string DateOne, string DateTwo)
+        [Authorize(Roles = "Admin,Account")]
+        public IActionResult Index(string id,string DateOne, string DateTwo)
         {
+            ViewBag.cities = ctx.TbCities.ToList();
             HomePageModel model = new HomePageModel();
             model.lstAreas = areaService.getAll();
             model.lstCities = cityService.getAll();
@@ -42,16 +45,18 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             model.lstLogInHistories = logInHistoryService.getAll();
             model.lstUsers = Usermanager.Users.ToList();
             model.LstGetLogInHistory = getLogInHistory.GetAll(DateTime.Parse("2020-11-05 22:17:26.510"), DateTime.Now);
-            if (DateOne != null && DateTwo != null)
+            if (DateOne != null && DateTwo != null && id!=null)
             {
-                model.LstGetLogInHistory = getLogInHistory.GetAll(DateTime.Parse(DateOne), DateTime.Parse(DateTwo));
+                model.LstGetLogInHistory = getLogInHistory.GetAll(DateTime.Parse(DateOne), DateTime.Parse(DateTwo)).Where(a=> a.CreatedBy == id);
             }
             var servicesNoRequested = (from t in model.LstGetLogInHistory
                                        group t by t.Id into myVar
                                        select new
                                        {
                                            k = myVar.Key,
-                                           c = myVar.Count()
+                                           c = myVar.Count(),
+                                           l=myVar.FirstOrDefault().CreatedBy,
+                                           
                                        });
 
             List<GetActiveUsersNo> lstgetServicesNos = new List<GetActiveUsersNo>();
@@ -60,6 +65,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
                 GetActiveUsersNo element = new GetActiveUsersNo();
                 element.Id = i.k;
                 element.count = i.c;
+                element.CreatedBy = i.l;
                 lstgetServicesNos.Add(element);
 
             }
@@ -72,7 +78,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
 
 
 
-
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Save(TbLoginHistory ITEM, int id, List<IFormFile> files)
         {
 
@@ -116,7 +122,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
 
 
 
-
+        [Authorize(Roles = "Admin")]
         public IActionResult Delete(Guid id)
         {
 
@@ -137,7 +143,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
 
 
 
-
+        [Authorize(Roles = "Admin")]
         public IActionResult Form(Guid? id)
         {
             TbLoginHistory oldItem = ctx.TbLoginHistories.Where(a => a.LogInId == id).FirstOrDefault();

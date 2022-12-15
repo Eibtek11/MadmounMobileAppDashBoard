@@ -43,7 +43,13 @@
     <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css-rtl/custom-rtl.css">
     <link rel="stylesheet" type="text/css" href="~/Admin/assets/css/style-rtl.css">
     <!-- END: Custom CSS-->
-
+    <style>
+        #CourseDdl {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+    </style>
 </head>
 <!-- END: Head-->
 <!-- BEGIN: Body-->
@@ -105,7 +111,7 @@
                             <a asp-controller="ServicesOffers" asp-action="Index"><i class="feather icon-umbrella"></i><span class="menu-item" data-i18n="eCommerce"> عروض اسعار/ حالة العرض مقبولة  <br /> او مرفوضة</span></a>
                         </li>
                         <li>
-                            <a asp-controller="ServicesApproved" asp-action="Index"><i class="feather icon-shopping-cart"></i><span class="menu-item" data-i18n="eCommerce">العقود المبرمة <br /> مع العملاء</span></a>
+                            <a asp-controller="ServicesApproved" asp-action="Index"><i class="feather icon-shopping-cart"></i><span class="menu-item" data-i18n="eCommerce">العقود المقبولة <br /> مع العملاء</span></a>
                         </li>
 
                         <li>
@@ -135,14 +141,14 @@
                         <li>
                         <a asp-controller="SRepService" asp-action="Index"><i class="feather icon-users"></i><span class="menu-item" data-i18n="eCommerce">ممثلي الخدمات</span></a>
                         </li>*@
-                        @*  <li>
-                        <a asp-controller="SrRepCity" asp-action="Index"><i class="feather icon-octagon"></i><span class="menu-item" data-i18n="eCommerce">مدن ممثلي الخدمات</span></a>
+                        <li>
+                            <a asp-controller="SrRepCity" asp-action="Index"><i class="feather icon-octagon"></i><span class="menu-item" data-i18n="eCommerce">مدن ممثلي الخدمات</span></a>
                         </li>
 
                         <li>
-                        <a asp-controller="SrOffCity" asp-action="Index"><i class="feather icon-octagon"></i><span class="menu-item" data-i18n="eCommerce">مدن مقدمي الخدمات</span></a>
+                            <a asp-controller="SrOffCity" asp-action="Index"><i class="feather icon-octagon"></i><span class="menu-item" data-i18n="eCommerce">مدن مقدمي الخدمات</span></a>
                         </li>
-                        *@
+
 
 
 
@@ -240,6 +246,9 @@
                         </li>
                         <li>
                             <a asp-controller="Home" asp-action="noOffersByServiceRejected"><i class="feather icon-user-check"></i><span class="menu-item" data-i18n="eCommerce">عدد الخدمات التي تم<br />  رفض عروض اسعارها</span></a>
+                        </li>
+                        <li>
+                            <a asp-controller="Home" asp-action="collectiveReport"><i class="feather icon-user-check"></i><span class="menu-item" data-i18n="eCommerce">تحليل العروض المقدمة للعملاء   </span></a>
                         </li>
 
                         <li>
@@ -774,14 +783,16 @@
                     </div>
 
                     <div class="row">
-
-                        @*  <div class="col-md-6 form-group">
-                        <label class="col-sm-1 control-label">طالب الخدمة</label>
-                        <div class="col-sm-11 form-group">
-                        @Html.DropDownList("Id", (new SelectList(ViewBag.cities , "Id" , "Email")), "اختر" , new { @class = "form-control select2 col-sm-9 form-control", id = "CourseDdl" })
+                        <div class="col-md-6 form-group">
+                          
+                                <div class="col-sm-11 form-group">
+                             
+                                    @Html.DropDownList("CityId", (new SelectList(ViewBag.cities , "CityId" , "CityName")), "فلترة المدينة" , new { @class = "form-control select2 col-sm-9 form-control", id = "CourseDdl" })
+                                </div>
+                               
+                          
+                          
                         </div>
-                        </div>*@
-
 
 
 
@@ -812,7 +823,8 @@
                                     <th></th>
                                     <th>اسم المستخدم</th>
                                     @*<th>اسم الشركة</th>*@
-                                    <th>تاريخ الدخول</th>
+                                     <th>اسم المدينة</th>
+                                    <th>عدد مرات الدخول</th>
 
                                    
                                 </tr>
@@ -827,6 +839,7 @@
 
                                         @*<td class="product-name">@item.CompanyDescription</td>*@
                                         <td class="product-category">@USERmANAGER.Users.Where(a => a.Id == item.Id.ToString()).FirstOrDefault().Email</td>
+                                         <td class="product-category">@item.CreatedBy</td>
                                         <td class="product-category">@item.count</td>
 
                                         @*<td>
@@ -904,7 +917,7 @@
         //var url = window.location.href;
 
         $("#CourseDdl").change(function () {
-            //var end = this.value;
+
             var end2 = $("#CourseDdl2").val();
 
             if (end2 === "") {
@@ -950,8 +963,7 @@
             var end3 = $("#CourseDdl3").val();
 
 
-            location.replace(url + "/?DateOne=" + end2 + "&DateTwo=" + end3);
-
+            location.replace(url + "/?Id=" + end + "&DateOne=" + end2 + "&DateTwo=" + end3);
         });
     </script>
 

@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 namespace MadmounMobileApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin")]
+    
     public class HomeController : Controller
     {
         ServicesRequiredService servicesRequiredService;
@@ -51,6 +51,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             srrepCityService = SrrepCityService;
             servicesRequiredService = ServicesRequiredService;
         }
+        [Authorize(Roles = "Admin,Account,Administeration")]
         public IActionResult Index()
         {
             HomePageModel model = new HomePageModel();
@@ -101,7 +102,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
         }
 
 
-
+        [Authorize(Roles = "Admin,Account")]
         public IActionResult Payment(string Id , string DateOne , string DateTwo)
         {
             HomePageModel model = new HomePageModel();
@@ -120,6 +121,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             ViewBag.lstSrOffServiceS = count;
             return View(model);
         }
+        [Authorize(Roles = "Admin,Account")]
         public IActionResult Payment2(string Id, string DateOne, string DateTwo)
         {
             HomePageModel model = new HomePageModel();
@@ -139,6 +141,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
 
             return View(model);
         }
+        [Authorize(Roles = "Admin,Account")]
         public IActionResult Payment3(string Id, string DateOne, string DateTwo)
         {
             HomePageModel model = new HomePageModel();
@@ -157,7 +160,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             ViewBag.lstSrOffServiceS = count;
             return View(model);
         }
-
+        [Authorize(Roles = "Admin,Account")]
         public IActionResult Payment4( string DateOne, string DateTwo)
         {
             HomePageModel model = new HomePageModel();
@@ -176,7 +179,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             ViewBag.lstSrOffServiceS = count;
             return View(model);
         }
-
+        [Authorize(Roles = "Admin,Account")]
         public IActionResult Payment5(string Id, string DateOne, string DateTwo)
         {
             HomePageModel model = new HomePageModel();
@@ -196,7 +199,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             return View(model);
         }
 
-
+        [Authorize(Roles = "Admin,Account")]
         public IActionResult Payment6()
         {
             HomePageModel model = new HomePageModel();
@@ -222,7 +225,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             return View(model);
         }
 
-
+        [Authorize(Roles = "Admin,Account")]
         public IActionResult noOffByCity(string DateOne, string DateTwo)
         {
            
@@ -255,7 +258,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
         }
 
 
-
+        [Authorize(Roles = "Admin,Account")]
         public IActionResult noOffersByService()
         {
             HomePageModel model = new HomePageModel();
@@ -282,8 +285,155 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
         }
 
 
+        [Authorize(Roles = "Admin,Account")]
+        public IActionResult collectiveReport()
+        {
+            HomePageModel model = new HomePageModel();
+            var servicesNoRequired = (from t in ctx.TbServicesRequireds.ToList()
+                                       group t by t.ServicesRequiredId into myVar
+                                       select new
+                                       {
+                                           k = myVar.Key,
+                                           s = myVar.FirstOrDefault().ServiceSyntax,
+                                           d = myVar.FirstOrDefault().SrRequiredDescription,
+                                           q = myVar.FirstOrDefault().SrReqId
+                                          
+                                       });;
+            var servicesNoOffersApproved = (from t in ctx.TbServicesOfferss.ToList().Where(a => a.Notes == "موافقة")
+                                            group t by t.ServicesRequiredId into myVar
+                                            select new
+                                            {
+                                                k = myVar.Key,
+                                                c = myVar.Count()
+                                            });
+            var servicesNoOffersRejcted = (from t in ctx.TbServicesOfferss.ToList().Where(a => a.Notes == "مرفوضة")
+                                            group t by t.ServicesRequiredId into myVar
+                                            select new
+                                            {
+                                                k = myVar.Key,
+                                                c = myVar.Count()
+                                            });
+            var servicesNoOffersWaiting = (from t in ctx.TbServicesOfferss.ToList().Where(a => a.Notes == "بانتظار الرد")
+                                           group t by t.ServicesRequiredId into myVar
+                                           select new
+                                           {
+                                               k = myVar.Key,
+                                               c = myVar.Count()
+                                           });
+            var servicesNoOfferAll = (from t in ctx.TbServicesOfferss.ToList()
+                                           group t by t.ServicesRequiredId into myVar
+                                           select new
+                                           {
+                                               k = myVar.Key,
+                                               c = myVar.Count()
+                                           });
+            List<GetOffersNo> lstservicesNoOffersAll = new List<GetOffersNo>();
+            List<GetOffersNo> lstservicesNoOffersWaiting = new List<GetOffersNo>();
+            List<GetOffersNo> lstservicesNoOffersRejected = new List<GetOffersNo>();
+            List<GetOffersNo> lstservicesNoOffersApproved = new List<GetOffersNo>();
+            foreach (var e in servicesNoOfferAll)
+            {
+                GetOffersNo element = new GetOffersNo();
+                element.ServiceId = e.k;
+                element.count = e.c;
+                lstservicesNoOffersAll.Add(element);
+
+            }
+            foreach (var e in servicesNoOffersWaiting)
+            {
+                GetOffersNo element = new GetOffersNo();
+                element.ServiceId = e.k;
+                element.count = e.c;
+                lstservicesNoOffersWaiting.Add(element);
+
+            }
+            foreach (var e in servicesNoOffersApproved)
+            {
+                GetOffersNo element = new GetOffersNo();
+                element.ServiceId = e.k;
+                element.count = e.c;
+                lstservicesNoOffersApproved.Add(element);
+
+            }
+            foreach (var e in servicesNoOffersRejcted)
+            {
+                GetOffersNo element = new GetOffersNo();
+                element.ServiceId = e.k;
+                element.count = e.c;
+                lstservicesNoOffersRejected.Add(element);
+
+            }
+            List<GetCollectiveReport> lstgetServicesNos = new List<GetCollectiveReport>();
+            foreach (var i in servicesNoRequired)
+            {
+                GetCollectiveReport element = new GetCollectiveReport();
+                element.ServicesRequiredId = i.k;
+                element.ServiceSyntax = i.s;
+                element.SrRequiredDescription = i.d;
+                element.SrReqId = i.q;
+                lstgetServicesNos.Add(element);
+
+            }
+            foreach(var i in lstgetServicesNos)
+            {
+                foreach(var el in lstservicesNoOffersApproved)
+                {
+                    if(el.ServiceId == i.ServicesRequiredId)
+                    {
+                        i.countOfOffersappoved = el.count;
+                    }
+                }
+                foreach (var el in lstservicesNoOffersRejected)
+                {
+                    if (el.ServiceId == i.ServicesRequiredId)
+                    {
+                        i.countOfOffersRejected = el.count;
+                    }
+                }
+                foreach (var el in lstservicesNoOffersWaiting)
+                {
+                    if (el.ServiceId == i.ServicesRequiredId)
+                    {
+                        i.countOfOffersWatiing = el.count;
+                    }
+                }
+                foreach (var el in lstservicesNoOffersAll)
+                {
+                    if (el.ServiceId == i.ServicesRequiredId)
+                    {
+                        i.countOfOffers = el.count;
+                    }
+                }
+            }
+            model.LstGetCollectiveReport = lstgetServicesNos;
+            model.lstServices = serviceService.getAll();
+            model.lstUsers = Usermanager.Users.ToList();
+            return View(model);
+        }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        [Authorize(Roles = "Admin,Account")]
         public IActionResult noOffersByServiceApproved()
         {
             HomePageModel model = new HomePageModel();
@@ -313,7 +463,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
 
 
 
-
+        [Authorize(Roles = "Admin,Account")]
         public IActionResult noOffersByServiceRejected()
         {
             HomePageModel model = new HomePageModel();
@@ -340,7 +490,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
         }
 
 
-
+        [Authorize(Roles = "Admin,Account")]
         public IActionResult Payment7(string Id)
         {
             HomePageModel model = new HomePageModel();
@@ -361,7 +511,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             return View(model);
         }
 
-
+        [Authorize(Roles = "Admin,Account")]
         public IActionResult Payment8(string Id)
         {
             HomePageModel model = new HomePageModel();
@@ -383,7 +533,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
 
 
 
-
+        [Authorize(Roles = "Admin")]
         public IActionResult New(string Id)
         {
             HomePageModel model = new HomePageModel();
@@ -425,7 +575,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             return View(model);
         }
 
-
+        [Authorize(Roles = "Admin")]
         public IActionResult Payment9(string Id)
         {
             HomePageModel model = new HomePageModel();
@@ -445,7 +595,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
         }
 
 
-
+        [Authorize(Roles = "Admin")]
         public IActionResult Payment10(string Id)
         {
             HomePageModel model = new HomePageModel();
@@ -465,7 +615,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
         }
 
 
-
+        [Authorize(Roles = "Admin")]
         public IActionResult stages(string Id)
         {
             HomePageModel model = new HomePageModel();

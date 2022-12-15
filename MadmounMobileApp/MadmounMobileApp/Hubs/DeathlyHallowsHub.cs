@@ -5,9 +5,9 @@ namespace MadmounMobileApp.Hubs
 {
     public class DeathlyHallowsHub : Hub
     {
-        public Dictionary<string,int> GetRaceStatus()
-        {
-            return SD.DealthyHallowRace;
-        }
+        //public Dictionary<string,int> GetRaceStatus()
+        //{
+        //    return SD.DealthyHallowRace;
+        //}
     }
 }

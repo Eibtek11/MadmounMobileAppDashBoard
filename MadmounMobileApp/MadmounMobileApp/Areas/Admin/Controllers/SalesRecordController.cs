@@ -11,7 +11,7 @@ using System.Linq;
 namespace MadmounMobileApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin")]
+   
     public class SalesRecordController : Controller
     {
         ServicesRequiredService servicesRequiredService;
@@ -48,15 +48,18 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             srrepCityService = SrrepCityService;
             servicesRequiredService = ServicesRequiredService;
         }
+        [Authorize(Roles = "Admin")]
         public IActionResult Index()
         {
             return View();
         }
-
+        [Authorize(Roles = "Admin,Account")]
         public IActionResult ShowData()
         {
             return View();
         }
+
+        [Authorize(Roles = "Admin,Account")]
         [HttpPost]
         public List<object> GetSalesData(string DateOne, string DateTwo) 
         {

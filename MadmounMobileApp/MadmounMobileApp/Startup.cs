@@ -72,7 +72,9 @@ namespace MadmounMobileApp
             services.AddScoped<IGetServiceOffers, ClsGetServicesOffers>();
             services.AddScoped<IGetLogInHistory, ClsGetLogInHistory>();
             services.AddScoped<ServicesFinishedService, ClsServicesFinished>();
+            services.AddScoped<IGetServiceApprovedMillestone, ClsGetServiceApprovedMillestne>();
 
+            services.AddScoped<IGetServiceRequired, ClsGetServiceRequired>();
             //services.Configure<SMSOptions>(Configuration);
 
 

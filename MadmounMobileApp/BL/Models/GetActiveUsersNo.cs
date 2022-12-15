@@ -8,5 +8,7 @@ namespace BL.Models
     {
         public string Id { get; set; }
         public int count { get; set; }
+
+        public string CreatedBy { get; set; }
     }
 }

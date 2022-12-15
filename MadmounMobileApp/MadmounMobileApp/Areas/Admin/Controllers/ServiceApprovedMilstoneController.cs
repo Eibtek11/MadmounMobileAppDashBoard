@@ -1,7 +1,10 @@
 ﻿using BL;
+using BL.Models;
 using Domains;
 using MadmounMobileApp.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,8 +14,12 @@ using System.Threading.Tasks;
 namespace MadmounMobileApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
+   
     public class ServiceApprovedMilstoneController : Controller
     {
+        ServiceService srRecords;
+        IGetServiceApprovedMillestone getServiceApprovedMillestone;
+        ServiceService serviceService;
         ServiceApprovedMilstoneService srAppMil;
         ServiceApprovedImagesService srAppImage;
         ServicesApprovedService sr;
@@ -21,7 +28,8 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
         CityService cityService;
         AreaService areaService;
         MadmounDbContext ctx;
-        public ServiceApprovedMilstoneController(ServiceApprovedMilstoneService SrAppMil,ServiceApprovedImagesService SrAppImage, ServicesApprovedService SR, ServicesRequiredService SQ, ComplainService complainService, CityService CityService, AreaService AreaService, MadmounDbContext context)
+        UserManager<ApplicationUser> Usermanager;
+        public ServiceApprovedMilstoneController(ServiceService SrRecords, UserManager<ApplicationUser> usermanager, IGetServiceApprovedMillestone GetServiceApprovedMillestone,ServiceService ServiceService, ServiceApprovedMilstoneService SrAppMil,ServiceApprovedImagesService SrAppImage, ServicesApprovedService SR, ServicesRequiredService SQ, ComplainService complainService, CityService CityService, AreaService AreaService, MadmounDbContext context)
         {
             areaService = AreaService;
             ctx = context;
@@ -31,10 +39,17 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             sq = SQ;
             srAppImage = SrAppImage;
             srAppMil = SrAppMil;
+            serviceService = ServiceService;
+            getServiceApprovedMillestone = GetServiceApprovedMillestone;
+            Usermanager = usermanager;
+            srRecords = SrRecords;
+
         }
-        public IActionResult Index()
+        [Authorize(Roles = "Admin,Account")]
+        public IActionResult Index(string Id, string DateOne, string DateTwo)
         {
             HomePageModel model = new HomePageModel();
+            model.lstServices = srRecords.getAll();
             model.lstAreas = areaService.getAll();
             model.lstCities = cityService.getAll();
             model.lstComplains = ComplainService.getAll();
@@ -43,6 +58,14 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             model.lstServiceApprovedImageS = srAppImage.getAll();
             model.lstServiceApprovedMilstone = srAppMil.getAll();
             model.LstVwMillestone = ctx.VwMillestones.ToList();
+            ViewBag.cities2 = ctx.TbCities.ToList();
+            ViewBag.cities = serviceService.getAll();
+            model.LstGetServicesApproedMillestone = getServiceApprovedMillestone.GetAll(DateTime.Parse("2020-11-05 22:17:26.510"), DateTime.Now);
+            if (DateOne != null && DateTwo != null && Id != null)
+            {
+                model.LstGetServicesApproedMillestone = getServiceApprovedMillestone.GetAll(DateTime.Parse(DateOne), DateTime.Parse(DateTwo)).Where(a => a.ServiceId == Guid.Parse(Id));
+            }
+            model.lstUsers = Usermanager.Users.ToList();
             return View(model);
 
 
@@ -50,7 +73,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
 
 
 
-
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Save(TbServiceApprovedMilstone ITEM, int id, List<IFormFile> files)
         {
 
@@ -92,13 +115,14 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             model.lstServiceApprovedImageS = srAppImage.getAll();
             model.lstServiceApprovedMilstone = srAppMil.getAll();
             model.LstVwMillestone = ctx.VwMillestones.ToList();
+            model.lstServices = srRecords.getAll();
             return View("Index", model);
         }
 
 
 
 
-
+        [Authorize(Roles = "Admin")]
         public IActionResult Delete(Guid id)
         {
 
@@ -115,6 +139,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             model.lstServiceApprovedImageS = srAppImage.getAll();
             model.lstServiceApprovedMilstone = srAppMil.getAll();
             model.LstVwMillestone = ctx.VwMillestones.ToList();
+            model.lstServices = srRecords.getAll();
             return View("Index", model);
 
 
@@ -123,7 +148,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
 
 
 
-
+        [Authorize(Roles = "Admin")]
         public IActionResult Form(Guid? id)
         {
             TbServiceApprovedMilstone oldItem = ctx.TbServiceApprovedMilstones.Where(a => a.ServiceApprovedMilstoneId == id).FirstOrDefault();

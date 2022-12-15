@@ -13,7 +13,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
 {
 
     [Area("Admin")]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin,Administeration")]
     public class CityController : Controller
     {
         CityService cityService;
