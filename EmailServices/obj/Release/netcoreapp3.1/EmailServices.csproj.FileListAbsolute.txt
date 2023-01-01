@@ -1,0 +1,13 @@
+F:\New folder\MadmounMobileApp\EmailServices\bin\Release\netcoreapp3.1\EmailServices.deps.json
+F:\New folder\MadmounMobileApp\EmailServices\bin\Release\netcoreapp3.1\EmailServices.dll
+F:\New folder\MadmounMobileApp\EmailServices\bin\Release\netcoreapp3.1\EmailServices.pdb
+F:\New folder\MadmounMobileApp\EmailServices\bin\Release\netcoreapp3.1\Domains.dll
+F:\New folder\MadmounMobileApp\EmailServices\bin\Release\netcoreapp3.1\Domains.pdb
+F:\New folder\MadmounMobileApp\EmailServices\obj\Release\netcoreapp3.1\EmailServices.csproj.AssemblyReference.cache
+F:\New folder\MadmounMobileApp\EmailServices\obj\Release\netcoreapp3.1\EmailServices.GeneratedMSBuildEditorConfig.editorconfig
+F:\New folder\MadmounMobileApp\EmailServices\obj\Release\netcoreapp3.1\EmailServices.AssemblyInfoInputs.cache
+F:\New folder\MadmounMobileApp\EmailServices\obj\Release\netcoreapp3.1\EmailServices.AssemblyInfo.cs
+F:\New folder\MadmounMobileApp\EmailServices\obj\Release\netcoreapp3.1\EmailServices.csproj.CoreCompileInputs.cache
+F:\New folder\MadmounMobileApp\EmailServices\obj\Release\netcoreapp3.1\EmailServices.csproj.CopyComplete
+F:\New folder\MadmounMobileApp\EmailServices\obj\Release\netcoreapp3.1\EmailServices.dll
+F:\New folder\MadmounMobileApp\EmailServices\obj\Release\netcoreapp3.1\EmailServices.pdb

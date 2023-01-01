@@ -1,0 +1,38 @@
+C:\Users\USER\source\repos\MadmounMobileApp\BL\bin\Debug\netstandard2.1\BL.deps.json
+C:\Users\USER\source\repos\MadmounMobileApp\BL\bin\Debug\netstandard2.1\BL.dll
+C:\Users\USER\source\repos\MadmounMobileApp\BL\bin\Debug\netstandard2.1\BL.pdb
+C:\Users\USER\source\repos\MadmounMobileApp\BL\bin\Debug\netstandard2.1\Domains.dll
+C:\Users\USER\source\repos\MadmounMobileApp\BL\bin\Debug\netstandard2.1\Domains.pdb
+C:\Users\USER\source\repos\MadmounMobileApp\BL\obj\Debug\netstandard2.1\BL.csproj.AssemblyReference.cache
+C:\Users\USER\source\repos\MadmounMobileApp\BL\obj\Debug\netstandard2.1\BL.AssemblyInfoInputs.cache
+C:\Users\USER\source\repos\MadmounMobileApp\BL\obj\Debug\netstandard2.1\BL.AssemblyInfo.cs
+C:\Users\USER\source\repos\MadmounMobileApp\BL\obj\Debug\netstandard2.1\BL.csproj.CoreCompileInputs.cache
+C:\Users\USER\source\repos\MadmounMobileApp\BL\obj\Debug\netstandard2.1\BL.csproj.CopyComplete
+C:\Users\USER\source\repos\MadmounMobileApp\BL\obj\Debug\netstandard2.1\BL.dll
+C:\Users\USER\source\repos\MadmounMobileApp\BL\obj\Debug\netstandard2.1\BL.pdb
+F:\New folder\MadmounMobileApp\BL\bin\Debug\netstandard2.1\BL.deps.json
+F:\New folder\MadmounMobileApp\BL\bin\Debug\netstandard2.1\BL.dll
+F:\New folder\MadmounMobileApp\BL\bin\Debug\netstandard2.1\BL.pdb
+F:\New folder\MadmounMobileApp\BL\bin\Debug\netstandard2.1\Domains.dll
+F:\New folder\MadmounMobileApp\BL\bin\Debug\netstandard2.1\Domains.pdb
+F:\New folder\MadmounMobileApp\BL\obj\Debug\netstandard2.1\BL.csproj.AssemblyReference.cache
+F:\New folder\MadmounMobileApp\BL\obj\Debug\netstandard2.1\BL.GeneratedMSBuildEditorConfig.editorconfig
+F:\New folder\MadmounMobileApp\BL\obj\Debug\netstandard2.1\BL.AssemblyInfoInputs.cache
+F:\New folder\MadmounMobileApp\BL\obj\Debug\netstandard2.1\BL.AssemblyInfo.cs
+F:\New folder\MadmounMobileApp\BL\obj\Debug\netstandard2.1\BL.csproj.CoreCompileInputs.cache
+F:\New folder\MadmounMobileApp\BL\obj\Debug\netstandard2.1\BL.csproj.CopyComplete
+F:\New folder\MadmounMobileApp\BL\obj\Debug\netstandard2.1\BL.dll
+F:\New folder\MadmounMobileApp\BL\obj\Debug\netstandard2.1\BL.pdb
+E:\Ebitek Projects\MadmounMobileApp\BL\bin\Debug\netstandard2.1\BL.deps.json
+E:\Ebitek Projects\MadmounMobileApp\BL\bin\Debug\netstandard2.1\BL.dll
+E:\Ebitek Projects\MadmounMobileApp\BL\bin\Debug\netstandard2.1\BL.pdb
+E:\Ebitek Projects\MadmounMobileApp\BL\bin\Debug\netstandard2.1\Domains.dll
+E:\Ebitek Projects\MadmounMobileApp\BL\bin\Debug\netstandard2.1\Domains.pdb
+E:\Ebitek Projects\MadmounMobileApp\BL\obj\Debug\netstandard2.1\BL.csproj.AssemblyReference.cache
+E:\Ebitek Projects\MadmounMobileApp\BL\obj\Debug\netstandard2.1\BL.GeneratedMSBuildEditorConfig.editorconfig
+E:\Ebitek Projects\MadmounMobileApp\BL\obj\Debug\netstandard2.1\BL.AssemblyInfoInputs.cache
+E:\Ebitek Projects\MadmounMobileApp\BL\obj\Debug\netstandard2.1\BL.AssemblyInfo.cs
+E:\Ebitek Projects\MadmounMobileApp\BL\obj\Debug\netstandard2.1\BL.csproj.CoreCompileInputs.cache
+E:\Ebitek Projects\MadmounMobileApp\BL\obj\Debug\netstandard2.1\BL.csproj.CopyComplete
+E:\Ebitek Projects\MadmounMobileApp\BL\obj\Debug\netstandard2.1\BL.dll
+E:\Ebitek Projects\MadmounMobileApp\BL\obj\Debug\netstandard2.1\BL.pdb

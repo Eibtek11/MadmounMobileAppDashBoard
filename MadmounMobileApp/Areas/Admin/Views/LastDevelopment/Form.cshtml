@@ -1,0 +1,557 @@
+﻿
+@{
+    Layout = "";
+}
+@model Domains.TbLastDevelopments
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="rtl">
+<!-- BEGIN: Head-->
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
+    <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
+    <meta name="author" content="PIXINVENT">
+    <title>Form Layouts - Vuexy - Bootstrap HTML admin template</title>
+    <link rel="apple-touch-icon" href="~/Admin/app-assets/images/ico/apple-icon-120.png">
+    <link rel="shortcut icon" type="image/x-icon" href="~/Admin/app-assets/images/ico/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600" rel="stylesheet">
+
+    <!-- BEGIN: Vendor CSS-->
+    <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/vendors/css/vendors-rtl.min.css">
+    <!-- END: Vendor CSS-->
+    <!-- BEGIN: Theme CSS-->
+    <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css-rtl/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css-rtl/bootstrap-extended.css">
+    <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css-rtl/colors.css">
+    <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css-rtl/components.css">
+    <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css-rtl/themes/dark-layout.css">
+    <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css-rtl/themes/semi-dark-layout.css">
+
+    <!-- BEGIN: Page CSS-->
+    <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css-rtl/core/menu/menu-types/vertical-menu.css">
+    <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css-rtl/core/colors/palette-gradient.css">
+    <!-- END: Page CSS-->
+    <!-- BEGIN: Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="~/Admin/app-assets/css-rtl/custom-rtl.css">
+    <link rel="stylesheet" type="text/css" href="~/Admin/assets/css/style-rtl.css">
+    <!-- END: Custom CSS-->
+
+</head>
+<!-- END: Head-->
+<!-- BEGIN: Body-->
+
+<body class="vertical-layout vertical-menu-modern dark-layout 2-columns  navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="2-columns" data-layout="dark-layout">
+
+   <!-- BEGIN: Main Menu-->
+    <div class="main-menu menu-fixed menu-light menu-accordion menu-shadow" data-scroll-to-active="true">
+        <div class="navbar-header">
+            <ul class="nav navbar-nav flex-row">
+                <li class="nav-item mr-auto">
+                    <a class="navbar-brand" href="~/Admin/">
+                        <div class="brand-logo"></div>
+                        <h2 class="brand-text mb-0">تطبيق مضمون</h2>
+                    </a>
+                </li>
+                <li class="nav-item nav-toggle"><a class="nav-link modern-nav-toggle pr-0" data-toggle="collapse"><i class="feather icon-x d-block d-xl-none font-medium-4 primary toggle-icon"></i><i class="toggle-icon feather icon-disc font-medium-4 d-none d-xl-block collapse-toggle-icon primary" data-ticon="icon-disc"></i></a></li>
+            </ul>
+        </div>
+        <div class="shadow-bottom"></div>
+        <div class="main-menu-content">
+            <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+                <li class=" nav-item open">
+                    <a><i class="feather icon-home"></i><span data-i18n="Dashboard">لوحة التحكم</span><span class="badge badge badge-warning badge-pill float-right mr-2">21</span></a>
+                    <ul class="menu-content">
+                      
+                        <li class=" nav-item">
+                            <a class="ac" href="/Admin/CreateSrRep/Index" ><i class="feather icon-user"></i><span class="menu-item" data-i18n="eCommerce">اضافة ممثلي الخدمة</span></a>
+                        </li>
+                        <li class=" nav-item">
+                            <a class="ac" href="/Admin/SrOffAndSrRep/ListUsers2" ><i class="feather icon-users"></i><span class="menu-item" data-i18n="Analytics"> ممثلي الخدمات/ قبول او رفض</span></a>
+                        </li>
+                        <li class=" nav-item">
+                            <a class="ac" href="/Admin/CreateSrRep/IndexRayadah" ><i class="feather icon-user"></i><span class="menu-item" data-i18n="eCommerce">اضافة ممثلي ريادة</span></a>
+                        </li>
+                        <li class=" nav-item">
+                            <a class="ac" href="/Admin/SrOffAndSrRep/ListUsersRayadah" ><i class="feather icon-users"></i><span class="menu-item" data-i18n="Analytics"> ممثلي ريادة/ قبول او رفض</span></a>
+                        </li>
+                        <li class=" nav-item">
+                            <a class="ac" href="/Admin/SrOffAndSrRep/ListUsers" ><i class="feather icon-users"></i><span class="menu-item" data-i18n="Analytics"> مقدمي الخدمات/ قبول او رفض</span></a>
+                        </li>
+
+                        <li class=" nav-item">
+                            <a class="ac"  href="/Admin/City/Index" ><i class="feather icon-octagon"></i><span class="menu-item" data-i18n="eCommerce"> المدن </span></a>
+                        </li>
+                        <li class=" nav-item">
+                            <a class="ac"  href="/Admin/Area/Index" ><i class="feather icon-layers"></i><span class="menu-item" data-i18n="eCommerce"> المناطق</span></a>
+                        </li>
+                        <li class=" nav-item">
+                            <a class="ac"  href="/Admin/Service/Index" ><i class="feather icon-shopping-cart"></i><span class="menu-item" data-i18n="eCommerce">الخدمات</span></a>
+                        </li>
+                        <li class=" nav-item">
+                            <a class="ac" href="/Admin/ServiceCategory/Index" ><i class="feather icon-server"></i><span class="menu-item" data-i18n="eCommerce">اقسام الخدمات</span></a>
+                        </li>
+                         <li class=" nav-item">
+                            <a class="ac" href="/Admin/Home/Payment6" ><i class="feather icon-server"></i><span class="menu-item" data-i18n="eCommerce">عدد الخدمات التي تم طلبها</span></a>
+                        </li>
+                          <li class=" nav-item">
+                            <a class="ac" href="/Admin/ServicesOffers/Payment6" ><i class="feather icon-umbrella"></i><span class="menu-item" data-i18n="eCommerce"> عروض اسعار/ حالة العرض مقبولة  <br /> او مرفوضة</span></a>
+                        </li>
+                            <li class=" nav-item">
+                            <a class="ac" href="/Admin/ServicesApproved/Index" ><i class="feather icon-shopping-cart"></i><span class="menu-item" data-i18n="eCommerce">العقود المقبولة <br /> مع العملاء</span></a>
+                        </li>
+                       
+                        <li class=" nav-item">
+                            <a class="ac" href="/Admin/LoginHistory/Index" ><i class="feather icon-user-check"></i><span class="menu-item" data-i18n="eCommerce">عدد العملاء الفعالين</span></a>
+                        </li>
+
+                         <li class=" nav-item">
+                            <a class="ac" href="/Admin/ActiveCustomers/ShowData" ><i class="feather icon-user-check"></i><span class="menu-item" data-i18n="eCommerce">رسم بياني يوضح عدد العملاء الفعالين</span></a>
+                        </li>
+                     
+                       
+
+
+@*
+                        <li>
+                            <a asp-controller="serviceapprovedimages" asp-action="index"><i class="feather icon-tv"></i><span class="menu-item" data-i18n="ecommerce">صور مراحل  الخدمات قبل و بعد    </span></a>
+                        </li>
+*@
+
+                     
+
+
+                        @* <li>
+                        <a asp-controller="SrOffService" asp-action="Index"><i class="feather icon-users"></i><span class="menu-item" data-i18n="eCommerce">مقدمي الخدمة</span></a>
+                        </li>
+
+                        <li>
+                        <a asp-controller="SRepService" asp-action="Index"><i class="feather icon-users"></i><span class="menu-item" data-i18n="eCommerce">ممثلي الخدمات</span></a>
+                        </li>*@
+                        <li class=" nav-item">
+                            <a class="ac" href="/Admin/SrRepCity/Index" ><i class="feather icon-octagon"></i><span class="menu-item" data-i18n="eCommerce">مدن ممثلي الخدمات</span></a>
+                        </li>
+
+                        <li class=" nav-item">
+                            <a class="ac" href="/Admin/SrOffCity/Index" ><i class="feather icon-octagon"></i><span class="menu-item" data-i18n="eCommerce">مدن مقدمي الخدمات</span></a>
+                        </li>
+
+
+                     
+
+                      
+                        <li class=" nav-item">
+                            <a class="ac" href="/Admin/Client/Index" ><i class="feather icon-users"></i><span class="menu-item" data-i18n="eCommerce">العملاء</span></a>
+                        </li>
+                        <li class=" nav-item">
+                            <a class="ac" href="/Admin/ClientImage/Index" ><i class="feather icon-copy"></i><span class="menu-item" data-i18n="eCommerce">مراحل مشاريع العملاء</span></a>
+                        </li>
+                        <li class=" nav-item">
+                            <a class="ac" href="/Admin/Advertisment/Index" ><i class="feather icon-tv"></i><span class="menu-item" data-i18n="eCommerce">الاعلانات</span></a>
+                        </li>
+                        <li class=" nav-item">
+                            <a class="ac" href="/Admin/Advice/Index" ><i class="feather icon-umbrella"></i><span class="menu-item" data-i18n="eCommerce">النصائح/ نصائح لمقدم<br />  و ممثل الخدمة</span></a>
+                        </li>
+                         <li class=" nav-item">
+                            <a class="ac" href="/Admin/Advice/Index" ><i class="feather icon-umbrella"></i><span class="menu-item" data-i18n="eCommerce">الاشعارات/ اشعارات لمقدم<br />  و ممثل الخدمة</span></a>
+                        </li>
+                        <li class=" nav-item">
+                            <a class="ac" href="/Admin/Complains/Index" ><i class="feather icon-headphones"></i><span class="menu-item" data-i18n="eCommerce">الشكاوي</span></a>
+                        </li>
+                        @*  <li>
+                        <a asp-controller="ServicesRequired" asp-action="Index"><i class="feather icon-umbrella"></i><span class="menu-item" data-i18n="eCommerce">الخدمات المطلوبة من العملاء</span></a>
+                        </li>*@
+                    
+                        <li class=" nav-item">
+                            <a class="ac" href="/Admin/LastDevelopment/Index" ><i class="feather icon-umbrella"></i><span class="menu-item" data-i18n="eCommerce">اخر تطوراتنا </span></a>
+                        </li>
+                        @*
+                        <li>
+                        <a asp-controller="Transaction" asp-action="Index"><i class="feather icon-umbrella"></i><span class="menu-item" data-i18n="eCommerce">المدفوعات </span></a>
+                        </li>*@
+
+
+                    </ul>
+                </li>
+
+
+
+
+                <li class=" nav-item open">
+                    <a><i class="feather icon-bar-chart"></i><span data-i18n="Dashboard">التقارير</span><span class="badge badge badge-warning badge-pill float-right mr-2">13</span></a>
+                    <ul class="menu-content ">
+                        <li class=" nav-item">
+                            <a class="ac" href="/Admin/Home/Payment" ><i class="feather icon-user"></i><span class="menu-item" data-i18n="eCommerce">المدفوعات لمقدمي الخدمة</span></a>
+                        </li>
+                        <li class=" nav-item">
+                            <a class="ac" href="/Admin/Home/Payment2" ><i class="feather icon-users"></i><span class="menu-item" data-i18n="Analytics"> المدوعات لمن اشرف عليهم<br /> ممثلي الخدمة</span></a>
+                        </li>
+                        <li class=" nav-item">
+                            <a class="ac" href="/Admin/Home/Payment3" ><i class="feather icon-octagon"></i><span class="menu-item" data-i18n="eCommerce"> المدفعوت للعميل </span></a>
+                        </li>
+                        <li class=" nav-item">
+                            <a class="ac" href="/Admin/Home/Payment4" ><i class="feather icon-layers"></i><span class="menu-item" data-i18n="eCommerce"> اجمالي المدفوعات</span></a>
+                        </li>
+                        <li class=" nav-item">
+                            <a class="ac" href="/Admin/Home/Payment5" ><i class="feather icon-layers"></i><span class="menu-item" data-i18n="eCommerce">اجمالي المدفوعات بالخدمة </span></a>
+                        </li>
+                        <li class=" nav-item">
+                            <a class="ac" href="/Admin/Home/Payment7" ><i class="feather icon-layers"></i><span class="menu-item" data-i18n="eCommerce">عدد مقدمي الخدمات <br />حسب الخدمة و المدينة </span></a>
+                        </li>
+                        <li class=" nav-item">
+                            <a class="ac" href="/Admin/Home/Payment8" ><i class="feather icon-layers"></i><span class="menu-item" data-i18n="eCommerce">عدد ممثلي الخدمات <br />حسب الخدمة و المدينة </span></a>
+                        </li>
+                        @* <li>
+                        <a asp-controller="Home" asp-action="Payment9"><i class="feather icon-layers"></i><span class="menu-item" data-i18n="eCommerce">فرز مقدمي الخدمات حسب المدينة </span></a>
+                        </li>
+                        <li>
+                        <a asp-controller="Home" asp-action="Payment10"><i class="feather icon-layers"></i><span class="menu-item" data-i18n="eCommerce">فرز ممثلي الخدمات حسب المدينة </span></a>
+                        </li>*@
+                        @*<li>
+                            <a asp-controller="Home" asp-action="stages"><i class="feather icon-shopping-cart"></i><span class="menu-item" data-i18n="eCommerce">المدفوعات  بالنسبه للمراحل <br /> والمراحل المتبقية للخدمات المستمرة</span></a>
+                        </li>*@
+                        <li class=" nav-item">
+                            <a class="ac" href="/Admin/Home/New" ><i class="feather icon-shopping-cart"></i><span class="menu-item" data-i18n="eCommerce">المدفوعات  بالنسبه للمراحل <br /> والمراحل المتبقية للخدمات المستمرة</span></a>
+                        </li>
+
+                        <li class=" nav-item">
+                            <a class="ac" href="/Admin/ServicesRequired/Index" ><i class="feather icon-shopping-cart"></i><span class="menu-item" data-i18n="eCommerce">جدول الخدمات المطلوبة</span></a>
+                        </li>
+
+                        <li class=" nav-item">
+                            <a class="ac" href="/Admin/ServicesApproved/Index" ><i class="feather icon-shopping-cart"></i><span class="menu-item" data-i18n="eCommerce">جدول قبول الخدمات <br /> من مقدم الخدمة</span></a>
+                        </li>
+
+                        <li class=" nav-item">
+                            <a class="ac"  href="/Admin/ServiceApprovedMilstone/Index" ><i class="feather icon-check-circle"></i><span class="menu-item" data-i18n="eCommerce">جدول مراحل كل مشروع<br /> وتكلفة كل مرحلة</span></a>
+                        </li>
+                        <li class=" nav-item">
+                            <a class="ac" href="/Admin/Home/noOffersByService" ><i class="feather icon-headphones"></i><span class="menu-item" data-i18n="eCommerce">عدد الخدمات التي تم<br />  تقديم عروض اسعارها</span></a>
+                        </li>
+                        <li class=" nav-item">
+                            <a class="ac"  href="/Admin/Home/noOffersByServiceApproved" ><i class="feather icon-user-check"></i><span class="menu-item" data-i18n="eCommerce">عدد العقود المبرمة<br /> </span></a>
+                        </li>
+                        <li class=" nav-item">
+                            <a class="ac" href="/Admin/Home/noOffersByServiceRejected" ><i class="feather icon-user-check"></i><span class="menu-item" data-i18n="eCommerce">عدد الخدمات التي تم<br />  رفض عروض اسعارها</span></a>
+                        </li>
+                        <li class=" nav-item">
+                            <a class="ac" href="/Admin/Home/collectiveReport" ><i class="feather icon-user-check"></i><span class="menu-item" data-i18n="eCommerce">تحليل العروض المقدمة للعملاء   </span></a>
+                        </li>
+
+                          <li class=" nav-item">
+                            <a class="ac" href="/Admin/Home/noOffByCity" ><i class="feather icon-check-circle"></i><span class="menu-item" data-i18n="eCommerce"> عدد<br />  مقدمي الخدمات حسب <br />  المدن</span></a>
+                        </li>
+                        <li class=" nav-item">
+                            <a class="ac" href="/Admin/SalesRecord/ShowData" ><i class="feather icon-check-circle"></i><span class="menu-item" data-i18n="eCommerce">رسم بياني يوضح عدد<br />  مقدمي الخدمات حسب <br />  المدن</span></a>
+                        </li>
+
+                        
+                    @*    <li>
+                            <a asp-controller="Advertisment" asp-action="Index2"><i class="feather icon-shopping-cart"></i><span class="menu-item" data-i18n="eCommerce">رسم بياني يوضح <br /> اكثر الايام تفالا مع العملاء</span></a>
+                        </li>
+                        <li>
+                            <a asp-controller="Advertisment" asp-action="Index"><i class="feather icon-shopping-cart"></i><span class="menu-item" data-i18n="eCommerce">العملاء الذين رفضوا عروض<br />  و قبلوا اخري لنفس الخدمة</span></a>
+                        </li>
+                        <li>
+                            <a asp-controller="Advertisment" asp-action="Index"><i class="feather icon-tv"></i><span class="menu-item" data-i18n="eCommerce">عدد العملاء الفعالين</span></a>
+                        </li>*@
+                     
+                       @* <li>
+                            <a asp-controller="Advertisment" asp-action="Index"><i class="feather icon-users"></i><span class="menu-item" data-i18n="eCommerce">عدد الخدمات ومالراحل المنفذة<br />  لكل عميل لاستخراج اتعاب مضمون</span></a>
+                        </li>*@
+
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- END: Main Menu-->
+    <div class="app-content content">
+        <div class="content-overlay"></div>
+        <div class="header-navbar-shadow"></div>
+        <div class="content-wrapper">
+            @*<div class="content-header row">
+                    <div class="content-header-left col-md-9 col-12 mb-2">
+                        <div class="row breadcrumbs-top">
+                            <div class="col-12">
+                                <h2 class="content-header-title float-left mb-0">Form Layouts</h2>
+                                <div class="breadcrumb-wrapper col-12">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item">
+                                            <a href="index.html">Home</a>
+                                        </li>
+                                        <li class="breadcrumb-item">
+                                            <a href="#">Forms</a>
+                                        </li>
+                                        <li class="breadcrumb-item active">
+                                            <a href="#">Form Layouts</a>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-header-right text-md-right col-md-3 col-12 d-md-block d-none">
+                        <div class="form-group breadcrum-right">
+                            <div class="dropdown">
+                                <button class="btn-icon btn btn-primary btn-round btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="feather icon-settings"></i></button>
+                                <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#">Chat</a><a class="dropdown-item" href="#">Email</a><a class="dropdown-item" href="#">Calendar</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+            <div class="content-body">
+                <!-- Basic Horizontal form layout section start -->
+                <section id="basic-horizontal-layouts">
+                    <div class="row match-height">
+                        <div class="col-md-12 col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">لوحة التحكم</h4>
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <form enctype="multipart/form-data" method="post" role="form" asp-controller="LastDevelopment" asp-action="Save" class="form form-horizontal">
+                                            <div class="form-body">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="form-group row">
+                                                            <div class="col-md-4">
+                                                                <input asp-for="LastDevelopmentId" type="hidden" class="form-control">
+
+                                                            </div>
+                                                            @*<div class="col-md-8">
+                                                                    <input asp-for="item.CompanyDescription" type="text" class="form-control" placeholder="اسم الشركة">
+                                                                </div>*@
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="form-group row">
+                                                            <div class="col-md-4">
+                                                                <span>اسم النصيحة</span>
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                <input asp-for="LastDevelopmentName" type="text" class="form-control" placeholder="اسم النصيحة">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="col-12">
+                                                        <div class="form-group row">
+                                                            <div class="col-md-4">
+                                                                <span>وصف النصيحة</span>
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                <input asp-for="LastDevelopmentDescription" type="text" class="form-control" placeholder="وصف النصيحة">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+
+
+
+
+
+
+                                                    <div class="col-12">
+                                                        <div class="form-group row">
+                                                            <div class="col-md-4">
+                                                                <span>صورة الخدمة</span>
+                                                            </div>
+                                                            <div class="col-md-8">
+
+                                                                <input class=" form-control" name="files" type="file" placeholder="صورة القانون">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                   
+                                                    @*<div class="col-12">
+                                                            <div class="form-group row">
+                                                                <div class="col-md-4">
+                                                                    <span>صورة بروفايل الشركة</span>
+                                                                </div>
+                                                                <div class="col-md-8">
+
+                                                                    <input class=" form-control" name="files" type="file" placeholder="صورة بروفايل الشركة">
+                                                                </div>
+                                                            </div>
+                                                        </div>*@
+
+                                                    <div class="col-md-8 offset-md-4">
+                                                        <button type="submit" class="btn btn-primary mr-1 mb-1">حفظ</button>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @*<div class="col-md-6 col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title">Horizontal Form with Icons</h4>
+                                    </div>
+                                    <div class="card-content">
+                                        <div class="card-body">
+                                            <form class="form form-horizontal">
+                                                <div class="form-body">
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <div class="form-group row">
+                                                                <div class="col-md-4">
+                                                                    <span>First Name</span>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <div class="position-relative has-icon-left">
+                                                                        <input type="text" id="fname-icon" class="form-control" name="fname-icon" placeholder="First Name">
+                                                                        <div class="form-control-position">
+                                                                            <i class="feather icon-user"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="form-group row">
+                                                                <div class="col-md-4">
+                                                                    <span>Email</span>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <div class="position-relative has-icon-left">
+                                                                        <input type="email" id="email-icon" class="form-control" name="email-id-icon" placeholder="Email">
+                                                                        <div class="form-control-position">
+                                                                            <i class="feather icon-mail"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="form-group row">
+                                                                <div class="col-md-4">
+                                                                    <span>Mobile</span>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <div class="position-relative has-icon-left">
+                                                                        <input type="number" id="contact-icon" class="form-control" name="contact-icon" placeholder="Mobile">
+                                                                        <div class="form-control-position">
+                                                                            <i class="feather icon-smartphone"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="form-group row">
+                                                                <div class="col-md-4">
+                                                                    <span>Password</span>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <div class="position-relative has-icon-left">
+                                                                        <input type="password" id="pass-icon" class="form-control" name="contact-icon" placeholder="Password">
+                                                                        <div class="form-control-position">
+                                                                            <i class="feather icon-lock"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col-md-8 offset-md-4">
+                                                            <fieldset class="checkbox">
+                                                                <div class="vs-checkbox-con vs-checkbox-primary">
+                                                                    <input type="checkbox">
+                                                                    <span class="vs-checkbox">
+                                                                        <span class="vs-checkbox--check">
+                                                                            <i class="vs-icon feather icon-check"></i>
+                                                                        </span>
+                                                                    </span>
+                                                                    <span class="">Remember me</span>
+                                                                </div>
+                                                            </fieldset>
+                                                        </div>
+                                                        <div class="col-md-8 offset-md-4">
+                                                            <button type="submit" class="btn btn-primary mr-1 mb-1">Submit</button>
+                                                            <button type="reset" class="btn btn-outline-warning mr-1 mb-1">Reset</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>*@
+                    </div>
+                </section>
+
+
+            </div>
+        </div>
+    </div>
+    <!-- END: Content-->
+
+    <div class="sidenav-overlay"></div>
+    <div class="drag-target"></div>
+
+    <!-- BEGIN: Footer-->
+    <footer class="footer footer-static footer-light">
+        <p class="clearfix blue-grey lighten-2 mb-0">
+            <span class="float-md-left d-block d-md-inline-block mt-25"><a class="text-bold-800 grey darken-2" href="https://visooft.com/" target="_blank"></a></span><span class="float-md-right d-none d-md-block"><a class="text-bold-800 grey darken-2" href="https://visooft.com/" target="_blank">جميع الحقوق محفوظة لـ رؤي برمجية</a></span><i class="feather icon-heart pink"></i></span>
+            <button class="btn btn-primary btn-icon scroll-top" type="button"><i class="feather icon-arrow-up"></i></button>
+        </p>
+    </footer>
+    <!-- END: Footer-->
+    <!-- BEGIN: Vendor JS-->
+    <script src="~/Admin/app-assets/vendors/js/vendors.min.js"></script>
+    <!-- BEGIN Vendor JS-->
+    <!-- BEGIN: Page Vendor JS-->
+    <!-- END: Page Vendor JS-->
+    <!-- BEGIN: Theme JS-->
+    <script src="~/Admin/app-assets/js/core/app-menu.js"></script>
+    <script src="~/Admin/app-assets/js/core/app.js"></script>
+    <script src="~/Admin/app-assets/js/scripts/components.js"></script>
+    <!-- END: Theme JS-->
+    <!-- BEGIN: Page JS-->
+    <!-- END: Page JS-->
+     <script type="text/javascript">
+        var currentlocation =location.href;
+        var header = document.getElementById("main-menu-navigation");
+          
+        var btns = document.querySelectorAll(".ac");
+       
+        console.log(currentlocation);
+        console.log(header);
+        console.log(btns.length);
+        console.log(btns);
+        console.log(btns[0].href);
+        console.log(btns[0].parentNode);
+        for (let i = 0; i < btns.length; i++) {
+           
+             if(btns[i].href  === currentlocation) {
+              
+                    //var current = document.getElementsByClassName("active");
+                  
+                    //current[0].className = current[0].className.replace(" active", "");
+                console.log(btns[0].parentNode.className);
+                btns[i].parentNode.className ='active';
+                console.log(btns[0].parentNode.className);
+              
+                   
+              
+               
+            }
+           
+       }
+    </script>
+</body>
+<!-- END: Body-->
+
+</html>
