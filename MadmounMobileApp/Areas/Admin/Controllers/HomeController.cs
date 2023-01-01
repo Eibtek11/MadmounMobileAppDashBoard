@@ -506,7 +506,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
 
 
         [Authorize(Roles = "Admin,Account")]
-        public IActionResult Payment7(string Id)
+        public IActionResult Payment7(string Id, string DateOne, string DateTwo)
         {
             HomePageModel model = new HomePageModel();
             model.lstServices = serviceService.getAll();
@@ -514,10 +514,10 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             model.lstAreas = areaService.getAll();
             model.lstServiceApprovedMilstone = serviceApprovedMilstoneService.getAll();
             model.lstSrOffServiceS = srOffService.getAll();
-            model.LstVwFilterOffs = ctx.VwFilterOffs.ToList();
-            if (Id != null)
+            model.LstVwFilterOffs = ctx.VwFilterOffs.Where(a => a.CreatedDate >= DateTime.Parse("2020-11-05 22:17:26.510") && a.CreatedDate <= DateTime.Now).ToList();
+            if (Id != null && DateOne != null && DateTwo != null)
             {
-                model.LstVwFilterOffs = ctx.VwFilterOffs.ToList().Where(a => a.ServiceId == Guid.Parse(Id));
+                model.LstVwFilterOffs = ctx.VwFilterOffs.ToList().Where(a => a.ServiceId == Guid.Parse(Id)).Where(a => a.CreatedDate >= DateTime.Parse(DateOne) && a.CreatedDate <= DateTime.Parse(DateTwo));
                 
             }
            
@@ -527,7 +527,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
         }
 
         [Authorize(Roles = "Admin,Account")]
-        public IActionResult Payment8(string Id)
+        public IActionResult Payment8(string Id, string DateOne, string DateTwo)
         {
             HomePageModel model = new HomePageModel();
             model.lstServices = serviceService.getAll();
@@ -535,10 +535,10 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             model.lstAreas = areaService.getAll();
             model.lstServiceApprovedMilstone = serviceApprovedMilstoneService.getAll();
             model.lstSrRepService = srrepService.getAll();
-            model.LstVwFilterreps = ctx.VwFilterreps.ToList();
-            if (Id != null)
+            model.LstVwFilterreps = ctx.VwFilterreps.Where(a => a.CreatedDate >= DateTime.Parse("2020-11-05 22:17:26.510") && a.CreatedDate <= DateTime.Now).ToList();
+            if (Id != null && DateOne != null && DateTwo != null)
             {
-                model.LstVwFilterreps = ctx.VwFilterreps.ToList().Where(a => a.ServiceId == Guid.Parse(Id));
+                model.LstVwFilterreps = ctx.VwFilterreps.ToList().Where(a => a.ServiceId == Guid.Parse(Id)).Where(a => a.CreatedDate >= DateTime.Parse(DateOne) && a.CreatedDate <= DateTime.Parse(DateTwo));
             }
 
             ViewBag.cities = serviceService.getAll();
