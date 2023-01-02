@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 namespace MadmounMobileApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin , Administeration")]
+   
 
     public class CreateSrRepController : Controller
     {
@@ -33,13 +33,19 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             srrepService = SrrepService;
 
         }
+
+        [Authorize(Roles = "Admin , اضافة ممثل الخدمات")]
         public IActionResult Index()
         {
-            return View();
+            HomePageModel oHomePageModel = new HomePageModel();
+            return View(oHomePageModel);
         }
+
+        [Authorize(Roles = "Admin,اضافة ممثلي ريادة")]
         public IActionResult IndexRayadah()
         {
-            return View();
+            HomePageModel oHomePageModel = new HomePageModel();
+            return View(oHomePageModel);
         }
         [HttpPost]
         public async Task<IActionResult> Register(HomePageModel oHomePageModel , List<IFormFile> files)

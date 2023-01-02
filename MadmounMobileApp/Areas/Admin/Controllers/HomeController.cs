@@ -51,7 +51,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             srrepCityService = SrrepCityService;
             servicesRequiredService = ServicesRequiredService;
         }
-        [Authorize(Roles = "Admin,Account,Administeration")]
+        [Authorize(Roles = "Admin,الدخول ال لوحةالتحكم")]
         public IActionResult Index()
         {
             HomePageModel model = new HomePageModel();
@@ -199,7 +199,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             return View(model);
         }
 
-        [Authorize(Roles = "Admin,Account")]
+        [Authorize(Roles = "Admin,عدد الخدمات التي تم طلبها")]
         public IActionResult Payment6(string Id, string DateOne, string DateTwo)
         {
             HomePageModel model = new HomePageModel();
@@ -514,7 +514,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             model.lstAreas = areaService.getAll();
             model.lstServiceApprovedMilstone = serviceApprovedMilstoneService.getAll();
             model.lstSrOffServiceS = srOffService.getAll();
-            model.LstVwFilterOffs = ctx.VwFilterOffs.Where(a => a.CreatedDate >= DateTime.Parse("2020-11-05 22:17:26.510") && a.CreatedDate <= DateTime.Now).ToList();
+            model.LstVwFilterOffs = ctx.VwFilterOffs.ToList();
             if (Id != null && DateOne != null && DateTwo != null)
             {
                 model.LstVwFilterOffs = ctx.VwFilterOffs.ToList().Where(a => a.ServiceId == Guid.Parse(Id)).Where(a => a.CreatedDate >= DateTime.Parse(DateOne) && a.CreatedDate <= DateTime.Parse(DateTwo));
@@ -535,7 +535,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             model.lstAreas = areaService.getAll();
             model.lstServiceApprovedMilstone = serviceApprovedMilstoneService.getAll();
             model.lstSrRepService = srrepService.getAll();
-            model.LstVwFilterreps = ctx.VwFilterreps.Where(a => a.CreatedDate >= DateTime.Parse("2020-11-05 22:17:26.510") && a.CreatedDate <= DateTime.Now).ToList();
+            model.LstVwFilterreps = ctx.VwFilterreps.ToList();
             if (Id != null && DateOne != null && DateTwo != null)
             {
                 model.LstVwFilterreps = ctx.VwFilterreps.ToList().Where(a => a.ServiceId == Guid.Parse(Id)).Where(a => a.CreatedDate >= DateTime.Parse(DateOne) && a.CreatedDate <= DateTime.Parse(DateTwo));

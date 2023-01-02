@@ -34,7 +34,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             Usermanager = usermanager;
             getLogInHistory = GetLogInHistory;
         }
-        [Authorize(Roles = "Admin,Account")]
+        [Authorize(Roles = "Admin,عدد العملاء الفعالين")]
         public IActionResult Index(string id,string DateOne, string DateTwo)
         {
             ViewBag.cities = ctx.TbCities.ToList();

@@ -13,7 +13,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
 {
 
     [Area("Admin")]
-    [Authorize(Roles = "Admin,Administeration")]
+    
     public class CityController : Controller
     {
         CityService cityService;
@@ -24,6 +24,8 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             ctx = context;
 
         }
+
+        [Authorize(Roles = "Admin,المدن")]
         public IActionResult Index()
         {
             HomePageModel model = new HomePageModel();
@@ -35,7 +37,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
 
 
 
-
+        [Authorize(Roles = "Admin,اضافة او تعديل المدن")]
         public async Task<IActionResult> Save(TbCity ITEM, int id, List<IFormFile> files)
         {
 
@@ -78,7 +80,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
 
 
 
-
+        [Authorize(Roles = "Admin,حذف المدن ")]
         public IActionResult Delete(Guid id)
         {
 

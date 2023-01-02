@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace MadmounMobileApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin,Administeration")]
+  
     public class LastDevelopmentController : Controller
     {
         LastDevelopmentService lastDevelopmentService;
@@ -35,6 +35,8 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             adviceService = AdviceService;
             lastDevelopmentService = LLastDevelopmentService;
         }
+
+        [Authorize(Roles = "Admin,اخر تطوراتنا")]
         public IActionResult Index()
         {
             HomePageModel model = new HomePageModel();
@@ -52,7 +54,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
 
 
 
-
+        [Authorize(Roles = "Admin, اضافة او تعديل اخر تطوراتنا")]
         public async Task<IActionResult> Save(TbLastDevelopments ITEM, int id, List<IFormFile> files)
         {
 
@@ -123,7 +125,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
 
 
 
-
+        [Authorize(Roles = "Admin,حذف اخر تطوراتنا")]
         public IActionResult Delete(Guid id)
         {
 

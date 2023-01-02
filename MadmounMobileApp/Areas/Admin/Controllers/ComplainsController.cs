@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace MadmounMobileApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin,Administeration")]
+   
     public class ComplainsController : Controller
     {
         ComplainService ComplainService;
@@ -26,7 +26,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             cityService = CityService;
             ComplainService = complainService;
         }
-        
+        [Authorize(Roles = "Admin,الشكاوي")]
         public IActionResult Index()
         {
             HomePageModel model = new HomePageModel();

@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace MadmounMobileApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin,Administeration")]
+   
     public class ClientImageController : Controller
     {
         ClientImagesService clientImagesService;
@@ -27,6 +27,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             cityService = CityService;
             clientImagesService = ClientImagesService;
         }
+        [Authorize(Roles = "Admin,مراحل مشاريع العملاء")]
         public IActionResult Index()
         {
             HomePageModel model = new HomePageModel();

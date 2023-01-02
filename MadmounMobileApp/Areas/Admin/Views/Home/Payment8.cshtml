@@ -597,13 +597,55 @@
         //var url = window.location.href;
         
         $("#CourseDdl").change(function () {
-            var end = this.value;
-            
+            //var end = this.value;
+            var end2 = $("#CourseDdl2").val();
 
-            location.replace(url + "/?Id=" + end );
-       
-          
-    });
+            //if (end2 === "") {
+            //    alert("choose date from");
+            //}
+
+            var end3 = $("#CourseDdl3").val();
+            //if (end3 === "") {
+            //    alert("choose date to");
+            //}
+
+            //location.replace(url+ "/?Id=" + this.value);
+            //location.replace(url + "/?CourseId=" + this.value);
+
+            //$("#CourseDdl2").on("change keyup paste", function () {
+            //    var end2 = this.value;
+            //    location.replace(url + "/?Id=" + $("#CourseDdl").value + "/?DateOne=" + this.value);
+            //})
+        });
+        $("#CourseDdl2").change(function () {
+            var end2 = $("#CourseDdl2").val();
+
+            var end = $("#CourseDdl").val();
+
+            var end3 = $("#CourseDdl3").val();
+            //if (end3 === "") {
+            //    alert("choose date to");
+            //}
+
+            //location.replace(url + "/?Id=" + end + "&DateOne=" + end2);
+        });
+
+        $("#CourseDdl3").change(function () {
+            var end2 = $("#CourseDdl2").val();
+            //if (end2 === "") {
+            //    alert("choose date from");
+            //}
+
+            end2 = $("#CourseDdl2").val();
+
+            var end = $("#CourseDdl").val();
+
+            var end3 = $("#CourseDdl3").val();
+
+
+            location.replace(url + "/?Id=" + end + "&DateOne=" + end2 + "&DateTwo=" + end3);
+
+        });
     
     </script>
      <script type="text/javascript">

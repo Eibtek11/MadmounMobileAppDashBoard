@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace MadmounMobileApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin,Administeration")]
+   
     public class SrOffAndSrRepController : Controller
     {
         AreaService areaService;
@@ -36,6 +36,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             serviceCategoryService = ServiceCategoryService;
             areaService = AreaService;
         }
+        [Authorize(Roles = "Admin, قبول او رفض /مقدمي الخدمات")]
         [HttpGet]
         public async Task<IActionResult> ListUsersAsync(Guid?id, string DateOne, string DateTwo)
         {
@@ -68,7 +69,9 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
            
             return View(model);
         }
-      
+
+        [Authorize(Roles = "Admin,قبول او رفض / ممثلي الخدمات")]
+
         [HttpGet]
         public async Task<IActionResult> ListUsers2Async(Guid? id)
         {
@@ -95,7 +98,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             model.lstUsers = Usermanager.Users.Where(a => a.StateName == "ممثل خدمة").ToList();
             return View(model);
         }
-
+        [Authorize(Roles = "Admin,قبول او رفض / ممثلي ريادة")]
         public async Task<IActionResult> ListUsersRayadahAsync(Guid? id)
         {
             if (id != null)

@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace MadmounMobileApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin,Administeration")]
+    
     public class AreaController : Controller
     {
         CityService cityService;
@@ -24,6 +24,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             ctx = context;
             cityService = CityService;
         }
+        [Authorize(Roles = "Admin,المناطق")]
         public IActionResult Index()
         {
             HomePageModel model = new HomePageModel();
@@ -36,7 +37,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
 
 
 
-
+        [Authorize(Roles = "Admin,اضافة او تعديل المناطق")]
         public async Task<IActionResult> Save(TbArea ITEM, int id, List<IFormFile> files)
         {
 
@@ -79,7 +80,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
 
 
 
-
+        [Authorize(Roles = "Admin,حذف المناطق")]
         public IActionResult Delete(Guid id)
         {
 

@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace MadmounMobileApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin,Administeration")]
+    
     public class ClientController : Controller
     {
         CleintService cleintService;
@@ -26,6 +26,8 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             cleintService = CleintService;
 
         }
+
+        [Authorize(Roles = "Admin,العملاء")]
         public IActionResult Index()
         {
             HomePageModel model = new HomePageModel();
@@ -38,7 +40,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
 
 
 
-
+        [Authorize(Roles = "Admin,اضافة العملاء ")]
         public async Task<IActionResult> Save(TbClients ITEM, int id, List<IFormFile> files, List<IFormFile> filess)
         {
 
@@ -133,7 +135,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
 
 
 
-
+        [Authorize(Roles = "Admin,حذف العملاء ")]
         public IActionResult Delete(Guid id)
         {
 

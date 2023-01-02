@@ -16,7 +16,7 @@ namespace MadmounMobileApp.Models
 
 
         public UserModel user { get; set; }
-        [Required]
+       
         [EmailAddress]
         public string Email { get; set; }
         [Required]

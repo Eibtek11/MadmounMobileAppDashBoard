@@ -56,7 +56,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
         {
             return View();
         }
-        [Authorize(Roles = "Admin,Account")]
+        [Authorize(Roles = "Admin,رسم بياني يوضح عدد العملاء الفعالين")]
         public IActionResult ShowData()
         {
             return View();

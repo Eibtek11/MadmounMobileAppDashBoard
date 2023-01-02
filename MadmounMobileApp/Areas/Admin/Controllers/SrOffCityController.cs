@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace MadmounMobileApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin")]
+    
     public class SrOffCityController : Controller
     {
         SroffCityService sroffCityService;
@@ -45,6 +45,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             srrepCityService = SrrepCityService;
             sroffCityService = SroffCityService;
         }
+        [Authorize(Roles = "Admin ,مدن مقدمي الخدمات")]
         public IActionResult Index()
         {
             HomePageModel model = new HomePageModel();
@@ -63,7 +64,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             return View(model);
         }
 
-
+        [Authorize(Roles = "Admin ,اضافة او تعديل مقدمي الخدمات")]
         public async Task<IActionResult> Save(string ahmed, TbSrOffCity ITEM, int id, List<IFormFile> files, string idd, string serviceid, string servicoffeid)
         {
 
@@ -115,7 +116,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
 
 
 
-
+        [Authorize(Roles = "Admin ,حذف مدن مقدمي الخدمات")]
         public IActionResult Delete(Guid id)
         {
 

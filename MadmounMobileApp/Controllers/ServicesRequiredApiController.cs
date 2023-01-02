@@ -60,7 +60,7 @@ namespace MadmounMobileApp.Controllers
 
         // POST api/<ServicesRequiredApiController>
         [HttpPost("SendService")]
-        public async Task<IActionResult> PostAsync([FromForm] ServicesRequiredViewPageModel services)
+        public async Task<IActionResult> PostAsync([FromBody] ServicesRequiredViewPageModel services)
         {
             var user = await Usermanager.FindByIdAsync(services.SrReqId);
 
@@ -70,24 +70,29 @@ namespace MadmounMobileApp.Controllers
                 oTbServicesRequired.RyadahOrNot = user.ServiceId.ToString();
             }
             oTbServicesRequired.ServiceSyntax = services.ServiceSyntax;
-           
-            oTbServicesRequired.SrReqId = services.SrReqId;
-            oTbServicesRequired.ServiceId = services.ServiceId;
-            oTbServicesRequired.CreatedBy = services.CreatedBy;
-            oTbServicesRequired.CreatedDate = DateTime.Now;
-            oTbServicesRequired.UpdatedBy = Usermanager.Users.Where(a=> a.Id == oTbServicesRequired.SrReqId).FirstOrDefault().ServiceCategoryName;
-            oTbServicesRequired.Notes = services.Notes;
-            oTbServicesRequired.SrReqName = Usermanager.Users.Where(a => a.Id == oTbServicesRequired.SrReqId).FirstOrDefault().Email;
-            oTbServicesRequired.ServiceName = ctx.TbServices.Where(a => a.ServiceId == services.ServiceId).FirstOrDefault().ServiceName;
-            oTbServicesRequired.ServiceImage = ctx.TbServices.Where(a => a.ServiceId == services.ServiceId).FirstOrDefault().CreatedBy;
-            var result = servicesRequiredService.Add(oTbServicesRequired);
-
-            if (!result)
+           foreach(var i in services.ServiceId)
             {
-                return Unauthorized();
+                oTbServicesRequired.SrReqId = services.SrReqId;
+                oTbServicesRequired.ServiceId = i.Value;
+                oTbServicesRequired.CreatedBy = services.CreatedBy;
+                oTbServicesRequired.CreatedDate = DateTime.Now;
+                oTbServicesRequired.UpdatedBy = Usermanager.Users.Where(a => a.Id == oTbServicesRequired.SrReqId).FirstOrDefault().ServiceCategoryName;
+                oTbServicesRequired.Notes = services.Notes;
+                oTbServicesRequired.SrReqName = Usermanager.Users.Where(a => a.Id == oTbServicesRequired.SrReqId).FirstOrDefault().Email;
+                oTbServicesRequired.ServiceName = ctx.TbServices.Where(a => a.ServiceId == i.Value).FirstOrDefault().ServiceName;
+                oTbServicesRequired.ServiceImage = ctx.TbServices.Where(a => a.ServiceId == i.Value).FirstOrDefault().CreatedBy;
+                var result = servicesRequiredService.Add(oTbServicesRequired);
+
+                if (!result)
+                {
+                    return Unauthorized();
+
+                }
+               
 
             }
-            return Ok(result);
+            return Ok("services required is added");
+
         }
 
 

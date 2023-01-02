@@ -90,7 +90,18 @@ namespace BL
         [NotMapped]
         public string Role { get; set; }
 
+
         [NotMapped]
-        public IEnumerable<SelectListItem> RoleList { get; set; }
+        public List<SelectListItem> RoleList { get; set; }
+
+
+        [NotMapped]
+        public List<SelectListItem> RoleList2 { get; set; }
+        [NotMapped]
+        public List<string> RoleList3 { get; set; }
+
+
+        [NotMapped]
+        public IEnumerable<IdentityRole> RoleListMain { get; set; }
     }
 }

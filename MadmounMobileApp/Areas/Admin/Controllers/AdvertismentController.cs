@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 namespace MadmounMobileApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin,Administeration")]
+    
     public class AdvertismentController : Controller
     {
         AdvertismentService advertismentService;
@@ -34,6 +34,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             advertismentService = AdvertismentService;
             Usermanager = usermanager;
         }
+        [Authorize(Roles = "Admin,الاعلانات")]
         public IActionResult Index()
         {
             ViewBag.cities = ctx.TbCities.ToList();
@@ -58,7 +59,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
 
 
 
-
+        [Authorize(Roles = "Admin,اضافة او تعديل الاعلانات ")]
         public async Task<IActionResult> Save(TbAdvertisements ITEM, int id, List<IFormFile> files)
         {
 
@@ -128,7 +129,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
 
 
 
-
+        [Authorize(Roles = "Admin,مسح الاعلانات ")]
         public IActionResult Delete(Guid id)
         {
 

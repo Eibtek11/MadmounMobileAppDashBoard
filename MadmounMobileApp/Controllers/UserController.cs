@@ -629,11 +629,41 @@ namespace MadmounMobileApp.Controllers
             {
                 objFromDb.RoleId = roles.FirstOrDefault(u => u.Id == role.RoleId).Id;
             }
-            objFromDb.RoleList = Ctx.Roles.Select(u => new System.Web.Mvc.SelectListItem
+            objFromDb.RoleList = new List<System.Web.Mvc.SelectListItem>();
+            objFromDb.RoleList2 = new List<System.Web.Mvc.SelectListItem>();
+            objFromDb.RoleList3 = new List<string>();
+            var userRole2 = Ctx.UserRoles.Where(u => u.UserId == objFromDb.Id).ToList();
+            objFromDb.RoleListMain = _roleManager.Roles.ToList();
+            foreach (var i in userRole2)
             {
-                Text = u.Name,
-                Value = u.Id
-            });
+
+                System.Web.Mvc.SelectListItem a = new System.Web.Mvc.SelectListItem();
+                a.Value = i.RoleId;
+                a.Selected = true;
+                a.Text = Ctx.Roles.Where(u => u.Id == i.RoleId).FirstOrDefault().Name;
+                objFromDb.RoleList.Add(a);
+
+
+            }
+
+            foreach (var l in objFromDb.RoleListMain)
+            {
+                if (!objFromDb.RoleList.Any(a => a.Value == l.Id))
+                {
+                    System.Web.Mvc.SelectListItem a = new System.Web.Mvc.SelectListItem();
+                    a.Value = l.Id;
+                    a.Selected = false;
+                    a.Text = Ctx.Roles.Where(u => u.Id == l.Id).FirstOrDefault().Name;
+                    objFromDb.RoleList.Add(a);
+                    objFromDb.RoleList3.Add(a.Text);
+                }
+            }
+
+
+
+
+
+
             return View(objFromDb);
         }
 
@@ -646,34 +676,31 @@ namespace MadmounMobileApp.Controllers
         {
             ViewBag.cities = _roleManager.Roles.ToList();
 
-            var objFromDb = Ctx.Users.FirstOrDefault(u => u.Id == user.Id);
-            if (objFromDb == null)
-            {
-                return NotFound();
-            }
-            var userRole = Ctx.UserRoles.FirstOrDefault(u => u.UserId == objFromDb.Id);
-            if (userRole != null)
-            {
-                var previousRoleName = Ctx.Roles.Where(u => u.Id == userRole.RoleId).Select(e => e.Name).FirstOrDefault();
-                //removing the old role
-                await Usermanager.RemoveFromRoleAsync(objFromDb, previousRoleName);
 
+            List<string> previousRoleName = new List<string>();
+            foreach (var i in user.RoleList)
+            {
+                previousRoleName.Add(Ctx.Roles.Where(u => u.Id == i.Value).FirstOrDefault().Name);
             }
+            //removing the old role
+            await Usermanager.RemoveFromRolesAsync(user, previousRoleName);
+            Ctx.SaveChanges();
+            List<string> newRoleName = new List<string>();
+            foreach (var i in user.RoleList.Where(c => c.Selected))
+            {
+                newRoleName.Add(Ctx.Roles.Where(u => u.Id == i.Value).FirstOrDefault().Name);
+            }
+
 
             //add new role
-            await Usermanager.AddToRoleAsync(objFromDb, Ctx.Roles.FirstOrDefault(u => u.Id == user.RoleId).Name);
-            objFromDb.Email = user.Email;
+            await Usermanager.AddToRolesAsync(user, newRoleName);
+
             Ctx.SaveChanges();
             TempData[SD.Success] = "User has been edited successfully.";
-            return RedirectToAction(nameof(Indexx));
+            return RedirectToAction("Indexx", "User", new { area = "" });
 
 
 
-            user.RoleList = Ctx.Roles.Select(u => new System.Web.Mvc.SelectListItem
-            {
-                Text = u.Name,
-                Value = u.Id
-            });
             return View(user);
         }
 

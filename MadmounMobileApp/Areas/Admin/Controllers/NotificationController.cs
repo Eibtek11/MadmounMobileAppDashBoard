@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Identity;
 namespace MadmounMobileApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin,Administeration")]
+    
     public class NotificationController : Controller
     {
         NotificationService notificationService;
@@ -31,6 +31,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             notificationService = NotificationService;
             Usermanager = usermanager;
         }
+        [Authorize(Roles = "Admin,الاشعارات / اشعارات لمقدم الخدمة و ممثل الخدمة")]
         public IActionResult Index()
         {
             HomePageModel model = new HomePageModel();
@@ -45,7 +46,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
 
 
 
-
+        [Authorize(Roles = "Admin, اضافة او تعديل الاشعارات / اشعارات لمقدم الخدمة و ممثل الخدمة")]
         public async Task<IActionResult> Save(TbNotification ITEM, int id, List<IFormFile> files)
         {
 
@@ -89,7 +90,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
 
 
 
-
+        [Authorize(Roles = "Admin,حذف الاشعارات / اشعارات لمقدم الخدمة و ممثل الخدمة ")]
         public IActionResult Delete(Guid id)
         {
 
