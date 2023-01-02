@@ -53,13 +53,13 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
         {
             return View();
         }
-        [Authorize(Roles = "Admin,Account")]
+        [Authorize(Roles = "Admin,رسم بياني يوضح عدد مقدمي الخدمات حسب المدن")]
         public IActionResult ShowData()
         {
             return View();
         }
 
-        [Authorize(Roles = "Admin,Account")]
+        
         [HttpPost]
         public List<object> GetSalesData(string DateOne, string DateTwo) 
         {

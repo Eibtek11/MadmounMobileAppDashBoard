@@ -42,7 +42,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             getServiceOffers = GetServiceOffers;
             serviceService = ServiceService;
         }
-        [Authorize(Roles = "Admin,العقود المقبولة مع العملاء")]
+        [Authorize(Roles = "Admin,جدول قبول الخدمات من مقدم الخدمة,العقود المقبولة مع العملاء")]
         public IActionResult Index(string Id, string DateOne, string DateTwo)
         {
             HomePageModel model = new HomePageModel();

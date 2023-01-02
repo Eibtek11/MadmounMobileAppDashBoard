@@ -42,7 +42,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             Usermanager = usermanager;
             getServiceRequired = GetServiceRequired;
         }
-        [Authorize(Roles = "Admin,Account")]
+        [Authorize(Roles = "Admin,جدول الخدمات المطلوبة")]
         public IActionResult Index(string Id, string DateOne, string DateTwo)
         {
             HomePageModel model = new HomePageModel();

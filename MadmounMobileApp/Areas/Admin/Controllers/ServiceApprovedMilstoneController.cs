@@ -45,7 +45,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             srRecords = SrRecords;
 
         }
-        [Authorize(Roles = "Admin,Account")]
+        [Authorize(Roles = "Admin,جدول مراحل كل مشروع و تكلفة كل مرحلة")]
         public IActionResult Index(string Id, string DateOne, string DateTwo)
         {
             HomePageModel model = new HomePageModel();

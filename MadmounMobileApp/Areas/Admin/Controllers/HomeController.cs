@@ -102,7 +102,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
         }
 
 
-        [Authorize(Roles = "Admin,Account")]
+        [Authorize(Roles = "Admin,المدفوعات لمقدمي الخدمة")]
         public IActionResult Payment(string Id , string DateOne , string DateTwo)
         {
             HomePageModel model = new HomePageModel();
@@ -121,7 +121,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             ViewBag.lstSrOffServiceS = count;
             return View(model);
         }
-        [Authorize(Roles = "Admin,Account")]
+        [Authorize(Roles = "Admin,المدفوعات لمن اشرف عليهم ممثلي الخدمة")]
         public IActionResult Payment2(string Id, string DateOne, string DateTwo)
         {
             HomePageModel model = new HomePageModel();
@@ -141,7 +141,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
 
             return View(model);
         }
-        [Authorize(Roles = "Admin,Account")]
+        [Authorize(Roles = "Admin,المدفوعات للعميل")]
         public IActionResult Payment3(string Id, string DateOne, string DateTwo)
         {
             HomePageModel model = new HomePageModel();
@@ -160,7 +160,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             ViewBag.lstSrOffServiceS = count;
             return View(model);
         }
-        [Authorize(Roles = "Admin,Account")]
+        [Authorize(Roles = "Admin,اجمالي المدفوعات")]
         public IActionResult Payment4( string DateOne, string DateTwo)
         {
             HomePageModel model = new HomePageModel();
@@ -179,7 +179,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             ViewBag.lstSrOffServiceS = count;
             return View(model);
         }
-        [Authorize(Roles = "Admin,Account")]
+        [Authorize(Roles = "Admin,اجمالي المدفوعات بالخدمة")]
         public IActionResult Payment5(string Id, string DateOne, string DateTwo)
         {
             HomePageModel model = new HomePageModel();
@@ -232,7 +232,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             return View(model);
         }
 
-        [Authorize(Roles = "Admin,Account")]
+        [Authorize(Roles = "Admin,عدد مقدمي الخدمات حسب المدن")]
         public IActionResult noOffByCity(string DateOne, string DateTwo)
         {
            
@@ -265,7 +265,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
         }
 
 
-        [Authorize(Roles = "Admin,Account")]
+        [Authorize(Roles = "Admin,عدد الخدمات التي تم تقديم عروض اسعارها")]
         public IActionResult noOffersByService()
         {
             HomePageModel model = new HomePageModel();
@@ -292,7 +292,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
         }
 
 
-        [Authorize(Roles = "Admin,Account")]
+        [Authorize(Roles = "Admin,تحليل العروض للعملاء")]
         public IActionResult collectiveReport(string DateOne, string DateTwo)
         {
             HomePageModel model = new HomePageModel();
@@ -448,7 +448,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
 
 
 
-        [Authorize(Roles = "Admin,Account")]
+        [Authorize(Roles = "Admin,عدد العقود المبرمة")]
         public IActionResult noOffersByServiceApproved()
         {
             HomePageModel model = new HomePageModel();
@@ -478,7 +478,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
 
 
 
-        [Authorize(Roles = "Admin,Account")]
+        [Authorize(Roles = "Admin,عدد الخدمات التي تم رفض عروض اسعارها")]
         public IActionResult noOffersByServiceRejected()
         {
             HomePageModel model = new HomePageModel();
@@ -505,7 +505,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
         }
 
 
-        [Authorize(Roles = "Admin,Account")]
+        [Authorize(Roles = "Admin,عدد مقدمي الخدمات حسب الخدمة و المدينة")]
         public IActionResult Payment7(string Id, string DateOne, string DateTwo)
         {
             HomePageModel model = new HomePageModel();
@@ -526,7 +526,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
             return View(model);
         }
 
-        [Authorize(Roles = "Admin,Account")]
+        [Authorize(Roles = "Admin,عدد ممثلي الخدمات حسب الخدمة و المدينة")]
         public IActionResult Payment8(string Id, string DateOne, string DateTwo)
         {
             HomePageModel model = new HomePageModel();
@@ -548,7 +548,7 @@ namespace MadmounMobileApp.Areas.Admin.Controllers
 
 
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,المدفوعات بالنسبة للمراحل و المراحل المتبقية للخدمات المستمرة")]
         public IActionResult New(string Id)
         {
             HomePageModel model = new HomePageModel();
